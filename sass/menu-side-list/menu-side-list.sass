@@ -1,0 +1,45 @@
+nav#side-list
+	width: 220px
+	float: left
+	min-height: calc(100vh - 60px)
+	box-sizing: border-box
+	border-left: 1px solid rgba(0,0,0,0.15)
+	border-right: 1px solid rgba(0,0,0,0.15)
+
+	ul#menu-bocni-seznam
+		list-style: none
+		margin: 0px
+		padding: 0px
+
+		li
+			display: block
+			border-top: 1px solid rgba(0,0,0,0.15)
+			box-shadow: inset 0px -1px solid rgba(0,0,0,0.15)
+			overflow: hidden
+			a
+				display: block
+				height: 40px
+				line-height: 40px
+				box-sizing: border-box
+				padding: 0px 15px
+				color: hsl(0,0,20)
+				font-weight: 600
+
+				&:hover, &:active
+					transition: 0.2s
+					box-shadow: inset 0px -40px 0px hsl(0,0,90)
+
+			ul.sub-menu
+				margin: 0px
+				max-height: 0px
+				box-sizing: border-box
+				padding-left: 20px
+				transition: 0.5s
+
+				li
+					border-top: 0px
+					box-shadow: none
+					a
+						font-weight: 400
+						height: 35px
+						line-height: 35px

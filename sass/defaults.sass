@@ -1,0 +1,111 @@
+@import "var_settings"
+
+// a, img, p, button, hr
+a
+  color: inherit
+  text-decoration: none
+  cursor: pointer
+
+img
+  display: block
+
+p
+  line-height: 1.55em
+  font-weight: 400
+  margin: ($universal-padding / 2) 0px
+
+button
+  outline: none
+  border: none
+  cursor: pointer
+
+hr
+  border: 0
+  border-top: 1px solid #DCDCDC
+  margin: ($universal-padding / 2) 0px $universal-padding 0px
+
+// headlines
+headline
+  font-family: $headline-font
+  margin: $universal-padding 0px
+  color: hsl(0, 0%, 20%)
+  font-weight: 500
+
+h1
+  @extend headline
+  text-align: center
+  font-size: 1.8em
+  line-height: 1.5em
+  //letter-spacing: 0.04em
+
+h2
+  @extend headline
+  font-size: 1.5em
+  line-height: 1em
+  margin: $universal-padding 0px ($universal-padding / 3) 0px
+
+h3
+  @extend headline
+  font-size: 1.2em
+  line-height: 1.2em
+  margin: 10px 0px
+
+
+// lists
+ul
+  list-style: circle #fff
+  margin: $universal-padding 0px
+  padding-left: 15px
+  li
+    font-weight: 400
+    line-height: 1.75em
+
+// form and inputs
+form
+  margin: $universal-padding 0px
+
+  em
+    font-size: 0.8em
+    color: hsl(0, 0%, 40%)
+
+  ul
+    list-style: none
+    padding: 0px
+    li
+      margin: ($universal-padding / 3) 0px
+
+
+input
+  border: 1px solid #DCDCDC
+  padding: 15px 20px
+  max-width: 300px
+  display: block
+  box-sizing: border-box
+  border-radius: 5px
+  outline: none // to reset chrome behaviour
+  &:focus
+    border: 1px solid hsla(220, 80%, 80%, 0.7)
+
+textarea
+  @extend input
+  font-family: $headline-font
+  position: relative
+
+
+// reCaptcha
+.g-recaptcha
+  margin: ($universal-padding / 2) 0px
+
+// my own classes
+.smaller
+  font-size: 0.7rem
+  line-height: 0.7rem
+
+// worokarounds
+
+// EXPLANATION: this class make an element with floating siblings
+// count their height without need of any other element.
+.clear-both:after
+  content: ""
+  display: table
+  clear: both

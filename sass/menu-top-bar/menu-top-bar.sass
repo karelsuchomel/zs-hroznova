@@ -1,0 +1,53 @@
+nav#top-bar
+	width: 100%
+	box-shadow: 0px 1px 0px rgba(0,0,0,0.15)
+	position: relative
+	z-index: 2
+
+#menu-top-bar
+	max-width: $content-max-width
+	height: 60px
+	margin: 0 auto
+
+	#logo-wrapper
+		display: block
+		float: left
+		background-color: hsl(80, 83.2, 39.6)
+		width: 220px
+		padding: 10px 0px
+		cursor: pointer
+		img
+			max-height: 40px
+			margin: 0 auto
+
+		&:hover
+			transition: 0.2s
+			background-color: hsl(80, 83.2, 45)
+		&:active
+			img
+				transform: scale(0.95)
+
+.menu-horni-lista-container
+	float: right
+
+	ul#menu-horni-lista
+		margin: 0px
+		padding: 0px
+		list-style: none
+
+		li
+			display: block
+			float: left
+			a
+				display: block
+				height: 60px
+				line-height: 60px
+				box-sizing: border-box
+				padding: 0px 15px
+				color: hsl(0,0,20)
+
+				&:hover
+					transition: 0.3s
+					box-shadow: inset 0px -60px 0px hsl(0,0,90)
+
+@import "menu-top-bar-responsive"
