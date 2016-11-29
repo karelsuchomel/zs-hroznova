@@ -18,7 +18,7 @@ register_nav_menus(array(
 
 // Filter wp_nav_menu() to add additional links and other output
 function new_nav_menu_items($items) {
-	$items =  $items;
+	$items = $items;
 	return $items;
 }
 add_filter( 'wp_nav_menu_items', 'new_nav_menu_items' );

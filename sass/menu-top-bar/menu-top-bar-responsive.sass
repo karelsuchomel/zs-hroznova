@@ -1,18 +1,43 @@
 @media screen and(max-width: 780px)
 @media screen and(max-width: 640px)
 	#menu-top-bar
-		height: 50px
+		height: auto
 
 		#logo-wrapper
-			width: 220px
+			float: none
+			width: 100%
 			padding: 7px 0px
 			img
 				max-height: 36px
 
 	.menu-horni-lista-container
+		float: none
+
 		ul#menu-horni-lista
+			float: right
+
 			li
 				a
 					height: 50px
 					line-height: 50px
 					padding: 0px 10px
+
+					&:after
+						display: none
+
+	.icon-hamburger-menu
+		display: block
+
+@media screen and(max-width: 400px)
+	.menu-horni-lista-container
+		ul#menu-horni-lista
+
+			li
+				a
+					padding: 0px 7px
+					font-size: 13px
+
+@media screen and(max-width: 330px)
+	.icon-hamburger-menu
+		width: 40px
+		padding: 10px 7px

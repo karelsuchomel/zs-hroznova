@@ -5,6 +5,12 @@
   		<img src="<?php bloginfo('template_directory'); ?>/img/logo-dark-green.png" alt="logo">
   	</a>
 
+  	<label for="toggle-menu-checkbox" class="icon-hamburger-menu">
+  		<div id="hamburger-line-1" class="line"></div>
+  		<div id="hamburger-line-2" class="line"></div>
+  		<div id="hamburger-line-3" class="line"></div>
+  	</label>
+
     <?php
 
     $args = array('theme_location' => 'menu-top-bar');

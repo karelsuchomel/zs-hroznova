@@ -1,6 +1,6 @@
 nav#top-bar
 	width: 100%
-	box-shadow: 0px 1px 0px rgba(0,0,0,0.15)
+	box-shadow: 0px 1px 0px hsl(0,0,85)
 	position: relative
 	z-index: 2
 
@@ -12,7 +12,7 @@ nav#top-bar
 	#logo-wrapper
 		display: block
 		float: left
-		background-color: hsl(80, 83.2, 39.6)
+		background-color: $base-color
 		width: 220px
 		padding: 10px 0px
 		cursor: pointer
@@ -22,7 +22,7 @@ nav#top-bar
 
 		&:hover
 			transition: 0.2s
-			background-color: hsl(80, 83.2, 45)
+			background-color: $base-color-light
 		&:active
 			img
 				transform: scale(0.95)
@@ -36,6 +36,8 @@ nav#top-bar
 		list-style: none
 
 		li
+			overflow: hidden
+			position: relative
 			display: block
 			float: left
 			a
@@ -47,7 +49,59 @@ nav#top-bar
 				color: hsl(0,0,20)
 
 				&:hover
-					transition: 0.3s
+					&:after
+						transform: scale(1,1)
+
+				&:active
 					box-shadow: inset 0px -60px 0px hsl(0,0,90)
+
+				&:after
+					content: ""
+					display: block
+					position: absolute
+					z-index: 3
+					width: calc(100% - 30px)
+					height: 3px
+					bottom: 15px
+					background-color: hsl(184, 100, 36)
+					transition: 0.2s
+					transform: scale(0,1)
+
+.icon-hamburger-menu
+	display: none
+	float: left
+	height: 50px
+	width: 50px
+	box-sizing: border-box
+	padding: 10px 12px
+	overflow: hidden
+	cursor: pointer
+
+	&:active
+		background: hsl(0,0,85)
+
+	.line
+		height: 3px
+		width: 100%
+		background: $base-color
+		margin: 5px 0px
+
+input#toggle-menu-checkbox
+	display: none
+	&:checked + nav#side-list
+		transform: translateX(0px) !important
+
+	
+
+.edookit-icon
+	&:before
+		content: url(img/icon-edookit.png)
+		display: inline-block
+		position: relative
+		margin-right: 10px
+		bottom: -3px
+
+
+
 
 @import "menu-top-bar-responsive"

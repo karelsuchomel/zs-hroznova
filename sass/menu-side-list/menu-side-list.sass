@@ -5,6 +5,7 @@ nav#side-list
 	box-sizing: border-box
 	border-left: 1px solid rgba(0,0,0,0.15)
 	border-right: 1px solid rgba(0,0,0,0.15)
+	background: white
 
 	ul#menu-bocni-seznam
 		list-style: none
@@ -15,6 +16,7 @@ nav#side-list
 			display: block
 			border-top: 1px solid rgba(0,0,0,0.15)
 			box-shadow: inset 0px -1px solid rgba(0,0,0,0.15)
+			background: white
 			overflow: hidden
 			a
 				display: block
@@ -22,12 +24,16 @@ nav#side-list
 				line-height: 40px
 				box-sizing: border-box
 				padding: 0px 15px
-				color: hsl(0,0,20)
+				color: $base-color-dark
 				font-weight: 600
 
-				&:hover, &:active
+				&:hover
 					transition: 0.2s
-					box-shadow: inset 0px -40px 0px hsl(0,0,90)
+					box-shadow: inset 10px 0px 0px $base-color
+
+				&:active
+					transition: 0s
+					background: hsl(0,0,85)
 
 			ul.sub-menu
 				margin: 0px
@@ -35,6 +41,11 @@ nav#side-list
 				box-sizing: border-box
 				padding-left: 20px
 				transition: 0.5s
+				transform: scale(1,0)
+				transform-origin: top left
+				position: relative
+				z-index: 0
+
 
 				li
 					border-top: 0px
@@ -43,3 +54,10 @@ nav#side-list
 						font-weight: 400
 						height: 35px
 						line-height: 35px
+
+			ul.sub-menu.open
+				max-height: 500px
+				margin-bottom: 15px
+				transform: scale(1,1)
+
+@import "menu-side-list-responsive"

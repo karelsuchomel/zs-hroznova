@@ -113,6 +113,7 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: "Open Sans", sans-serif;
+  font-size: 15px;
 }
 
 body {
@@ -135,9 +136,15 @@ body {
   padding: 35px;
 }
 
+@media screen and (max-width: 640px) {
+  #content {
+    float: none;
+    width: 100%;
+  }
+}
 nav#top-bar {
   width: 100%;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 0px #d9d9d9;
   position: relative;
   z-index: 2;
 }
@@ -150,7 +157,7 @@ nav#top-bar {
 #menu-top-bar #logo-wrapper {
   display: block;
   float: left;
-  background-color: #81b911;
+  background-color: #00abb8;
   width: 220px;
   padding: 10px 0px;
   cursor: pointer;
@@ -161,7 +168,7 @@ nav#top-bar {
 }
 #menu-top-bar #logo-wrapper:hover {
   transition: 0.2s;
-  background-color: #93d213;
+  background-color: #00c8d6;
 }
 #menu-top-bar #logo-wrapper:active img {
   transform: scale(0.95);
@@ -176,6 +183,8 @@ nav#top-bar {
   list-style: none;
 }
 .menu-horni-lista-container ul#menu-horni-lista li {
+  overflow: hidden;
+  position: relative;
   display: block;
   float: left;
 }
@@ -187,27 +196,102 @@ nav#top-bar {
   padding: 0px 15px;
   color: #333333;
 }
-.menu-horni-lista-container ul#menu-horni-lista li a:hover {
-  transition: 0.3s;
+.menu-horni-lista-container ul#menu-horni-lista li a:hover:after {
+  transform: scale(1, 1);
+}
+.menu-horni-lista-container ul#menu-horni-lista li a:active {
   box-shadow: inset 0px -60px 0px #e6e6e6;
+}
+.menu-horni-lista-container ul#menu-horni-lista li a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 3;
+  width: calc(100% - 30px);
+  height: 3px;
+  bottom: 15px;
+  background-color: #00abb8;
+  transition: 0.2s;
+  transform: scale(0, 1);
+}
+
+.icon-hamburger-menu {
+  display: none;
+  float: left;
+  height: 50px;
+  width: 50px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.icon-hamburger-menu:active {
+  background: #d9d9d9;
+}
+.icon-hamburger-menu .line {
+  height: 3px;
+  width: 100%;
+  background: #00abb8;
+  margin: 5px 0px;
+}
+
+input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
+  display: none;
+}
+input#toggle-menu-checkbox:checked + nav#side-list, textarea#toggle-menu-checkbox:checked + nav#side-list {
+  transform: translateX(0px) !important;
+}
+
+.edookit-icon:before {
+  content: url(img/icon-edookit.png);
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  bottom: -3px;
 }
 
 @media screen and (max-width: 640px) {
   #menu-top-bar {
-    height: 50px;
+    height: auto;
   }
   #menu-top-bar #logo-wrapper {
-    width: 220px;
+    float: none;
+    width: 100%;
     padding: 7px 0px;
   }
   #menu-top-bar #logo-wrapper img {
     max-height: 36px;
   }
 
+  .menu-horni-lista-container {
+    float: none;
+  }
+  .menu-horni-lista-container ul#menu-horni-lista {
+    float: right;
+  }
   .menu-horni-lista-container ul#menu-horni-lista li a {
     height: 50px;
     line-height: 50px;
     padding: 0px 10px;
+  }
+  .menu-horni-lista-container ul#menu-horni-lista li a:after {
+    display: none;
+  }
+
+  .icon-hamburger-menu {
+    display: block;
+  }
+}
+@media screen and (max-width: 400px) {
+  .menu-horni-lista-container ul#menu-horni-lista li a {
+    padding: 0px 7px;
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .icon-hamburger-menu {
+    width: 40px;
+    padding: 10px 7px;
   }
 }
 nav#side-list {
@@ -217,6 +301,7 @@ nav#side-list {
   box-sizing: border-box;
   border-left: 1px solid rgba(0, 0, 0, 0.15);
   border-right: 1px solid rgba(0, 0, 0, 0.15);
+  background: white;
 }
 nav#side-list ul#menu-bocni-seznam {
   list-style: none;
@@ -227,6 +312,7 @@ nav#side-list ul#menu-bocni-seznam li {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   box-shadow: inset 0px -1px solid rgba(0, 0, 0, 0.15);
+  background: white;
   overflow: hidden;
 }
 nav#side-list ul#menu-bocni-seznam li a {
@@ -235,12 +321,16 @@ nav#side-list ul#menu-bocni-seznam li a {
   line-height: 40px;
   box-sizing: border-box;
   padding: 0px 15px;
-  color: #333333;
+  color: #003033;
   font-weight: 600;
 }
-nav#side-list ul#menu-bocni-seznam li a:hover, nav#side-list ul#menu-bocni-seznam li a:active {
+nav#side-list ul#menu-bocni-seznam li a:hover {
   transition: 0.2s;
-  box-shadow: inset 0px -40px 0px #e6e6e6;
+  box-shadow: inset 10px 0px 0px #00abb8;
+}
+nav#side-list ul#menu-bocni-seznam li a:active {
+  transition: 0s;
+  background: #d9d9d9;
 }
 nav#side-list ul#menu-bocni-seznam li ul.sub-menu {
   margin: 0px;
@@ -248,6 +338,10 @@ nav#side-list ul#menu-bocni-seznam li ul.sub-menu {
   box-sizing: border-box;
   padding-left: 20px;
   transition: 0.5s;
+  transform: scale(1, 0);
+  transform-origin: top left;
+  position: relative;
+  z-index: 0;
 }
 nav#side-list ul#menu-bocni-seznam li ul.sub-menu li {
   border-top: 0px;
@@ -258,7 +352,21 @@ nav#side-list ul#menu-bocni-seznam li ul.sub-menu li a {
   height: 35px;
   line-height: 35px;
 }
+nav#side-list ul#menu-bocni-seznam li ul.sub-menu.open {
+  max-height: 500px;
+  margin-bottom: 15px;
+  transform: scale(1, 1);
+}
 
+@media screen and (max-width: 640px) {
+  nav#side-list {
+    transition: 0.3s;
+    position: absolute;
+    transform: translateX(-220px);
+    border-left: 0px;
+    z-index: 5;
+  }
+}
 #info-card-wrap {
   width: 100%;
   background: #f7f7f7;
@@ -281,11 +389,17 @@ nav#side-list ul#menu-bocni-seznam li ul.sub-menu li a {
   font-size: 2em;
 }
 
+@media screen and (max-width: 1180px) {
+  #info-card-wrap {
+    width: auto;
+  }
+}
 #posts-wrap {
   margin: 35px 0px;
   width: 75%;
 }
 #posts-wrap .post-wrap {
+  position: relative;
   overflow: hidden;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   padding: 23.33333px;
@@ -294,6 +408,7 @@ nav#side-list ul#menu-bocni-seznam li ul.sub-menu li a {
 #posts-wrap .post-wrap h2 {
   font-weight: 600;
   font-size: 1.4em;
+  line-height: 1.4em;
   margin-top: 0px;
   margin-bottom: 25px;
 }
@@ -309,4 +424,40 @@ nav#side-list ul#menu-bocni-seznam li ul.sub-menu li a {
 }
 #posts-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
+}
+
+@media screen and (max-width: 640px) {
+  #posts-wrap {
+    width: 100%;
+  }
+  #posts-wrap .post-wrap {
+    padding: 0px;
+  }
+  #posts-wrap .post-wrap img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    float: none;
+    width: 100%;
+    width: calc(100% + ($universal-padding * 1.5));
+    z-index: 1;
+  }
+  #posts-wrap .post-wrap h2 {
+    padding: 23.33333px;
+    position: relative;
+    z-index: 2;
+    background: white;
+  }
+  #posts-wrap .post-wrap .basic-info-wrap {
+    padding: 23.33333px;
+    float: none;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    background: white;
+    margin-top: 30vw;
+  }
+  #posts-wrap .post-wrap .basic-info-wrap p {
+    margin: 0px;
+  }
 }
