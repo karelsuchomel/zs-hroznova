@@ -23,10 +23,26 @@
 					padding: 0px 10px
 
 					&:after
-						display: none
+						width: calc(100% - 20px)
+						bottom: 10px
 
 	.icon-hamburger-menu
 		display: block
+
+	input#toggle-menu-checkbox
+		&:checked + #top-bar #menu-top-bar .icon-hamburger-menu
+			#hamburger-line-1
+				margin-bottom: 6px
+				transform: rotate(45deg)
+			#hamburger-line-2
+				opacity: 0
+			#hamburger-line-3
+				margin-top: 6px
+				transform: rotate(-45deg)
+
+		&:checked + #top-bar
+			transition: 0.6s
+			box-shadow: 0px 2px 4px hsl(0,0,45)
 
 @media screen and(max-width: 400px)
 	.menu-horni-lista-container
@@ -36,6 +52,10 @@
 				a
 					padding: 0px 7px
 					font-size: 13px
+
+					&:after
+						width: calc(100% - 14px)
+						bottom: 8px
 
 @media screen and(max-width: 330px)
 	.icon-hamburger-menu

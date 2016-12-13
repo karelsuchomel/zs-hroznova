@@ -1,3 +1,4 @@
+<input type="checkbox" name="toggle-menu" id="toggle-menu-checkbox">
 <nav id="top-bar">
   <div id="menu-top-bar" class="clear-both">
 

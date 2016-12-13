@@ -7,15 +7,51 @@ nav#side-list
 	border-right: 1px solid rgba(0,0,0,0.15)
 	background: white
 
+	#searchform-container
+		position: relative
+		box-shadow: 0px 1px 0px rgba(0,0,0,0.15)
+		
+		.underline-animated
+			content: ""
+			display: block
+			position: absolute
+			z-index: 3
+			width: 100%
+			height: 3px
+			background-color: $base-color
+			transition: 0.2s
+			transform: scale(0,1)
+
+
+		input.search-field
+			border: 0px solid #DCDCDC
+			padding: 10px 0px
+			margin-left: 15px 
+			width: 188px
+			border-radius: 0px
+			&:focus ~ .underline-animated
+				transform: scale(1,1)
+
+		input#searchsubmit
+			position: absolute
+			right: 15px
+			top: 0px
+			cursor: pointer
+			border: 0px
+			padding: 7px
+			border-radius: 0px
+			background: none
+
+
 	ul#menu-bocni-seznam
 		list-style: none
-		margin: 0px
+		margin: 35px 0px
 		padding: 0px
 
 		li
 			display: block
 			border-top: 1px solid rgba(0,0,0,0.15)
-			box-shadow: inset 0px -1px solid rgba(0,0,0,0.15)
+			box-shadow: 0px 1px rgba(0,0,0,0.15)
 			background: white
 			overflow: hidden
 			a
@@ -35,29 +71,29 @@ nav#side-list
 					transition: 0s
 					background: hsl(0,0,85)
 
-			ul.sub-menu
-				margin: 0px
-				max-height: 0px
-				box-sizing: border-box
-				padding-left: 20px
-				transition: 0.5s
-				transform: scale(1,0)
-				transform-origin: top left
-				position: relative
-				z-index: 0
+			li.current-menu-item a
+				box-shadow: inset 10px 0px 0px $base-color
+				background: hsl(0,0,85)
 
+			ul.sub-menu
+				overflow: hidden
+				margin: 0px
+				padding-left: 15px
+				padding-bottom: 0px
+				transition: 0.5s
+				position: relative
+				height: 0px
 
 				li
 					border-top: 0px
 					box-shadow: none
 					a
+						height: auto
+						line-height: 20px
 						font-weight: 400
-						height: 35px
-						line-height: 35px
+						padding: 7px 15px
 
 			ul.sub-menu.open
-				max-height: 500px
-				margin-bottom: 15px
-				transform: scale(1,1)
+				padding-bottom: 15px
 
 @import "menu-side-list-responsive"

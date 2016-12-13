@@ -1,4 +1,3 @@
-<input type="checkbox" name="toggle-menu" id="toggle-menu-checkbox">
 <nav id="side-list">
 	<?php
 
@@ -6,5 +5,9 @@
 
   wp_nav_menu( $args );
 
+	get_search_form();
+	
   ?>
 </nav>
+<!-- dimmer -->
+<div id="dimmer-content"></div>

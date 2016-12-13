@@ -7,7 +7,6 @@
   <?php require_once('layout/menu-side-list.php') ?>
 
   <div id="content">
-
     <!-- card with most udeful informations -->
     <div id="info-card-wrap" class="clear-both">
       <img src="<?php bloginfo('template_directory'); ?>/img/zs-drawned.jpg">

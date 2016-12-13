@@ -1,13 +1,14 @@
 nav#top-bar
 	width: 100%
-	box-shadow: 0px 1px 0px hsl(0,0,85)
+	box-shadow: 0px 2px 4px hsl(0,0,85)
 	position: relative
-	z-index: 2
+	z-index: 4
 
 #menu-top-bar
 	max-width: $content-max-width
 	height: 60px
 	margin: 0 auto
+	background: white
 
 	#logo-wrapper
 		display: block
@@ -85,13 +86,11 @@ nav#top-bar
 		width: 100%
 		background: $base-color
 		margin: 5px 0px
+		transition: 0.3s
+		transform-origin: left center
 
 input#toggle-menu-checkbox
 	display: none
-	&:checked + nav#side-list
-		transform: translateX(0px) !important
-
-	
 
 .edookit-icon
 	&:before
