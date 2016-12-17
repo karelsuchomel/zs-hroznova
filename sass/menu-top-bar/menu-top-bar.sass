@@ -1,14 +1,13 @@
 nav#top-bar
 	width: 100%
-	box-shadow: 0px 2px 4px hsl(0,0,85)
 	position: relative
 	z-index: 4
+	background: $base-color
 
 #menu-top-bar
 	max-width: $content-max-width
 	height: 60px
 	margin: 0 auto
-	background: white
 
 	#logo-wrapper
 		display: block
@@ -42,19 +41,21 @@ nav#top-bar
 			display: block
 			float: left
 			a
-				display: block
+				background: $base-color
+				display: inline-block
 				height: 60px
 				line-height: 60px
 				box-sizing: border-box
 				padding: 0px 15px
-				color: hsl(0,0,20)
+				color: white
+				font-family: 'Museo', sans-serif
 
 				&:hover
 					&:after
 						transform: scale(1,1)
 
 				&:active
-					box-shadow: inset 0px -60px 0px hsl(0,0,90)
+					background: $base-color-light
 
 				&:after
 					content: ""
@@ -63,8 +64,9 @@ nav#top-bar
 					z-index: 3
 					width: calc(100% - 30px)
 					height: 3px
+					border-radius: 2px
 					bottom: 15px
-					background-color: hsl(184, 100, 36)
+					background-color: white
 					transition: 0.2s
 					transform: scale(0,1)
 
@@ -79,12 +81,13 @@ nav#top-bar
 	cursor: pointer
 
 	&:active
-		background: hsl(0,0,85)
+		background: $base-color-light
 
 	.line
 		height: 3px
+		border-radius: 2px
 		width: 100%
-		background: $base-color
+		background: white
 		margin: 5px 0px
 		transition: 0.3s
 		transform-origin: left center
@@ -92,15 +95,15 @@ nav#top-bar
 input#toggle-menu-checkbox
 	display: none
 
-.edookit-icon
-	&:before
-		content: url(img/icon-edookit.png)
-		display: inline-block
-		position: relative
-		margin-right: 10px
-		bottom: -3px
-
-
-
+#edookit-icon
+	background-image: url('img/icon-edookit.png')
+	background-size: contain
+	display: inline-block
+	position: absolute
+	height: 20px
+	width: 20px
+	position: relative
+	margin-right: 7px
+	bottom: -3px
 
 @import "menu-top-bar-responsive"

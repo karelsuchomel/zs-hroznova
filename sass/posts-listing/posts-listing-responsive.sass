@@ -15,10 +15,17 @@
 
 
 			h2
-				padding: ($universal-padding / 1.5)
 				position: relative
 				z-index: 2
-				background: hsl(0,0,100)
+				overflow: hidden
+
+				img
+					display: block
+					filter: blur(15px)
+
+				a
+					background: hsla(0,0,100,0.35)
+					padding: ($universal-padding / 1.5)
 
 			.basic-info-wrap
 				padding: ($universal-padding / 1.5)

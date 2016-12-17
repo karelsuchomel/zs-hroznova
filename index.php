@@ -25,7 +25,7 @@
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
       <div class="post-wrap clear-both">
-        <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+        <h2><img src="<?php bloginfo('template_directory'); ?>/img/pisqworky-plakat-O.png"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
         <img src="<?php bloginfo('template_directory'); ?>/img/pisqworky-plakat-O.png">
 
         <div class="basic-info-wrap">

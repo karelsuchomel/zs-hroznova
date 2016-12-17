@@ -27,13 +27,20 @@ $(document).ready(function(){
 	var selectedItem = $("ul#menu-bocni-seznam li ul li.current-menu-item");
 	if(selectedItem){
 		var list = selectedItem.parent();
+		selectedItem.parent().css('transition', '0s');
 		selectedItem.parent().addClass("open");
 		var numOfItems = list.children().length;
 		var sum = 0;
 		for(var i = 0; i < numOfItems; ++i){
 			sum += list.children().eq(i).outerHeight();
 		}
+		list.css('transition', '0s');
 		list.css('height', sum + 'px');
+
+		setTimeout(function(){ 
+			list.css('transition', '0.5s');
+			selectedItem.parent().css('transition', '0.5s');
+		}, 100);
 	}
 
 	// menu-side-list close when clicked on dimmer-content
@@ -44,7 +51,7 @@ $(document).ready(function(){
 	// TODO - This is slow and results in menu glitching around,
 	// replace with CSS
 	// Styles for menu-top-bar with edookit content
-	$("ul#menu-horni-lista li a:contains('edookit')").addClass("edookit-icon");
+	$("ul#menu-horni-lista li a:contains('edookit')").prepend("<div id='edookit-icon'></div>");
 
 	// Make menu-side-list as heigh as #content
 	var contentHeight = $("#content").outerHeight();
