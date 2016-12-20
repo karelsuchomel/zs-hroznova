@@ -26,11 +26,12 @@
 
       <div class="post-wrap clear-both">
         <h2><img src="<?php bloginfo('template_directory'); ?>/img/pisqworky-plakat-O.png"><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-        <img src="<?php bloginfo('template_directory'); ?>/img/pisqworky-plakat-O.png">
 
         <div class="basic-info-wrap">
           <p>
-            <?php the_content(); ?>
+            <?php echo wp_trim_words( get_the_content(), 15, '...' ); ?>
+            <img src="<?php bloginfo('template_directory'); ?>/img/pisqworky-plakat-O.png">
+            <br />
             <small>
             <?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?>
             </small>

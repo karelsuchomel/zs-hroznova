@@ -5,7 +5,7 @@
 	.post-wrap
 		position: relative
 		overflow: hidden
-		padding: ($universal-padding / 1.5)
+		//padding: ($universal-padding / 1.5)
 		margin-bottom: $universal-padding
 		background: white
 		border-radius: 3px
@@ -15,30 +15,41 @@
 			padding: 0px
 			font-size: 1.4em
 			line-height: 1.4em
-			margin-top: 0px
-			margin-bottom: 25px
+			margin: 0px
+			overflow: hidden
+			position: relative
+			z-index: 2
+			overflow: hidden
 
 			img
 				position: absolute
 				z-index: 1
 				display: none
+				width: 100%
+				transform: scale(1.1)
+				filter: blur(15px)
 
 			a
-				padding: 0px
+				padding: ($universal-padding / 1.5)
+				background: hsla(0,0,100,0.45)
 				display: block
 				position: relative
 				z-index: 2
 				font-family: 'Museo'
 
-		img
-			float: left
-			width: 40%
+				&:hover, &:active
+					text-decoration: underline
+
 
 		.basic-info-wrap
 			padding: 0px ($universal-padding / 1.5)
 			box-sizing: border-box
-			float: right
-			width: 60%
+			width: 100%
+
+			img
+				float: left
+				display: inline-block
+				width: 30%
 
 			p
 				margin: 0px
