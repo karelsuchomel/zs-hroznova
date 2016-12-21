@@ -1,18 +1,18 @@
-@media screen and(max-width: 640px)
+@media screen and(max-width: 980px)
 	#posts-wrap
 		width: 100%
 
+@media screen and(max-width: 640px)
+	#posts-wrap
+
 		.post-wrap
 			padding: 0px
-			img
-				position: absolute
-				top: 0px
-				left: 0px
+
+			img.wp-post-image
 				float: none
 				width: 100%
-				width: calc(100% + ($universal-padding * 1.5))
-				z-index: 1
-
+				padding: 0px
+				margin-top: -56px
 
 			h2
 				position: relative
@@ -20,26 +20,38 @@
 				overflow: hidden
 				background: white
 
-				img
+				&:hover
+					img.wp-post-image
+						filter: blur(0px)
+
+				img.wp-post-image
 					display: block
-					filter: blur(15px)
+					position: absolute
+					top: 0px
+					left: 0px
+					margin-top: 0px
+					padding: 0px
+					width: 100%
+					transform: scale(1.1)
+					float: none
+					z-index: 1
+					filter: blur(10px)
+					transition: 0.7s
 
 				a
-					padding: ($universal-padding / 1.5)
-					padding: 10px ($universal-padding / 1.5)
+					padding: ($universal-padding / 2)
 					background: hsla(0,0,100,0.45)
 					display: block
 					position: relative
 					z-index: 2
 
 			.basic-info-wrap
-				padding: ($universal-padding / 1.5)
+				padding: ($universal-padding / 2)
 				float: none
 				width: 100%
 				position: relative
 				z-index: 2
 				background: hsl(0,0,100)
-				margin-top: 30vw
 
 				p
 					margin: 0px

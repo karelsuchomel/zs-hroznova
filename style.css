@@ -193,6 +193,37 @@ body {
   max-width: 100%;
 }
 
+@media screen and (max-width: 640px) {
+  #content-single-page {
+    position: relative;
+    max-width: 720px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 3px;
+  }
+  #content-single-page h2 {
+    font-weight: 600;
+    margin-top: 0px;
+    line-height: 1.5em;
+  }
+  #content-single-page p {
+    font-size: 1.1em;
+    color: #333;
+  }
+  #content-single-page small {
+    color: #333;
+    font-style: italic;
+  }
+  #content-single-page img {
+    margin: 35px auto;
+    outline: 1px solid #DDD;
+    border: 3px solid white;
+    max-width: 100%;
+    height: auto;
+  }
+}
 nav#top-bar {
   width: 100%;
   position: relative;
@@ -594,15 +625,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   overflow: hidden;
 }
 #posts-wrap .post-wrap h2 img {
-  position: absolute;
-  z-index: 1;
   display: none;
-  width: 100%;
-  transform: scale(1.1);
-  filter: blur(15px);
 }
 #posts-wrap .post-wrap h2 a {
-  padding: 23.33333px;
+  padding: 17.5px;
   background: rgba(255, 255, 255, 0.45);
   display: block;
   position: relative;
@@ -612,35 +638,39 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #posts-wrap .post-wrap h2 a:hover, #posts-wrap .post-wrap h2 a:active {
   text-decoration: underline;
 }
-#posts-wrap .post-wrap .basic-info-wrap {
-  padding: 0px 23.33333px;
-  box-sizing: border-box;
-  width: 100%;
-}
-#posts-wrap .post-wrap .basic-info-wrap img {
+#posts-wrap .post-wrap img.wp-post-image {
+  width: 35%;
+  height: auto;
   float: left;
-  display: inline-block;
-  width: 30%;
+  box-sizing: border-box;
+  padding-left: 17.5px;
+  padding-bottom: 17.5px;
+}
+#posts-wrap .post-wrap .basic-info-wrap {
+  padding: 17.5px;
+  padding-top: 0px;
+  box-sizing: border-box;
+  float: right;
+  width: 65%;
 }
 #posts-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 980px) {
   #posts-wrap {
     width: 100%;
   }
+}
+@media screen and (max-width: 640px) {
   #posts-wrap .post-wrap {
     padding: 0px;
   }
-  #posts-wrap .post-wrap img {
-    position: absolute;
-    top: 0px;
-    left: 0px;
+  #posts-wrap .post-wrap img.wp-post-image {
     float: none;
     width: 100%;
-    width: calc(100% + ($universal-padding * 1.5));
-    z-index: 1;
+    padding: 0px;
+    margin-top: -56px;
   }
   #posts-wrap .post-wrap h2 {
     position: relative;
@@ -648,26 +678,37 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     overflow: hidden;
     background: white;
   }
-  #posts-wrap .post-wrap h2 img {
+  #posts-wrap .post-wrap h2:hover img.wp-post-image {
+    filter: blur(0px);
+  }
+  #posts-wrap .post-wrap h2 img.wp-post-image {
     display: block;
-    filter: blur(15px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin-top: 0px;
+    padding: 0px;
+    width: 100%;
+    transform: scale(1.1);
+    float: none;
+    z-index: 1;
+    filter: blur(10px);
+    transition: 0.7s;
   }
   #posts-wrap .post-wrap h2 a {
-    padding: 23.33333px;
-    padding: 10px 23.33333px;
+    padding: 17.5px;
     background: rgba(255, 255, 255, 0.45);
     display: block;
     position: relative;
     z-index: 2;
   }
   #posts-wrap .post-wrap .basic-info-wrap {
-    padding: 23.33333px;
+    padding: 17.5px;
     float: none;
     width: 100%;
     position: relative;
     z-index: 2;
     background: white;
-    margin-top: 30vw;
   }
   #posts-wrap .post-wrap .basic-info-wrap p {
     margin: 0px;

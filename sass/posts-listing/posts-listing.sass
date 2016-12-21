@@ -22,15 +22,10 @@
 			overflow: hidden
 
 			img
-				position: absolute
-				z-index: 1
 				display: none
-				width: 100%
-				transform: scale(1.1)
-				filter: blur(15px)
 
 			a
-				padding: ($universal-padding / 1.5)
+				padding: ($universal-padding / 2)
 				background: hsla(0,0,100,0.45)
 				display: block
 				position: relative
@@ -40,16 +35,20 @@
 				&:hover, &:active
 					text-decoration: underline
 
+		img.wp-post-image
+			width: 35%
+			height: auto
+			float: left
+			box-sizing: border-box
+			padding-left: ($universal-padding / 2)
+			padding-bottom: ($universal-padding / 2)
 
 		.basic-info-wrap
-			padding: 0px ($universal-padding / 1.5)
+			padding: ($universal-padding / 2)
+			padding-top: 0px 
 			box-sizing: border-box
-			width: 100%
-
-			img
-				float: left
-				display: inline-block
-				width: 30%
+			float: right
+			width: 65%
 
 			p
 				margin: 0px
