@@ -9,5 +9,6 @@
 	
   ?>
 </nav>
+<div id="side-list-fixed-background"></div>
 <!-- dimmer -->
 <div id="dimmer-content"></div>

@@ -1,12 +1,12 @@
 #posts-wrap
 	margin: $universal-padding 0px
 	width: 75%
+	float: left
 
 	.post-wrap
 		position: relative
 		overflow: hidden
-		//padding: ($universal-padding / 1.5)
-		margin-bottom: $universal-padding
+		margin-bottom: ($universal-padding / 2)
 		background: white
 		border-radius: 3px
 		border: 1px solid #DDD
@@ -25,7 +25,7 @@
 				display: none
 
 			a
-				padding: ($universal-padding / 2)
+				padding: ($universal-padding / 3) ($universal-padding / 2)
 				background: hsla(0,0,100,0.45)
 				display: block
 				position: relative
@@ -40,17 +40,26 @@
 			height: auto
 			float: left
 			box-sizing: border-box
-			padding-left: ($universal-padding / 2)
-			padding-bottom: ($universal-padding / 2)
+			padding: ($universal-padding / 2)
+			padding-top: 0px
 
 		.basic-info-wrap
 			padding: ($universal-padding / 2)
 			padding-top: 0px 
 			box-sizing: border-box
-			float: right
-			width: 65%
 
 			p
 				margin: 0px
 
+			> a
+				text-decoration: underline
+				color: $base-color-dark
+
+			small
+				color: #444
+
 @import "posts-listing-responsive"
+
+@import "aside/post-format-aside"
+
+@import "gallery/post-format-gallery"

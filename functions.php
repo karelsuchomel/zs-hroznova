@@ -33,6 +33,8 @@ function zshroznova_theme_setup(){
 	// define image sizes
 	add_image_size('small-thumbnail', 250, 187, true);
 
+	// add post format support
+	add_theme_support('post-formats', array('aside', 'gallery', 'image'));
 
 }
 

@@ -12,17 +12,13 @@
 				float: none
 				width: 100%
 				padding: 0px
-				margin-top: -56px
+				margin-top: -51px
 
 			h2
 				position: relative
-				z-index: 2
+				z-index: 3
 				overflow: hidden
 				background: white
-
-				&:hover
-					img.wp-post-image
-						filter: blur(0px)
 
 				img.wp-post-image
 					display: block
@@ -39,16 +35,14 @@
 					transition: 0.7s
 
 				a
-					padding: ($universal-padding / 2)
 					background: hsla(0,0,100,0.45)
 					display: block
 					position: relative
-					z-index: 2
 
 			.basic-info-wrap
 				padding: ($universal-padding / 2)
-				float: none
-				width: 100%
+				padding-top: 0px
+				box-shadow: 0px (-$universal-padding / 2) 0px 1px white
 				position: relative
 				z-index: 2
 				background: hsl(0,0,100)
