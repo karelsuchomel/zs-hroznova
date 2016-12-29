@@ -201,6 +201,10 @@ body {
   outline: 1px solid #DDD;
   border: 3px solid white;
   max-width: 100%;
+  height: auto;
+  border: 0px !important;
+  padding: 4px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 640px) {
@@ -837,6 +841,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   text-decoration: underline;
 }
 
+@media screen and (max-width: 980px) {
+  #agenda-list-wrap {
+    display: none;
+  }
+}
 #search-wrap form.search-again {
   max-width: 730px;
   margin: 0px auto 25px;
