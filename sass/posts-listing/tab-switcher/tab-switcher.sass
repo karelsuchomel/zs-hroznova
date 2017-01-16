@@ -1,0 +1,50 @@
+#tab-switcher
+	display: none
+
+@media screen and(max-width: 1024px)
+	#tab-switcher
+		display: block
+		margin-top: $universal-padding
+
+		.tab-button
+			float: left
+			line-height: 30px
+			padding: 0px 12px
+			border: 1px solid #DDD
+			border-bottom: 0px
+			font-family: 'Museo', sans-serif
+			cursor: pointer
+			color: #777
+			background: none
+
+			&:nth-of-type(1)
+				border-top-left-radius: 3px
+
+			&:nth-of-type(2)
+				border-top-right-radius: 3px
+				border-left: 0px
+
+			&:hover, &:active
+				background: white
+				color: #444
+				transition: 0.3s
+
+		.tab-button.opened
+			background: white
+			color: #444
+			cursor: default
+
+@media screen and(max-width: 640px)
+	#tab-switcher
+		.tab-button
+			border: 1px solid #DDD
+			border-bottom: 1px solid #DDD
+
+			&:nth-of-type(1)
+				border-top-left-radius: 3px
+				border-bottom-left-radius: 3px
+
+			&:nth-of-type(2)
+				border-top-right-radius: 3px
+				border-bottom-right-radius: 3px
+				border-left: 0px

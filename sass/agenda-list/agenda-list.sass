@@ -4,20 +4,19 @@
 	width: 25%
 	box-sizing: border-box
 	float: right
-	position: relative
 
-	#agenda-line
-		position: absolute
-		top: 0px
-		left: $universal-padding
-		bottom: 0px
-		width: 3px
-		border-radius: 2px
-		background: #CCC
-
-	.one-day-segment
+	.day-segment
+		position: relative
 		color: #555
 		font-family: 'Museo', 'Open Sans', sans-serif
+
+		#agenda-line
+			position: absolute
+			top: 0px
+			bottom: 0px
+			width: 3px
+			border-radius: 2px
+			background: #CCC
 
 		.date-label
 			position: relative
@@ -51,6 +50,40 @@
 						color: #333
 						text-decoration: underline
 
-@media screen and(max-width: 980px)
+@media screen and(min-width: 1025px)
+	#agenda-list-wrap
+		display: block !important
+
+@media screen and(max-width: 1024px)
 	#agenda-list-wrap
 		display: none
+		width: 100%
+		margin-top: 0px
+		background: white
+		border-radius: 3px
+		border: 1px solid #DDD
+		box-sizing: border-box
+		border-top-left-radius: 0px
+		width: 100%
+
+		#agenda-line
+			margin: 0 auto
+
+		.day-segment
+			padding: ($universal-padding * 2) 0px
+			margin: 0 auto
+			width: 300px
+
+			.date-label .dot
+				border: 5px solid white
+
+
+			ul.event-list > li
+				display: block
+
+@media screen and(max-width: 640px)
+	#agenda-list-wrap
+		margin: $universal-padding 0px
+		border: 0px
+		.day-segment
+			padding: ($universal-padding) 0px

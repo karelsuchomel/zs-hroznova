@@ -1,6 +1,6 @@
 <div id="agenda-list-wrap">
-	<div id="agenda-line"></div>
-	<div class="one-day-segment">
+	<div class="day-segment">
+		<div id="agenda-line"></div>
 		<div class="date-label">27. dubna<div class="dot"></div></div>
 		<ul class="event-list">
 			<li class="event"><a href="#">Výsledky maturitních zkoušek</a></li>

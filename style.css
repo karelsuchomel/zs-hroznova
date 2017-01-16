@@ -155,19 +155,19 @@ body {
     padding-right: 35px;
   }
 }
-@media screen and (max-width: 640px) {
-  body {
-    background: white;
-  }
-
+@media screen and (max-width: 960px) {
   #content {
     float: none;
     width: 100%;
   }
 }
 @media screen and (max-width: 470px) {
+  body {
+    background: white;
+  }
+
   #content {
-    padding: 17.5px;
+    padding: 17.5px 10px;
   }
 }
 #content-single-page {
@@ -353,7 +353,7 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
   bottom: -3px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 960px) {
   #menu-top-bar {
     height: auto;
   }
@@ -447,6 +447,7 @@ nav#side-list #searchform-container input.search-field, nav#side-list #searchfor
   margin-left: 15px;
   width: 188px;
   border-radius: 0px;
+  font-size: 14px;
 }
 nav#side-list #searchform-container input.search-field:focus ~ .underline-animated, nav#side-list #searchform-container textarea.search-field:focus ~ .underline-animated {
   transform: scale(1, 1);
@@ -536,7 +537,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   display: none;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 960px) {
   nav#side-list {
     transition: 0.3s;
     position: absolute;
@@ -611,11 +612,27 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   margin: 0px;
   text-align: left;
   font-weight: 300;
-  font-size: 1.6em;
-  font-size: 1.6em;
+  font-size: 2em;
+  font-size: 2em;
 }
 #info-card-wrap .basic-info-wrap hr {
-  margin: 10px 0px;
+  margin: 7px 0px;
+}
+#info-card-wrap .basic-info-wrap ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  font-style: italic;
+  max-width: 220px;
+  display: inline-block;
+  margin-right: 15px;
+}
+#info-card-wrap .basic-info-wrap ul li {
+  display: inline-block;
+  padding: 4px 4px 4px 0px;
+  max-width: 220px;
+  line-height: 14px;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1180px) {
@@ -633,18 +650,71 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     padding: 0px;
   }
 }
+#tab-switcher {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  #tab-switcher {
+    display: block;
+    margin-top: 35px;
+  }
+  #tab-switcher .tab-button {
+    float: left;
+    line-height: 30px;
+    padding: 0px 12px;
+    border: 1px solid #DDD;
+    border-bottom: 0px;
+    font-family: "Museo", sans-serif;
+    cursor: pointer;
+    color: #777;
+    background: none;
+  }
+  #tab-switcher .tab-button:nth-of-type(1) {
+    border-top-left-radius: 3px;
+  }
+  #tab-switcher .tab-button:nth-of-type(2) {
+    border-top-right-radius: 3px;
+    border-left: 0px;
+  }
+  #tab-switcher .tab-button:hover, #tab-switcher .tab-button:active {
+    background: white;
+    color: #444;
+    transition: 0.3s;
+  }
+  #tab-switcher .tab-button.opened {
+    background: white;
+    color: #444;
+    cursor: default;
+  }
+}
+@media screen and (max-width: 640px) {
+  #tab-switcher .tab-button {
+    border: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+  }
+  #tab-switcher .tab-button:nth-of-type(1) {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+  #tab-switcher .tab-button:nth-of-type(2) {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: 0px;
+  }
+}
 #posts-wrap {
-  margin: 35px 0px;
   width: 75%;
   float: left;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #DDD;
+  box-sizing: border-box;
+  margin-top: 35px;
 }
 #posts-wrap .post-wrap {
   position: relative;
   overflow: hidden;
-  margin-bottom: 17.5px;
-  background: white;
-  border-radius: 3px;
-  border: 1px solid #DDD;
 }
 #posts-wrap .post-wrap h2 {
   padding: 0px;
@@ -655,14 +725,13 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   position: relative;
   z-index: 2;
   overflow: hidden;
+  padding: 17.5px 17.5px 11.66667px;
 }
 #posts-wrap .post-wrap h2 img {
   display: none;
 }
 #posts-wrap .post-wrap h2 a {
-  padding: 11.66667px 17.5px;
-  background: rgba(255, 255, 255, 0.45);
-  display: block;
+  display: inline-block;
   position: relative;
   z-index: 2;
   font-family: "Museo";
@@ -694,14 +763,33 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   color: #444;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (min-width: 1025px) {
+  #posts-wrap {
+    display: block !important;
+  }
+}
+@media screen and (max-width: 1024px) {
   #posts-wrap {
     width: 100%;
+    border-top-left-radius: 0px;
+    margin-top: 0px;
   }
 }
 @media screen and (max-width: 640px) {
+  #posts-wrap {
+    background: none;
+    border-radius: none;
+    border: 0px;
+    box-sizing: border-box;
+    margin-top: 0px;
+  }
   #posts-wrap .post-wrap {
     padding: 0px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #DDD;
+    box-sizing: border-box;
+    margin: 15px 0px;
   }
   #posts-wrap .post-wrap img.wp-post-image {
     float: none;
@@ -714,6 +802,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     z-index: 3;
     overflow: hidden;
     background: white;
+    padding: 17.5px;
   }
   #posts-wrap .post-wrap h2 img.wp-post-image {
     display: block;
@@ -728,10 +817,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     z-index: 1;
     filter: blur(10px);
     transition: 0.7s;
+    opacity: 0.75;
   }
   #posts-wrap .post-wrap h2 a {
-    background: rgba(255, 255, 255, 0.45);
-    display: block;
+    color: #222;
     position: relative;
   }
   #posts-wrap .post-wrap .basic-info-wrap {
@@ -747,7 +836,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
 }
 #posts-wrap .post-wrap.aside {
-  background: #fbd0d0;
+  background: #fbd0d0 !important;
 }
 #posts-wrap .post-wrap.aside .basic-info-wrap {
   padding: 17.5px;
@@ -759,6 +848,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   color: #444;
 }
 
+@media screen and (max-width: 640px) {
+  #posts-wrap .post-wrap.aside .basic-info-wrap {
+    background: none;
+  }
+}
 #posts-wrap .post-wrap.gallery .basic-info-wrap {
   padding: 17.5px 12.5px;
   padding-top: 0px;
@@ -795,26 +889,25 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 25%;
   box-sizing: border-box;
   float: right;
-  position: relative;
 }
-#agenda-list-wrap #agenda-line {
+#agenda-list-wrap .day-segment {
+  position: relative;
+  color: #555;
+  font-family: "Museo", "Open Sans", sans-serif;
+}
+#agenda-list-wrap .day-segment #agenda-line {
   position: absolute;
   top: 0px;
-  left: 35px;
   bottom: 0px;
   width: 3px;
   border-radius: 2px;
   background: #CCC;
 }
-#agenda-list-wrap .one-day-segment {
-  color: #555;
-  font-family: "Museo", "Open Sans", sans-serif;
-}
-#agenda-list-wrap .one-day-segment .date-label {
+#agenda-list-wrap .day-segment .date-label {
   position: relative;
   padding: 12px 20px;
 }
-#agenda-list-wrap .one-day-segment .date-label .dot {
+#agenda-list-wrap .day-segment .date-label .dot {
   content: "";
   display: inline-block;
   position: absolute;
@@ -827,32 +920,77 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   background: #0099cc;
   border-radius: 50%;
 }
-#agenda-list-wrap .one-day-segment ul.event-list {
+#agenda-list-wrap .day-segment ul.event-list {
   list-style: none;
   margin: 0px;
   padding-left: 20px;
 }
-#agenda-list-wrap .one-day-segment ul.event-list > li {
+#agenda-list-wrap .day-segment ul.event-list > li {
   line-height: 1.2em;
   padding: 5px 0px;
 }
-#agenda-list-wrap .one-day-segment ul.event-list > li > a:hover {
+#agenda-list-wrap .day-segment ul.event-list > li > a:hover {
   color: #333;
   text-decoration: underline;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (min-width: 1025px) {
   #agenda-list-wrap {
-    display: none;
+    display: block !important;
   }
 }
-#search-wrap form.search-again {
-  max-width: 730px;
+@media screen and (max-width: 1024px) {
+  #agenda-list-wrap {
+    display: none;
+    width: 100%;
+    margin-top: 0px;
+    background: white;
+    border-radius: 3px;
+    border: 1px solid #DDD;
+    box-sizing: border-box;
+    border-top-left-radius: 0px;
+    width: 100%;
+  }
+  #agenda-list-wrap #agenda-line {
+    margin: 0 auto;
+  }
+  #agenda-list-wrap .day-segment {
+    padding: 70px 0px;
+    margin: 0 auto;
+    width: 300px;
+  }
+  #agenda-list-wrap .day-segment .date-label .dot {
+    border: 5px solid white;
+  }
+  #agenda-list-wrap .day-segment ul.event-list > li {
+    display: block;
+  }
+}
+@media screen and (max-width: 640px) {
+  #agenda-list-wrap {
+    margin: 35px 0px;
+    border: 0px;
+  }
+  #agenda-list-wrap .day-segment {
+    padding: 35px 0px;
+  }
+}
+#search-wrap {
+  background: white;
+  border-radius: 3px;
+  max-width: 720px;
+  box-sizing: border-box;
   margin: 0px auto 25px;
+  padding: 35px;
+}
+#search-wrap form.search-again {
+  max-width: 700px;
+  margin: 0px;
+  margin-bottom: 15px;
 }
 #search-wrap form.search-again #searchform-container {
   position: relative;
-  max-width: 730px;
+  max-width: 700px;
   box-shadow: none;
   border: 1px solid #d9d9d9;
 }
@@ -935,13 +1073,20 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   z-index: 1;
 }
 
+@media screen and (max-width: 640px) {
+  #search-wrap {
+    padding: 17.5px;
+  }
+}
 @media screen and (max-width: 470px) {
   #search-wrap .post-wrap {
-    padding: 17.5px;
+    padding: 0px;
+    padding-bottom: 10px;
     margin-bottom: 23.33333px;
   }
   #search-wrap .post-wrap h2 {
     margin-bottom: 10px;
+    line-height: 1.6em;
   }
 }
 @media screen and (max-width: 580px) {

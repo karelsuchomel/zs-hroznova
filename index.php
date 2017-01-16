@@ -8,18 +8,14 @@
 
   <div id="content">
     <!-- card with most udeful informations -->
-    <div id="info-card-wrap" class="clear-both">
-      <img src="<?php bloginfo('template_directory'); ?>/img/zs-drawned.jpg">
-      <div class="basic-info-wrap">
-        <h1>Vítejte na stránkách základní&nbsp;školy, Hroznová&nbsp;1,&nbsp;Brno</h1>
-        <hr>
-        <p>
-        </p>
-      </div>
-    </div>
+    <?php require_once('layout/info-card.php') ?>
 
     <!-- listing posts -->
-    <div id="posts-wrap">
+    <div id="tab-switcher" class="clear-both">
+      <div id="posts" class="tab-button opened">Příspěvky</div>
+      <div id="agenda" class="tab-button">Nadcházející akce</div>
+    </div>
+    <div id="posts-wrap" class="size-medium">
 
     <!-- Start the Loop. -->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
