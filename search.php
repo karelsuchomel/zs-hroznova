@@ -13,7 +13,7 @@
     	<form role="search" method="get" id="searchform" class="searchform search-again" action="<?php echo get_home_url(); ?>">
 				<div id="searchform-container">
 					<input name="s" class="search-field" type="text" placeholder="hledat znovu" value="<?php the_search_query(); ?>">
-					<input id="searchsubmit" value="🔎" type="submit">
+					<input id="searchsubmit" type="submit">
 					<div class="underline-animated"></div>
 				</div>
 			</form>
@@ -37,14 +37,14 @@
       </div>
         
     <?php } }else{ ?>
-    <p><?php _e( '
+    <p>
     	<h3>Nic jsme nenašli</h3>
-    	<img id="nothing-found-image" src="">
-    	<script>
+    	<img id="nothing-found-image" src="<?php bloginfo('template_directory'); ?>/img/nothing_found.png">
+    	<!-- <script>
     		var host = document.location.origin + document.location.pathname;
     		document.getElementById("nothing-found-image").src= host + "/wp-content/themes/zs-hroznova/img/nothing_found.png";
-    	</script>
-    ' ); ?></p>
+    	</script> -->
+    </p>
     <!-- REALLY stop The Loop. -->
     <?php } ?>
       

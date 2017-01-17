@@ -21,9 +21,10 @@
 		height: 100vh
 		z-index: 4
 		background: rgba(0,0,0,0.5)
-		transform: translateX(-100vw)
+		transform: translateX(-100%)
 		opacity: 0
 		transition: 0.6s
+
 
 	// input tag toggle menu
 	input#toggle-menu-checkbox
@@ -31,7 +32,7 @@
 		&:checked ~ #content-wrap
 			#dimmer-content
 				opacity: 1
-				transform: translateX(0vw)
+				transform: translateX(0px)
 			#side-list
 				transform: translateX(0px)
 

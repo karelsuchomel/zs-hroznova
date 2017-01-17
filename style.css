@@ -16,6 +16,10 @@ a {
   cursor: pointer;
 }
 
+abbr, img, object, a img, :link img, :visited img, a object, :link object, :visited object {
+  border: 0px;
+}
+
 img {
   display: block;
 }
@@ -287,6 +291,8 @@ nav#top-bar {
 }
 #menu-top-bar #logo-wrapper img {
   max-height: 40px;
+  height: auto;
+  max-width: 183.2px;
   margin: 0 auto;
 }
 #menu-top-bar #logo-wrapper:hover {
@@ -407,6 +413,7 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
   }
   #menu-top-bar #logo-wrapper img {
     max-height: 36px;
+    max-width: 165px;
   }
 
   .menu-horni-lista-container {
@@ -513,14 +520,19 @@ nav#side-list #searchform-container input.search-field:focus ~ .underline-animat
 }
 nav#side-list #searchform-container input#searchsubmit, nav#side-list #searchform-container textarea#searchsubmit {
   position: absolute;
-  right: 15px;
+  right: 5px;
   top: 0px;
   cursor: pointer;
-  border: 0px;
-  padding: 7px;
   -webkit-border-radius: 0px;
           border-radius: 0px;
-  background: none;
+  border: 10px solid white;
+  padding: 0px;
+  width: 36px;
+  height: 36px;
+  background: url("img/magnifier-icon.svg");
+  background-size: cover;
+  background-position: center;
+  font-size: 0px;
 }
 nav#side-list ul#menu-bocni-seznam {
   list-style: none;
@@ -586,15 +598,29 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li {
   border-top: 0px;
   -webkit-box-shadow: none;
           box-shadow: none;
+  position: relative;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a {
   height: auto;
   line-height: 20px;
   font-weight: 400;
-  padding: 7px 15px;
+  padding: 7px 18px;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a:hover {
   text-decoration: underline;
+}
+nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #bfbfbf;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  top: -webkit-calc(50% - 3px);
+  top: calc(50% - 3px);
+  left: 4px;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding-bottom: 15px;
@@ -630,9 +656,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     height: 100vh;
     z-index: 4;
     background: rgba(0, 0, 0, 0.5);
-    -webkit-transform: translateX(-100vw);
-        -ms-transform: translateX(-100vw);
-            transform: translateX(-100vw);
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
     opacity: 0;
     -webkit-transition: 0.6s;
     transition: 0.6s;
@@ -640,9 +666,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
   input#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content, textarea#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content {
     opacity: 1;
-    -webkit-transform: translateX(0vw);
-        -ms-transform: translateX(0vw);
-            transform: translateX(0vw);
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px);
   }
   input#toggle-menu-checkbox:checked ~ #content-wrap #side-list, textarea#toggle-menu-checkbox:checked ~ #content-wrap #side-list {
     -webkit-transform: translateX(0px);
@@ -1131,20 +1157,20 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #search-wrap form.search-again #searchform-container input#searchsubmit, #search-wrap form.search-again #searchform-container textarea#searchsubmit {
   position: absolute;
   right: 0px;
-  top: 0px;
-  width: 40px;
-  height: 40px;
+  top: 1px;
+  width: 38px;
+  height: 38px;
+  padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   cursor: pointer;
-  border: 0px;
-  padding: 0px;
   -webkit-border-radius: 0px;
           border-radius: 0px;
-  background: none;
-}
-#search-wrap form.search-again #searchform-container input#searchsubmit:active, #search-wrap form.search-again #searchform-container textarea#searchsubmit:active {
-  background: #e6e6e6;
+  background: url("img/magnifier-icon.svg");
+  background-size: cover;
+  background-position: center;
+  border: 9px solid white;
+  font-size: 0px;
 }
 #search-wrap form.search-again #searchform-container .underline-animated {
   position: absolute;

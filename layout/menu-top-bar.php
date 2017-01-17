@@ -3,7 +3,7 @@
   <div id="menu-top-bar" class="clear-both">
 
   	<a id="logo-wrapper" href="<?php echo get_home_url(); ?>">
-  		<img src="<?php bloginfo('template_directory'); ?>/img/logo03.png" alt="logo">
+  		<img src="<?php bloginfo('template_directory'); ?>/img/logo-light.svg" alt="logo">
   	</a>
 
   	<label for="toggle-menu-checkbox" class="icon-hamburger-menu">

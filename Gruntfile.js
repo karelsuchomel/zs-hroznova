@@ -5,7 +5,6 @@ module.exports = function(grunt) {
       watchSASS: {
         files: ['sass/**/*.sass'],
         tasks: ['sass'],
-        tasks: ['postcss'],
       },
       watchJS: {
         files: ['js-dev/**/*.js'],
@@ -57,5 +56,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   // set default
   grunt.registerTask('default', ['sass', 'concat', 'watch', 'postcss']);
+  grunt.registerTask('prefix', ['postcss']);
 
 };
