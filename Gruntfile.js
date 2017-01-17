@@ -5,6 +5,7 @@ module.exports = function(grunt) {
       watchSASS: {
         files: ['sass/**/*.sass'],
         tasks: ['sass'],
+        tasks: ['postcss'],
       },
       watchJS: {
         files: ['js-dev/**/*.js'],
@@ -30,6 +31,17 @@ module.exports = function(grunt) {
         },
       },
     },
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+          require('autoprefixer')({browsers: ['last 20 versions']})
+        ]
+      },
+      dist: {
+        src: 'style.css'
+      }
+    }
   });
 
   //looks for your grunt.initConfig object
@@ -41,7 +53,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   // reload server
   grunt.loadNpmTasks('grunt-contrib-connect');
+  // enable CSS prefixing
+  grunt.loadNpmTasks('grunt-postcss');
   // set default
-  grunt.registerTask('default', ['sass', 'concat', 'watch']);
+  grunt.registerTask('default', ['sass', 'concat', 'watch', 'postcss']);
 
 };
