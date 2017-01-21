@@ -14,6 +14,7 @@
     <div id="tab-switcher" class="clear-both">
       <div id="posts" class="tab-button opened">Příspěvky</div>
       <div id="agenda" class="tab-button">Nadcházející akce</div>
+      <hr class="tab-divider">
     </div>
     <div id="posts-wrap" class="size-medium">
 
