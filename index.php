@@ -1,3 +1,8 @@
+<?php
+if (!(isset($_COOKIE["info-card-closed"]))) {
+  setcookie("info-card-closed", "FALSE", time()+(31536000));
+}
+?>
 <?php get_header();?>
 
 <?php require_once('layout/menu-top-bar.php') ?>
@@ -7,8 +12,13 @@
   <?php require_once('layout/menu-side-list.php') ?>
 
   <div id="content">
-    <!-- card with most udeful informations -->
-    <?php require_once('layout/info-card.php') ?>
+
+    <!-- card with most searched information -->
+    <?php
+    if ($_COOKIE["info-card-closed"] == "FALSE") {
+      require_once('layout/info-card.php');
+    }
+    ?>
 
     <!-- listing posts -->
     <div id="tab-switcher" class="clear-both">
@@ -23,12 +33,17 @@
 
       <?php get_template_part('content', get_post_format()); ?>
         
-    <?php endwhile; else : ?>
+    <?php endwhile; ?>
+
+    </div>
+    <div id="pagination-wrap">
+      <?php echo paginate_links(); ?>
+    </div>
+    
+    <?php else : ?>
     <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
     <!-- REALLY stop The Loop. -->
     <?php endif; ?>
-      
-    </div>
 
     <?php require_once('layout/agenda-list.php') ?>
 

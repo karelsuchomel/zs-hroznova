@@ -1,3 +1,13 @@
+$(document).ready(function(){
+	$("#hide-info-card").click(function(){
+		$("#info-card-wrap").css({'display': 'none'});
+		var d = new Date();
+		d.setTime(d.getTime() + (31536000));
+		var expires = "expires="+ d.toUTCString();
+		console.log("info-card-closed=TRUE;" + expires);
+		document.cookie = "info-card-closed=TRUE;" + expires;
+	});
+});
 // Toggle menu-side-list
 $(document).ready(function(){
 	// menu-side-list roll toggle
@@ -74,5 +84,4 @@ $(document).ready(function(){
 		$("#posts-wrap").css({'display': 'none'});
 		$("#agenda-list-wrap").css({'display': 'block'});
 	});
-
 });

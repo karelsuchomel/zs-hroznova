@@ -47,17 +47,17 @@ add_action('after_setup_theme', 'zshroznova_theme_setup');
 function zsh_theme_customize_register($wp_customize) {
 
 	$wp_customize->add_setting('zsh_base_color', array(
-		'default' => '#0099CC',
+		'default' => '#6bc615',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_setting('zsh_light_base_color', array(
-		'default' => '#00A8E0',
+		'default' => '#79d820',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_setting('zsh_dark_base_color', array(
-		'default' => '#002633',
+		'default' => '#383838',
 		'transport' => 'refresh',
 	));
 
@@ -88,8 +88,9 @@ function zsh_theme_customize_register($wp_customize) {
 
 add_action('customize_register', 'zsh_theme_customize_register');
 
-// Output customize CSS
 
+
+// Output customize CSS
 function zsh_customize_css() { ?>
 
 	<style>

@@ -8,14 +8,20 @@ module.exports = function(grunt) {
       },
       watchJS: {
         files: ['js-dev/**/*.js'],
-        tasks: ['concat'],
+        tasks: ['concat:concat_JS'],
       },
-      options: {livereload: true}
+      watchCSS: {
+        files: ['style.css'],
+        tasks: ['concat:concat_CSS', 'postcss'],
+        options: {
+          debounceDelay: 5000,
+        },
+      },
     },
     sass: {
       dist: {                  // Target
         options: {             // Target options
-          style: 'expanded', // options: nested, compact, compressed, expanded
+          style: 'expanded',   // options: nested, compact, compressed, expanded
           sourcemap: 'none',   // options: auto, file, inline, none
         },
         files: {               // Dictionary of files
@@ -24,9 +30,20 @@ module.exports = function(grunt) {
       }
     },
     concat: {
-      basic_and_extras: {
+      concat_JS: {
         files: {
           'js/main.js': ['js-dev/**/*.js'],
+        },
+        nonull: true,
+      },
+      concat_CSS: {
+        options: {
+          separator: '\n\n',
+        },
+        dist: {
+          src: ['sass/style-header.css', 'style.css'],
+          dest: 'style.css',
+          nonull: true,
         },
       },
     },

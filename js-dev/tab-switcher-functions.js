@@ -12,5 +12,4 @@ $(document).ready(function(){
 		$("#posts-wrap").css({'display': 'none'});
 		$("#agenda-list-wrap").css({'display': 'block'});
 	});
-
 });

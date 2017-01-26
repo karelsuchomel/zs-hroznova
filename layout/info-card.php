@@ -1,4 +1,6 @@
 <div id="info-card-wrap" class="clear-both">
+  <div id="hide-info-card">
+  </div>
   <img src="<?php bloginfo('template_directory'); ?>/img/zs-drawned.jpg">
   <div class="basic-info-wrap">
     <h1>Vítejte na stránkách základní&nbsp;školy, Hroznová&nbsp;1,&nbsp;Brno</h1>
