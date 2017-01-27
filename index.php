@@ -21,7 +21,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 
   <?php require_once('layout/menu-side-list.php') ?>
 
-  <div id="content">
+  <div id="content" class="clear-both">
 
     <!-- card with most searched information -->
     <?php require_once('layout/info-card.php'); ?>

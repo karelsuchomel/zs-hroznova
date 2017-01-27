@@ -7,11 +7,23 @@
 		width: 100%
 
 		.gallery .gallery-item
+			display: none
 			padding: 5px
 			margin: 0px
 			box-sizing: border-box
 			width: 25%
 
+			&:nth-of-type(1)
+				display: block
+
+			&:nth-of-type(2)
+				display: block
+
+			&:nth-of-type(3)
+				display: block
+
+			&:nth-of-type(4)
+				display: block
 
 			img
 				border: none
@@ -28,5 +40,7 @@
 @media screen and(max-width: 640px)
 	#posts-wrap .post-wrap.gallery
 		.basic-info-wrap
+			padding: 0px
+			margin: 15px 0px
 			.gallery .gallery-item
 				width: 50%

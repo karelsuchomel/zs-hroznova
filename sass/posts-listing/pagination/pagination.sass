@@ -1,0 +1,28 @@
+#pagination-wrap
+	position: relative
+	bottom: -30px
+	margin: 0 auto
+	display: block
+	width: 300px
+	text-align: center
+	height: 0px
+
+	.page-numbers
+		padding: 3px 7px
+		color: #777
+
+		&:active
+			background: hsl(0,0,85)
+
+	.page-numbers.current
+		background: white
+		border: 1px solid #DDD
+		border-radius: 3px
+
+	a.page-numbers	
+		&:hover, &:active
+			text-decoration: underline
+
+@media screen and(max-width: 640px)
+	#pagination-wrap
+		width: 100%

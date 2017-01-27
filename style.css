@@ -188,9 +188,14 @@ body {
     width: 100%;
   }
 }
+@media screen and (max-width: 640px) {
+  body {
+    background: white;
+  }
+}
 @media screen and (max-width: 470px) {
   #content {
-    padding: 17.5px 10px;
+    padding: 17.5px 0px;
   }
 }
 #content-single-page {
@@ -239,7 +244,7 @@ body {
     max-width: 720px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
-    padding: 10px;
+    padding: 10px 15px;
     margin: 0 auto;
     background: white;
     -webkit-border-radius: 3px;
@@ -259,7 +264,7 @@ body {
     font-style: italic;
   }
   #content-single-page img {
-    margin: 35px auto;
+    margin: 25px auto;
     outline: 1px solid #DDD;
     border: 3px solid white;
     max-width: 100%;
@@ -854,8 +859,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border: 1px solid #DDD;
     -webkit-border-radius: 3px;
             border-radius: 3px;
-    border-radius-bottom-left: 0px;
-    border-radius-bottom-right: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+            border-bottom-right-radius: 0px;
     border-bottom: 0px;
     height: 31px;
     -webkit-box-sizing: border-box;
@@ -865,14 +872,17 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     background-size: cover;
     background-position: center;
   }
-  #show-info-card:hover, #show-info-card:active {
+  #show-info-card:hover {
     color: #444;
   }
-  #show-info-card:hover > img, #show-info-card:active > img {
+  #show-info-card:hover > img {
     opacity: 1;
     -webkit-transform: translateY(-20px);
         -ms-transform: translateY(-20px);
             transform: translateY(-20px);
+  }
+  #show-info-card:active {
+    background-color: #d9d9d9;
   }
   #show-info-card > img {
     margin: 0 auto;
@@ -882,6 +892,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
 }
 @media screen and (max-width: 470px) {
+  #info-card-wrap {
+    border-left: 0px;
+    border-right: 0px;
+    -webkit-border-radius: 0px;
+            border-radius: 0px;
+    padding: 15px;
+  }
+
   #show-info-card {
     top: 17.5px;
     right: 15px;
@@ -915,11 +933,16 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
             border-top-right-radius: 3px;
     border-left: 0px;
   }
-  #tab-switcher .tab-button:hover, #tab-switcher .tab-button:active {
+  #tab-switcher .tab-button:hover {
     background: white;
     color: #444;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+  }
+  #tab-switcher .tab-button:active {
+    -webkit-transition: 0s;
+    transition: 0s;
+    background: #d9d9d9;
   }
   #tab-switcher .tab-button.opened {
     background: white;
@@ -959,6 +982,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     left: -50%;
   }
 }
+@media screen and (max-width: 640px) {
+  #tab-switcher {
+    padding: 0px 15px;
+  }
+}
 #posts-wrap {
   width: 75%;
   float: left;
@@ -969,6 +997,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin-bottom: 35px;
+  position: relative;
 }
 #posts-wrap .post-wrap {
   position: relative;
@@ -980,8 +1009,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #posts-wrap .post-wrap h2 {
   padding: 0px;
-  font-size: 1.4em;
+  font-size: 18px;
   line-height: 1.4em;
+  font-weight: 600;
   margin: 0px;
   overflow: hidden;
   position: relative;
@@ -996,7 +1026,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   display: inline-block;
   position: relative;
   z-index: 2;
-  font-family: "Museo";
 }
 #posts-wrap .post-wrap h2 > a:hover, #posts-wrap .post-wrap h2 > a:active {
   text-decoration: underline;
@@ -1026,9 +1055,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #posts-wrap .post-wrap .basic-info-wrap small {
   color: #444;
 }
-#posts-wrap #pagination-wrap {
-  position: relative;
-}
 
 @media screen and (min-width: 1025px) {
   #posts-wrap {
@@ -1052,64 +1078,33 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin-top: 0px;
+    padding: 0px;
   }
   #posts-wrap .post-wrap {
-    padding: 0px;
-    background: white;
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
-    border: 1px solid #DDD;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    padding: 0px 15px;
+    border: 0px;
     margin: 15px 0px;
+    border-bottom: 1px solid #DDD;
   }
   #posts-wrap .post-wrap a > img.wp-post-image {
     float: none;
     width: 100%;
     padding: 0px;
-    margin-top: -51px;
   }
   #posts-wrap .post-wrap h2 {
-    position: relative;
-    z-index: 3;
-    overflow: hidden;
-    background: white;
-    padding: 17.5px;
-  }
-  #posts-wrap .post-wrap h2 img.wp-post-image {
-    display: block;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin-top: 0px;
+    font-size: 16px;
     padding: 0px;
-    width: 100%;
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
-    float: none;
-    z-index: 1;
-    -webkit-filter: blur(10px);
-            filter: blur(10px);
-    -webkit-transition: 0.7s;
-    transition: 0.7s;
-    opacity: 0.55;
+    margin: 10px 0px;
   }
   #posts-wrap .post-wrap h2 a {
     color: #222;
-    position: relative;
   }
   #posts-wrap .post-wrap .basic-info-wrap {
-    padding: 17.5px;
-    padding-top: 0px;
-    -webkit-box-shadow: 0px -17.5px 0px 1px white;
-            box-shadow: 0px -17.5px 0px 1px white;
-    position: relative;
-    z-index: 2;
-    background: white;
+    padding: 0px;
+    margin: 5px 0px;
   }
   #posts-wrap .post-wrap .basic-info-wrap p {
-    margin: 0px;
+    margin: 10px 0px;
   }
 }
 #posts-wrap .post-wrap.aside {
@@ -1132,6 +1127,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 @media screen and (max-width: 640px) {
   #posts-wrap .post-wrap.aside .basic-info-wrap {
     background: none;
+    padding: 0px;
+    margin: 15px 0px;
   }
 }
 #posts-wrap .post-wrap.gallery .basic-info-wrap {
@@ -1141,11 +1138,24 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 100%;
 }
 #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item {
+  display: none;
   padding: 5px;
   margin: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 25%;
+}
+#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(1) {
+  display: block;
+}
+#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(2) {
+  display: block;
+}
+#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(3) {
+  display: block;
+}
+#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(4) {
+  display: block;
 }
 #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item img {
   border: none;
@@ -1162,6 +1172,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 
 @media screen and (max-width: 640px) {
+  #posts-wrap .post-wrap.gallery .basic-info-wrap {
+    padding: 0px;
+    margin: 15px 0px;
+  }
   #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item {
     width: 50%;
   }
@@ -1407,5 +1421,36 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     max-width: 150%;
     margin: 0 auto;
     margin-left: -25%;
+  }
+}
+#pagination-wrap {
+  position: relative;
+  bottom: -30px;
+  margin: 0 auto;
+  display: block;
+  width: 300px;
+  text-align: center;
+  height: 0px;
+}
+#pagination-wrap .page-numbers {
+  padding: 3px 7px;
+  color: #777;
+}
+#pagination-wrap .page-numbers:active {
+  background: #d9d9d9;
+}
+#pagination-wrap .page-numbers.current {
+  background: white;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
+}
+#pagination-wrap a.page-numbers:hover, #pagination-wrap a.page-numbers:active {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 640px) {
+  #pagination-wrap {
+    width: 100%;
   }
 }
