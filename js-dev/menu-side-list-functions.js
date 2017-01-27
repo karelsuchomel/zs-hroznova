@@ -55,7 +55,6 @@ $(document).ready(function(){
 
 	// Make menu-side-list as heigh as #content
 	var contentHeight = $("#content").outerHeight();
-	console.log(contentHeight);
 	$("#side-list").css('height', contentHeight + 'px');
 	
 });

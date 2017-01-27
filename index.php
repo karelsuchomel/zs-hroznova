@@ -9,22 +9,28 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 
 <div id="content-wrap" class="clear-both">
 
+  <div id="show-info-card"
+  <?php if((isset($_COOKIE["info-card-closed"])) && $_COOKIE["info-card-closed"] == "TRUE" ) { ?>
+    style="display: block;"
+  <?php } ?>
+  >
+    Zobrazit kartu s informacemi
+    <img src="<?php bloginfo('template_directory'); ?>/img/arrow-down-icon.svg">
+  </div>
+
+
   <?php require_once('layout/menu-side-list.php') ?>
 
   <div id="content">
 
     <!-- card with most searched information -->
-    <?php
-    if ($_COOKIE["info-card-closed"] == "FALSE") {
-      require_once('layout/info-card.php');
-    }
-    ?>
+    <?php require_once('layout/info-card.php'); ?>
 
     <!-- listing posts -->
     <div id="tab-switcher" class="clear-both">
       <div id="posts" class="tab-button opened">Příspěvky</div>
       <div id="agenda" class="tab-button">Nadcházející akce</div>
-      <hr class="tab-divider">
+      <div class="tab-divider"></div>
     </div>
     <div id="posts-wrap" class="size-medium">
 
@@ -35,9 +41,9 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
         
     <?php endwhile; ?>
 
-    </div>
     <div id="pagination-wrap">
       <?php echo paginate_links(); ?>
+    </div>
     </div>
     
     <?php else : ?>

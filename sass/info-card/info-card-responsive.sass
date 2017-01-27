@@ -1,6 +1,14 @@
-@media screen and(max-width: $content-max-width)
+@media screen and(max-width: ($content-max-width + 70px))
 	#info-card-wrap
 		width: auto
+
+	#show-info-card
+		right: 15px
+
+@media screen and(max-width: 1025px)
+	#show-info-card
+		top: 42px
+		right: 35px
 
 @media screen and(max-width: 640px)
 	#info-card-wrap
@@ -14,3 +22,36 @@
 			padding: 0px
 
 			h1
+
+@media screen and(max-width: 490px)
+	#show-info-card
+		top: 35px
+		right: 35px
+		font-size: 0px
+		border: 1px solid #DDD
+		border-radius: 3px
+		border-radius-bottom-left: 0px
+		border-radius-bottom-right: 0px
+		border-bottom: 0px
+		height: 31px
+		box-sizing: border-box
+		width: 35px
+		background:
+			image: url("img/info-card-icon.svg")
+			size: cover
+			position: center
+
+		&:hover, &:active
+			color: #444
+			> img
+				opacity: 1
+				transform: translateY(-20px)
+
+		> img
+			margin: 0 auto
+			transform: translateY(-45px)
+
+@media screen and(max-width: 470px)
+	#show-info-card
+		top: 17.5px
+		right: 15px

@@ -1,5 +1,10 @@
-<div id="info-card-wrap" class="clear-both">
+<div id="info-card-wrap" class="clear-both"
+<?php
+if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "FALSE" ) {
+?>style="display: block"<?php } ?>>
   <div id="hide-info-card">
+    Schovat
+    <img src="<?php bloginfo('template_directory'); ?>/img/arrow-up-icon.svg">
   </div>
   <img src="<?php bloginfo('template_directory'); ?>/img/zs-drawned.jpg">
   <div class="basic-info-wrap">

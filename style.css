@@ -97,8 +97,10 @@ input, textarea {
   padding: 10px 15px;
   max-width: 300px;
   display: block;
-  box-sizing: border-box;
-  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
   outline: none;
 }
 input:focus, textarea:focus {
@@ -114,7 +116,8 @@ table {
   margin: 0;
   padding: 0;
   border: 1px solid #DDD;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -156,7 +159,8 @@ body {
 #content-wrap {
   max-width: 1180px;
   margin: 0 auto;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   overflow: hidden;
   position: relative;
 }
@@ -164,10 +168,13 @@ body {
 #content {
   position: relative;
   float: right;
+  width: -webkit-calc(100% - 220px);
   width: calc(100% - 220px);
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 35px;
   padding-right: 15px;
+  z-index: 1;
 }
 
 @media screen and (max-width: 1250px) {
@@ -182,10 +189,6 @@ body {
   }
 }
 @media screen and (max-width: 470px) {
-  body {
-    background: white;
-  }
-
   #content {
     padding: 17.5px 10px;
   }
@@ -193,11 +196,13 @@ body {
 #content-single-page {
   position: relative;
   max-width: 720px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 35px;
   margin: 0 auto;
   background: white;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
 }
 #content-single-page h2 {
   font-weight: 600;
@@ -224,18 +229,21 @@ body {
   height: auto;
   border: 0px !important;
   padding: 4px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media screen and (max-width: 640px) {
   #content-single-page {
     position: relative;
     max-width: 720px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 10px;
     margin: 0 auto;
     background: white;
-    border-radius: 3px;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
   }
   #content-single-page h2 {
     font-weight: 600;
@@ -285,11 +293,14 @@ nav#top-bar {
   margin: 0 auto;
 }
 #menu-top-bar #logo-wrapper:hover {
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: #79d820;
 }
 #menu-top-bar #logo-wrapper:active img {
-  transform: scale(0.95);
+  -webkit-transform: scale(0.95);
+      -ms-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .menu-horni-lista-container {
@@ -311,13 +322,16 @@ nav#top-bar {
   display: inline-block;
   height: 60px;
   line-height: 60px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0px 15px;
   color: white;
   font-family: "Museo", sans-serif;
 }
 .menu-horni-lista-container ul#menu-horni-lista li a:hover:after {
-  transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 .menu-horni-lista-container ul#menu-horni-lista li a:active {
   background: #79d820;
@@ -327,13 +341,18 @@ nav#top-bar {
   display: block;
   position: absolute;
   z-index: 3;
+  width: -webkit-calc(100% - 30px);
   width: calc(100% - 30px);
   height: 3px;
-  border-radius: 2px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
   bottom: 15px;
   background-color: white;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
-  transform: scale(0, 1);
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
 }
 
 .icon-hamburger-menu {
@@ -341,7 +360,8 @@ nav#top-bar {
   float: left;
   height: 50px;
   width: 50px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px 12px;
   overflow: hidden;
   cursor: pointer;
@@ -353,12 +373,16 @@ nav#top-bar {
 .icon-hamburger-menu .line {
   position: relative;
   height: 3px;
-  border-radius: 2px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
   width: 100%;
   background: white;
   margin: 5px 0px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
-  transform-origin: left center;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
 }
 
 input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
@@ -411,18 +435,24 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
 
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-1, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-1 {
     margin-bottom: 6px;
-    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
   }
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-2, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-2 {
     opacity: 0;
   }
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-3, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-3 {
     margin-top: 6px;
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
   }
   input#toggle-menu-checkbox:checked + #top-bar, textarea#toggle-menu-checkbox:checked + #top-bar {
+    -webkit-transition: 0.6s;
     transition: 0.6s;
-    box-shadow: 0px 2px 4px #737373;
+    -webkit-box-shadow: 0px 2px 4px #737373;
+            box-shadow: 0px 2px 4px #737373;
   }
 }
 @media screen and (max-width: 400px) {
@@ -431,6 +461,7 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
     font-size: 13px;
   }
   .menu-horni-lista-container ul#menu-horni-lista li a:after {
+    width: -webkit-calc(100% - 14px);
     width: calc(100% - 14px);
     bottom: 8px;
   }
@@ -445,15 +476,18 @@ nav#side-list {
   position: relative;
   width: 220px;
   float: left;
+  min-height: -webkit-calc(100vh - 60px) !important;
   min-height: calc(100vh - 60px) !important;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-left: 1px solid rgba(0, 0, 0, 0.15);
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   background: white;
 }
 nav#side-list #searchform-container {
   position: relative;
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
 }
 nav#side-list #searchform-container .underline-animated {
   content: "";
@@ -463,26 +497,33 @@ nav#side-list #searchform-container .underline-animated {
   width: 100%;
   height: 3px;
   background-color: #6bc615;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
-  transform: scale(0, 1);
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
 }
 nav#side-list #searchform-container input.search-field, nav#side-list #searchform-container textarea.search-field {
   border: 0px solid #DCDCDC;
   padding: 10px 0px;
   margin-left: 15px;
   width: 188px;
-  border-radius: 0px;
+  -webkit-border-radius: 0px;
+          border-radius: 0px;
   font-size: 14px;
 }
 nav#side-list #searchform-container input.search-field:focus ~ .underline-animated, nav#side-list #searchform-container textarea.search-field:focus ~ .underline-animated {
-  transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 nav#side-list #searchform-container input#searchsubmit, nav#side-list #searchform-container textarea#searchsubmit {
   position: absolute;
   right: 5px;
   top: 0px;
   cursor: pointer;
-  border-radius: 0px;
+  -webkit-border-radius: 0px;
+          border-radius: 0px;
   border: 10px solid white;
   padding: 0px;
   width: 36px;
@@ -500,12 +541,14 @@ nav#side-list ul#menu-bocni-seznam {
 nav#side-list ul#menu-bocni-seznam > li {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
   background: white;
   overflow: hidden;
   position: relative;
 }
 nav#side-list ul#menu-bocni-seznam > li:before {
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   content: "";
   position: absolute;
@@ -515,7 +558,8 @@ nav#side-list ul#menu-bocni-seznam > li:before {
   width: 20px;
   height: 20px;
   background: #6bc615;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
 }
 nav#side-list ul#menu-bocni-seznam > li:hover:before {
   left: -11px;
@@ -523,12 +567,14 @@ nav#side-list ul#menu-bocni-seznam > li:hover:before {
 nav#side-list ul#menu-bocni-seznam > li a {
   display: block;
   line-height: 20px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px 15px;
   color: #383838;
   font-family: "Museo";
 }
 nav#side-list ul#menu-bocni-seznam > li a:active {
+  -webkit-transition: 0s;
   transition: 0s;
   background: #d9d9d9;
 }
@@ -541,13 +587,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu {
   margin: 0px;
   padding-left: 15px;
   padding-bottom: 0px;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   position: relative;
   height: 0px;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li {
   border-top: 0px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   position: relative;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a {
@@ -566,7 +614,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a:before {
   width: 6px;
   height: 6px;
   background: #bfbfbf;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  top: -webkit-calc(50% - 3px);
   top: calc(50% - 3px);
   left: 4px;
 }
@@ -580,9 +630,12 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
 @media screen and (max-width: 960px) {
   nav#side-list {
+    -webkit-transition: 0.3s;
     transition: 0.3s;
     position: absolute;
-    transform: translateX(-224px);
+    -webkit-transform: translateX(-224px);
+        -ms-transform: translateX(-224px);
+            transform: translateX(-224px);
     border-left: 0px;
     border-right: 0px;
     z-index: 7;
@@ -601,26 +654,38 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     height: 100vh;
     z-index: 4;
     background: rgba(0, 0, 0, 0.5);
-    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%);
     opacity: 0;
+    -webkit-transition: 0.6s;
     transition: 0.6s;
   }
 
   input#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content, textarea#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content {
     opacity: 1;
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px);
   }
   input#toggle-menu-checkbox:checked ~ #content-wrap #side-list, textarea#toggle-menu-checkbox:checked ~ #content-wrap #side-list {
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px);
   }
   input#toggle-menu-checkbox:checked ~ #content-wrap #side-list-fixed-background, textarea#toggle-menu-checkbox:checked ~ #content-wrap #side-list-fixed-background {
-    transform: translateX(0px);
+    -webkit-transform: translateX(0px);
+        -ms-transform: translateX(0px);
+            transform: translateX(0px);
   }
 
   #side-list-fixed-background {
     display: block;
     position: fixed;
-    transform: translateX(-224px);
+    -webkit-transform: translateX(-224px);
+        -ms-transform: translateX(-224px);
+            transform: translateX(-224px);
+    -webkit-transition: 0.3s;
     transition: 0.3s;
     top: 0px;
     left: 0px;
@@ -628,35 +693,67 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     min-height: 100vh;
     z-index: 5;
     background: white;
-    box-shadow: 2px 2px 4px #737373;
+    -webkit-box-shadow: 2px 2px 4px #737373;
+            box-shadow: 2px 2px 4px #737373;
   }
 }
 #info-card-wrap {
+  display: none;
   width: 100%;
   background: white;
   padding: 17.5px;
-  box-sizing: border-box;
-  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
   border: 1px solid #DDD;
   position: relative;
+  margin-bottom: 35px;
 }
 #info-card-wrap #hide-info-card {
   position: absolute;
   top: 0px;
   right: 0px;
-  width: 20px;
-  height: 20px;
-  background: green;
+  height: 15px;
+  padding: 5px;
+  cursor: pointer;
+  background: white;
+  font-size: 12px;
+  color: #AAA;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
-#info-card-wrap img {
+#info-card-wrap #hide-info-card:hover {
+  color: #444;
+}
+#info-card-wrap #hide-info-card:hover > img {
+  opacity: 1;
+  -webkit-transform: translateY(-35px);
+      -ms-transform: translateY(-35px);
+          transform: translateY(-35px);
+}
+#info-card-wrap #hide-info-card > img {
+  margin: 0 auto;
+  width: 12px;
+  height: auto;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+#info-card-wrap > img {
   float: left;
   max-width: 250px;
 }
 #info-card-wrap .basic-info-wrap {
+  width: -webkit-calc(100% - 250px);
   width: calc(100% - 250px);
   padding: 0px 35px;
   float: right;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #info-card-wrap .basic-info-wrap h1 {
   margin: 0px;
@@ -682,12 +779,61 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding: 4px 4px 4px 0px;
   max-width: 220px;
   line-height: 14px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-@media screen and (max-width: 1180px) {
+#show-info-card {
+  position: absolute;
+  display: none;
+  top: 10px;
+  right: 24px;
+  height: 20px;
+  font-size: 12px;
+  color: #AAA;
+  cursor: pointer;
+  -webkit-transition: color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+  transition: color 0.5s, opacity 0.5s, transform 0.5s;
+  transition: color 0.5s, opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
+  z-index: 2;
+}
+#show-info-card:hover {
+  color: #444;
+}
+#show-info-card:hover > img {
+  opacity: 1;
+  -webkit-transform: translateY(-20px);
+      -ms-transform: translateY(-20px);
+          transform: translateY(-20px);
+}
+#show-info-card > img {
+  margin-left: -26px;
+  width: 12px;
+  height: auto;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: translateY(-45px);
+      -ms-transform: translateY(-45px);
+          transform: translateY(-45px);
+}
+
+@media screen and (max-width: 1250px) {
   #info-card-wrap {
     width: auto;
+  }
+
+  #show-info-card {
+    right: 15px;
+  }
+}
+@media screen and (max-width: 1025px) {
+  #show-info-card {
+    top: 42px;
+    right: 35px;
   }
 }
 @media screen and (max-width: 640px) {
@@ -700,6 +846,47 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     padding: 0px;
   }
 }
+@media screen and (max-width: 490px) {
+  #show-info-card {
+    top: 35px;
+    right: 35px;
+    font-size: 0px;
+    border: 1px solid #DDD;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    border-radius-bottom-left: 0px;
+    border-radius-bottom-right: 0px;
+    border-bottom: 0px;
+    height: 31px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 35px;
+    background-image: url("img/info-card-icon.svg");
+    background-size: cover;
+    background-position: center;
+  }
+  #show-info-card:hover, #show-info-card:active {
+    color: #444;
+  }
+  #show-info-card:hover > img, #show-info-card:active > img {
+    opacity: 1;
+    -webkit-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  #show-info-card > img {
+    margin: 0 auto;
+    -webkit-transform: translateY(-45px);
+        -ms-transform: translateY(-45px);
+            transform: translateY(-45px);
+  }
+}
+@media screen and (max-width: 470px) {
+  #show-info-card {
+    top: 17.5px;
+    right: 15px;
+  }
+}
 #tab-switcher {
   display: none;
 }
@@ -707,7 +894,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 @media screen and (max-width: 1024px) {
   #tab-switcher {
     display: block;
-    margin-top: 35px;
   }
   #tab-switcher .tab-button {
     float: left;
@@ -721,15 +907,18 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     background: none;
   }
   #tab-switcher .tab-button:nth-of-type(1) {
-    border-top-left-radius: 3px;
+    -webkit-border-top-left-radius: 3px;
+            border-top-left-radius: 3px;
   }
   #tab-switcher .tab-button:nth-of-type(2) {
-    border-top-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+            border-top-right-radius: 3px;
     border-left: 0px;
   }
   #tab-switcher .tab-button:hover, #tab-switcher .tab-button:active {
     background: white;
     color: #444;
+    -webkit-transition: 0.3s;
     transition: 0.3s;
   }
   #tab-switcher .tab-button.opened {
@@ -750,10 +939,12 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border-bottom: 0px;
   }
   #tab-switcher .tab-button:nth-of-type(1) {
-    border-top-left-radius: 3px;
+    -webkit-border-top-left-radius: 3px;
+            border-top-left-radius: 3px;
   }
   #tab-switcher .tab-button:nth-of-type(2) {
-    border-top-right-radius: 3px;
+    -webkit-border-top-right-radius: 3px;
+            border-top-right-radius: 3px;
     border-left: 0px;
     position: relative;
   }
@@ -763,7 +954,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     width: 200%;
     height: 1px;
     margin: 0px;
-    background: #AAA;
+    background: #DDD;
     bottom: 0px;
     left: -50%;
   }
@@ -772,10 +963,12 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 75%;
   float: left;
   background: white;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
   border: 1px solid #DDD;
-  box-sizing: border-box;
-  margin-top: 35px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 35px;
 }
 #posts-wrap .post-wrap {
   position: relative;
@@ -812,14 +1005,16 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 35%;
   height: auto;
   float: left;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 17.5px;
   padding-top: 0px;
 }
 #posts-wrap .post-wrap .basic-info-wrap {
   padding: 17.5px;
   padding-top: 0px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #posts-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
@@ -831,11 +1026,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #posts-wrap .post-wrap .basic-info-wrap small {
   color: #444;
 }
-
-#pagination-wrap {
+#posts-wrap #pagination-wrap {
   position: relative;
-  float: left;
-  width: 75%;
 }
 
 @media screen and (min-width: 1025px) {
@@ -846,24 +1038,29 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 @media screen and (max-width: 1024px) {
   #posts-wrap {
     width: 100%;
-    border-top-left-radius: 0px;
+    -webkit-border-top-left-radius: 0px;
+            border-top-left-radius: 0px;
     margin-top: 0px;
   }
 }
 @media screen and (max-width: 640px) {
   #posts-wrap {
     background: none;
-    border-radius: none;
+    -webkit-border-radius: none;
+            border-radius: none;
     border: 0px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin-top: 0px;
   }
   #posts-wrap .post-wrap {
     padding: 0px;
     background: white;
-    border-radius: 3px;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
     border: 1px solid #DDD;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     margin: 15px 0px;
   }
   #posts-wrap .post-wrap a > img.wp-post-image {
@@ -887,10 +1084,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     margin-top: 0px;
     padding: 0px;
     width: 100%;
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
     float: none;
     z-index: 1;
-    filter: blur(10px);
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    -webkit-transition: 0.7s;
     transition: 0.7s;
     opacity: 0.55;
   }
@@ -901,7 +1102,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   #posts-wrap .post-wrap .basic-info-wrap {
     padding: 17.5px;
     padding-top: 0px;
-    box-shadow: 0px -17.5px 0px 1px white;
+    -webkit-box-shadow: 0px -17.5px 0px 1px white;
+            box-shadow: 0px -17.5px 0px 1px white;
     position: relative;
     z-index: 2;
     background: white;
@@ -941,7 +1143,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item {
   padding: 5px;
   margin: 0px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 25%;
 }
 #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item img {
@@ -949,7 +1152,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 100%;
   height: auto;
   float: left;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding-left: none;
   padding-bottom: none;
 }
@@ -963,10 +1167,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
 }
 #agenda-list-wrap {
-  margin: 35px 0px;
+  margin-bottom: 35px;
   padding-left: 35px;
   width: 25%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   float: right;
 }
 #agenda-list-wrap .day-segment {
@@ -979,7 +1184,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   top: 0px;
   bottom: 0px;
   width: 3px;
-  border-radius: 2px;
+  -webkit-border-radius: 2px;
+          border-radius: 2px;
   background: #CCC;
 }
 #agenda-list-wrap .day-segment .date-label {
@@ -995,9 +1201,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 20px;
   height: 20px;
   border: 5px solid #f0f0f0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background: #6bc615;
-  border-radius: 50%;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
 }
 #agenda-list-wrap .day-segment ul.event-list {
   list-style: none;
@@ -1024,10 +1232,13 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     width: 100%;
     margin-top: 0px;
     background: white;
-    border-radius: 3px;
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
     border: 1px solid #DDD;
-    box-sizing: border-box;
-    border-top-left-radius: 0px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-border-top-left-radius: 0px;
+            border-top-left-radius: 0px;
     width: 100%;
   }
   #agenda-list-wrap #agenda-line {
@@ -1056,9 +1267,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #search-wrap {
   background: white;
-  border-radius: 3px;
+  -webkit-border-radius: 3px;
+          border-radius: 3px;
   max-width: 720px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0px auto 25px;
   padding: 35px;
 }
@@ -1070,7 +1283,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #search-wrap form.search-again #searchform-container {
   position: relative;
   max-width: 700px;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border: 1px solid #d9d9d9;
 }
 #search-wrap form.search-again #searchform-container input.search-field, #search-wrap form.search-again #searchform-container textarea.search-field {
@@ -1078,10 +1292,13 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   font-size: 1.2em;
   border: 0px solid #DCDCDC;
   padding: 10px 15px;
-  border-radius: 0px;
+  -webkit-border-radius: 0px;
+          border-radius: 0px;
 }
 #search-wrap form.search-again #searchform-container input.search-field:focus ~ .underline-animated, #search-wrap form.search-again #searchform-container textarea.search-field:focus ~ .underline-animated {
-  transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+      -ms-transform: scale(1, 1);
+          transform: scale(1, 1);
 }
 #search-wrap form.search-again #searchform-container input#searchsubmit, #search-wrap form.search-again #searchform-container textarea#searchsubmit {
   position: absolute;
@@ -1090,9 +1307,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 38px;
   height: 38px;
   padding: 0px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   cursor: pointer;
-  border-radius: 0px;
+  -webkit-border-radius: 0px;
+          border-radius: 0px;
   background: url("img/magnifier-icon.svg");
   background-size: cover;
   background-position: center;
@@ -1104,14 +1323,18 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 100%;
   height: 3px;
   background-color: #6bc615;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
-  transform: scale(0, 1);
+  -webkit-transform: scale(0, 1);
+      -ms-transform: scale(0, 1);
+          transform: scale(0, 1);
 }
 #search-wrap .post-wrap {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   padding: 0px 0px 10px;
   margin-bottom: 23.33333px;
   max-width: 700px;
@@ -1129,7 +1352,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   color: #6bc615;
 }
 #search-wrap .post-wrap .basic-info-wrap {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #search-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
