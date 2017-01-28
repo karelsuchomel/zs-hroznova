@@ -11,7 +11,7 @@
 			padding: 0px 12px
 			border: 1px solid #DDD
 			border-bottom: 0px
-			font-family: 'Museo', sans-serif
+			//font-family: 'Museo', sans-serif
 			cursor: pointer
 			color: #777
 			background: none
@@ -33,7 +33,8 @@
 				background: hsl(0,0,85)
 
 		.tab-button.opened
-			background: white
+			background: #fbf8d0
+			//background: hsl(100,50,85)
 			color: #444
 			cursor: default
 
@@ -58,6 +59,9 @@
 @media screen and(max-width: 470px)
 	#tab-switcher
 		padding: 0px 15px
+
+		.tab-button
+			font-size: 12px
 
 		.tab-divider
 			display: block

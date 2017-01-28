@@ -47,7 +47,7 @@ add_action('after_setup_theme', 'zshroznova_theme_setup');
 function zsh_theme_customize_register($wp_customize) {
 
 	$wp_customize->add_setting('zsh_base_color', array(
-		'default' => '#6bc615',
+		'default' => '#58b501',
 		'transport' => 'refresh',
 	));
 
