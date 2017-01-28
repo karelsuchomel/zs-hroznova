@@ -2,21 +2,16 @@
 	background: hsl(55, 85, 90) !important
 
 	.basic-info-wrap
-		padding: ($universal-padding / 2)
-		float: none
-		width: 100%
+		padding: 0px ($universal-padding / 2) 0px 0px
+		margin: 10px 0px ($universal-padding / 2)
 
 		h2
-			padding: 0px
-			background: none
-
-		.update-info
-			display: block
-			color: #444
 
 @media screen and(max-width: 640px)
 	#posts-wrap .post-wrap.aside
 		.basic-info-wrap
-			background: none
-			padding: 0px
-			margin: 15px 0px
+
+@media screen and(max-width: 470px)
+	#posts-wrap .post-wrap.aside
+		.basic-info-wrap
+			padding-left: 15px

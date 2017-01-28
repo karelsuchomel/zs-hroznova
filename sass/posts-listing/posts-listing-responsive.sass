@@ -5,40 +5,36 @@
 @media screen and(max-width: 1024px)
 	#posts-wrap
 		width: 100%
-		border-top-left-radius: 0px
 		margin-top: 0px
+		border-top-left-radius: 0px
 
 @media screen and(max-width: 640px)
 	#posts-wrap
-		background: none
-		border-radius: none
+		.post-wrap
+			h2
+
+@media screen and(max-width: 470px)
+	#posts-wrap
 		border: 0px
-		box-sizing: border-box
-		margin-top: 0px
-		padding: 0px
+		border-raduius: 0px
 
 		.post-wrap
-			padding: 0px 15px
-			border: 0px
-			margin: 15px 0px
-			border-bottom: 1px solid #DDD
-
-			a > img.wp-post-image
-				float: none
-				width: 100%
-				padding: 0px
-
+			padding-left: 0px
 			h2
-				font-size: 16px
-				padding: 0px
-				margin: 10px 0px
-
-				a
-					color: #222
+				clear: left
+				display: block
+				font-size: 14px
+				line-height: 18px
+				padding: 15px 15px 0px
 
 			.basic-info-wrap
-				padding: 0px
-				margin: 5px 0px
+				padding-left: 15px
 
-				p
-					margin: 10px 0px
+			> a
+				> img.wp-post-image
+					float: left
+					width: 35%
+					height: auto
+					padding: 15px
+					padding-top: 10px
+					padding-left: 0px

@@ -27,7 +27,7 @@ $(document).ready(function(){
 		var d = new Date();
 		d.setTime(d.getTime() + (31536000));
 		var expires = "expires="+ d.toUTCString();
-		document.cookie = "info-card-closed=TRUE;" + expires;
+		document.cookie = "info-card-closed=TRUE;" + expires + ";path=/";
 	});
 
 	$("#show-info-card").click(function(){
@@ -54,6 +54,6 @@ $(document).ready(function(){
 		var d = new Date();
 		d.setTime(d.getTime() + (31536000));
 		var expires = "expires="+ d.toUTCString();
-		document.cookie = "info-card-closed=FALSE;" + expires;
+		document.cookie = "info-card-closed=FALSE;" + expires + ";path=/";
 	});
 });

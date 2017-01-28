@@ -1,15 +1,21 @@
 #posts-wrap .post-wrap.gallery
 
-	.basic-info-wrap
-		padding: ($universal-padding / 2) ($universal-padding / 2 - 5px)
-		padding-top: 0px
-		float: none
-		width: 100%
+	> .basic-info-wrap
+		padding: 0px ($universal-padding / 2) 0px 0px
+		margin: 10px 0px ($universal-padding / 2)
+		color: #444
+		font-size: 12px
+		line-height: 16px
+
+		br
+			display: none
 
 		.gallery .gallery-item
 			display: none
-			padding: 5px
+			padding-right: 5px
+			padding-top: 10px
 			margin: 0px
+			margin-bottom: ($universal-padding / 2)
 			box-sizing: border-box
 			width: 25%
 
@@ -34,13 +40,22 @@
 				padding-left: none
 				padding-bottom: none
 
-		small
-			padding: 5px
-
 @media screen and(max-width: 640px)
 	#posts-wrap .post-wrap.gallery
 		.basic-info-wrap
-			padding: 0px
-			margin: 15px 0px
 			.gallery .gallery-item
-				width: 50%
+				padding-right: 2px
+				width: 33.333333%
+				margin-bottom: 15px
+
+				&:nth-of-type(4)
+					display: none
+
+@media screen and(max-width: 470px)
+	#posts-wrap .post-wrap.gallery
+		.basic-info-wrap
+			.gallery
+				width: 105%
+
+			.gallery-date-author-info
+				padding: 0px 15px

@@ -1,6 +1,6 @@
 <?php
 if (!(isset($_COOKIE["info-card-closed"]))) {
-  setcookie("info-card-closed", "FALSE", time()+(31536000));
+  setcookie("info-card-closed", "FALSE", time()+(31536000), '/');
 }
 ?>
 <?php get_header();?>

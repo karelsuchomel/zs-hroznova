@@ -7,10 +7,10 @@
 
 	<div class="basic-info-wrap">
 		<p>
-			<?php the_content(); ?>
-			<small>
+			<div class="gallery-date-author-info">
 				<?php the_time('F jS, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
-			</small>
+			</div>
+			<?php the_content(); ?>
 		</p>
 	</div>
 </div>

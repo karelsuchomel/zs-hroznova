@@ -27,7 +27,7 @@ img {
 p {
   line-height: 1.55em;
   font-weight: 400;
-  margin: 17.5px 0px;
+  margin: 17px 0px;
 }
 
 button {
@@ -39,12 +39,12 @@ button {
 hr {
   border: 0;
   border-top: 1px solid #DCDCDC;
-  margin: 17.5px 0px 35px 0px;
+  margin: 17px 0px 34px 0px;
 }
 
 headline, h1, h2, h3 {
   font-family: "Open Sans", sans-serif;
-  margin: 35px 0px;
+  margin: 34px 0px;
   color: #333333;
   font-weight: 500;
 }
@@ -58,7 +58,7 @@ h1 {
 h2 {
   font-size: 1.5em;
   line-height: 1em;
-  margin: 35px 0px 11.66667px 0px;
+  margin: 34px 0px 11.33333px 0px;
 }
 
 h3 {
@@ -69,7 +69,7 @@ h3 {
 
 ul {
   list-style: circle #fff;
-  margin: 35px 0px;
+  margin: 34px 0px;
   padding-left: 15px;
 }
 ul li {
@@ -78,7 +78,7 @@ ul li {
 }
 
 form {
-  margin: 35px 0px;
+  margin: 34px 0px;
 }
 form em {
   font-size: 0.8em;
@@ -89,7 +89,7 @@ form ul {
   padding: 0px;
 }
 form ul li {
-  margin: 11.66667px 0px;
+  margin: 11.33333px 0px;
 }
 
 input, textarea {
@@ -130,7 +130,7 @@ table td, table th {
 }
 
 .g-recaptcha {
-  margin: 17.5px 0px;
+  margin: 17px 0px;
 }
 
 .smaller {
@@ -172,14 +172,14 @@ body {
   width: calc(100% - 220px);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 35px;
+  padding: 34px;
   padding-right: 15px;
   z-index: 1;
 }
 
 @media screen and (max-width: 1250px) {
   #content {
-    padding-right: 35px;
+    padding-right: 34px;
   }
 }
 @media screen and (max-width: 960px) {
@@ -189,13 +189,17 @@ body {
   }
 }
 @media screen and (max-width: 640px) {
-  body {
-    background: white;
+  #content {
+    padding: 34px 15px;
   }
 }
 @media screen and (max-width: 470px) {
+  body {
+    background: white;
+  }
+
   #content {
-    padding: 17.5px 0px;
+    padding: 17px 0px;
   }
 }
 #content-single-page {
@@ -203,7 +207,7 @@ body {
   max-width: 720px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 35px;
+  padding: 34px;
   margin: 0 auto;
   background: white;
   -webkit-border-radius: 3px;
@@ -227,7 +231,7 @@ body {
   font-style: italic;
 }
 #content-single-page img {
-  margin: 35px auto;
+  margin: 34px auto;
   outline: 1px solid #DDD;
   border: 3px solid white;
   max-width: 100%;
@@ -706,14 +710,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   display: none;
   width: 100%;
   background: white;
-  padding: 17.5px;
+  padding: 17px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-border-radius: 3px;
           border-radius: 3px;
   border: 1px solid #DDD;
   position: relative;
-  margin-bottom: 35px;
+  margin-bottom: 34px;
 }
 #info-card-wrap #hide-info-card {
   position: absolute;
@@ -755,7 +759,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #info-card-wrap .basic-info-wrap {
   width: -webkit-calc(100% - 250px);
   width: calc(100% - 250px);
-  padding: 0px 35px;
+  padding: 0px 34px;
   float: right;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -850,11 +854,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     float: none;
     padding: 0px;
   }
+
+  #show-info-card {
+    right: 16px;
+  }
 }
 @media screen and (max-width: 490px) {
   #show-info-card {
     top: 35px;
-    right: 35px;
+    right: 15px;
     font-size: 0px;
     border: 1px solid #DDD;
     -webkit-border-radius: 3px;
@@ -902,7 +910,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
   #show-info-card {
     top: 17.5px;
-    right: 15px;
   }
 }
 #tab-switcher {
@@ -971,6 +978,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border-left: 0px;
     position: relative;
   }
+}
+@media screen and (max-width: 470px) {
+  #tab-switcher {
+    padding: 0px 15px;
+  }
   #tab-switcher .tab-divider {
     display: block;
     position: absolute;
@@ -982,11 +994,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     left: -50%;
   }
 }
-@media screen and (max-width: 640px) {
-  #tab-switcher {
-    padding: 0px 15px;
-  }
-}
 #posts-wrap {
   width: 75%;
   float: left;
@@ -996,64 +1003,53 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   border: 1px solid #DDD;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  margin-bottom: 35px;
+  margin-bottom: 34px;
   position: relative;
 }
 #posts-wrap .post-wrap {
-  position: relative;
   overflow: hidden;
   border-bottom: 1px solid #DDD;
+  padding-left: 17px;
 }
 #posts-wrap .post-wrap:last-of-type {
   border-bottom: 0px;
 }
 #posts-wrap .post-wrap h2 {
-  padding: 0px;
-  font-size: 18px;
-  line-height: 1.4em;
-  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
   margin: 0px;
-  overflow: hidden;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-  padding: 17.5px 17.5px 11.66667px;
-}
-#posts-wrap .post-wrap h2 img {
-  display: none;
+  display: inline-block;
+  padding: 17px 17px 0px 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #posts-wrap .post-wrap h2 > a {
-  display: inline-block;
-  position: relative;
-  z-index: 2;
+  display: inline;
 }
 #posts-wrap .post-wrap h2 > a:hover, #posts-wrap .post-wrap h2 > a:active {
   text-decoration: underline;
 }
-#posts-wrap .post-wrap a > img.wp-post-image {
+#posts-wrap .post-wrap > a > img.wp-post-image {
+  float: left;
   width: 35%;
   height: auto;
-  float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 17.5px;
-  padding-top: 0px;
+  padding: 17px;
+  padding-left: 0px;
 }
 #posts-wrap .post-wrap .basic-info-wrap {
-  padding: 17.5px;
-  padding-top: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding: 0px 17px 0px 0px;
+  margin: 10px 0px 17px;
 }
 #posts-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
+  color: #444;
+  font-size: 12px;
+  line-height: 20px;
 }
 #posts-wrap .post-wrap .basic-info-wrap p > a {
   text-decoration: underline;
   color: #383838;
-}
-#posts-wrap .post-wrap .basic-info-wrap small {
-  color: #444;
 }
 
 @media screen and (min-width: 1025px) {
@@ -1064,100 +1060,84 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 @media screen and (max-width: 1024px) {
   #posts-wrap {
     width: 100%;
+    margin-top: 0px;
     -webkit-border-top-left-radius: 0px;
             border-top-left-radius: 0px;
-    margin-top: 0px;
   }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 470px) {
   #posts-wrap {
-    background: none;
-    -webkit-border-radius: none;
-            border-radius: none;
     border: 0px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 0px;
-    padding: 0px;
+    border-raduius: 0px;
   }
   #posts-wrap .post-wrap {
-    padding: 0px 15px;
-    border: 0px;
-    margin: 15px 0px;
-    border-bottom: 1px solid #DDD;
-  }
-  #posts-wrap .post-wrap a > img.wp-post-image {
-    float: none;
-    width: 100%;
-    padding: 0px;
+    padding-left: 0px;
   }
   #posts-wrap .post-wrap h2 {
-    font-size: 16px;
-    padding: 0px;
-    margin: 10px 0px;
-  }
-  #posts-wrap .post-wrap h2 a {
-    color: #222;
+    clear: left;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 15px 15px 0px;
   }
   #posts-wrap .post-wrap .basic-info-wrap {
-    padding: 0px;
-    margin: 5px 0px;
+    padding-left: 15px;
   }
-  #posts-wrap .post-wrap .basic-info-wrap p {
-    margin: 10px 0px;
+  #posts-wrap .post-wrap > a > img.wp-post-image {
+    float: left;
+    width: 35%;
+    height: auto;
+    padding: 15px;
+    padding-top: 10px;
+    padding-left: 0px;
   }
 }
 #posts-wrap .post-wrap.aside {
   background: #fbf8d0 !important;
 }
 #posts-wrap .post-wrap.aside .basic-info-wrap {
-  padding: 17.5px;
-  float: none;
-  width: 100%;
-}
-#posts-wrap .post-wrap.aside .basic-info-wrap h2 {
-  padding: 0px;
-  background: none;
-}
-#posts-wrap .post-wrap.aside .basic-info-wrap .update-info {
-  display: block;
-  color: #444;
+  padding: 0px 17px 0px 0px;
+  margin: 10px 0px 17px;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 470px) {
   #posts-wrap .post-wrap.aside .basic-info-wrap {
-    background: none;
-    padding: 0px;
-    margin: 15px 0px;
+    padding-left: 15px;
   }
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap {
-  padding: 17.5px 12.5px;
-  padding-top: 0px;
-  float: none;
-  width: 100%;
+#posts-wrap .post-wrap.gallery > .basic-info-wrap {
+  padding: 0px 17px 0px 0px;
+  margin: 10px 0px 17px;
+  color: #444;
+  font-size: 12px;
+  line-height: 16px;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap br {
   display: none;
-  padding: 5px;
+}
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item {
+  display: none;
+  padding-right: 5px;
+  padding-top: 10px;
   margin: 0px;
+  margin-bottom: 17px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 25%;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(1) {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item:nth-of-type(1) {
   display: block;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(2) {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item:nth-of-type(2) {
   display: block;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(3) {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item:nth-of-type(3) {
   display: block;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(4) {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item:nth-of-type(4) {
   display: block;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item img {
+#posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item img {
   border: none;
   width: 100%;
   height: auto;
@@ -1167,22 +1147,44 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding-left: none;
   padding-bottom: none;
 }
-#posts-wrap .post-wrap.gallery .basic-info-wrap small {
-  padding: 5px;
-}
 
 @media screen and (max-width: 640px) {
-  #posts-wrap .post-wrap.gallery .basic-info-wrap {
-    padding: 0px;
-    margin: 15px 0px;
-  }
   #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item {
-    width: 50%;
+    padding-right: 2px;
+    width: 33.33333%;
+    margin-bottom: 15px;
+  }
+  #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery .gallery-item:nth-of-type(4) {
+    display: none;
+  }
+}
+@media screen and (max-width: 470px) {
+  #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery {
+    width: 105%;
+  }
+  #posts-wrap .post-wrap.gallery .basic-info-wrap .gallery-date-author-info {
+    padding: 0px 15px;
+  }
+}
+#posts-wrap .post-wrap.type-image a > img.wp-post-image {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0px;
+  padding-right: 15px;
+  margin-top: 15px;
+  height: auto;
+  float: none;
+}
+
+@media screen and (max-width: 470px) {
+  #posts-wrap .post-wrap.type-image a > img.wp-post-image {
+    padding: 0px;
   }
 }
 #agenda-list-wrap {
-  margin-bottom: 35px;
-  padding-left: 35px;
+  margin-bottom: 34px;
+  padding-left: 34px;
   width: 25%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -1259,7 +1261,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     margin: 0 auto;
   }
   #agenda-list-wrap .day-segment {
-    padding: 70px 0px;
+    padding: 68px 0px;
     margin: 0 auto;
     width: 300px;
   }
@@ -1272,11 +1274,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 @media screen and (max-width: 640px) {
   #agenda-list-wrap {
-    margin: 35px 0px;
+    margin: 34px 0px;
     border: 0px;
   }
   #agenda-list-wrap .day-segment {
-    padding: 35px 0px;
+    padding: 34px 0px;
   }
 }
 #search-wrap {
@@ -1287,7 +1289,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0px auto 25px;
-  padding: 35px;
+  padding: 34px;
 }
 #search-wrap form.search-again {
   max-width: 700px;
@@ -1350,7 +1352,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   -webkit-box-shadow: none;
           box-shadow: none;
   padding: 0px 0px 10px;
-  margin-bottom: 23.33333px;
+  margin-bottom: 22.66667px;
   max-width: 700px;
   border-bottom: 1px solid #d9d9d9;
 }
@@ -1392,14 +1394,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
 @media screen and (max-width: 640px) {
   #search-wrap {
-    padding: 17.5px;
+    padding: 17px;
   }
 }
 @media screen and (max-width: 470px) {
   #search-wrap .post-wrap {
     padding: 0px;
     padding-bottom: 10px;
-    margin-bottom: 23.33333px;
+    margin-bottom: 22.66667px;
   }
   #search-wrap .post-wrap h2 {
     margin-bottom: 10px;
@@ -1425,7 +1427,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #pagination-wrap {
   position: relative;
-  bottom: -30px;
+  bottom: -20px;
   margin: 0 auto;
   display: block;
   width: 300px;
@@ -1451,6 +1453,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
 @media screen and (max-width: 640px) {
   #pagination-wrap {
+    bottom: -15px;
     width: 100%;
   }
 }
