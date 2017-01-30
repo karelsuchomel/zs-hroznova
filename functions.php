@@ -113,7 +113,7 @@ function zsh_customize_css() { ?>
 		nav#side-list ul#menu-bocni-seznam > li:before {
 		  background: <?php echo get_theme_mod('zsh_base_color') ?>;
 		}
-		#agenda-list-wrap .day-segment .date-label .dot {
+		#agenda-list-wrap .day-segment .date-label .dot:before {
 		  background: <?php echo get_theme_mod('zsh_base_color') ?>;
 		}
 		#search-wrap form.search-again #searchform-container .underline-animated {

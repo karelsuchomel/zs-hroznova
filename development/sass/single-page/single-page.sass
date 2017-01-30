@@ -24,7 +24,7 @@
     color: #333
     font-style: italic
 
-  img
+  > img
     margin: $universal-padding auto
     outline: 1px solid #DDD
     border: 3px solid white
@@ -33,6 +33,24 @@
     border: 0px !important
     padding: 4px
     box-sizing: border-box
+
+  .gallery
+    .gallery-item
+      width: 50%
+      float: left
+      margin: 0px
+      .gallery-icon
+        img
+          width: 100%
+          height: auto
+          box-sizing: border-box
+          border: 0px !important
+
+          &:nth-of-type(odd)
+            padding: 0px 10px 10px 0px
+
+          &:nth-of-type(even)
+            padding: 0px 0px 10px 0px
 
 .home-link
   color: #777

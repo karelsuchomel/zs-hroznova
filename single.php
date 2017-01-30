@@ -28,13 +28,10 @@
         </div>
       </div>
     <?php endwhile; else : ?>
-    <p><?php _e( 'Obsah se nepodařilo získat 😟, o nedostatku kontaktujte ✍ správu školy' ); ?></p>
+    <p><?php _e( 'Obsah se nepodařilo získat 😟, o nedostatku kontaktujte ✍ správu školy.' ); ?></p>
     <!-- REALLY stop The Loop. -->
     <?php endif; ?>
       
-
-
-
     </div>
   </div>
 

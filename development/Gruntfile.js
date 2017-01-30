@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       dist: {                  // Target
         options: {             // Target options
           style: 'expanded',   // options: nested, compact, compressed, expanded
-          sourcemap: 'none',   // options: auto, file, inline, none
+          sourcemap: 'auto',   // options: auto, file, inline, none
         },
         files: {               // Dictionary of files
           '../style.css': 'sass/import.sass',  // 'destination': 'source'

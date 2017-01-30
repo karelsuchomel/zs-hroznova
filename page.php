@@ -23,18 +23,16 @@
           <p>
             <?php the_content(); ?>
             <br>
-            <br>
+            <a href="<?php echo get_home_url(); ?>" class="home-link">🠘 Hlavní strana</a>
           </p>
         </div>
       </div>
-        
     <?php endwhile; else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <p><?php _e( 'Obsah se nepodařilo získat 😟, o nedostatku kontaktujte ✍ správu školy.' ); ?></p>
     <!-- REALLY stop The Loop. -->
-    <?php endif; ?>
-      
+    <?php endif; ?>    
 
-  </div>
+   </div>
   </div>
 
 </div>

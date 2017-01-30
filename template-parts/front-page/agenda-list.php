@@ -69,7 +69,7 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 
 endwhile;
 //print_r($plannedActionsArray);
-
+/*
 // TODO - order by planedAction->date
 function sortPlannedActionsByDateValue() {
 	global $plannedActionsArray;
@@ -94,7 +94,8 @@ function sortPlannedActionsByDateValue() {
 
 	} while ($swapped === false);
 }
-sortPlannedActionsByDateValue();
+//sortPlannedActionsByDateValue();
+*/
 
 $usedDatesArr = array();
 foreach ($plannedActionsArray as $planedAction) {
