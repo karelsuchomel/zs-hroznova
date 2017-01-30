@@ -1,3 +1,5 @@
 .sass-cache/
 .ftppass
 node_modules/
+development/node_modules/
+development/.sass-cache/

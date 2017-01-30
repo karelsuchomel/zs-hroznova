@@ -1,9 +1,12 @@
 <?php
 
+// custom meta boxes for administration
+require_once('custom-meta-box-setup.php');
+
 // import stylesheet
 function learningWordPress_resources () {
   wp_enqueue_style('style', get_stylesheet_uri());
-  wp_enqueue_script('page-behave', get_template_directory_uri() . '/js/main.js', array(), 1.1, true );
+  wp_enqueue_script('page-behave', get_template_directory_uri() . '/assets/js/main.js', array(), 1.1, true );
 }
 
 // so the previous code actualy runs
@@ -47,12 +50,12 @@ add_action('after_setup_theme', 'zshroznova_theme_setup');
 function zsh_theme_customize_register($wp_customize) {
 
 	$wp_customize->add_setting('zsh_base_color', array(
-		'default' => '#58b501',
+		'default' => '#27b240',
 		'transport' => 'refresh',
 	));
 
 	$wp_customize->add_setting('zsh_light_base_color', array(
-		'default' => '#79d820',
+		'default' => '#39c64e',
 		'transport' => 'refresh',
 	));
 

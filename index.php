@@ -5,7 +5,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 ?>
 <?php get_header();?>
 
-<?php require_once('layout/menu-top-bar.php') ?>
+<?php require_once('template-parts/navigation/menu-top-bar.php') ?>
 
 <div id="content-wrap" class="clear-both">
 
@@ -15,16 +15,16 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
   <?php } ?>
   >
     Zobrazit kartu s informacemi
-    <img src="<?php bloginfo('template_directory'); ?>/img/arrow-down-icon.svg">
+    <img src="<?php bloginfo('template_directory'); ?>/assets/images/arrow-down-icon.svg">
   </div>
 
 
-  <?php require_once('layout/menu-side-list.php') ?>
+  <?php require_once('template-parts/navigation/menu-side-list.php') ?>
 
   <div id="content" class="clear-both">
 
     <!-- card with most searched information -->
-    <?php require_once('layout/info-card.php'); ?>
+    <?php require_once('template-parts/front-page/info-card.php'); ?>
 
     <!-- listing posts -->
     <div id="tab-switcher" class="clear-both">
@@ -37,7 +37,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
     <!-- Start the Loop. -->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <?php get_template_part('content', get_post_format()); ?>
+      <?php get_template_part('template-parts/post/content', get_post_format()); ?>
         
     <?php endwhile; ?>
 
@@ -51,7 +51,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
     <!-- REALLY stop The Loop. -->
     <?php endif; ?>
 
-    <?php require_once('layout/agenda-list.php') ?>
+    <?php require_once('template-parts/front-page/agenda-list.php') ?>
 
   </div>
 

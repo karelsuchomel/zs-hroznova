@@ -1,10 +1,10 @@
 <?php get_header();?>
 
-<?php require_once('layout/menu-top-bar.php') ?>
+<?php require_once('template-parts/navigation/menu-top-bar.php') ?>
 
 <div id="content-wrap" class="clear-both">
 
-  <?php require_once('layout/menu-side-list.php') ?>
+  <?php require_once('template-parts/navigation/menu-side-list.php') ?>
 
   <div id="content">
     <div id="content-single-page">
@@ -23,18 +23,19 @@
           <p>
             <?php the_content(); ?>
             <br>
-            <br>
+            <a href="<?php echo get_home_url(); ?>" class="home-link">🠘 Hlavní strana</a>
           </p>
         </div>
       </div>
-        
     <?php endwhile; else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+    <p><?php _e( 'Obsah se nepodařilo získat 😟, o nedostatku kontaktujte ✍ správu školy' ); ?></p>
     <!-- REALLY stop The Loop. -->
     <?php endif; ?>
       
 
-  </div>
+
+
+    </div>
   </div>
 
 </div>

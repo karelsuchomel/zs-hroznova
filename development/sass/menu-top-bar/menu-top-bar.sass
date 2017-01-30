@@ -1,0 +1,118 @@
+nav#top-bar
+	width: 100%
+	position: relative
+	z-index: 6
+	background: $base-color
+
+#menu-top-bar
+	max-width: $content-max-width
+	height: 60px
+	margin: 0 auto
+
+	#logo-wrapper
+		display: block
+		float: left
+		background-color: $base-color
+		width: 220px
+		padding: 13px 0px
+		cursor: pointer
+		img
+			max-height: 34px
+			height: auto
+			max-width: 162px
+			margin: 0 auto
+
+		&:hover
+			transition: 0.2s
+			background-color: $base-color-light
+		&:active
+			img
+				transform: scale(0.95) 
+
+.menu-horni-lista-container
+	float: right
+
+	ul#menu-horni-lista
+		margin: 0px
+		padding: 0px
+		list-style: none
+
+		li
+			overflow: hidden
+			position: relative
+			display: block
+			float: left
+			> a
+				background: $base-color
+				display: inline-block
+				height: 60px
+				line-height: 60px
+				box-sizing: border-box
+				padding: 0px 15px
+				color: white
+				font-size: 13px
+				font-weight: 600
+				text-transform: lowercase
+
+				&:hover
+					&:after
+						transform: scale(1,1)
+
+				&:active
+					background: $base-color-light
+
+				&:after
+					content: ""
+					display: block
+					position: absolute
+					z-index: 3
+					width: calc(100% - 30px)
+					height: 3px
+					//border-radius: 2px
+					bottom: 15px
+					background-color: white
+					transition: 0.2s
+					transform: scale(0,1)
+
+			&:last-of-type
+				> a 
+					&:before
+						content: ""
+						background-image: url('assets/images/icon-edookit.png')
+						background-size: contain
+						display: inline-block
+						position: absolute
+						height: 20px
+						width: 20px
+						position: relative
+						margin-right: 7px
+						bottom: -3px
+
+.icon-hamburger-menu
+	display: none
+	float: left
+	height: 50px
+	width: 50px
+	box-sizing: border-box
+	padding: 10px 12px
+	overflow: hidden
+	cursor: pointer
+	position: relative
+
+	&:active
+		background: $base-color-light
+
+	.line
+		position: relative
+		height: 3px
+		border-radius: 2px
+		width: 100%
+		background: white
+		margin: 5px 0px
+		transition: 0.3s
+		transform-origin: left center
+
+input#toggle-menu-checkbox
+	display: none
+
+@import "menu-top-bar-responsive"
