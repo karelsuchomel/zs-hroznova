@@ -34,8 +34,7 @@ function zshroznova_theme_setup(){
 	// add featured image support
 	add_theme_support('post-thumbnails');
 	// define image sizes
-	add_image_size('small-thumbnail', 250, 187, true);
-
+	set_post_thumbnail_size( 252, 189, true );
 	// add post format support
 	add_theme_support('post-formats', array('aside', 'gallery', 'image'));
 

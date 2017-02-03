@@ -39,7 +39,7 @@
     <?php } }else{ ?>
     <p>
     	<h3>Nic jsme nenašli</h3>
-    	<img id="nothing-found-image" src="<?php bloginfo('template_directory'); ?>/img/nothing_found.png">
+    	<img id="nothing-found-image" src="<?php bloginfo('template_directory'); ?>/assets/images/nothing_found.png">
     	<!-- <script>
     		var host = document.location.origin + document.location.pathname;
     		document.getElementById("nothing-found-image").src= host + "/wp-content/themes/zs-hroznova/img/nothing_found.png";

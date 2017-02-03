@@ -42,6 +42,7 @@ class planedAction {
 }
 
 $plannedActionsArray = array();
+$today = date('Ymd');
 
 while ( $the_query->have_posts() ) : $the_query->the_post();
 
@@ -54,48 +55,60 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 	if (isset($metaDate[0])) {
 
 		list($month, $day, $year) = explode("/", $metaDate[0]);
-		$dateValueHolder = $year . $day . $month;
+		$dateValueHolder = $year . $month . $day;
 
+		if (!($today > $dateValueHolder)) {
 
-		$newAction = new planedAction();
-		$newAction->date = $metaDate[0];
-		$newAction->title = get_the_title();
-		$newAction->link = get_the_permalink();
-		$newAction->dateValue = $dateValueHolder;
+			$newAction = new planedAction();
+			$newAction->date = $metaDate[0];
+			$newAction->title = get_the_title();
+			$newAction->link = get_the_permalink();
+			$newAction->dateValue = $dateValueHolder;
 
-		array_push($plannedActionsArray, $newAction);
+			array_push($plannedActionsArray, $newAction);
+
+		}
 
 	}
 
 endwhile;
 //print_r($plannedActionsArray);
-/*
+
 // TODO - order by planedAction->date
 function sortPlannedActionsByDateValue() {
 	global $plannedActionsArray;
 	$n = count($plannedActionsArray);
+	//echo "array length: {$n}<br>";
 
 	do {
 
-		$swapped = false;
+		$swapped = 0;
 
-		for ($i = 1; $i < $n; $i++) {
+		$i = 1;
+		while ( $i < $n ) {
 
-			if ($plannedActionsArray[$i - 1]->dateValue > $plannedActionsArray[$i]->dateValue) {
+			//echo "{$plannedActionsArray[$i - 1]->dateValue} > {$plannedActionsArray[$i]->dateValue}<br>";
+
+			if (($plannedActionsArray[$i - 1]->dateValue) > ($plannedActionsArray[$i]->dateValue)) {
 				//swap
 				$tmp = $plannedActionsArray[$i - 1];
 				$plannedActionsArray[$i - 1] = $plannedActionsArray[$i];
 				$plannedActionsArray[$i] = $tmp;
 				
-				$swapped = true;	
+				//echo "swapped<br>";
+				$swapped = 1;	
+			} else {
+				//echo "not swapped<br>";
 			}
+
+			//echo "i = $i<br>";
+			$i += 1;
 
 		}
 
-	} while ($swapped === false);
+	} while ($swapped === 1);
 }
-//sortPlannedActionsByDateValue();
-*/
+sortPlannedActionsByDateValue();
 
 $usedDatesArr = array();
 foreach ($plannedActionsArray as $planedAction) {
@@ -105,7 +118,7 @@ foreach ($plannedActionsArray as $planedAction) {
 	
 	$month = ltrim($month, '0');
 	$day = ltrim($day, '0');
-	$months = array('ledena', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince');
+	$months = array('ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září', 'října', 'listopadu', 'prosince');
 	$month = $months[$month - 1];
 
 	if (!in_array($planedAction->date, $usedDatesArr)){
