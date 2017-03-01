@@ -57,9 +57,13 @@ module.exports = function(grunt) {
         },
       },
       concat_COPY: {
-        files: {
-          '../assets/js/modal-picture-view.js': ['js-dev/modal-picture-view.js'],
-        },
+        files: [{
+          expand: true,
+          cwd: 'js-dev/', // Parent directory
+          src: '*.js',
+          ext: '.js',
+          dest: '../assets/js/',
+        }],
       },
       concat_CSS: {
         options: {

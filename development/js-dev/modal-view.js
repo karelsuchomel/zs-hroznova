@@ -1,11 +1,11 @@
 // Get the modal
-var modal = document.getElementById('modal-wrap');
+const modal = document.getElementById('modal-wrap');
 // Get the modal content
-var modalContent = document.getElementById('modal-content');
+const modalContent = document.getElementById('modal-content');
 // Get modal background
-var modalBG = document.getElementById('modal-background');
+const modalBG = document.getElementById('modal-background');
 // Get anchor tags, that triggers the modal
-var anchorsArray = $("#content-single-page a:has(img)");
+const anchorsArray = $("#content-single-page a:has(img)");
 // All anchors with images are display: block
 
 // vars
@@ -48,7 +48,7 @@ function openPictureModal (scale, translateX, translateY, targetHeight)
 	modalState = "open";
 };
 
-function closePictureModal (scale, translateX, translateY)
+function closePictureModal (scale)
 {
 	modalContent.style.transform = "scale(" + scale + ") translate(" + 0 + "px, " + 0 + "px)";
 	modalBG.style.animationName = "fadeOut";
@@ -77,19 +77,28 @@ function drawModalSingleImage (e)
 	// set the width (scale) and position to be as the anchor
 	var currentAnchor = e.currentTarget;
 	var anchorWidth = $(currentAnchor).width();
+	console.log("anchorWidth: " + anchorWidth + "px");
+
+	const viewportWidth = document.documentElement.clientWidth;
+	const modalContentWidth = $("#content-wrap").width();
+	initialModalScale = (anchorWidth / modalContentWidth);
+	// if viewport wider than #content-wrap
+	var widthContentDifference = 0;
+	if ( viewportWidth > modalContentWidth ) {
+		widthContentDifference = (viewportWidth - modalContentWidth) / 2;
+	}
+
 	var anchorOffsets = e.currentTarget.getBoundingClientRect();
 	var anchorOffTop = anchorOffsets.top;
-	var anchorOffLeft = anchorOffsets.left;
+	var anchorOffLeft = (anchorOffsets.left) - widthContentDifference;
 
 	modalContent.style.top = anchorOffTop + "px";
 	modalContent.style.left = anchorOffLeft + "px";
 	modalContent.style.transformOrigin = "top left";
 
-	var viewportWidth = $("#content-wrap").width();
-	initialModalScale = (anchorWidth / viewportWidth);
 	modalContent.style.transform = "scale(" + initialModalScale + ")";
 
-	var afterZoomScale = (viewportWidth / anchorWidth);
+	var afterZoomScale = (modalContentWidth / anchorWidth);
 	openPictureModal( afterZoomScale, (-anchorOffLeft), (-anchorOffTop), e.target.height);
 };
 

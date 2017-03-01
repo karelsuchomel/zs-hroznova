@@ -25,7 +25,6 @@
           <p>
             <?php the_content(); ?>
             <br>
-            <a href="<?php echo get_home_url(); ?>" class="home-link">🠘 Hlavní strana</a>
           </p>
         </div>
       </div>
@@ -40,7 +39,7 @@
 </div>
 
 <!-- modal picture view script -->
-<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-picture-view.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
 
 <?php
 

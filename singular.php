@@ -41,7 +41,7 @@
 </div>
 
 <!-- modal picture view script -->
-<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-picture-view.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
 
 <?php
 
