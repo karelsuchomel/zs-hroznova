@@ -9,12 +9,14 @@
     <!-- Links-->
     <!-- Fonts-->
     <!-- Open Sans Light 300, Light Italic, Normal 400, Semi-bold 600, Bold 700-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&amp;subset=latin-ext" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&amp;subset=latin-ext" rel="stylesheet">
     <!-- JS  -->
     <!-- Include google RECAPTCHA API -->
     <script src='https://www.google.com/recaptcha/api.js'></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <?php wp_head(); ?>
   </head>
-  <body <?php body_class(); ?>>
+  <body <?php body_class(); ?> >
 
     <!-- site-header -->

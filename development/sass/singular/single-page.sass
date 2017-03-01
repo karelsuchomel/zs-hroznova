@@ -7,6 +7,11 @@
   background: white
   border-radius: 3px
 
+  a
+    display: inline-block
+    margin: 0 auto
+    position: relative
+
   h2
     font-weight: 600
     margin-top: 0px
@@ -24,17 +29,25 @@
     color: #333
     font-style: italic
 
+  // only anchor tag which has a img in it
+  a img
+    margin: 0px
+    cursor: zoom-in
+
   img
     margin: $universal-padding auto
-    max-width: 100% !important
+    max-width: 100%
     height: auto
     border: 0px !important
+    transition: transform 0.3s
     
   .wp-caption
     margin: $universal-padding auto
     max-width: 100% !important
-    a > img
-      margin: 0px
+    a 
+      display: block
+      > img
+        margin: 0px
 
     .wp-caption-text
       font-size: 12px
@@ -62,6 +75,9 @@
 
 
       .gallery-icon
+        a
+          display: block
+
         img
           margin: 0px
           width: 100%

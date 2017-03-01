@@ -1,5 +1,8 @@
 <?php get_header();?>
 
+<!-- modal template -->
+<?php require_once('template-parts/modals/modal-picture-view.php')?>
+
 <?php require_once('template-parts/navigation/menu-top-bar.php') ?>
 
 <div id="content-wrap" class="clear-both">
@@ -30,12 +33,15 @@
     <?php endwhile; else : ?>
     <p><?php _e( 'Obsah se nepodařilo získat 😟, o nedostatku kontaktujte ✍ správu školy.' ); ?></p>
     <!-- REALLY stop The Loop. -->
-    <?php endif; ?>    
-
-   </div>
+    <?php endif; ?>
+      
+    </div>
   </div>
 
 </div>
+
+<!-- modal picture view script -->
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-picture-view.js"></script>
 
 <?php
 

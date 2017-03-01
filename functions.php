@@ -12,9 +12,6 @@ function learningWordPress_resources () {
 // so the previous code actualy runs
 add_action('wp_enqueue_scripts', 'learningWordPress_resources');
 
-
-
-
 // Filter wp_nav_menu() to add additional links and other output
 function new_nav_menu_items($items) {
 	$items = $items;

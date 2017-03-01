@@ -3,12 +3,20 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       watchSASS: {
-        files: ['sass/**/*.sass'],
-        tasks: ['sass'],
+        files: ['sass/**/*.sass', '!_sass/tpl-specific/**/*.sass'],
+        tasks: ['sass:main'],
       },
-      watchJS: {
-        files: ['js-dev/**/*.js'],
+      watchSpecificSASS: {
+        files: ['sass/tpl-specific/**/*.sass'],
+        tasks: ['sass:specific'],
+      },
+      watchMainJS: {
+        files: ['js-dev/main/*.js'],
         tasks: ['concat:concat_JS'],
+      },
+      watchOtherJS: {
+        files: ['js-dev/*.js'],
+        tasks: ['concat:concat_COPY'],
       },
       watchCSS: {
         files: ['../style.css'],
@@ -19,22 +27,39 @@ module.exports = function(grunt) {
       },
     },
     sass: {
-      dist: {                  // Target
+      main: {
         options: {             // Target options
           style: 'expanded',   // options: nested, compact, compressed, expanded
-          sourcemap: 'auto',   // options: auto, file, inline, none
+          sourcemap: 'none',   // options: auto, file, inline, none
         },
         files: {               // Dictionary of files
           '../style.css': 'sass/import.sass',  // 'destination': 'source'
-        }
-      }
+        },
+      },
+      specific: {
+        options: {               // Target options
+          style: 'expanded',     // options: nested, compact, compressed, expanded
+          sourcemap: 'none',     // options: auto, file, inline, none
+        },
+        files: [{                 // Dictionary of files
+          expand: true,
+          cwd: 'sass/tpl-specific/', // Parent directory
+          src: '**/*.sass',
+          ext: '.css',
+          dest: '../assets/css/',
+        }],
+      },
     },
     concat: {
       concat_JS: {
         files: {
-          '../assets/js/main.js': ['js-dev/**/*.js'],
+          '../assets/js/main.js': ['js-dev/main/*.js'],
         },
-        nonull: true,
+      },
+      concat_COPY: {
+        files: {
+          '../assets/js/modal-picture-view.js': ['js-dev/modal-picture-view.js'],
+        },
       },
       concat_CSS: {
         options: {
@@ -43,7 +68,6 @@ module.exports = function(grunt) {
         files: {
           '../style.css': ['sass/style-header.css', '../style.css'],
         },
-        nonull: true,
       },
     },
     postcss: {

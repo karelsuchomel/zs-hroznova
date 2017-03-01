@@ -42,6 +42,9 @@ nav#top-bar
 			position: relative
 			display: block
 			float: left
+			> a::first-letter
+				text-transform: uppercase
+
 			> a
 				background: $base-color
 				display: inline-block
@@ -52,7 +55,7 @@ nav#top-bar
 				color: white
 				font-size: 13px
 				font-weight: 600
-				text-transform: capitalize
+				text-transform: lowercase
 
 				&:hover
 					&:after
