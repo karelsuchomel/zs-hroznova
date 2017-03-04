@@ -1,8 +1,8 @@
-<?php /* Template Name: Obědy */ ?>
+<?php /* Template Name: Obědy-šablona */ ?>
 
 <?php get_header();?>
 <!-- get specified CSS -->
-<link  rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/rozvrhy.css">
+<link  rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/tpl-lunches.css">
 <!-- modal template -->
 <?php require_once('modals/modal-picture-view.php') ?>
 
@@ -13,32 +13,17 @@
   <?php require_once('navigation/menu-side-list.php') ?>
 
   <div id="content">
-    <div id="content-single-page" class="tpl-rozvrhy">
+    <div id="content-single-page" class="tpl-lunches">
 
-    <h1>Obědy</h1>
-    <canvas id="the-canvas" style="border:1px solid #CCC;"/>
+    <h2>Obědy</h2>
+    <!-- Start the Loop. -->
+    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+      <?php the_content(); ?>
+    <?php endwhile; else : ?>
+    <p><?php _e( 'Obsah se nepodařilo získat 😟, o chybě kontaktujte ✍ správu školy.' ); ?></p>
+    <!-- REALLY stop The Loop. -->
+    <?php endif; ?>
 
-<script src="<?php bloginfo('template_directory'); ?>/assets/pdf.js/pdf.js"></script>
-<script>
-PDFJS.getDocument('../../wp-content/uploads/2017/03/2703_03_17.pdf').then(function(pdf) {
-  pdf.getPage(1).then(function(page) {
-    var scale = 1;
-    var viewport = page.getViewport(scale);
-
-    var canvas = document.getElementById('the-canvas');
-    var context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = 652;
-
-    var renderContext = {
-      canvasContext: context,
-      viewport: viewport
-    };
-    page.render(renderContext);
-  });
-});
-</script>
-      
     </div>
   </div>
 
@@ -46,6 +31,10 @@ PDFJS.getDocument('../../wp-content/uploads/2017/03/2703_03_17.pdf').then(functi
 
 <!-- modal picture view script -->
 <script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
+<!-- pdf.js -->
+<script src="<?php bloginfo('template_directory'); ?>/assets/pdf.js/pdf.js"></script>
+<!-- setup pdf.js -->
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/pdf-viewer.js"></script>
 
 <?php
 
