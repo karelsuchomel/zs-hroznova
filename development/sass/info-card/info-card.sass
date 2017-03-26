@@ -2,7 +2,6 @@
 	display: none
 	width: 100%
 	background: white
-	padding: ($universal-padding / 2)
 	box-sizing: border-box
 	border-radius: 3px
 	border: 1px solid #DDD
@@ -10,13 +9,14 @@
 	margin-bottom: $universal-padding
 
 	#hide-info-card
+		user-select: none
 		position: absolute
+		z-index: 2
 		top: 0px
 		right: 0px
 		height: 15px
 		padding: 5px 10px
 		cursor: pointer
-		background: white
 		font-size: 12px
 		color: #AAA
 		transition: 0.3s
@@ -35,22 +35,53 @@
 			transition: 0.3s
 			transform: translateY(-20px)
 
-	> img
+	#hero-image
+		position: absolute
+		top: 0px
+		left: 0px
 		float: left
-		max-width: 250px
-
-	.basic-info-wrap
-		width: calc(100% - 250px)
-		padding: 0px $universal-padding
-		float: right
-		box-sizing: border-box
+		z-index: 0
+		width: 75%
+		height: 100%
+		border-radius: 3px 0px 0px 3px
+		overflow: hidden
 
 		h1
+			position: relative
+			z-index: 1
+			color: white
+			padding: ($universal-padding / 2)
+			padding-bottom: ($universal-padding * 2)
+			background: linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.35), rgba(0,0,0,0))
 			margin: 0px
 			text-align: left
 			font-weight: 300
 			font-size: 2.0em
 			font-size: 2.0em
+
+		> img
+			position: absolute
+			top: 0px
+			left: 0px
+			width: 100%
+			border-radius: 3px 0px 0px 3px
+			z-index: 0
+
+
+	.basic-info-wrap
+		position: relative
+		width: 25%
+		box-sizing: border-box
+		background: white
+		z-index: 1
+		float: right
+		border-radius: 0px 3px 3px 0px
+		padding: 0px ($universal-padding / 2)
+		padding-bottom: $universal-padding
+
+		h2
+			font-size: 16px
+			font-weight: 400
 
 		hr
 			margin: 7px 0px
@@ -62,16 +93,20 @@
 			font-style: italic
 			max-width: 220px
 			display: inline-block
-			margin-right: 15px
 
 			li
-				display: inline-block
-				padding: 4px 4px 4px 0px
+				display: block
+				padding: 4px 0px 4px 0px
 				max-width: 220px
-				line-height: 14px
+				line-height: 20px
 				box-sizing: border-box
 
+				a
+					color: ForestGreen 
+					text-decoration: underline
+
 #show-info-card
+	user-select: none
 	position: absolute
 	display: none
 	top: 5px

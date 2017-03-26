@@ -179,7 +179,7 @@ body {
   z-index: 1;
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1180px) {
   #content {
     padding-right: 34px;
   }
@@ -782,7 +782,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   display: none;
   width: 100%;
   background: white;
-  padding: 17px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-border-radius: 3px;
@@ -792,13 +791,17 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   margin-bottom: 34px;
 }
 #info-card-wrap #hide-info-card {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
+  z-index: 2;
   top: 0px;
   right: 0px;
   height: 15px;
   padding: 5px 10px;
   cursor: pointer;
-  background: white;
   font-size: 12px;
   color: #AAA;
   -webkit-transition: 0.3s;
@@ -824,24 +827,58 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
       -ms-transform: translateY(-20px);
           transform: translateY(-20px);
 }
-#info-card-wrap > img {
+#info-card-wrap #hero-image {
+  position: absolute;
+  top: 0px;
+  left: 0px;
   float: left;
-  max-width: 250px;
+  z-index: 0;
+  width: 75%;
+  height: 100%;
+  -webkit-border-radius: 3px 0px 0px 3px;
+          border-radius: 3px 0px 0px 3px;
+  overflow: hidden;
 }
-#info-card-wrap .basic-info-wrap {
-  width: -webkit-calc(100% - 250px);
-  width: calc(100% - 250px);
-  padding: 0px 34px;
-  float: right;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-#info-card-wrap .basic-info-wrap h1 {
+#info-card-wrap #hero-image h1 {
+  position: relative;
+  z-index: 1;
+  color: white;
+  padding: 17px;
+  padding-bottom: 68px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.55)), color-stop(rgba(0, 0, 0, 0.35)), to(transparent));
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   margin: 0px;
   text-align: left;
   font-weight: 300;
   font-size: 2em;
   font-size: 2em;
+}
+#info-card-wrap #hero-image > img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  -webkit-border-radius: 3px 0px 0px 3px;
+          border-radius: 3px 0px 0px 3px;
+  z-index: 0;
+}
+#info-card-wrap .basic-info-wrap {
+  position: relative;
+  width: 25%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: white;
+  z-index: 1;
+  float: right;
+  -webkit-border-radius: 0px 3px 3px 0px;
+          border-radius: 0px 3px 3px 0px;
+  padding: 0px 17px;
+  padding-bottom: 34px;
+}
+#info-card-wrap .basic-info-wrap h2 {
+  font-size: 16px;
+  font-weight: 400;
 }
 #info-card-wrap .basic-info-wrap hr {
   margin: 7px 0px;
@@ -853,18 +890,25 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   font-style: italic;
   max-width: 220px;
   display: inline-block;
-  margin-right: 15px;
 }
 #info-card-wrap .basic-info-wrap ul li {
-  display: inline-block;
-  padding: 4px 4px 4px 0px;
+  display: block;
+  padding: 4px 0px 4px 0px;
   max-width: 220px;
-  line-height: 14px;
+  line-height: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+#info-card-wrap .basic-info-wrap ul li a {
+  color: ForestGreen;
+  text-decoration: underline;
+}
 
 #show-info-card {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   position: absolute;
   display: none;
   top: 5px;
@@ -902,32 +946,76 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
           transform: translateY(-45px);
 }
 
-@media screen and (max-width: 1250px) {
-  #info-card-wrap {
-    width: auto;
+@media screen and (max-width: 1140px) {
+  #info-card-wrap .basic-info-wrap {
+    width: 225px;
   }
 }
 @media screen and (max-width: 1025px) {
+  #info-card-wrap #hero-image {
+    width: -webkit-calc(100% - 225px);
+    width: calc(100% - 225px);
+  }
+  #info-card-wrap #hero-image > img {
+    width: 115%;
+    min-width: 505px;
+    margin-left: -60px;
+  }
+
   #show-info-card {
     top: 42px;
     right: 35px;
   }
 }
 @media screen and (max-width: 640px) {
-  #info-card-wrap img {
-    display: none;
-  }
-  #info-card-wrap .basic-info-wrap {
-    width: 100%;
-    float: none;
-    padding: 0px;
+  #info-card-wrap #hero-image > img {
+    margin-left: -120px;
   }
 
   #show-info-card {
     right: 16px;
   }
 }
+@media screen and (max-width: 560px) {
+  #info-card-wrap #hero-image > img {
+    margin-left: -200px;
+  }
+}
 @media screen and (max-width: 490px) {
+  #info-card-wrap #hero-image {
+    width: 100%;
+    float: none;
+    position: relative;
+    -webkit-border-radius: 3px 3px 0px 0px;
+            border-radius: 3px 3px 0px 0px;
+  }
+  #info-card-wrap #hero-image > img {
+    width: 100%;
+    min-width: 0px;
+    -webkit-border-radius: 3px 3px 0px 0px;
+            border-radius: 3px 3px 0px 0px;
+    margin-left: 0px;
+  }
+  #info-card-wrap #hide-info-card {
+    color: white;
+  }
+  #info-card-wrap #hide-info-card:hover {
+    color: #DDD;
+  }
+  #info-card-wrap .basic-info-wrap {
+    width: 100%;
+    float: none;
+    -webkit-border-radius: 0px 0px 3px 3px;
+            border-radius: 0px 0px 3px 3px;
+  }
+  #info-card-wrap .basic-info-wrap hr {
+    display: none;
+  }
+  #info-card-wrap .basic-info-wrap .info-block {
+    width: 50%;
+    float: left;
+  }
+
   #show-info-card {
     top: 40px;
     right: 15px;
@@ -965,11 +1053,36 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border-right: 0px;
     -webkit-border-radius: 0px;
             border-radius: 0px;
-    padding: 15px;
+    border-top: 0px;
+    padding: 0px 0px 15px 0px;
+    top: -17px;
+  }
+  #info-card-wrap #hero-image {
+    -webkit-border-radius: 0px;
+            border-radius: 0px;
+  }
+  #info-card-wrap #hero-image > img {
+    -webkit-border-radius: 0px;
+            border-radius: 0px;
+  }
+  #info-card-wrap .basic-info-wrap {
+    padding: 0px 15px;
+  }
+  #info-card-wrap .basic-info-wrap hr {
+    display: none;
+  }
+  #info-card-wrap #hide-info-card {
+    top: 0px;
+    right: 6px;
   }
 
   #show-info-card {
     top: 22px;
+  }
+}
+@media screen and (max-width: 350px) {
+  #info-card-wrap #hero-image h1 {
+    font-size: 24px;
   }
 }
 #tab-switcher {

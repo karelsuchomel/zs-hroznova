@@ -1,29 +1,67 @@
-@media screen and(max-width: ($content-max-width + 70px))
+@media screen and(max-width: 1140px)
 	#info-card-wrap
-		width: auto
+		.basic-info-wrap
+			width: 225px
 
 @media screen and(max-width: 1025px)
+	#info-card-wrap
+		#hero-image
+			width: calc(100% - 225px)
+
+			> img
+				width: 115%
+				min-width: 505px
+				margin-left: -60px
+
 	#show-info-card
 		top: 42px
 		right: 35px
 
 @media screen and(max-width: 640px)
 	#info-card-wrap
-
-		img
-			display: none 
-
-		.basic-info-wrap
-			width: 100%
-			float: none
-			padding: 0px
-
-			h1
+		#hero-image
+			> img
+				margin-left: -120px
 
 	#show-info-card
 		right: 16px
 
+@media screen and(max-width: 560px)
+	#info-card-wrap
+		#hero-image
+			> img
+				margin-left: -200px
+
 @media screen and(max-width: 490px)
+	#info-card-wrap
+		#hero-image
+			width: 100%
+			float: none
+			position: relative
+			border-radius: 3px 3px 0px 0px
+
+			> img
+				width: 100%
+				min-width: 0px
+				border-radius: 3px 3px 0px 0px
+				margin-left: 0px
+
+		#hide-info-card
+			color: white
+			&:hover
+				color: #DDD
+
+		.basic-info-wrap
+			width: 100%
+			float: none
+			border-radius: 0px 0px 3px 3px
+
+			hr
+				display: none
+			.info-block
+				width: 50%
+				float: left
+
 	#show-info-card
 		top: 40px
 		right: 15px
@@ -54,7 +92,33 @@
 		border-left: 0px
 		border-right: 0px
 		border-radius: 0px
-		padding: 15px
+		border-top: 0px
+		padding: 0px 0px 15px 0px
+		top: -17px
+		//margin-bottom: 15px
+
+		#hero-image
+			border-radius: 0px
+
+			> img
+				border-radius: 0px
+
+		.basic-info-wrap
+			padding: 0px 15px
+
+			hr
+				display: none
+			.info-block
+
+		#hide-info-card
+			top: 0px
+			right: 6px
 
 	#show-info-card
 		top: 22px
+
+@media screen and(max-width: 350px)
+	#info-card-wrap
+		#hero-image
+			h1
+				font-size: 24px
