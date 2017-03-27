@@ -845,14 +845,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   color: white;
   padding: 17px;
   padding-bottom: 68px;
+  padding-right: 34px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.55)), color-stop(rgba(0, 0, 0, 0.35)), to(transparent));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   margin: 0px;
   text-align: left;
   font-weight: 300;
-  font-size: 2em;
-  font-size: 2em;
+  font-size: 2.5em;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 #info-card-wrap #hero-image > img {
   position: absolute;
@@ -874,9 +875,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   -webkit-border-radius: 0px 3px 3px 0px;
           border-radius: 0px 3px 3px 0px;
   padding: 0px 17px;
-  padding-bottom: 34px;
+  padding-bottom: 25px;
 }
 #info-card-wrap .basic-info-wrap h2 {
+  margin: 25px 0px 5px 0px;
   font-size: 16px;
   font-weight: 400;
 }
@@ -946,6 +948,28 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
           transform: translateY(-45px);
 }
 
+.map-container.small-screen-display-block {
+  display: none;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.map-container.small-screen-display-block > img {
+  width: 100%;
+}
+.map-container.small-screen-display-block > a {
+  color: ForestGreen;
+  text-decoration: underline;
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  top: 55%;
+  left: -webkit-calc(50% - 75px);
+  left: calc(50% - 75px);
+}
+
 @media screen and (max-width: 1140px) {
   #info-card-wrap .basic-info-wrap {
     width: 225px;
@@ -975,13 +999,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   #show-info-card {
     right: 16px;
   }
-}
-@media screen and (max-width: 560px) {
+
   #info-card-wrap #hero-image > img {
     margin-left: -200px;
   }
-}
-@media screen and (max-width: 490px) {
+
   #info-card-wrap #hero-image {
     width: 100%;
     float: none;
@@ -1046,6 +1068,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
         -ms-transform: translateY(-45px);
             transform: translateY(-45px);
   }
+
+  .small-screen-display-none {
+    display: none !important;
+  }
+
+  .small-screen-display-block {
+    display: block !important;
+  }
 }
 @media screen and (max-width: 470px) {
   #info-card-wrap {
@@ -1054,8 +1084,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     -webkit-border-radius: 0px;
             border-radius: 0px;
     border-top: 0px;
-    padding: 0px 0px 15px 0px;
+    padding: 0px;
     top: -17px;
+    margin-bottom: 15px;
   }
   #info-card-wrap #hero-image {
     -webkit-border-radius: 0px;
@@ -1066,7 +1097,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
             border-radius: 0px;
   }
   #info-card-wrap .basic-info-wrap {
-    padding: 0px 15px;
+    padding: 0px 15px 25px;
   }
   #info-card-wrap .basic-info-wrap hr {
     display: none;
@@ -1080,9 +1111,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     top: 22px;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 370px) {
   #info-card-wrap #hero-image h1 {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 #tab-switcher {

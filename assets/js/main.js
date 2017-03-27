@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$("#hide-info-card").click(function(){
-		var cardHeight = $("#info-card-wrap").outerHeight()
-		var translateBy = "translate3d(0,-" + (cardHeight + 34) + "px,0)";
+		var cardHeight = $("#info-card-wrap").outerHeight(true)
+		var translateBy = "translate3d(0,-" + (cardHeight) + "px,0)";
 
 		$("#content").css({'transform': translateBy});
 		$("#content").css({'transition': '0.5s'});
@@ -35,8 +35,8 @@ $(document).ready(function(){
 
 		$("#info-card-wrap").css({'display': 'block'});
 
-		var cardHeight = $("#info-card-wrap").outerHeight()
-		var translateBy = "translate3d(0,-" + (cardHeight + 35) + "px,0)";
+		var cardHeight = $("#info-card-wrap").outerHeight(true)
+		var translateBy = "translate3d(0,-" + (cardHeight) + "px,0)";
 
 		$("#content").css({'transform': translateBy});
 
