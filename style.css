@@ -364,6 +364,9 @@ nav#top-bar {
   height: 60px;
   margin: 0 auto;
 }
+#menu-top-bar > a:focus {
+  outline: none;
+}
 #menu-top-bar #logo-wrapper {
   display: block;
   float: left;
@@ -1125,6 +1128,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     display: block;
   }
   #tab-switcher .tab-button {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     float: left;
     line-height: 30px;
     padding: 0px 12px;
