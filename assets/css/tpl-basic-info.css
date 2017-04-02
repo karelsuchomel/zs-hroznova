@@ -1,0 +1,19 @@
+.map-container {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+.map-container > img {
+  width: 100%;
+}
+.map-container > a {
+  color: ForestGreen;
+  text-decoration: underline;
+  position: absolute;
+  width: 150px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  top: 55%;
+  left: calc(50% - 75px);
+}

@@ -233,9 +233,8 @@ body {
   text-decoration: underline;
   color: #383838;
 }
-#content-single-page small {
-  color: #333;
-  font-style: italic;
+#content-single-page .additional-post-info {
+  color: #777;
 }
 #content-single-page a img {
   margin: 0px;
@@ -263,7 +262,6 @@ body {
   margin: 0px;
 }
 #content-single-page .wp-caption .wp-caption-text {
-  font-size: 12px;
   color: #777;
   margin: 10px 0px 0px;
 }
@@ -300,9 +298,20 @@ body {
 
 .home-link {
   color: #777;
+  border-bottom: 1px solid white;
+}
+.home-link:before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 12px;
+  background: url("assets/images/arrow-back-icon.svg") no-repeat;
+  background-size: contain;
+  background-position: center center;
+  margin-right: 5px;
 }
 .home-link:hover, .home-link:active {
-  text-decoration: underline;
+  border-bottom: 1px solid #777;
 }
 
 @media screen and (max-width: 640px) {
@@ -849,6 +858,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding: 17px;
   padding-bottom: 68px;
   padding-right: 34px;
+  background: rgba(0, 0, 0, 0.5);
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.55)), color-stop(rgba(0, 0, 0, 0.35)), to(transparent));
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
@@ -951,28 +961,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
           transform: translateY(-45px);
 }
 
-.map-container.small-screen-display-block {
-  display: none;
-  max-height: 200px;
-  overflow: hidden;
-  position: relative;
-}
-.map-container.small-screen-display-block > img {
-  width: 100%;
-}
-.map-container.small-screen-display-block > a {
-  color: ForestGreen;
-  text-decoration: underline;
-  position: absolute;
-  width: 150px;
-  text-align: center;
-  display: block;
-  margin: 0 auto;
-  top: 55%;
-  left: -webkit-calc(50% - 75px);
-  left: calc(50% - 75px);
-}
-
 @media screen and (max-width: 1140px) {
   #info-card-wrap .basic-info-wrap {
     width: 225px;
@@ -995,18 +983,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
 }
 @media screen and (max-width: 640px) {
-  #info-card-wrap #hero-image > img {
-    margin-left: -120px;
-  }
-
-  #show-info-card {
-    right: 16px;
-  }
-
-  #info-card-wrap #hero-image > img {
-    margin-left: -200px;
-  }
-
   #info-card-wrap #hero-image {
     width: 100%;
     float: none;
@@ -1037,8 +1013,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     display: none;
   }
   #info-card-wrap .basic-info-wrap .info-block {
-    width: 50%;
+    width: 33.32%;
     float: left;
+  }
+  #info-card-wrap .basic-info-wrap .info-block .display-none-640 {
+    display: none;
   }
 
   #show-info-card {
@@ -1071,23 +1050,22 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
         -ms-transform: translateY(-45px);
             transform: translateY(-45px);
   }
-
-  .small-screen-display-none {
-    display: none !important;
+}
+@media screen and (max-width: 580px) {
+  #info-card-wrap .basic-info-wrap .info-block {
+    width: 50%;
   }
-
-  .small-screen-display-block {
-    display: block !important;
+  #info-card-wrap .basic-info-wrap .small-screen-display-none {
+    display: none;
   }
 }
 @media screen and (max-width: 470px) {
   #info-card-wrap {
     border-left: 0px;
     border-right: 0px;
+    border-top: 0px;
     -webkit-border-radius: 0px;
             border-radius: 0px;
-    border-top: 0px;
-    padding: 0px;
     top: -17px;
     margin-bottom: 15px;
   }

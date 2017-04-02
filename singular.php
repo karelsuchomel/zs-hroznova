@@ -18,15 +18,15 @@
       <div class="post-wrap clear-both">
         <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-        <small>
+        <div class="additional-post-info">
           autor: <?php the_author_posts_link(); ?>, <?php the_time('F jS, Y'); ?>
-        </small>
+        </div>
 
         <div class="basic-info-wrap">
           <p>
             <?php the_content(); ?>
             <br>
-            <a href="<?php echo get_home_url(); ?>" class="home-link">🠘 Hlavní strana</a>
+            <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
           </p>
         </div>
       </div>

@@ -85,8 +85,14 @@
 
 	.btn-bg-sheet
 		background: white
-		height: 100%
-		transition: 0.2s ease-in-out
+		height: 50%
+		transform-origin: center bottom
+		transform: rotate(-5deg) scaleX(2) scaleY(2) translateY(1px)
+		transition: 0.3s ease-out
+
+		&:nth-of-type(2)
+			transform-origin: center top
+			transform: rotate(-5deg) scaleX(2) scaleY(2) translateY(0px)
 
 .button-modern
 	&:hover, &:active
@@ -95,7 +101,10 @@
 
 		.button-background
 			.btn-bg-sheet
-				transform: rotate(10deg) scaleY(0) scaleX(2)
+				&:nth-of-type(1)
+					transform: rotate(-20deg) scaleX(2) scaleY(2) translateY(-100%)
+				&:nth-of-type(2)
+					transform: rotate(-20deg) scaleX(2) scaleY(2) translateY(100%)
 
 	&:active
 		transition: 0.1s

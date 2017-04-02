@@ -25,9 +25,8 @@
       text-decoration: underline
       color: $base-color-dark
 
-  small
-    color: #333
-    font-style: italic
+  .additional-post-info
+    color: #777
 
   // only anchor tag which has a img in it
   a img
@@ -50,7 +49,6 @@
         margin: 0px
 
     .wp-caption-text
-      font-size: 12px
       color: #777
       margin: 10px 0px 0px
 
@@ -87,8 +85,19 @@
 
 .home-link
   color: #777
+  border-bottom: 1px solid white
+
+  &:before
+    content: ""
+    display: inline-block
+    width: 14px
+    height: 12px
+    background: url('assets/images/arrow-back-icon.svg') no-repeat
+    background-size: contain
+    background-position: center center
+    margin-right: 5px
 
   &:hover, &:active
-    text-decoration: underline
+    border-bottom: 1px solid #777
 
 @import "single-page-responsive"
