@@ -1,17 +1,31 @@
-.map-container
-	max-height: 200px
-	overflow: hidden
-	position: relative
-	> img
-		width: 100%
+.tpl-basic-info
+	> content-single-page
 
-	> a
-		color: ForestGreen 
-		text-decoration: underline
-		position: absolute
-		width: 150px
-		text-align: center
+	> a.map-container
 		display: block
+
+	.parallax-base
+		position: relative
+		max-width: 720px
+		height: 250px
 		margin: 0 auto
-		top: 55%
-		left: calc(50% - 75px)
+		border-top-left-radius: 3px
+		border-top-right-radius: 3px
+		box-shadow: 0px -3px 4px 2px rgba(0,0,0,0.05)
+		overflow: hidden
+		perspective: 1px
+
+		.parallax-layer
+			position: absolute
+			top: 0px
+			right: 0px
+			bottom: 0px
+			left: 0px
+
+			a.map-container
+				display: block
+
+				.parallax-hero-image
+					width: 100%
+					height: auto
+					display: block

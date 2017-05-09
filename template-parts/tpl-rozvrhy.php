@@ -32,16 +32,7 @@
     <p><?php _e( 'Obsah se nepodařilo získat 😟, o chybě kontaktujte ✍ správu školy.' ); ?></p>
     <!-- REALLY stop The Loop. -->
     <?php endif; ?>
-    <button class="button-modern">
-      <div class="button-text">
-        Button
-      </div>
-      <div class="button-background">
-        <div class="btn-bg-sheet"></div>
-        <div class="btn-bg-sheet"></div>
-      </div>
-    </button>
-      
+    
     </div>
   </div>
 

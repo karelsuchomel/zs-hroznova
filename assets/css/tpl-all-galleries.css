@@ -1,0 +1,104 @@
+#content.tpl-all-galleries #content-single-page {
+  border-radius: 0px 0px 3px 3px;
+}
+#content.tpl-all-galleries h1 {
+  text-align: left;
+  font-size: 16px;
+  color: white;
+  font-weight: 600;
+  margin: 0 auto;
+  padding: 17px 34px;
+  max-width: 720px;
+  box-sizing: border-box;
+  border-radius: 3px 3px 0px 0px;
+  background: #DCE35B;
+  background: linear-gradient(to right, #00ba4f, #00cf58);
+}
+
+#button-wrapper-gradient-holder {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 17px;
+  max-width: 720px;
+  box-sizing: border-box;
+  background: white;
+}
+#button-wrapper-gradient-holder:after {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 34px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+#chool-year-buttons-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 65px;
+  position: relative;
+  z-index: 1;
+}
+
+.button-school-year {
+  border: 1px solid #DDD;
+  border-radius: 3px;
+  padding: 10px 17px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.button-school-year:first-child {
+  margin-left: 34px;
+}
+.button-school-year:last-child {
+  margin-right: 34px;
+}
+.button-school-year:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #00B04B;
+  border-radius: 17px;
+  position: absolute;
+  top: -20px;
+  right: 50%;
+  transform: translateX(50%);
+  transition: 0.2s;
+}
+.button-school-year:hover:after {
+  top: -12px;
+}
+.button-school-year:active {
+  background: #DDD;
+}
+
+@media screen and (max-width: 640px) {
+  #content.tpl-all-galleries h1 {
+    padding: 15px;
+  }
+
+  .button-school-year:first-child {
+    margin-left: 15px;
+  }
+  .button-school-year:last-child {
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 470px) {
+  #content.tpl-all-galleries {
+    padding-top: 0px;
+  }
+  #content.tpl-all-galleries h1 {
+    border-radius: 0px;
+    background: #00ba4f;
+    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+  }
+}

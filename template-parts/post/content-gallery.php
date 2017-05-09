@@ -10,7 +10,7 @@
 			<div class="gallery-date-author-info">
 				<?php the_time('F jS, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
 			</div>
-			<?php the_content(); ?>
+				<?php the_content(); ?>
 		</p>
 	</div>
 </div>
