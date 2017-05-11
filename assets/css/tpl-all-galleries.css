@@ -99,30 +99,30 @@
 }
 .button-school-year.selected:after {
   background: #777;
-  top: -10px;
+  top: -12px;
 }
 
-#content-single-page ul.listing-found-galleries-container {
+#content-single-page ul#listing-found-galleries-container {
   margin: 0px;
   padding: 0px;
   list-style: none;
 }
-#content-single-page ul.listing-found-galleries-container > li {
+#content-single-page ul#listing-found-galleries-container > li {
   padding: 0px;
   margin: 0px 17px 17px 0px;
   width: calc( 33.333% - ( 2 * 17px ) );
   position: relative;
 }
-#content-single-page ul.listing-found-galleries-container > li:nth-of-type(3) {
+#content-single-page ul#listing-found-galleries-container > li:nth-of-type(3) {
   margin-right: 0px;
 }
-#content-single-page ul.listing-found-galleries-container > li > a {
+#content-single-page ul#listing-found-galleries-container > li > a {
   display: block;
 }
-#content-single-page ul.listing-found-galleries-container > li > a img {
+#content-single-page ul#listing-found-galleries-container > li > a img {
   cursor: pointer;
 }
-#content-single-page ul.listing-found-galleries-container .title-overlay-container {
+#content-single-page ul#listing-found-galleries-container .title-overlay-container {
   position: absolute;
   background: rgba(255, 255, 255, 0.6);
   bottom: 0px;
@@ -131,13 +131,13 @@
   padding: 8px;
   line-height: 1.6em;
 }
-#content-single-page ul.listing-found-galleries-container .title-overlay-container > .title {
+#content-single-page ul#listing-found-galleries-container .title-overlay-container > .title {
   display: block;
 }
-#content-single-page ul.listing-found-galleries-container .title-overlay-container > .title:hover, #content-single-page ul.listing-found-galleries-container .title-overlay-container > .title:active {
+#content-single-page ul#listing-found-galleries-container .title-overlay-container > .title:hover, #content-single-page ul#listing-found-galleries-container .title-overlay-container > .title:active {
   text-decoration: underline;
 }
-#content-single-page ul.listing-found-galleries-container .title-overlay-container > .gallery-date {
+#content-single-page ul#listing-found-galleries-container .title-overlay-container > .gallery-date {
   color: #555;
   font-size: 12px;
 }

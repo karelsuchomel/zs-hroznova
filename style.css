@@ -1,13 +1,4 @@
-/*
-Theme Name: ZŠ Hroznová - responsive WordPress theme
-Author: Karel Suchomel
-Description: Stránky školy, poskytující aktuality, statické stránky a agendu
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: zs-hroznova
-*/
-
+@charset "UTF-8";
 a {
   color: inherit;
   text-decoration: none;
@@ -95,10 +86,8 @@ input, textarea {
   padding: 10px 15px;
   max-width: 300px;
   display: block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
   outline: none;
 }
 input:focus, textarea:focus {
@@ -114,8 +103,7 @@ table {
   margin: 0;
   padding: 0;
   border: 1px solid #DDD;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -143,8 +131,7 @@ table td, table th {
 }
 
 html {
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 html, body {
@@ -162,21 +149,35 @@ body {
 #content-wrap {
   max-width: 1180px;
   margin: 0 auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
 }
 
 #content {
   position: relative;
   float: right;
-  width: -webkit-calc(100% - 220px);
   width: calc(100% - 220px);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 34px;
   padding-right: 15px;
   z-index: 1;
+}
+
+.error-message {
+  background: #bb376c;
+  border: 1px solid #DDD;
+  box-shadow: 0px 0px 0px 1px #bb376c;
+  border-radius: 3px;
+  padding: 10px;
+  color: white !important;
+  line-height: 1.6em;
+  vertical-align: middle;
+}
+.error-message:before {
+  content: "❌";
+  padding-right: 10px;
+  position: relative;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 1180px) {
@@ -207,13 +208,11 @@ body {
 #content-single-page {
   position: relative;
   max-width: 720px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 34px;
   margin: 0 auto;
   background: white;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
 }
 #content-single-page a {
   display: inline-block;
@@ -238,7 +237,6 @@ body {
 }
 #content-single-page a img {
   margin: 0px;
-  cursor: -webkit-zoom-in;
   cursor: zoom-in;
 }
 #content-single-page img {
@@ -246,11 +244,7 @@ body {
   max-width: 100%;
   height: auto;
   border: 0px !important;
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  -o-transition: transform 0.3s;
   transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 #content-single-page .wp-caption {
   margin: 34px auto;
@@ -282,8 +276,7 @@ body {
   float: left;
   margin: 0px;
   padding: 0px 10px 10px 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 #content-single-page .gallery .gallery-item .gallery-icon a {
   display: block;
@@ -292,8 +285,7 @@ body {
   margin: 0px;
   width: 100%;
   height: auto;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border: 0px !important;
 }
 
@@ -307,8 +299,7 @@ body {
   width: 14px;
   height: 12px;
   background: url("assets/images/arrow-back-icon.svg") no-repeat;
-  -webkit-background-size: contain;
-          background-size: contain;
+  background-size: contain;
   background-position: center center;
   margin-right: 5px;
 }
@@ -320,13 +311,11 @@ body {
   #content-single-page {
     position: relative;
     max-width: 720px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     padding: 10px 15px;
     margin: 0 auto;
     background: white;
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
+    border-radius: 3px;
   }
   #content-single-page h2 {
     font-weight: 600;
@@ -393,15 +382,11 @@ nav#top-bar {
   margin: 0 auto;
 }
 #menu-top-bar #logo-wrapper:hover {
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
   transition: 0.2s;
   background-color: #39c64e;
 }
 #menu-top-bar #logo-wrapper:active img {
-  -webkit-transform: scale(0.95);
-      -ms-transform: scale(0.95);
-          transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .menu-horni-lista-container {
@@ -428,9 +413,7 @@ nav#top-bar {
   line-height: 60px;
 }
 .menu-horni-lista-container ul#menu-horni-lista li > a:hover:after {
-  -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 .menu-horni-lista-container ul#menu-horni-lista li > a:active {
   background: #39c64e;
@@ -440,23 +423,17 @@ nav#top-bar {
   display: block;
   position: absolute;
   z-index: 3;
-  width: -webkit-calc(100% - 30px);
   width: calc(100% - 30px);
   height: 3px;
   bottom: 15px;
   background-color: white;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
   transition: 0.2s;
-  -webkit-transform: scale(0, 1);
-      -ms-transform: scale(0, 1);
-          transform: scale(0, 1);
+  transform: scale(0, 1);
 }
 .menu-horni-lista-container ul#menu-horni-lista li:last-of-type > a:before {
   content: "";
   background-image: url("assets/images/icon-edookit.png");
-  -webkit-background-size: contain;
-          background-size: contain;
+  background-size: contain;
   display: inline-block;
   position: absolute;
   height: 20px;
@@ -471,8 +448,7 @@ nav#top-bar {
   float: left;
   height: 50px;
   width: 50px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px 12px;
   overflow: hidden;
   cursor: pointer;
@@ -484,17 +460,12 @@ nav#top-bar {
 .icon-hamburger-menu .line {
   position: relative;
   height: 3px;
-  -webkit-border-radius: 2px;
-          border-radius: 2px;
+  border-radius: 2px;
   width: 100%;
   background: white;
   margin: 5px 0px;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
   transition: 0.3s;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
+  transform-origin: left center;
 }
 
 input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
@@ -535,25 +506,18 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
 
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-1, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-1 {
     margin-bottom: 6px;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
   }
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-2, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-2 {
     opacity: 0;
   }
   input#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-3, textarea#toggle-menu-checkbox:checked + #top-bar #menu-top-bar .icon-hamburger-menu #hamburger-line-3 {
     margin-top: 6px;
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
   }
   input#toggle-menu-checkbox:checked + #top-bar, textarea#toggle-menu-checkbox:checked + #top-bar {
-    -webkit-transition: 0.6s;
-    -o-transition: 0.6s;
     transition: 0.6s;
-    -webkit-box-shadow: 0px 2px 4px #737373;
-            box-shadow: 0px 2px 4px #737373;
+    box-shadow: 0px 2px 4px #737373;
   }
 }
 @media screen and (max-width: 400px) {
@@ -562,7 +526,6 @@ input#toggle-menu-checkbox, textarea#toggle-menu-checkbox {
     font-size: 13px;
   }
   .menu-horni-lista-container ul#menu-horni-lista li a:after {
-    width: -webkit-calc(100% - 14px);
     width: calc(100% - 14px);
     bottom: 8px;
   }
@@ -577,18 +540,15 @@ nav#side-list {
   position: relative;
   width: 220px;
   float: left;
-  min-height: -webkit-calc(100vh - 60px) !important;
   min-height: calc(100vh - 60px) !important;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-left: 1px solid rgba(0, 0, 0, 0.15);
   border-right: 1px solid rgba(0, 0, 0, 0.15);
   background: white;
 }
 nav#side-list #searchform-container {
   position: relative;
-  -webkit-box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
 }
 nav#side-list #searchform-container .underline-animated {
   content: "";
@@ -598,41 +558,32 @@ nav#side-list #searchform-container .underline-animated {
   width: 100%;
   height: 3px;
   background-color: #00B04B;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
   transition: 0.2s;
-  -webkit-transform: scale(0, 1);
-      -ms-transform: scale(0, 1);
-          transform: scale(0, 1);
+  transform: scale(0, 1);
 }
 nav#side-list #searchform-container input.search-field, nav#side-list #searchform-container textarea.search-field {
   border: 0px solid #DCDCDC;
   padding: 10px 0px;
   margin-left: 15px;
   width: 188px;
-  -webkit-border-radius: 0px;
-          border-radius: 0px;
+  border-radius: 0px;
   font-size: 14px;
 }
 nav#side-list #searchform-container input.search-field:focus ~ .underline-animated, nav#side-list #searchform-container textarea.search-field:focus ~ .underline-animated {
-  -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 nav#side-list #searchform-container input#searchsubmit, nav#side-list #searchform-container textarea#searchsubmit {
   position: absolute;
   right: 5px;
   top: 0px;
   cursor: pointer;
-  -webkit-border-radius: 0px;
-          border-radius: 0px;
+  border-radius: 0px;
   border: 10px solid white;
   padding: 0px;
   width: 36px;
   height: 36px;
   background: url("assets/images/magnifier-icon.svg");
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
   background-position: center;
   font-size: 0px;
 }
@@ -644,8 +595,7 @@ nav#side-list ul#menu-bocni-seznam {
 nav#side-list ul#menu-bocni-seznam > li {
   display: block;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
-          box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px rgba(0, 0, 0, 0.15);
   background: white;
   overflow: hidden;
 }
@@ -655,8 +605,7 @@ nav#side-list ul#menu-bocni-seznam > li:hover a:after {
 nav#side-list ul#menu-bocni-seznam > li a {
   position: relative;
   display: block;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px 15px;
   color: #383838;
   font-size: 13px;
@@ -665,26 +614,20 @@ nav#side-list ul#menu-bocni-seznam > li a {
   text-transform: lowercase;
 }
 nav#side-list ul#menu-bocni-seznam > li a:active {
-  -webkit-transition: 0s;
-  -o-transition: 0s;
   transition: 0s;
   background: #d9d9d9;
 }
 nav#side-list ul#menu-bocni-seznam > li a:after {
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
   transition: 0.2s;
   content: "";
   position: absolute;
   display: inline-block;
   left: -20px;
-  top: -webkit-calc(50% - 10px);
   top: calc(50% - 10px);
   width: 20px;
   height: 20px;
   background: #00B04B;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
 }
 nav#side-list ul#menu-bocni-seznam > li a::first-letter {
   text-transform: uppercase;
@@ -698,16 +641,13 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu {
   margin: 0px;
   padding-left: 15px;
   padding-bottom: 0px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
   transition: 0.5s;
   position: relative;
   height: 0px;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li {
   border-top: 0px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   position: relative;
 }
 nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a {
@@ -721,7 +661,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu li > a:after {
   width: 6px;
   height: 6px;
   background: #bfbfbf;
-  top: -webkit-calc(50% - 3px);
   top: calc(50% - 3px);
   left: 4px;
 }
@@ -735,13 +674,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 
 @media screen and (max-width: 960px) {
   nav#side-list {
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
     transition: 0.3s;
     position: absolute;
-    -webkit-transform: translateX(-224px);
-        -ms-transform: translateX(-224px);
-            transform: translateX(-224px);
+    transform: translateX(-224px);
     border-left: 0px;
     border-right: 0px;
     z-index: 7;
@@ -760,40 +695,26 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     height: 100vh;
     z-index: 4;
     background: rgba(0, 0, 0, 0.5);
-    -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%);
+    transform: translateX(-100%);
     opacity: 0;
-    -webkit-transition: 0.6s;
-    -o-transition: 0.6s;
     transition: 0.6s;
   }
 
   input#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content, textarea#toggle-menu-checkbox:checked ~ #content-wrap #dimmer-content {
     opacity: 1;
-    -webkit-transform: translateX(0px);
-        -ms-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   input#toggle-menu-checkbox:checked ~ #content-wrap #side-list, textarea#toggle-menu-checkbox:checked ~ #content-wrap #side-list {
-    -webkit-transform: translateX(0px);
-        -ms-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
   input#toggle-menu-checkbox:checked ~ #content-wrap #side-list-fixed-background, textarea#toggle-menu-checkbox:checked ~ #content-wrap #side-list-fixed-background {
-    -webkit-transform: translateX(0px);
-        -ms-transform: translateX(0px);
-            transform: translateX(0px);
+    transform: translateX(0px);
   }
 
   #side-list-fixed-background {
     display: block;
     position: fixed;
-    -webkit-transform: translateX(-224px);
-        -ms-transform: translateX(-224px);
-            transform: translateX(-224px);
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
+    transform: translateX(-224px);
     transition: 0.3s;
     top: 0px;
     left: 0px;
@@ -801,27 +722,21 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     min-height: 100vh;
     z-index: 5;
     background: white;
-    -webkit-box-shadow: 2px 2px 4px #737373;
-            box-shadow: 2px 2px 4px #737373;
+    box-shadow: 2px 2px 4px #737373;
   }
 }
 #info-card-wrap {
   display: none;
   width: 100%;
   background: white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  box-sizing: border-box;
+  border-radius: 3px;
   border: 1px solid #DDD;
   position: relative;
   margin-bottom: 34px;
 }
 #info-card-wrap #hide-info-card {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   position: absolute;
   z-index: 2;
   top: 0px;
@@ -831,8 +746,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   cursor: pointer;
   font-size: 12px;
   color: #AAA;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
   transition: 0.3s;
 }
 #info-card-wrap #hide-info-card:hover {
@@ -840,21 +753,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #info-card-wrap #hide-info-card:hover > img {
   opacity: 1;
-  -webkit-transform: translateY(-35px);
-      -ms-transform: translateY(-35px);
-          transform: translateY(-35px);
+  transform: translateY(-35px);
 }
 #info-card-wrap #hide-info-card > img {
   margin: 0 auto;
   width: 12px;
   height: auto;
   opacity: 0;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
   transition: 0.3s;
-  -webkit-transform: translateY(-20px);
-      -ms-transform: translateY(-20px);
-          transform: translateY(-20px);
+  transform: translateY(-20px);
 }
 #info-card-wrap #hero-image {
   position: absolute;
@@ -864,8 +771,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   z-index: 0;
   width: 75%;
   height: 100%;
-  -webkit-border-radius: 3px 0px 0px 3px;
-          border-radius: 3px 0px 0px 3px;
+  border-radius: 3px 0px 0px 3px;
   overflow: hidden;
 }
 #info-card-wrap #hero-image h1 {
@@ -876,9 +782,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding-bottom: 68px;
   padding-right: 34px;
   background: rgba(0, 0, 0, 0.5);
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.55)), color-stop(rgba(0, 0, 0, 0.35)), to(transparent));
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
-  background: -o-linear-gradient(top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.35), transparent);
   margin: 0px;
   text-align: left;
@@ -891,20 +794,17 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   top: 0px;
   left: 0px;
   width: 100%;
-  -webkit-border-radius: 3px 0px 0px 3px;
-          border-radius: 3px 0px 0px 3px;
+  border-radius: 3px 0px 0px 3px;
   z-index: 0;
 }
 #info-card-wrap .basic-info-wrap {
   position: relative;
   width: 25%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   background: white;
   z-index: 1;
   float: right;
-  -webkit-border-radius: 0px 3px 3px 0px;
-          border-radius: 0px 3px 3px 0px;
+  border-radius: 0px 3px 3px 0px;
   padding: 0px 17px;
   padding-bottom: 25px;
 }
@@ -929,8 +829,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding: 4px 0px 4px 0px;
   max-width: 220px;
   line-height: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 #info-card-wrap .basic-info-wrap ul li a {
   color: ForestGreen;
@@ -938,10 +837,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 
 #show-info-card {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   position: absolute;
   display: none;
   top: 5px;
@@ -950,11 +846,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   font-size: 12px;
   color: #AAA;
   cursor: pointer;
-  -webkit-transition: color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  transition: color 0.5s, opacity 0.5s, -webkit-transform 0.5s;
-  -o-transition: color 0.5s, opacity 0.5s, transform 0.5s;
   transition: color 0.5s, opacity 0.5s, transform 0.5s;
-  transition: color 0.5s, opacity 0.5s, transform 0.5s, -webkit-transform 0.5s;
   z-index: 2;
 }
 #show-info-card:hover {
@@ -962,23 +854,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #show-info-card:hover > img {
   opacity: 1;
-  -webkit-transform: translateY(-20px);
-      -ms-transform: translateY(-20px);
-          transform: translateY(-20px);
+  transform: translateY(-20px);
 }
 #show-info-card > img {
   margin-left: -26px;
   width: 12px;
   height: auto;
   opacity: 0;
-  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-  transition: opacity 0.3s, -webkit-transform 0.3s;
-  -o-transition: opacity 0.3s, transform 0.3s;
   transition: opacity 0.3s, transform 0.3s;
-  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
-  -webkit-transform: translateY(-45px);
-      -ms-transform: translateY(-45px);
-          transform: translateY(-45px);
+  transform: translateY(-45px);
 }
 
 @media screen and (max-width: 1140px) {
@@ -988,7 +872,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 @media screen and (max-width: 1025px) {
   #info-card-wrap #hero-image {
-    width: -webkit-calc(100% - 225px);
     width: calc(100% - 225px);
   }
   #info-card-wrap #hero-image > img {
@@ -1007,14 +890,12 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     width: 100%;
     float: none;
     position: relative;
-    -webkit-border-radius: 3px 3px 0px 0px;
-            border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
   }
   #info-card-wrap #hero-image > img {
     width: 100%;
     min-width: 0px;
-    -webkit-border-radius: 3px 3px 0px 0px;
-            border-radius: 3px 3px 0px 0px;
+    border-radius: 3px 3px 0px 0px;
     margin-left: 0px;
   }
   #info-card-wrap #hide-info-card {
@@ -1026,8 +907,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   #info-card-wrap .basic-info-wrap {
     width: 100%;
     float: none;
-    -webkit-border-radius: 0px 0px 3px 3px;
-            border-radius: 0px 0px 3px 3px;
+    border-radius: 0px 0px 3px 3px;
   }
   #info-card-wrap .basic-info-wrap hr {
     display: none;
@@ -1045,12 +925,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     right: 15px;
     font-size: 0px;
     height: 22px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     width: 22px;
     background-image: url("assets/images/info-card-icon.svg");
-    -webkit-background-size: cover;
-            background-size: cover;
+    background-size: cover;
     background-position: center;
   }
   #show-info-card:hover {
@@ -1058,18 +936,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
   #show-info-card:hover > img {
     opacity: 1;
-    -webkit-transform: translateY(-20px);
-        -ms-transform: translateY(-20px);
-            transform: translateY(-20px);
+    transform: translateY(-20px);
   }
   #show-info-card:active {
     background-color: #d9d9d9;
   }
   #show-info-card > img {
     margin: 0 auto;
-    -webkit-transform: translateY(-45px);
-        -ms-transform: translateY(-45px);
-            transform: translateY(-45px);
+    transform: translateY(-45px);
   }
 }
 @media screen and (max-width: 580px) {
@@ -1085,18 +959,15 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
-    -webkit-border-radius: 0px;
-            border-radius: 0px;
+    border-radius: 0px;
     top: -17px;
     margin-bottom: 15px;
   }
   #info-card-wrap #hero-image {
-    -webkit-border-radius: 0px;
-            border-radius: 0px;
+    border-radius: 0px;
   }
   #info-card-wrap #hero-image > img {
-    -webkit-border-radius: 0px;
-            border-radius: 0px;
+    border-radius: 0px;
   }
   #info-card-wrap .basic-info-wrap {
     padding: 0px 15px 25px;
@@ -1127,10 +998,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     display: block;
   }
   #tab-switcher .tab-button {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    user-select: none;
     float: left;
     line-height: 30px;
     padding: 0px 12px;
@@ -1141,24 +1009,18 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     background: none;
   }
   #tab-switcher .tab-button:nth-of-type(1) {
-    -webkit-border-top-left-radius: 3px;
-            border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
   }
   #tab-switcher .tab-button:nth-of-type(2) {
-    -webkit-border-top-right-radius: 3px;
-            border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
     border-left: 0px;
   }
   #tab-switcher .tab-button:hover {
     background: white;
     color: #444;
-    -webkit-transition: 0.3s;
-    -o-transition: 0.3s;
     transition: 0.3s;
   }
   #tab-switcher .tab-button:active {
-    -webkit-transition: 0s;
-    -o-transition: 0s;
     transition: 0s;
     background: #d9d9d9;
   }
@@ -1180,12 +1042,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     border-bottom: 0px;
   }
   #tab-switcher .tab-button:nth-of-type(1) {
-    -webkit-border-top-left-radius: 3px;
-            border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
   }
   #tab-switcher .tab-button:nth-of-type(2) {
-    -webkit-border-top-right-radius: 3px;
-            border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
     border-left: 0px;
     position: relative;
   }
@@ -1212,11 +1072,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 75%;
   float: left;
   background: white;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   border: 1px solid #DDD;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 34px;
   position: relative;
 }
@@ -1235,8 +1093,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   margin: 0px;
   display: inline-block;
   padding: 17px 17px 0px 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 #posts-wrap .post-wrap h2 > a {
   display: inline;
@@ -1275,8 +1132,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   #posts-wrap {
     width: 100%;
     margin-top: 0px;
-    -webkit-border-top-left-radius: 0px;
-            border-top-left-radius: 0px;
+    border-top-left-radius: 0px;
   }
 }
 @media screen and (max-width: 470px) {
@@ -1340,8 +1196,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding-right: 3px;
   padding-top: 10px;
   margin: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   width: 25%;
 }
 #posts-wrap .post-wrap.gallery > .basic-info-wrap .gallery .gallery-item:nth-of-type(1) {
@@ -1361,8 +1216,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 100%;
   height: auto;
   float: left;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding-left: none;
   padding-bottom: none;
 }
@@ -1387,8 +1241,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #posts-wrap .post-wrap.type-image a > img.wp-post-image {
   width: 100%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0px;
   padding-right: 15px;
   margin-top: 15px;
@@ -1405,8 +1258,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   margin-bottom: 34px;
   padding-left: 34px;
   width: 25%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   float: right;
 }
 #agenda-list-wrap .day-segment {
@@ -1420,8 +1272,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   top: 0px;
   bottom: 0px;
   width: 3px;
-  -webkit-border-radius: 2px;
-          border-radius: 2px;
+  border-radius: 2px;
   background: #CCC;
 }
 #agenda-list-wrap .day-segment .date-label {
@@ -1436,8 +1287,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 20px;
   height: 20px;
   background-color: #f0f0f0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 #agenda-list-wrap .day-segment .date-label .dot:before {
   display: block;
@@ -1448,8 +1298,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 10px;
   height: 10px;
   background: #00B04B;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
 }
 #agenda-list-wrap .day-segment ul.event-list {
   list-style: none;
@@ -1476,13 +1325,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
     width: 100%;
     margin-top: 0px;
     background: white;
-    -webkit-border-radius: 3px;
-            border-radius: 3px;
+    border-radius: 3px;
     border: 1px solid #DDD;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-border-top-left-radius: 0px;
-            border-top-left-radius: 0px;
+    box-sizing: border-box;
+    border-top-left-radius: 0px;
     width: 100%;
   }
   #agenda-list-wrap #agenda-line {
@@ -1511,11 +1357,9 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #search-wrap {
   background: white;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   max-width: 720px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0px auto 25px;
   padding: 34px;
 }
@@ -1527,8 +1371,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #search-wrap form.search-again #searchform-container {
   position: relative;
   max-width: 700px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   border: 1px solid #d9d9d9;
 }
 #search-wrap form.search-again #searchform-container input.search-field, #search-wrap form.search-again #searchform-container textarea.search-field {
@@ -1536,13 +1379,10 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   font-size: 1.2em;
   border: 0px solid #DCDCDC;
   padding: 10px 15px;
-  -webkit-border-radius: 0px;
-          border-radius: 0px;
+  border-radius: 0px;
 }
 #search-wrap form.search-again #searchform-container input.search-field:focus ~ .underline-animated, #search-wrap form.search-again #searchform-container textarea.search-field:focus ~ .underline-animated {
-  -webkit-transform: scale(1, 1);
-      -ms-transform: scale(1, 1);
-          transform: scale(1, 1);
+  transform: scale(1, 1);
 }
 #search-wrap form.search-again #searchform-container input#searchsubmit, #search-wrap form.search-again #searchform-container textarea#searchsubmit {
   position: absolute;
@@ -1551,14 +1391,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 38px;
   height: 38px;
   padding: 0px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   cursor: pointer;
-  -webkit-border-radius: 0px;
-          border-radius: 0px;
+  border-radius: 0px;
   background: url("assets/images/magnifier-icon.svg");
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
   background-position: center;
   border: 9px solid white;
   font-size: 0px;
@@ -1568,19 +1405,14 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   width: 100%;
   height: 3px;
   background-color: #00B04B;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
   transition: 0.2s;
-  -webkit-transform: scale(0, 1);
-      -ms-transform: scale(0, 1);
-          transform: scale(0, 1);
+  transform: scale(0, 1);
 }
 #search-wrap .post-wrap {
   position: relative;
   margin: 0 auto;
   overflow: hidden;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   padding: 0px 0px 10px;
   margin-bottom: 22.66667px;
   max-width: 700px;
@@ -1598,8 +1430,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   color: #00B04B;
 }
 #search-wrap .post-wrap .basic-info-wrap {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 #search-wrap .post-wrap .basic-info-wrap p {
   margin: 0px;
@@ -1674,8 +1505,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 #pagination-wrap .page-numbers.current {
   background: white;
   border: 1px solid #DDD;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
 }
 #pagination-wrap a.page-numbers:hover, #pagination-wrap a.page-numbers:active {
   text-decoration: underline;
@@ -1709,11 +1539,8 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   bottom: 0;
   left: 0;
   background-color: white;
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  cursor: -webkit-zoom-out;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
   cursor: zoom-out;
 }
 
@@ -1729,11 +1556,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   z-index: 9;
   margin: 0 auto;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  -o-transition: transform 0.5s;
   transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
 #spinner {
@@ -1743,8 +1566,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   height: 48px;
   width: 48px;
   background-image: url("assets/images/spinner-animation.gif");
-  -webkit-background-size: cover;
-          background-size: cover;
+  background-size: cover;
   background-position: center;
 }
 
@@ -1752,17 +1574,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-  cursor: -webkit-zoom-out;
   cursor: zoom-out;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 @keyframes fadeIn {
@@ -1771,14 +1583,6 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   }
   to {
     opacity: 1;
-  }
-}
-@-webkit-keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 }
 @keyframes fadeOut {

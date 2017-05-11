@@ -57,11 +57,17 @@
 
       for ($i=0; $i < count($years); $i++)
       {
-        if ( $i === 0 ) {
-          echo "<div class='button-school-year selected' ";
-        } else {
-          echo "<div class='button-school-year' ";
+        if ( isset($_GET['selected_year_fs'])) 
+        {
+          $selected_year_fs = intval( htmlspecialchars( $_GET['selected_year_fs'] ));
+          if ( $selected_year_fs === intval( substr($years[$i], 0, 4) ) )
+          {
+            echo "<div class='button-school-year selected' ";
+            echo "data='" . $years[$i] . "'>" . $years[$i] . "</div>";
+            continue;
+          }
         }
+        echo "<div class='button-school-year' ";
         echo "data='" . $years[$i] . "'>" . $years[$i] . "</div>";
       }
       ?>
@@ -74,8 +80,17 @@
     <?php
     // start loop for most recent school year
     // The Query
-    $firstSemestr = intval( substr($years[0], 0, 4) );
-    $secondSemestr = intval( substr($years[0], 5, 4) );
+
+    // 'fs' stands for 'first semestr'
+    if ( isset($_GET['selected_year_fs']) ) 
+    {
+      $firstSemestr = intval( htmlspecialchars( $_GET['selected_year_fs'] ));
+    } else 
+    {
+      $firstSemestr = intval( substr($years[0], 0, 4) );
+    }
+
+    $secondSemestr = $firstSemestr + 1;
 
     $the_query = new WP_Query( array(
       'category_name' => 'all-galleries',
@@ -96,8 +111,8 @@
       ) );
 
     // The Loop
+    echo '<ul id="listing-found-galleries-container">';
     if ( $the_query->have_posts() ) {
-      echo '<ul class="listing-found-galleries-container">';
       while ( $the_query->have_posts() ) {
         $the_query->the_post();
         ?>
@@ -111,7 +126,7 @@
             <a class="title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
               <?php the_title(); ?>
             </a>
-            <span class="gallery-date"><?php the_time('F jS, Y'); ?></span>
+            <span class="gallery-date"><?php the_time('j. F, Y'); ?></span>
           </div>
         </li>
         <?php
@@ -120,7 +135,7 @@
       /* Restore original Post Data */
       wp_reset_postdata();
     } else {
-      echo "no posts have been found.";
+      echo "<p class='error-message'>Galerie z roku <strong>" . htmlspecialchars($_GET['selected_year_fs']) . "</strong> tu bohužel nemáme.</p>";
     }
     ?>
   </div>

@@ -8,7 +8,7 @@
 	<div class="basic-info-wrap">
 		<p>
 			<div class="gallery-date-author-info">
-				<?php the_time('F jS, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
+				<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
 			</div>
 				<?php the_content(); ?>
 		</p>

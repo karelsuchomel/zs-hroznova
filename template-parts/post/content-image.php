@@ -19,7 +19,7 @@
 			</a>
 			<br />
 			<small>
-				<?php the_time('F jS, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
+				<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
 			</small>
 		</p>
 	</div>
