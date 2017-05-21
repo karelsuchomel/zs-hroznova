@@ -18,7 +18,7 @@
     <h1>Galerie</h1>
 
     <div id="button-wrapper-gradient-holder">
-      <div id="chool-year-buttons-wrapper">
+      <div id="school-year-buttons-wrapper">
       <?php
 
       $years = array();
@@ -28,8 +28,14 @@
       if ( have_posts() ) : while ( have_posts() ) : the_post();
 
       // Create "year" subcategories
-      $date_added_year = the_date( 'Y', '', '', FALSE );
-      $date_added_month_day = the_date( 'nd', '', '', FALSE );
+      $originalDate = the_date( 'Ynd', '', '', FALSE );
+      // If got blank "", it means the date is the same as previous one
+      if ( $originalDate == "" ) {
+        continue;
+      }
+      // Parse date data
+      $date_added_year = substr( $originalDate, 0, 4);
+      $date_added_month_day = substr( $originalDate, 4 );
       $post_school_year;
 
       // Get the post's school year
@@ -66,9 +72,15 @@
             echo "data='" . $years[$i] . "'>" . $years[$i] . "</div>";
             continue;
           }
+        } else {
+          if ( $i === 0)
+          {
+            echo "<div class='button-school-year selected' ";
+          }
         }
         echo "<div class='button-school-year' ";
         echo "data='" . $years[$i] . "'>" . $years[$i] . "</div>";
+
       }
       ?>
 
@@ -76,7 +88,7 @@
     </div>
   </div>
 
-  <div id="content-single-page">
+  <div id="content-single-page" class="clear-both">
     <?php
     // start loop for most recent school year
     // The Query
@@ -110,7 +122,7 @@
         )
       ) );
 
-    // The Loop
+    // Printing galleries
     echo '<ul id="listing-found-galleries-container">';
     if ( $the_query->have_posts() ) {
       while ( $the_query->have_posts() ) {
@@ -138,6 +150,7 @@
       echo "<p class='error-message'>Galerie z roku <strong>" . htmlspecialchars($_GET['selected_year_fs']) . "</strong> tu bohužel nemáme.</p>";
     }
     ?>
+
   </div>
   </div>
 

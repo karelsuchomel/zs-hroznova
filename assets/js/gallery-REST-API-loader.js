@@ -12,15 +12,17 @@ function execute_request(event)
 {
 	// Handle ".selected" class
 	var prevBtn = document.getElementsByClassName("selected");
-	console.log(prevBtn[0]);
 	prevBtn[0].className = "button-school-year";
 	event.currentTarget.className += " selected";
-
 
 	let yearData = event.currentTarget.getAttribute("data");
 	let firstSemestr = yearData.substr( 0, 4 );
 	let secondSemestr = yearData.substr( 5 );
 	let request = new XMLHttpRequest();
+
+	// set URL with appropriate attributes
+	let newURL = "?selected_year_fs=" + firstSemestr;
+	history.replaceState(null, null, newURL);
 
 	// Set school year end and start
 	firstSemestr = firstSemestr + "-08-31T00:00:00.000Z";
@@ -36,7 +38,6 @@ function execute_request(event)
 	request.onload = function() {
 		if (request.status >= 200 && request.status < 400) {
 			const response = JSON.parse(request.responseText);
-			console.log(response);
 
 			// Render response into galListContainer
 			printResponse( response );

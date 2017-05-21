@@ -21,16 +21,16 @@
 
 		> h1
 			text-align: left
-			font-size: 32px
+			font-size: 24px
 			color: #333
 			font-weight: 300
 			line-height: 32px
 
 			margin: 0 auto
-			padding: 17px
-			padding-bottom: 0px !important
+			padding: 10px 17px
 			box-sizing: border-box
 			text-shadow: 0px 0px 5px #f9f7e8
+			background: white
 
 #button-wrapper-gradient-holder
 	position: relative
@@ -50,7 +50,7 @@
 		width: 34px
 		background: linear-gradient(to right, rgba(255,255,255,0), rgba(249,247,232,1))
 
-#chool-year-buttons-wrapper
+#school-year-buttons-wrapper
 	overflow-x: auto
 	overflow-y: hidden
 	white-space: nowrap
@@ -113,8 +113,9 @@
 		> li
 			padding: 0px
 			margin: 0px 17px 17px 0px
-			width: calc( 33.333% - ( 2 * 17px ) )
-			position: relative
+			box-sizing: border-box
+			width: calc( 33.333333% - (17px / 3 * 2) )
+			float: left
 
 			&:nth-of-type(3)
 				margin-right: 0px
@@ -125,12 +126,9 @@
 					cursor: pointer
 
 		.title-overlay-container
-			position: absolute
 			background: rgba(255,255,255,0.6)
-			bottom: 0px
-			left: 0px
 			width: calc( 100% - 16px )
-			padding: 8px
+			padding: 8px 8px 8px 0px
 			line-height: 1.6em
 
 			> .title
@@ -141,9 +139,6 @@
 			> .gallery-date
 				color: #555
 				font-size: 12px
-
-
-
 
 @media screen and(max-width: 640px)
 	#content.tpl-all-galleries
@@ -156,6 +151,16 @@
 
 		&:last-child
 			margin-right: 15px
+
+@media screen and(max-width: 580px)
+	#content-single-page
+		ul#listing-found-galleries-container
+			> li
+				width: calc( 50% - (15px / 2) )
+				margin: 0px 15px 15px 0px
+
+				&:nth-of-type(2)
+					margin-right: 0px
 
 @media screen and(max-width: 470px)
 	#content.tpl-all-galleries

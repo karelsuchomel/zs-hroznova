@@ -16,7 +16,12 @@
 		<p>
 			<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
 			<br>
-			<?php echo wp_trim_words( get_the_content(''), 15, '...' ); ?>
+
+			<?php 
+			$loaded_content = strip_shortcodes( get_the_content('') );
+			echo wp_trim_words( $loaded_content, 15, '...' ); 
+			?>
+			
 			<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 				více
 			</a>
