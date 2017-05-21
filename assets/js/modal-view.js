@@ -20,12 +20,12 @@ $(anchorsArray).click(function(e)
 	let elParent = e.currentTarget.parentElement;
 	if ($(elParent).hasClass('gallery-icon')) {
 
-		drawModalSingleImage(e);
+		loadLargerImage(e);
 		//drawModalGallery(e);
 
 	} else {
 
-		drawModalSingleImage(e);
+		loadLargerImage(e);
 
 	}
 });
@@ -38,7 +38,11 @@ function openPictureModal (scale, translateX, translateY, targetHeight)
 
 	var zoomedHeight = (targetHeight * scale) ;
 	var viewportHeight = document.documentElement.clientHeight;
-	var toBeCenteredVerticaly = translateY + ((viewportHeight - zoomedHeight) / 2);
+	if ( viewportHeight > zoomedHeight ) {
+		var toBeCenteredVerticaly = translateY + ((viewportHeight - zoomedHeight) / 2);
+	} else {
+		var toBeCenteredVerticaly = translateY;
+	}
 
 
 	setTimeout(function() {
@@ -63,25 +67,54 @@ function closePictureModal (scale)
 	modalState = "close";
 };
 
-function drawModalSingleImage (e)
+function loadLargerImage (e)
 {
+	// spinner
+	drawSpinner(e);
+
 	// load a new picture and place it on top of the old one
 	var largeImgPath = e.currentTarget.getAttribute('href');
-	var largeImgEl = document.createElement('img');
-	largeImgEl.setAttribute('src', largeImgPath);
-	largeImgEl.className = "zoom-picture";
-
+	var largeImgEl = new Image();
+	console.log("largeImgEl: " + largeImgEl);
 	// append newly created picture to modal-content
 	modalContent.appendChild( largeImgEl );
+	largeImgEl.onload = function () {
+		let largeImgElH = largeImgEl.height;
+		drawModalSingleImage(e, largeImgElH);
+	};
+
+	largeImgEl.className = "zoom-picture";
+	largeImgEl.src = largeImgPath;
+
+};
+
+function drawModalSingleImage (e, largeImgElH)
+{
+	removeSpinner ();
+
+	// ----------- TODO ------------
+	// I cannot compare dimensions in pixels
+	// I need to compare aspect ratios of pictures to
+	// modalConetnt width by viewport height
 
 	// set the width (scale) and position to be as the anchor
 	var currentAnchor = e.currentTarget;
 	var anchorWidth = $(currentAnchor).width();
+	var anchorHeight = $(currentAnchor).height();
 	console.log("anchorWidth: " + anchorWidth + "px");
 
 	const viewportWidth = document.documentElement.clientWidth;
+	// ------
 	const modalContentWidth = $("#content-wrap").width();
-	initialModalScale = (anchorWidth / modalContentWidth);
+	// if the zoomed picture is taller than viewport
+	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+	if ( h < largeImgElH) {
+		console.log("height of viewport: " + h + " height of ZoomedPicture: " + largeImgElH);
+		initialModalScale = (anchorHeight / h);
+	} else {
+		initialModalScale = (anchorWidth / modalContentWidth);
+	}
+	console.log("initialModalScale: " + initialModalScale );
 	// if viewport wider than #content-wrap
 	var widthContentDifference = 0;
 	if ( viewportWidth > modalContentWidth ) {
@@ -104,24 +137,6 @@ function drawModalSingleImage (e)
 
 function drawSpinner (e)
 {
-	// get the images unique CSS in format 'wp-image-123'
-	const regex = /wp\-image\-\d+/g;
-	const str = e.target.className;
-	let m;
-	var clickedElementClass;
-
-	while ((m = regex.exec(str)) !== null) {
-		// This is necessary to avoid infinite loops with zero-width matches
-		if (m.index === regex.lastIndex) {
-			regex.lastIndex++;
-		}
-
-		// The result can be accessed through the `m`-variable.
-		m.forEach((match, groupIndex) => {
-			clickedElementClass = match;
-		});
-	};
-
 	var spinner = document.createElement("div");
 	spinner.id = "spinner";
 
@@ -132,12 +147,21 @@ function drawSpinner (e)
 	spinner.style.left = leftTop[1] + "px";
 	spinner.style.top = leftTop[0] + "px";
 
-	var imageEl = document.getElementsByClassName(clickedElementClass);
-	var parentEl = imageEl[0].parentElement;
+	var parentEl = e.currentTarget.parentElement;
 
 	parentEl.style.position = "relative";
 
 	parentEl.appendChild(spinner);
+};
+
+function removeSpinner ()
+{
+	if ( document.getElementById("spinner") ) {
+		document.getElementById("spinner").remove();
+	} else {
+		console.log("Spinner wasn't found. So it couldn't be removed.");
+		return false;
+	}
 };
 
 function findCenter (widthEl, heightEl, widthCont, heightCont)
