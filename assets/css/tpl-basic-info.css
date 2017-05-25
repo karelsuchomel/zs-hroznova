@@ -1,3 +1,6 @@
+.tpl-basic-info > #content-single-page {
+  border-radius: 0px 0px 3px 3px;
+}
 .tpl-basic-info > a.map-container {
   display: block;
 }
@@ -26,4 +29,18 @@
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media screen and (max-width: 570px) {
+  .tpl-basic-info .parallax-base {
+    height: auto;
+  }
+  .tpl-basic-info .parallax-base .parallax-layer {
+    position: relative;
+  }
+}
+@media screen and (max-width: 470px) {
+  #content.tpl-basic-info {
+    padding-top: 0px;
+  }
 }

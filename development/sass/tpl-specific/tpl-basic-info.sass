@@ -1,5 +1,6 @@
 .tpl-basic-info
-	> content-single-page
+	> #content-single-page
+		border-radius: 0px 0px 3px 3px
 
 	> a.map-container
 		display: block
@@ -29,3 +30,18 @@
 					width: 100%
 					height: auto
 					display: block
+
+@media screen and(max-width: 570px)
+	.tpl-basic-info
+		.parallax-base
+			height: auto
+
+			.parallax-layer
+				position: relative
+
+				a.map-container
+					.parallax-hero-image
+
+@media screen and(max-width: 470px)
+	#content.tpl-basic-info
+		padding-top: 0px

@@ -30,6 +30,28 @@ $(anchorsArray).click(function(e)
 	}
 });
 
+// add two functions to Image prototype
+Image.prototype.load = function(url)
+{
+	var thisImg = this;
+	var xmlHTTP = new XMLHttpRequest();
+	xmlHTTP.open('GET', url,true);
+	xmlHTTP.responseType = 'arraybuffer';
+	xmlHTTP.onload = function(e) {
+		var blob = new Blob([this.response]);
+		thisImg.src = window.URL.createObjectURL(blob);
+	};
+	xmlHTTP.onprogress = function(e) {
+		thisImg.completedPercentage = parseInt((e.loaded / e.total) * 100);
+	};
+	xmlHTTP.onloadstart = function() {
+		thisImg.completedPercentage = 0;
+	};
+	xmlHTTP.send();
+};
+Image.prototype.completedPercentage = 0;
+
+
 function openPictureModal (scale, translateX, translateY, targetHeight)
 {
 	modal.style.display = "block";
@@ -56,6 +78,7 @@ function closePictureModal (scale)
 {
 	modalContent.style.transform = "scale(" + scale + ") translate(" + 0 + "px, " + 0 + "px)";
 	modalBG.style.animationName = "fadeOut";
+	modalBG.style.animationFillMode = "forwards";
 
 	setTimeout(function() {
 		modal.style.display = "none";
@@ -70,27 +93,38 @@ function closePictureModal (scale)
 function loadLargerImage (e)
 {
 	// spinner
-	drawSpinner(e);
+	var prgb = initiateProgressBar(e);
 
 	// load a new picture and place it on top of the old one
 	var largeImgPath = e.currentTarget.getAttribute('href');
 	var largeImgEl = new Image();
-	console.log("largeImgEl: " + largeImgEl);
-	// append newly created picture to modal-content
-	modalContent.appendChild( largeImgEl );
+
+	var loadingCompleted = false;
+	var interID = setInterval ( function() {
+		prgb.style.transform = "scaleX(" + (largeImgEl.completedPercentage / 100) + ")";	
+
+		console.log( "loaded: " + largeImgEl.completedPercentage);
+
+		if ( largeImgEl.completedPercentage == 100 ) {
+			clearInterval( interID );
+		}
+	}, 100); 
+	largeImgEl.load( largeImgPath );
+
 	largeImgEl.onload = function () {
 		let largeImgElH = largeImgEl.height;
 		drawModalSingleImage(e, largeImgElH);
 	};
 
 	largeImgEl.className = "zoom-picture";
-	largeImgEl.src = largeImgPath;
+	// append newly created picture to modal-content
+	modalContent.appendChild( largeImgEl );
 
 };
 
 function drawModalSingleImage (e, largeImgElH)
 {
-	removeSpinner ();
+	removeProgressBar();
 
 	// ----------- TODO ------------
 	// I cannot compare dimensions in pixels
@@ -108,12 +142,12 @@ function drawModalSingleImage (e, largeImgElH)
 	const modalContentWidth = $("#content-wrap").width();
 	// if the zoomed picture is taller than viewport
 	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-	if ( h < largeImgElH) {
-		console.log("height of viewport: " + h + " height of ZoomedPicture: " + largeImgElH);
-		initialModalScale = (anchorHeight / h);
-	} else {
+	//if ( h < largeImgElH) {
+	//	console.log("height of viewport: " + h + " height of ZoomedPicture: " + largeImgElH);
+	//	initialModalScale = (anchorHeight / h);
+	//} else {
 		initialModalScale = (anchorWidth / modalContentWidth);
-	}
+	//}
 	console.log("initialModalScale: " + initialModalScale );
 	// if viewport wider than #content-wrap
 	var widthContentDifference = 0;
@@ -135,53 +169,32 @@ function drawModalSingleImage (e, largeImgElH)
 	openPictureModal( afterZoomScale, (-anchorOffLeft), (-anchorOffTop), e.target.height);
 };
 
-function drawSpinner (e)
+function initiateProgressBar (e)
 {
-	var spinner = document.createElement("div");
-	spinner.id = "spinner";
-
-	// set the spiners top and left CSS atributes (centering the spinner)
-	let spW = $(spinner).width();
-	let spH = $(spinner).height();
-	var leftTop = findCenter(spW, spH, e.target.clientHeight, e.target.clientWidth);
-	spinner.style.left = leftTop[1] + "px";
-	spinner.style.top = leftTop[0] + "px";
+	var progressBarEl = document.createElement( "div" );
+	progressBarEl.id = "progress-bar";
 
 	var parentEl = e.currentTarget.parentElement;
-
 	parentEl.style.position = "relative";
 
-	parentEl.appendChild(spinner);
+	parentEl.appendChild( progressBarEl );
+
+	return progressBarEl;
 };
 
-function removeSpinner ()
+function removeProgressBar ()
 {
-	if ( document.getElementById("spinner") ) {
-		document.getElementById("spinner").remove();
+	if ( document.getElementById("progress-bar") ) {
+		document.getElementById("progress-bar").remove();
 	} else {
-		console.log("Spinner wasn't found. So it couldn't be removed.");
+		console.log("Progress bar wasn't found. So it couldn't be removed.");
 		return false;
 	}
 };
 
-function findCenter (widthEl, heightEl, widthCont, heightCont)
-{
-	return [(widthCont / 2) - (widthEl / 2), (heightCont / 2) - (heightEl / 2)];
-};
-
-function drawModalGallery(e)
-{
-
-	alert('gallery');
-};
-
-
-
-
 
 // When the user clicks anywhere outside of the modal, close it
-$(modal).click( function() {
-
+modal.addEventListener( 'click', function() 
+{
 	closePictureModal(initialModalScale);
-	
 });

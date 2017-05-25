@@ -236,7 +236,6 @@ body {
           border-radius: 3px;
 }
 #content-single-page a {
-  display: inline-block;
   margin: 0 auto;
   position: relative;
 }
@@ -1756,16 +1755,19 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-#spinner {
+#progress-bar {
   position: absolute;
-  top: 0px;
   left: 0px;
-  height: 48px;
-  width: 48px;
-  background-image: url("assets/images/spinner-animation.gif");
-  -webkit-background-size: cover;
-          background-size: cover;
-  background-position: center;
+  bottom: 0px;
+  height: 8px;
+  width: 100%;
+  background-color: #00b04b;
+  -webkit-transform: scaleX(0);
+      -ms-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
 }
 
 .zoom-picture {

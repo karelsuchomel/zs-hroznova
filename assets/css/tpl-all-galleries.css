@@ -122,6 +122,10 @@
 }
 #content-single-page ul#listing-found-galleries-container > li > a img {
   cursor: pointer;
+  transition: 0.2s;
+}
+#content-single-page ul#listing-found-galleries-container > li > a:hover img, #content-single-page ul#listing-found-galleries-container > li > a:active img {
+  filter: brightness(1.2);
 }
 #content-single-page ul#listing-found-galleries-container .title-overlay-container {
   background: rgba(255, 255, 255, 0.6);
