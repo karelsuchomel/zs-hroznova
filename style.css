@@ -1212,6 +1212,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 @media screen and (max-width: 470px) {
   #tab-switcher {
     padding: 0px 15px;
+    overflow: hidden;
   }
   #tab-switcher .tab-button {
     font-size: 12px;
@@ -1445,13 +1446,13 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
 }
 #agenda-list-wrap .day-segment .date-label {
   position: relative;
-  padding: 12px 20px;
+  padding: 15px 20px 0px;
 }
 #agenda-list-wrap .day-segment .date-label .dot {
   display: inline-block;
   position: absolute;
   left: -8px;
-  top: 11px;
+  top: 14px;
   width: 20px;
   height: 20px;
   background-color: #f0f0f0;
@@ -1476,7 +1477,7 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   padding-left: 20px;
 }
 #agenda-list-wrap .day-segment ul.event-list > li {
-  line-height: 1.5em;
+  line-height: 1.4em;
   padding: 5px 0px;
 }
 #agenda-list-wrap .day-segment ul.event-list > li > a:hover {
@@ -1748,11 +1749,11 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   z-index: 9;
   margin: 0 auto;
   width: 100%;
-  -webkit-transition: -webkit-transform 0.5s;
-  transition: -webkit-transform 0.5s;
-  -o-transition: transform 0.5s;
-  transition: transform 0.5s;
-  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1);
+  -o-transition: transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1), -webkit-transform 0.5s cubic-bezier(0.29, 0.235, 0.2, 1);
 }
 
 #progress-bar {

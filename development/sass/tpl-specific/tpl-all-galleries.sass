@@ -13,12 +13,8 @@
 		border-radius: 3px 3px 0px 0px
 		overflow: hidden
 		background:
-			color: #f9f7e8
-			image: url('../images/traced-flowers.png')
-			size: cover
-			position: center
+			color: #fbf8d0
 		
-
 		> h1
 			text-align: left
 			font-size: 24px
@@ -29,7 +25,6 @@
 			margin: 0 auto
 			padding: 10px 17px
 			box-sizing: border-box
-			text-shadow: 0px 0px 5px #f9f7e8
 			background: white
 
 #button-wrapper-gradient-holder
@@ -48,7 +43,7 @@
 		top: 0px
 		height: 100%
 		width: 34px
-		background: linear-gradient(to right, rgba(255,255,255,0), rgba(249,247,232,1))
+		background: linear-gradient(to right, rgba(251,248,208,0), rgba(251,248,208,1))
 
 #school-year-buttons-wrapper
 	overflow-x: auto
@@ -117,7 +112,7 @@
 			width: calc( 33.333333% - (17px / 3 * 2) )
 			float: left
 
-			&:nth-of-type(3)
+			&:nth-of-type(3n)
 				margin-right: 0px
 
 			> a 
@@ -163,8 +158,13 @@
 				width: calc( 50% - (15px / 2) )
 				margin: 0px 15px 15px 0px
 
-				&:nth-of-type(2)
+				&:nth-of-type(3n)
+					margin-right: 15px
+
+				&:nth-of-type(2n)
 					margin-right: 0px
+
+					
 
 @media screen and(max-width: 470px)
 	#content.tpl-all-galleries

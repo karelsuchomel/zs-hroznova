@@ -68,7 +68,7 @@ function openPictureModal (scale, translateX, translateY, targetHeight)
 
 
 	setTimeout(function() {
-		modalContent.style.transform = "scale(1.0001) translate(" + translateX + "px, " + toBeCenteredVerticaly + "px)";
+		modalContent.style.transform = "scale(1) translate(" + translateX + "px, " + toBeCenteredVerticaly + "px)";
 	}, 20);
 
 	modalState = "open";
