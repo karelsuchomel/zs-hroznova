@@ -1,5 +1,8 @@
 @media screen and(max-width: 1140px)
 	#info-card-wrap
+		#hero-image
+			width: calc(100% - 225px)
+
 		.basic-info-wrap
 			width: 225px
 
@@ -26,11 +29,11 @@
 			position: relative
 			border-radius: 3px 3px 0px 0px
 
-			> img
-				width: 100%
-				min-width: 0px
-				border-radius: 3px 3px 0px 0px
-				margin-left: 0px
+			> .image-container
+				right: 0px
+				background:
+					image: url('assets/images/zs-mosaic-small.jpg')
+					position: top center
 
 		#hide-info-card
 			color: white

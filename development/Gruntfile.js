@@ -84,6 +84,18 @@ module.exports = function(grunt) {
       dist: {
         src: '../style.css'
       }
+    },
+    'ftp-deploy' : {
+      build: {
+        auth: {
+          host: 'zshroznova.cz',
+          port: 21,
+          authKey: 'key1'
+        },
+        src: ['../'],
+        dest: '/wp-content/themes/zs-hroznova/',
+        exclusions: [ '../development', '../.gitignore', '../cmd2', '../.git']
+      }
     }
   });
 
@@ -98,8 +110,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   // enable CSS prefixing
   grunt.loadNpmTasks('grunt-postcss');
+  // ftp deploy
+  grunt.loadNpmTasks('grunt-ftp-deploy');
   // set default
   grunt.registerTask('default', ['sass', 'concat', 'watch', 'postcss']);
   grunt.registerTask('prefix', ['postcss']);
+  grunt.registerTask('ftp', ['ftp-deploy']);
 
 };

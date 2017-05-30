@@ -7,7 +7,7 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
     <img src="<?php bloginfo('template_directory'); ?>/assets/images/arrow-up-icon.svg">
   </div>
   <div id="hero-image">
-    <img src="<?php bloginfo('template_directory'); ?>/assets/images/zs-mosaic.jpg">
+    <div class="image-container"></div>
     <h1>Vítejte na stránkách základní&nbsp;školy Brno,<br> Hroznová&nbsp;1</h1>
   </div>
   <div class="basic-info-wrap clear-both">
