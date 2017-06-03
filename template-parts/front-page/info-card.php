@@ -8,7 +8,7 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
   </div>
   <div id="hero-image">
     <div class="image-container"></div>
-    <h1>Vítejte na stránkách základní&nbsp;školy Brno,<br> Hroznová&nbsp;1</h1>
+    <h1>Vítejte na stránkách základní&nbsp;školy Brno, Hroznová&nbsp;1</h1>
   </div>
   <div class="basic-info-wrap clear-both">
     <div class="info-block">

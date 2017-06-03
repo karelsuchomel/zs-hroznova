@@ -1,1 +1,1 @@
-console.log("modul loaded: modal-schedule.js")
+console.log("modul loaded: modal-schedule.js");

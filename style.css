@@ -751,6 +751,53 @@ nav#side-list ul#menu-bocni-seznam > li ul.sub-menu.open {
   display: none;
 }
 
+#founder-partner-tags {
+  padding-bottom: 17px;
+  color: #777;
+  clear: both;
+}
+#founder-partner-tags .founder-container {
+  float: left;
+  display: block;
+  margin: 17px 17px 0px 17px;
+  font-size: 12px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+#founder-partner-tags .founder-container:hover {
+  color: #000;
+}
+#founder-partner-tags .founder-container:hover > img {
+  -webkit-filter: grayscale(0%) opacity(100%);
+          filter: grayscale(0%) opacity(100%);
+}
+#founder-partner-tags .founder-shield {
+  display: block;
+  float: left;
+  height: 43px;
+  margin: 2px 10px 0px 0px;
+  -webkit-filter: grayscale(100%) opacity(35%);
+          filter: grayscale(100%) opacity(35%);
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+#founder-partner-tags > .logo-partner-school {
+  float: left;
+  height: 45px;
+  margin: 17px 17px 0px 17px;
+  -webkit-filter: grayscale(100%) opacity(35%);
+          filter: grayscale(100%) opacity(35%);
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+#founder-partner-tags > .logo-partner-school:hover {
+  -webkit-filter: grayscale(0%) opacity(100%);
+          filter: grayscale(0%) opacity(100%);
+}
+
 @media screen and (max-width: 960px) {
   nav#side-list {
     -webkit-transition: 0.3s;

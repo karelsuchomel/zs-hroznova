@@ -139,4 +139,38 @@ nav#side-list
 #side-list-fixed-background
 	display: none
 
+#founder-partner-tags
+	padding-bottom: 17px
+	color: #777
+	clear: both
+
+	.founder-container
+		float: left
+		display: block
+		margin: 17px 17px 0px 17px
+		font-size: 12px
+		transition: 0.2s
+		&:hover
+			color: #000
+			> img
+				filter: grayscale(0%) opacity(100%)
+
+	.founder-shield
+		display: block
+		float: left
+		height: 43px
+		margin: 2px 10px 0px 0px
+		filter: grayscale(100%) opacity(35%)
+		transition: 0.2s
+
+	> .logo-partner-school
+		float: left
+		height: 45px
+		margin: 17px 17px 0px 17px
+		filter: grayscale(100%) opacity(35%)
+		transition: 0.2s
+
+		&:hover
+			filter: grayscale(0%) opacity(100%)
+
 @import "menu-side-list-responsive"

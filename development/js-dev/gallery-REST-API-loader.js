@@ -5,7 +5,7 @@ for (var i = yearButtonsElements.length - 1; i >= 0; i--) {
 	yearButtonsElements[i].addEventListener("click", execute_request);
 }
 
-// Find container to print the JSON to
+// Find container for gallery list
 const galListContainer = document.getElementById("listing-found-galleries-container");
 
 function execute_request(event) 
@@ -82,7 +82,7 @@ function printResponse( responseData )
 		HTMLtoprint += parseIsoDatetime( responseData[i].date ) + "</span>";
 		HTMLtoprint += "</div>";
 		HTMLtoprint += "</li>";
-	};
+	}
 
 	galListContainer.innerHTML = HTMLtoprint;
 
