@@ -1,0 +1,134 @@
+@import "../var_settings"
+
+.tpl-import-galleries
+	padding: 1px 0px !important
+
+	.content-wrapper
+		padding: 1px 34px 0px
+		margin: 34px 0px
+
+	.highlighed-segment
+		background-color: #ddd
+
+	form
+		margin: 0px 0px 34px
+
+		input
+			&:focus
+				transition: 0.2s
+				border: 1px solid $base-color
+				box-shadow: 0px 0px 2px 1px $base-color
+
+		h1
+			font-weight: 700
+			font-size: 32px
+			text-align: left
+			margin: 0px 0px 17px 0px
+
+		table
+			border: 0px
+			margin: 34px 0px
+
+			td
+				border: 0px
+				padding: 0px
+				vertical-align: top
+
+				label
+					display: block
+					margin: 8px 0px 4px
+
+	h2.log-headline
+		font-size: 14px
+		color: #888
+
+	.import-button-progress-bar
+		display: block
+		width: 100%
+		text-align: left
+		cursor: default
+		overflow: hidden
+
+		.button-background
+			display: none
+
+		.button-text
+			color: white
+
+		&:active
+			box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.2)
+			transform: scale(1)
+
+		#progress-line
+			height: 48px
+			width: 100%
+			position: absolute
+			background-color: rgba(255,255,255,0.3)
+			top: 0px
+			left: 0px
+			transform-origin: right top
+			transition: 5s ease-in-out
+			transform: scaleX(1)
+
+.button-modern
+	margin: 50px 0px
+	border-radius: 5px
+	padding: 15px 25px
+	border: 0px
+	background: linear-gradient(45deg, #e96443 , #904e95)
+	position: relative
+	cursor: pointer
+	transition: 0.2s ease-in-out
+	font-family: 'Cabin', sans-serif
+	font-weight: 600
+	box-shadow: 1px 2px 5px 1px rgba(0,0,0,0.2)
+
+	.button-text
+		position: relative
+		z-index: 1
+		transition: 0.2s
+		color: #B85870
+
+	.button-background
+		position: absolute
+		z-index: 0
+		border-radius: 3px
+		overflow: hidden
+		width: calc(100% - 4px)
+		height: calc(100% - 4px)
+		top: 2px
+		left: 2px
+
+		.btn-bg-sheet
+			background: white
+			height: 50%
+			transform-origin: center bottom
+			transform: rotate(-5deg) scaleX(2) scaleY(2) translateY(1px)
+			transition: 0.3s ease-out
+
+			&:nth-of-type(2)
+				transform-origin: center top
+				transform: rotate(-5deg) scaleX(2) scaleY(2) translateY(0px)
+
+.button-modern
+	&:hover, &:active
+		.button-text
+			color: white
+
+		.button-background
+			.btn-bg-sheet
+				&:nth-of-type(1)
+					transform: rotate(-20deg) scaleX(2) scaleY(2) translateY(-100%)
+				&:nth-of-type(2)
+					transform: rotate(-20deg) scaleX(2) scaleY(2) translateY(100%)
+
+	&:active
+		transition: 0.1s
+		box-shadow: none
+		transform: scale(0.98)
+		
+	&:focus
+		outline: none !important
+
+	&::-moz-focus-inner
+		border: 0px

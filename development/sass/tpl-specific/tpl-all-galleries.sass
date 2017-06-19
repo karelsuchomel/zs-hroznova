@@ -12,8 +12,8 @@
 		max-width: 720px
 		border-radius: 3px 3px 0px 0px
 		overflow: hidden
-		background:
-			color: #fbf8d0
+		border-bottom: 1px solid #ddd
+		background-color: white
 		
 		> h1
 			text-align: left
@@ -25,12 +25,10 @@
 			margin: 0 auto
 			padding: 10px 17px
 			box-sizing: border-box
-			background: white
 
 #button-wrapper-gradient-holder
 	position: relative
 	margin: 0 auto
-	padding-top: 20px
 	max-width: 720px
 	box-sizing: border-box
 	
@@ -43,29 +41,29 @@
 		top: 0px
 		height: 100%
 		width: 34px
-		background: linear-gradient(to right, rgba(251,248,208,0), rgba(251,248,208,1))
+		background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1))
 
 #school-year-buttons-wrapper
 	overflow-x: auto
-	overflow-y: hidden
+	padding-top: 10px
 	white-space: nowrap
 	height: 60px
 	position: relative
 	z-index: 1
 
 .button-school-year
-	border: 1px solid #DDD
 	border-radius: 3px
 	padding: 10px 17px
 	margin-right: 10px
 	margin-bottom: 10px
 	display: inline-block
+	overflow: hidden
 	cursor: pointer
 	position: relative
-	overflow: hidden
 	background: white
 	-moz-user-select: none
 	user-select: none
+	box-shadow: 1px 1px 5px rgba(0,0,0,0.25)
 
 	&:first-child
 		margin-left: 17px
@@ -93,7 +91,7 @@
 		background: #DDD
 
 .button-school-year.selected
-	background: #EEE
+	background: #ccc
 	cursor: default
 	&:after
 		background: #777

@@ -1,0 +1,44 @@
+@keyframes scaleIn
+  from
+    transform: scaleY(0)
+  to
+    transform: scaleY(1)
+
+.message-entry
+  border-radius: 5px
+  padding: 10px
+  margin: 10px 0px
+  color: white !important
+  line-height: 1.6em
+  vertical-align: middle
+  animation-name: scaleIn
+  animation-duration: 0.2s
+  animation-fill-mode: forwards
+  transform: scaleY(0)
+  transform-origin: top left
+
+  &:before
+    padding-right: 10px
+    position: relative
+    font-size: 20px
+
+.notice-message
+  background: linear-gradient(to right, #2ecc71, #27ae60)
+  box-shadow: 1px 1px 2px 1px #ddd
+
+  &:before
+    content: "✓"
+
+.varning-message
+  background: #FB9500
+  box-shadow: 1px 1px 2px 1px #ddd
+
+  &:before
+    content: "⚠"
+
+.error-message
+  background: #bb376c
+  box-shadow: 1px 1px 2px 1px #ddd
+
+  &:before
+    content: "❌"

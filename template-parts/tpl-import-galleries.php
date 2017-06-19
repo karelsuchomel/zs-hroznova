@@ -1,63 +1,94 @@
-<?php/* Template Name: Import galerí */?>
-<html>
-<head>
-	<title>Custom gallery importer</title>
-	<meta charset="<?php bloginfo('charset');?>">
-	<meta name="description" content="Základní škola Brno, Hroznová 1">
-	<meta name="keywords" content="Základní škola Brno, Hroznová 1">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- Links-->
-	<!-- Fonts-->
-	<!-- Open Sans Light 300, Light Italic, Normal 400, Semi-bold 600, Bold 700-->
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-	<?php wp_head(); ?>
-</head>
-<body>
+<?php /* Template Name: Import galerí */ ?>
 
-	<div id="#content-wrap">
-		<form style="max-width: 640px; margin: 0 auto;">
-			<h1>Custom gallery importet</h1>
-			<p>This importer works only with WordPress as the final destination for galleries.
-			Additionaly, it expects table of gallery names [id, name] and another table of
-			pictures [id, id-of-gallery, url]. Date for galleries is extracted from JPEG headers.</p>
-			<label for="start-from-picture-id">Import pictures starting with picture ID</label><br>
-			<input type="number" name="start-from-picture-id" id="start-from-picture-id">
-			<em>or start from begining</em><br><br>
-			<button type="submit" id="submit-form" style="border: 1px solid #777; border-radius: 5px; padding: 10px 15px; background: white;">Begin with import</button>
+<?php get_header();?>
+<!-- get specified CSS -->
+<link  rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/import-galleries.css">
+<!-- modal template -->
+<?php require_once('modals/modal-picture-view.php') ?>
+
+<?php require_once('navigation/menu-top-bar.php') ?>
+
+<div id="content-wrap" class="clear-both">
+
+  <?php require_once('navigation/menu-side-list.php') ?>
+
+  <div id="content">
+    <div id="content-single-page" class="tpl-import-galleries">
+
+    <form>
+    	<div class="content-wrapper">
+				<h1>Custom gallery importer</h1>
+				<p>This importer works only with WordPress as the final destination for galleries.
+				Additionaly, it expects table of gallery names [id, name] and another table of
+				pictures [id, id-of-gallery, url]. Date for galleries is extracted from JPEG headers.</p>
+			</div>
+
+			<div class="highlighed-segment">
+			<div class="content-wrapper">
+				<table>
+					<tr>
+					<td>
+				<h2>Exporting from:</h2>
+				<label for="host-name-ex">Host name</label>
+				<input type="text" name="host-name-ex" id="host-name-ex" placeholder="https://www.domena.cz">
+				<label for="database-name-ex">Database name</label>
+				<input type="text" name="database-name-ex" id="database-name-ex">
+				<label for="database-user-ex">Database user name</label>
+				<input type="text" name="database-user-ex" id="database-user-ex">
+				<label for="database-pass-ex">Password</label>
+				<input type="text" name="database-pass-ex" id="database-pass-ex">
+					</td>
+					<td>
+				<h2>Importing to:</h2>
+				<label for="database-name-im">Database name</label>
+				<input type="text" name="database-name-im" id="database-name-im">
+				<label for="database-user-im">Database user name</label>
+				<input type="text" name="database-user-im" id="database-user-im">
+				<label for="database-pass-im">Password</label>
+				<input type="text" name="database-pass-im" id="database-pass-im">
+					</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+					<td>
+				<h2>Import settings</h2>
+				<label for="start-from-picture-id">Import pictures starting from Index</label>
+				<input type="number" name="start-from-picture-id" id="start-from-picture-id">
+				<em>or start from begining</em></br>
+				<button class="button-modern" id="submit-form">
+					<div class="button-text">
+					Import
+					</div>
+					<div class="button-background">
+					<div class="btn-bg-sheet"></div>
+					<div class="btn-bg-sheet"></div>
+					</div>
+				</button>
+					</td>
+					</tr>
+				</table>
+			</div>
+			</div>
 		</form>
-		<div id="dashboard-container" style="max-width: 640px; margin: 0 auto;">
-
-		<script>
-		// get starting ID
-		var startImageID = 1;
-		startImageID = document.getElementById("start-from-picture-id").value;
-		var phpAjaxFuntionLocation = "http://localhost/zs-hroznova/";
-		phpAjaxFuntionLocation += "wp-content/themes/zs-hroznova/template-parts/import-galleries-ajax-functions.php";
-
-		function importHandler (e)
-		{
-			e.preventDefault();
-
-			// get info about database
-			var initialRequest = new XMLHttpRequest();
-			initialRequest.open('GET', phpAjaxFuntionLocation + "?initial=TRUE");
-			initialRequest.onload = function () {
-				var JSONData = initialRequest.responseText;
-				console.log( JSONData );
-			};
-			initialRequest.send();
-		};
-
-		// add event listeners
-		document.getElementById("submit-form").addEventListener( 'click', importHandler );
-
-
-
-
-		</script>
+		<div class="content-wrapper">
+			<h2 class="log-headline">Log:</h2>
+			<div id="dashboard-container">
+				<div id="Msg-container"></div>
+			</div>
 		</div>
-	</div>
+    </div>
+  </div>
 
-</body>
-</html>
-<?php //require_once('import-galleries-ajax-functions.php'); ?>
+</div>
+
+<!-- modal picture view script -->
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
+<!-- import galleries handler -->
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/import-galleries.js"></script>
+
+<?php
+
+get_footer();
+
+?>

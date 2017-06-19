@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     sass: {
       main: {
         options: {             // Target options
-          style: 'expanded',   // options: nested, compact, compressed, expanded
+          style: 'compressed',   // options: nested, compact, compressed, expanded
           sourcemap: 'none',   // options: auto, file, inline, none
         },
         files: {               // Dictionary of files
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
       specific: {
         options: {               // Target options
-          style: 'expanded',     // options: nested, compact, compressed, expanded
+          style: 'compressed',     // options: nested, compact, compressed, expanded
           sourcemap: 'none',     // options: auto, file, inline, none
         },
         files: [{                 // Dictionary of files
