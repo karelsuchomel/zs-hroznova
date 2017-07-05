@@ -55,7 +55,7 @@ h3
 
 
 // lists
-ul
+ul, ol
   list-style: circle #fff
   margin: $universal-padding 0px
   padding-left: 15px
@@ -97,7 +97,6 @@ textarea
 table
   margin: 0
   padding: 0
-  border: 1px solid #DDD
   border-radius: 3px
   font-size: 100%
   font: inherit
@@ -107,7 +106,10 @@ table
 
   td, th
     padding: 4px 8px
-    border: 1px solid #DDD
+
+table, th, td
+  border: 1px solid #DDD
+  border-collapse: collapse
 
 // reCaptcha
 .g-recaptcha

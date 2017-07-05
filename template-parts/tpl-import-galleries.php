@@ -29,8 +29,8 @@
 					<tr>
 					<td>
 				<h2>Exporting from:</h2>
-				<label for="host-name-ex">Host name</label>
-				<input type="text" name="host-name-ex" id="host-name-ex" placeholder="https://www.domena.cz">
+				<label for="database-host-ex">Host name</label>
+				<input type="text" name="database-host-ex" id="database-host-ex" placeholder="https://www.domena.cz">
 				<label for="database-name-ex">Database name</label>
 				<input type="text" name="database-name-ex" id="database-name-ex">
 				<label for="database-user-ex">Database user name</label>

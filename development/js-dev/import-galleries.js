@@ -35,6 +35,7 @@ function get_inputValue ( id ) {
 
 function get_credentials () {
 	let logCred = {
+		'DBHostExport' : get_inputValue("database-host-ex"),
 		'DBNameExport' : get_inputValue("database-name-ex"),
 		'DBUserExport' : get_inputValue("database-user-ex"),
 		'DBPassExport' : get_inputValue("database-pass-ex"),
@@ -126,6 +127,31 @@ function countPicturesToProcess ( crd ) {
 	}
 }
 
+function importPicture ( ID, crd ) {
+	connectionImportPic = new XMLHttpRequest();
+	// get php-handler location
+	const handlerLocation = getPHPHandlerLocation('image-handler.php');
+
+	// send start ID in a POST
+	let POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
+	POSTparams += "DBUserExport=" + encodeURIComponent(crd.DBUserExport) + "&";
+	POSTparams += "DBPassExport=" + encodeURIComponent(crd.DBPassExport) + "&";
+	POSTparams += "DBHostExport=" + encodeURIComponent(crd.DBHostExport) + "&";
+	POSTparams += "PictureID=" + encodeURIComponent( ID );
+
+	connectionImportPic.open('POST', handlerLocation, false );
+	connectionImportPic.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	connectionImportPic.send( POSTparams );
+
+	if( connectionImportPic.status === 200 ) {
+		const response = connectionImportPic.responseText;
+		return response;
+	} else {
+		console.log("Status code returned from get-number-of-images.php: " + connectionImportPic.status);
+		return 1;
+	}
+}
+
 function setupProgressBar ( buttonID, count ) {
 	const progressBar = document.getElementById(buttonID);
 	progressBar.className += " import-button-progress-bar";
@@ -171,11 +197,21 @@ function importHandler (event)
 	}
 
 	let i = 1;
-	while(picturesToProcess.PicCount >= i) {
+	//picturesToProcess.PicCount
+	while( 1 >= i ) {
 
 		// uploads picture to current wordpress
-		const picLocation = importPicture( i );
-
+		const importedPicture = importPicture( i, crd );
+		console.log(importedPicture);
+		/*
+		if ( importedPicture == 1 ) {
+			i++;
+			continue;
+		} else {
+			console.log("picture id: " + i + "was imported");
+		}
+		*/
+		i++;
 	}
 }
 
