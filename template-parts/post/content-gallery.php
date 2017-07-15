@@ -1,4 +1,4 @@
-<div class="post-wrap clear-both gallery">
+<article class="post-wrap clear-both gallery">
 	<h2>
 		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 			<?php the_title(); ?>
@@ -13,4 +13,4 @@
 				<?php the_content(); ?>
 		</p>
 	</div>
-</div>
+</article>

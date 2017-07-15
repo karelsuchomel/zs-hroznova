@@ -1,4 +1,4 @@
-<div class="post-wrap clear-both type-image">
+<article class="post-wrap clear-both type-image">
 	<!-- if there is a features image -->
 	<?php if ( has_post_thumbnail() ) : ?>
 		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
@@ -23,4 +23,4 @@
 			</small>
 		</p>
 	</div>
-</div>
+</article>

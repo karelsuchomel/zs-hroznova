@@ -17,6 +17,10 @@
     <script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <?php wp_head(); ?>
   </head>
-  <body <?php body_class(); ?> >
+<body <?php body_class(); ?> >
 
-    <!-- site-header -->
+<?php require_once('template-parts/navigation/menu-top-bar.php') ?>
+
+<div id="content-wrap" class="clear-both">
+
+<?php require_once('template-parts/navigation/menu-side-list.php') ?>

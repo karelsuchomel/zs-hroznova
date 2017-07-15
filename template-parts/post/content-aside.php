@@ -1,4 +1,4 @@
-<div class="post-wrap clear-both aside">
+<article class="post-wrap clear-both aside">
 	<h2>
 		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 			<?php the_title(); ?>
@@ -11,4 +11,4 @@
 			<?php echo get_the_content(); ?>
 		</p>
 	</div>
-</div>
+</article>

@@ -5,10 +5,6 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 ?>
 <?php get_header();?>
 
-<?php require_once('template-parts/navigation/menu-top-bar.php') ?>
-
-<div id="content-wrap" class="clear-both">
-
   <div id="show-info-card"
   <?php if((isset($_COOKIE["info-card-closed"])) && $_COOKIE["info-card-closed"] == "TRUE" ) { ?>
     style="display: block;"
@@ -17,9 +13,6 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
     Zobrazit kartu s informacemi
     <img src="<?php bloginfo('template_directory'); ?>/assets/images/arrow-down-icon.svg">
   </div>
-
-
-  <?php require_once('template-parts/navigation/menu-side-list.php') ?>
 
   <div id="content" class="clear-both">
 
@@ -53,20 +46,4 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 
     <?php require_once('template-parts/front-page/agenda-list.php') ?>
 
-    <div id="founder-partner-tags" class="clear-both">
-      <img class="logo-partner-school" src="<?php bloginfo('template_directory'); ?>/assets/images/logo-partner-school.jpg">
-      <span class="founder-container">
-        <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-mc-brno-stred-small.jpg">
-        Zřizovatel: Městská část<br> Brno-střed
-      </span>
-    </div>
-
-  </div>
-
-</div>
-
-<?php
-
-get_footer();
-
-?>
+<?php get_footer();?>

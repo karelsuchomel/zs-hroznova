@@ -1,20 +1,25 @@
 #posts-wrap
 	width: 75%
 	float: left
-	background: white
-	border-radius: 3px
-	border: 1px solid #DDD
 	box-sizing: border-box
 	margin-bottom: $universal-padding
 	position: relative
 
 	.post-wrap
+		background: white
+		border: 1px solid #DDD
+		border-bottom: 0px
+		box-shadow: 0px 1px #DDD
 		overflow: hidden
-		border-bottom: 1px solid #DDD
 		padding-left: ($universal-padding / 2) 
 
+		&:first-of-type
+			border-top-left-radius: 3px
+			border-top-right-radius: 3px
+
 		&:last-of-type
-			border-bottom: 0px
+			border-bottom-left-radius: 3px
+			border-bottom-right-radius: 3px
 
 		h2
 			font-size: 16px

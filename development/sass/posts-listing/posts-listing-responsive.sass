@@ -6,7 +6,10 @@
 	#posts-wrap
 		width: 100%
 		margin-top: 0px
-		border-top-left-radius: 0px
+
+		.post-wrap
+			&:first-of-type
+				border-top-left-radius: 0px
 
 @media screen and(max-width: 640px)
 	#posts-wrap
@@ -15,8 +18,17 @@
 
 @media screen and(max-width: 470px)
 	#posts-wrap
-		border: 0px
-		border-raduius: 0px
+		.post-wrap
+			border-right: 0px
+			border-left: 0px
+
+			&:first-of-type
+				border-top: 0px
+				border-top-right-radius: 0px
+
+			&:last-of-type
+				border-bottom-left-radius: 0px
+				border-bottom-right-radius: 0px
 
 		.post-wrap
 			padding-left: 0px
