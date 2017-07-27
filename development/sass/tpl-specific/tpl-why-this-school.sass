@@ -1,0 +1,32 @@
+.tpl-why-this-school
+	ol
+		counter-reset: li
+		margin: 0px
+		padding: 0px
+
+		> li
+			position: relative
+			margin: 0 0 17px 0px
+			padding: 8px 8px
+			padding-left: 48px
+			list-style: none
+			background: #F6F6F6
+			border-radius: 3px
+
+			&:before
+				content: counter(li)
+				counter-increment: li
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				left: 8px
+				box-sizing: border-box
+				width: 32px
+
+				margin-right: 8px
+				padding: 4px
+				color: #fff
+				border-radius: 50%
+				background: #00b04b
+				font-weight: 600
+				text-align: center

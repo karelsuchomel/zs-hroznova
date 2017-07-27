@@ -7,16 +7,12 @@
   background: white
   border-radius: 3px
 
-  a
-    margin: 0 auto
-    position: relative
-
   h2
     font-weight: 600
     margin-top: 0px
     line-height: 1.5em
 
-  p
+  > p
     font-size: 1.1em
     color: #333
 
@@ -85,6 +81,7 @@
 .home-link
   color: #777
   border-bottom: 1px solid white
+  display: inline-block
 
   &:before
     content: ""
@@ -98,5 +95,77 @@
 
   &:hover, &:active
     border-bottom: 1px solid #777
+
+// custom buttons
+.download-button
+  position: relative
+  margin: 8px 0px
+  padding-right: 17px
+  display: inline-block
+  border-radius: 3px
+  background: white
+  box-shadow: 1px 1px 2px 1px #ddd
+  user-select: none
+  transition: 0.2
+  overflow: hidden
+
+  &:before
+    position: relative
+    top: 0
+    left: 0
+    padding: 10px 17px
+    color: white
+    display: inline-block
+    padding-right: 17px
+    margin-right: 8px
+
+  //text
+  font-weight: 600
+  text-decoration: none
+
+  &:hover
+    background: #F6F6F6
+
+  &:active
+    background: #EEE
+    box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
+    &:before
+      box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
+
+.download-button.pdf
+  &:before
+    content: "PDF"
+    background: #F24236
+
+  &:hover
+    &:before
+      background: #D81B0E
+
+.download-button.docx
+  &:before
+    content: "DOCX"
+    background: #295598
+
+  &:hover
+    &:before
+      background: #204276
+.download-button.xlsx
+  &:before
+    content: "XLSX"
+    background: #1F7244
+
+  &:hover
+    &:before
+      background: #1A5E38
+.download-button.pptx
+  &:before
+    content: "PPTX"
+    background: #D14424
+
+  &:hover
+    &:before
+      background: #B0391E
+
+
 
 @import "single-page-responsive"

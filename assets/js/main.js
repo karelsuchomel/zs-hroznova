@@ -118,11 +118,6 @@ $(document).ready(function(){
 	$("#dimmer-content").click(function(){
 		$("#toggle-menu-checkbox").prop('checked', false);
 	});
-
-	// Make menu-side-list as heigh as #content
-	var contentHeight = $("#content").outerHeight();
-	$("#side-list").css('height', contentHeight + 'px');
-	
 });
 
 $(document).ready(function(){

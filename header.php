@@ -22,5 +22,6 @@
 <?php require_once('template-parts/navigation/menu-top-bar.php') ?>
 
 <div id="content-wrap" class="clear-both">
+<div id="side-panel-bg-fix"></div>
 
 <?php require_once('template-parts/navigation/menu-side-list.php') ?>

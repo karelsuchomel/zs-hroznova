@@ -1,3 +1,12 @@
+<?php
+// functions for infocard picute (sunrize, noon, sunset, night)
+$sun_info = date_sun_info( time(), 49.1939, 16.5711);
+foreach ($sun_info as $key => $val) {
+    echo "$key: " . date("H:i:s", $val) . "<br>";
+}
+
+?>
+
 <div id="info-card-wrap" class="clear-both"
 <?php
 if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "FALSE" ) {
@@ -8,7 +17,7 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
   </div>
   <div id="hero-image">
     <div class="image-container"></div>
-    <h1>Vítejte na stránkách Základní&nbsp;školy, Brno, Hroznová&nbsp;1</h1>
+    <h1>Vítejte na stránkách Základní&nbsp;školy Brno, Hroznová&nbsp;1</h1>
   </div>
   <div class="basic-info-wrap clear-both">
     <div class="info-block">

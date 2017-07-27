@@ -4,46 +4,28 @@
 <!-- get specified CSS -->
 <link  rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/assets/css/tpl-employees-contacts.css">
 <!-- modal template -->
-<?php require_once('modals/modal-picture-view.php') ?>
 
-<?php require_once('navigation/menu-top-bar.php') ?>
+<div id="content" class="employees-contacts">
+<div id="content-single-page">
 
-<div id="content-wrap" class="clear-both">
+<!-- Start the Loop. -->
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-  <?php require_once('navigation/menu-side-list.php') ?>
+  <div class="post-wrap clear-both">
+    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 
-  <div id="content" class="employees-contacts">
-
-    <div id="content-single-page">
-
-    <!-- Start the Loop. -->
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-      <div class="post-wrap clear-both">
-        <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
-        <div class="basic-info-wrap">
-          <p>
-            <?php the_content(); ?>
-            <br>
-          </p>
-        </div>
-      </div>
-    <?php endwhile; else : ?>
-    <p><?php _e( 'Obsah se nepodařilo získat 😟, o chybě kontaktujte ✍ správu školy.' ); ?></p>
-    <!-- REALLY stop The Loop. -->
-    <?php endif; ?>
-
+    <div class="basic-info-wrap">
+      <p>
+        <?php the_content(); ?>
+        <br>
+      </p>
     </div>
   </div>
+<?php endwhile; else : ?>
+<p><?php _e( 'Obsah se nepodařilo získat 😟, o chybě kontaktujte ✍ správu školy.' ); ?></p>
+<!-- REALLY stop The Loop. -->
+<?php endif; ?>
 
 </div>
 
-<!-- modal picture view script -->
-<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
-
-<?php
-
-get_footer();
-
-?>
+<?php get_footer();?>

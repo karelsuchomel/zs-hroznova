@@ -9,6 +9,6 @@
 	
   ?>
 </nav>
-<div id="side-list-fixed-background"></div>
+<div id="side-list-fixed-background-mobile"></div>
 <!-- dimmer -->
 <div id="dimmer-content"></div>

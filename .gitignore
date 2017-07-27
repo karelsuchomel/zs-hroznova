@@ -3,5 +3,6 @@
 .jshintrc
 node_modules/
 development/node_modules/
+development/.ftppass
 development/.sass-cache/
 style.css.map
