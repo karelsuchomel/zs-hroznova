@@ -141,7 +141,7 @@
     &:before
       background: #D81B0E
 
-.download-button.docx
+.download-button.docx, .download-button.doc
   &:before
     content: "DOCX"
     background: #295598
@@ -149,7 +149,11 @@
   &:hover
     &:before
       background: #204276
-.download-button.xlsx
+.download-button.doc
+  &:before
+    content: "DOC"
+
+.download-button.xlsx, .download-button.xls
   &:before
     content: "XLSX"
     background: #1F7244
@@ -157,7 +161,12 @@
   &:hover
     &:before
       background: #1A5E38
-.download-button.pptx
+.download-button.xls
+  &:before
+    content: "XLS"
+
+.download-button.pptx,
+.download-button.ppt
   &:before
     content: "PPTX"
     background: #D14424
@@ -166,6 +175,9 @@
     &:before
       background: #B0391E
 
+.download-button.ppt
+  &:before
+    content: "PPT"
 
 
 @import "single-page-responsive"

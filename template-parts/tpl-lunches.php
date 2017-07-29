@@ -11,6 +11,9 @@
 <!-- Start the Loop. -->
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <?php the_content(); ?>
+  <p>
+  <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
+  </p>
 <?php endwhile; else : ?>
 <p><?php _e( 'Obsah se nepodařilo získat 😟, o chybě kontaktujte ✍ správu školy.' ); ?></p>
 <!-- REALLY stop The Loop. -->

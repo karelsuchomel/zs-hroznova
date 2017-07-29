@@ -18,7 +18,6 @@
       <div class="basic-info-wrap">
         <p>
           <?php the_content(); ?>
-          <br>
         </p>
       </div>
     </div>
@@ -32,6 +31,10 @@
   		Aplikace<br>spádovost základních škol
   	</a>
   </div>
+
+  <p>
+  <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
+  </p>
 
   </div>
 

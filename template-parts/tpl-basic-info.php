@@ -25,7 +25,9 @@
       <div class="basic-info-wrap">
         <p>
           <?php the_content(); ?>
-          <br>
+          <p>
+          <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
+          </p>
         </p>
       </div>
     </div>
