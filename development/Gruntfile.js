@@ -3,7 +3,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     watch: {
       watchSASS: {
-        files: ['sass/**/*.sass', '!_sass/tpl-specific/**/*.sass'],
+        files: ['sass/**/*.sass', '!sass/tpl-specific/**/*.sass'],
         tasks: ['sass:main'],
       },
       watchSpecificSASS: {
@@ -11,16 +11,16 @@ module.exports = function(grunt) {
         tasks: ['sass:specific'],
       },
       watchMainJS: {
-        files: ['js-dev/main/*.js'],
+        files: ['js/*.js', '!js/tpl-specific/**/*.js'],
         tasks: ['concat:concat_JS'],
       },
       watchOtherJS: {
-        files: ['js-dev/*.js'],
+        files: ['js/tpl-specific/**/*.js'],
         tasks: ['concat:concat_COPY'],
       },
       watchCSS: {
-        files: ['../style.css'],
-        tasks: ['postcss', 'concat:concat_CSS'],
+        files: ['../assets/css/main.css'],
+        tasks: ['postcss'],
         options: {
           debounceDelay: 5000,
         },
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
           sourcemap: 'none',   // options: auto, file, inline, none
         },
         files: {               // Dictionary of files
-          '../style.css': 'sass/import.sass',  // 'destination': 'source'
+          '../assets/css/main.css': 'sass/import.sass',  // 'destination': 'source'
         },
       },
       specific: {
@@ -53,25 +53,17 @@ module.exports = function(grunt) {
     concat: {
       concat_JS: {
         files: {
-          '../assets/js/main.js': ['js-dev/main/*.js'],
+          '../assets/js/main.js': ['js/*.js'],
         },
       },
       concat_COPY: {
         files: [{
           expand: true,
-          cwd: 'js-dev/', // Parent directory
+          cwd: 'js/tpl-specific/', // Parent directory
           src: '*.js',
           ext: '.js',
           dest: '../assets/js/',
         }],
-      },
-      concat_CSS: {
-        options: {
-          separator: '\n\n',
-        },
-        files: {
-          '../style.css': ['sass/style-header.css', '../style.css'],
-        },
       },
     },
     postcss: {
@@ -82,13 +74,13 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: '../style.css'
+        src: '../assets/css/*.css'
       }
     },
     'ftp-deploy' : {
       build: {
         auth: {
-          host: 'zshroznova.cz',
+          host: 'www.zshroznova.cz',
           port: 21,
           authKey: 'key1'
         },
@@ -106,8 +98,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   // concat
   grunt.loadNpmTasks('grunt-contrib-concat');
-  // reload server
-  grunt.loadNpmTasks('grunt-contrib-connect');
   // enable CSS prefixing
   grunt.loadNpmTasks('grunt-postcss');
   // ftp deploy

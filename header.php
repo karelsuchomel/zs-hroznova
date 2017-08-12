@@ -8,16 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Links-->
     <!-- Fonts-->
-    <!-- Open Sans Light 300, Light Italic, Normal 400, Semi-bold 600, Bold 700-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-    <!-- JS  -->
-    <!-- Include google RECAPTCHA API -->
-    <script type="text/javascript"  src='https://www.google.com/recaptcha/api.js'></script>
-    <!-- jQuery -->
-    <script type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Open Sans Light 300, Normal 400, Semi-bold 600-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;subset=latin-ext" rel="stylesheet">
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?> >
+
+<?php include_once('inc/analyticstracking.php') ?>
 
 <?php require_once('template-parts/navigation/menu-top-bar.php') ?>
 

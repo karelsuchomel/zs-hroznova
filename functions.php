@@ -4,13 +4,21 @@
 require_once('custom-meta-box-setup.php');
 
 // import stylesheet
-function learningWordPress_resources () {
-  wp_enqueue_style('style', get_stylesheet_uri());
-  wp_enqueue_script('page-behave', get_template_directory_uri() . '/assets/js/main.js', array(), 1.1, true );
+function zshroznova_resources () {
+	wp_enqueue_style('style', get_stylesheet_uri());
+
+	wp_register_style('main.css', get_template_directory_uri() . '/assets/css/main.css', false, NULL, 'all' );
+	wp_enqueue_style('main.css');
+
+	wp_register_script( 'jQuery', get_template_directory_uri() . '/inc/jquery3.2.1.js', array(), NULL, true );
+	wp_enqueue_script( 'jQuery' );
+
+	wp_register_script( 'main.js', get_template_directory_uri() . '/assets/js/main.js', array(), NULL, true );
+	wp_enqueue_script( 'main.js' );
 }
 
 // so the previous code actualy runs
-add_action('wp_enqueue_scripts', 'learningWordPress_resources');
+add_action('wp_enqueue_scripts', 'zshroznova_resources');
 
 // Filter wp_nav_menu() to add additional links and other output
 function new_nav_menu_items($items) {
@@ -87,7 +95,12 @@ function zsh_theme_customize_register($wp_customize) {
 
 add_action('customize_register', 'zsh_theme_customize_register');
 
+// REMOVE WP EMOJI
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
 
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 // Output customize CSS
 function zsh_customize_css() { ?>
