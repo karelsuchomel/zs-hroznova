@@ -1,12 +1,12 @@
 // Add event listeners for gallery buttons
-const yearButtonsElements = document.getElementsByClassName("button-school-year");
+var yearButtonsElements = document.getElementsByClassName("button-school-year");
 
 for (var i = yearButtonsElements.length - 1; i >= 0; i--) {
 	yearButtonsElements[i].addEventListener("click", execute_request);
 }
 
 // Find container for gallery list
-const galListContainer = document.getElementById("listing-found-galleries-container");
+var galListContainer = document.getElementById("listing-found-galleries-container");
 
 function execute_request(event) 
 {
@@ -15,20 +15,20 @@ function execute_request(event)
 	prevBtn[0].className = "button-school-year";
 	event.currentTarget.className += " selected";
 
-	let yearData = event.currentTarget.getAttribute("data");
-	let firstSemestr = yearData.substr( 0, 4 );
-	let secondSemestr = yearData.substr( 5 );
-	let request = new XMLHttpRequest();
+	var yearData = event.currentTarget.getAttribute("data");
+	var firstSemestr = yearData.substr( 0, 4 );
+	var secondSemestr = yearData.substr( 5 );
+	var request = new XMLHttpRequest();
 
 	// set URL with appropriate attributes
-	let newURL = "?selected_year_fs=" + firstSemestr;
+	var newURL = "?selected_year_fs=" + firstSemestr;
 	history.replaceState(null, null, newURL);
 
 	// Set school year end and start
 	firstSemestr = firstSemestr + "-08-31T00:00:00.000Z";
 	secondSemestr = secondSemestr + "-09-01T00:00:00.000Z";
 
-	let requestSpecs = '';
+	var requestSpecs = '';
 	requestSpecs = "?categories=4";
 	requestSpecs += "&after=" + firstSemestr;
 	requestSpecs += "&before=" + secondSemestr;
@@ -37,7 +37,7 @@ function execute_request(event)
 	request.open('GET', 'http://localhost/zs-hroznova/index.php/wp-json/wp/v2/posts' + requestSpecs);
 	request.onload = function() {
 		if (request.status >= 200 && request.status < 400) {
-			const response = JSON.parse(request.responseText);
+			var response = JSON.parse(request.responseText);
 
 			// Render response into galListContainer
 			printResponse( response );
@@ -63,9 +63,9 @@ function printResponse( responseData )
 		HTMLtoprint += "<a href='" + responseData[i].link + "'>";
 
 		if ( responseData[i]._embedded['wp:featuredmedia'][0].source_url ) {
-			let originalSource = responseData[i]._embedded['wp:featuredmedia'][0].source_url;
-			let sourceLength = originalSource.length;
-			let sourceExt = originalSource.substr( (sourceLength - 4), 4 );
+			var originalSource = responseData[i]._embedded['wp:featuredmedia'][0].source_url;
+			var sourceLength = originalSource.length;
+			var sourceExt = originalSource.substr( (sourceLength - 4), 4 );
 			var source = originalSource.substr( 0, (sourceLength - 4) ) + "-252x189" + sourceExt;
 
 
@@ -91,7 +91,7 @@ function printResponse( responseData )
 function parseIsoDatetime(dtstr) {
     var dt = dtstr.split(/[: T-]/).map(parseFloat);
 
-    const months = [
+    var months = [
     	'Leden',
     	'Únor',
     	'Březen',
@@ -106,6 +106,6 @@ function parseIsoDatetime(dtstr) {
     	'Prosinec'
     ]
 
-    let date = dt[2] + ". " + months[ dt[1] - 1 ] + ", " + dt[0];
+    var date = dt[2] + ". " + months[ dt[1] - 1 ] + ", " + dt[0];
     return date;
 }

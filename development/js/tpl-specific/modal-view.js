@@ -1,11 +1,11 @@
 // Get the modal
-const modal = document.getElementById('modal-wrap');
+var modal = document.getElementById('modal-wrap');
 // Get the modal content
-const modalContent = document.getElementById('modal-content');
+var modalContent = document.getElementById('modal-content');
 // Get modal background
-const modalBG = document.getElementById('modal-background');
+var modalBG = document.getElementById('modal-background');
 // Get anchor tags, that triggers the modal
-const anchorsArray = $("#content-single-page a:has(img)");
+var anchorsArray = $("#content-single-page a:has(img)");
 // All anchors with images are display: block
 
 // vars
@@ -17,7 +17,7 @@ $(anchorsArray).click(function(e)
 	//console.log(e);
 
 	// is it a gallery?
-	let elParent = e.currentTarget.parentElement;
+	var elParent = e.currentTarget.parentElement;
 	if ($(elParent).hasClass('gallery-icon')) {
 
 		loadLargerImage(e);
@@ -42,14 +42,14 @@ Image.prototype.load = function(url)
 		thisImg.src = window.URL.createObjectURL(blob);
 	};
 	xmlHTTP.onprogress = function(e) {
-		thisImg.completedPercentage = parseInt((e.loaded / e.total) * 100);
+		thisImg.compvaredPercentage = parseInt((e.loaded / e.total) * 100);
 	};
 	xmlHTTP.onloadstart = function() {
-		thisImg.completedPercentage = 0;
+		thisImg.compvaredPercentage = 0;
 	};
 	xmlHTTP.send();
 };
-Image.prototype.completedPercentage = 0;
+Image.prototype.compvaredPercentage = 0;
 
 
 function openPictureModal (scale, translateX, translateY, targetHeight)
@@ -99,20 +99,20 @@ function loadLargerImage (e)
 	var largeImgPath = e.currentTarget.getAttribute('href');
 	var largeImgEl = new Image();
 
-	var loadingCompleted = false;
+	var loadingCompvared = false;
 	var interID = setInterval ( function() {
-		prgb.style.transform = "scaleX(" + (largeImgEl.completedPercentage / 100) + ")";	
+		prgb.style.transform = "scaleX(" + (largeImgEl.compvaredPercentage / 100) + ")";	
 
-		console.log( "loaded: " + largeImgEl.completedPercentage);
+		console.log( "loaded: " + largeImgEl.compvaredPercentage);
 
-		if ( largeImgEl.completedPercentage == 100 ) {
+		if ( largeImgEl.compvaredPercentage == 100 ) {
 			clearInterval( interID );
 		}
 	}, 100); 
 	largeImgEl.load( largeImgPath );
 
 	largeImgEl.onload = function () {
-		let largeImgElH = largeImgEl.height;
+		var largeImgElH = largeImgEl.height;
 		drawModalSingleImage(e, largeImgElH);
 	};
 
@@ -137,9 +137,9 @@ function drawModalSingleImage (e, largeImgElH)
 	var anchorHeight = $(currentAnchor).height();
 	console.log("anchorWidth: " + anchorWidth + "px");
 
-	const viewportWidth = document.documentElement.clientWidth;
+	var viewportWidth = document.documentElement.clientWidth;
 	// ------
-	const modalContentWidth = $("#content-wrap").width();
+	var modalContentWidth = $("#content-wrap").width();
 	// if the zoomed picture is taller than viewport
 	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 	//if ( h < largeImgElH) {

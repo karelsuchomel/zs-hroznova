@@ -46,8 +46,8 @@
 			<tr>
 			<td>
 		<h2>Import settings</h2>
-		<label for="start-from-picture-id">Import pictures starting from Index</label>
-		<input type="number" name="start-from-picture-id" id="start-from-picture-id">
+		<label for="start-from-id">Import pictures starting from Index</label>
+		<input type="number" name="start-from-id" id="start-from-id">
 		<em>or start from begining</em></br>
 		<button class="button-modern" id="submit-form">
 			<div class="button-text">

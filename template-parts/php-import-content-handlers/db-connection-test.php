@@ -1,41 +1,27 @@
 <?php
-require_once('../../inc/convert-w1250-encoding.php');
-
-$DBNameExport = htmlspecialchars($_POST['DBNameExport']);
-$DBUserExport = htmlspecialchars($_POST['DBUserExport']);
-$DBPassExport = htmlspecialchars($_POST['DBPassExport']);
-$DBNameImport = htmlspecialchars($_POST['DBNameImport']);
-$DBUserImport = htmlspecialchars($_POST['DBUserImport']);
-$DBPassImport = htmlspecialchars($_POST['DBPassImport']);
-
 class results
 {
-	public $ExDBCon = 0;
-	public $ExException = "";
-	public $ImDBCon = 0;
-	public $ImException = "";
+	public $DBCon = 0;
+	public $Exception = "";
 }
 $conRes = new results();
 
-try
-{
-	$DBExport = new PDO("mysql:host=localhost;dbname={$DBNameExport}", $DBUserExport, $DBPassExport);	
-} catch (PDOException $e) 
-{
-	$conRes->ExDBCon = 1;
-	$conRes->ExException = "Error with export database: " . $e->getMessage();
+if ( isset($_POST['DBName']) && isset($_POST['DBUser']) && isset($_POST['DBPass']) ) {
+	$DBName = htmlspecialchars($_POST['DBName']);
+	$DBUser = htmlspecialchars($_POST['DBUser']);
+	$DBPass = htmlspecialchars($_POST['DBPass']);
+
+	try
+	{
+		$DB = new PDO("mysql:host=localhost;dbname={$DBName}", $DBUser, $DBPass);
+	} catch (PDOException $e) 
+	{
+		$conRes->ExDBCon = 1;
+		$conRes->ExException = "Error with connection to database: " . $e->getMessage();
+	}
+
 }
 
-try 
-{
-	$DBImport = new PDO("mysql:host=localhost;dbname={$DBNameImport}", $DBUserImport, $DBPassImport);	
-} catch (PDOException $e) 
-{
-	$conRes->ImDBCon = 1;
-	$conRes->ImException = "Error with import database: " . $e->getMessage();
-}
-
-$DBExport = null;
-$DBImport = null;
+$DB = null;
 
 echo json_encode($conRes);

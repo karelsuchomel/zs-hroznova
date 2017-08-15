@@ -160,5 +160,3 @@ function zsh_customize_css() { ?>
 <?php }
 
 add_action('wp_head', 'zsh_customize_css');
-
-?>

@@ -1,16 +1,16 @@
-const parallaxedImageEl = $("#paralax-header");
+var parallaxedImageEl = $("#paralax-header");
 
 var parallaxHeaderUpdate = function ()
 {
 	// image position
-	let el = document.getElementById("paralax-header-conatiner");
-	let elHeight = $('#paralax-header-conatiner').outerHeight(true);
-	let rect = el.getBoundingClientRect();
-	const ElBottomYdistance = elHeight + el.top;
+	var el = document.getElementById("paralax-header-conatiner");
+	var elHeight = $('#paralax-header-conatiner').outerHeight(true);
+	var rect = el.getBoundingClientRect();
+	var ElBottomYdistance = elHeight + el.top;
 	console.log(ElBottomYdistance + "px");
 
 	// window position
-	let windowScrolled = window.scrollTop;
+	var windowScrolled = window.scrollTop;
 
 	if ( windowScrolled > ElBottomYdistance )
 	{

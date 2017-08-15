@@ -1,7 +1,7 @@
 // get document name
 function getAnchotHref ( id ) {
-	const a = document.getElementById(id);
-	const path = a.getAttribute('href');
+	var a = document.getElementById(id);
+	var path = a.getAttribute('href');
 	if ( path == "NULL" ) {
 		return NULL;
 	} else {
@@ -33,10 +33,10 @@ function drawPDFontoCanvas ( path, canvas_id, canvas_width, canvas_height ) {
 };
 
 // width of content container
-const contentWidth = $("#content-single-page").outerWidth();
+var contentWidth = $("#content-single-page").outerWidth();
 console.log(contentWidth);
 
-let weekPath = getAnchotHref('this-week-path');
+var weekPath = getAnchotHref('this-week-path');
 drawPDFontoCanvas( weekPath, 'this-week-canvas', contentWidth, 800 );
 
 weekPath = getAnchotHref('next-week-path');

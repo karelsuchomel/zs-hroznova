@@ -4,7 +4,7 @@ startImageID = document.getElementById("start-from-picture-id").value;
 
 // 'plain', 'notice', 'varning', 'error'
 function print_Msg ( messange, type ) {
-	let MessageEl = document.createElement('div');
+	var MessageEl = document.createElement('div');
 
 	if ( type == "notice" || type == "warning" || type == "error" ) {
 		MessageEl.className = "message-entry";
@@ -34,7 +34,7 @@ function get_inputValue ( id ) {
 }
 
 function get_credentials () {
-	let logCred = {
+	var logCred = {
 		'DBHostExport' : get_inputValue("database-host-ex"),
 		'DBNameExport' : get_inputValue("database-name-ex"),
 		'DBUserExport' : get_inputValue("database-user-ex"),
@@ -42,28 +42,23 @@ function get_credentials () {
 		'DBNameImport' : get_inputValue("database-name-im"),
 		'DBUserImport' : get_inputValue("database-user-im"),
 		'DBPassImport' : get_inputValue("database-pass-im"),
-		'StartPictureID' : get_inputValue("start-from-picture-id")
+		'StartID' : get_inputValue("start-from-id")
 	};
 
-	let errFound = 0;
 	for (var key in logCred) {
 		if ( logCred[key] == null) {
 			print_Msg( "please fill out " + key + " field.", 'error' );
-			errFound = 1;
+			return 1;
+		} else {
+			return logCred;
 		}
-	}
-
-	if ( errFound == 1) {
-		return 1;
-	} else {
-		return logCred;
 	}
 }
 
 function getPHPHandlerLocation ( name ) {
-	const regex = /(\S+)import-galerii\//g;
-	const str = document.location.href;
-	let m;
+	var regex = /(\S+)import-galerii\//g;
+	var str = document.location.href;
+	var m;
 
 	while ((m = regex.exec(str)) !== null) {
 	// This is necessary to avoid infinite loops with zero-width matches
@@ -71,8 +66,8 @@ function getPHPHandlerLocation ( name ) {
 	    regex.lastIndex++;
 	}
 
-	const handlerFolder = "wp-content/themes/zs-hroznova/template-parts/php-import-content-handlers/"
-	const handlerLocation = m[1] + handlerFolder + name;
+	var handlerFolder = "wp-content/themes/zs-hroznova/template-parts/php-import-content-handlers/"
+	var handlerLocation = m[1] + handlerFolder + name;
 	return handlerLocation;
 	}
 }
@@ -80,10 +75,10 @@ function getPHPHandlerLocation ( name ) {
 function checkConnectionsToDBs ( crd ) {
 	connectionCheckRequest = new XMLHttpRequest();
 	// get php-handler location
-	const handlerLocation = getPHPHandlerLocation('db-connection-test.php');
+	var handlerLocation = getPHPHandlerLocation('db-connection-test.php');
 
 	// send credentials in a POST
-	let POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
+	var POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
 	POSTparams += "DBUserExport=" + encodeURIComponent(crd.DBUserExport) + "&";
 	POSTparams += "DBPassExport=" + encodeURIComponent(crd.DBPassExport) + "&";
 	POSTparams += "DBNameImport=" + encodeURIComponent(crd.DBNameImport) + "&";
@@ -95,7 +90,7 @@ function checkConnectionsToDBs ( crd ) {
 	connectionCheckRequest.send( POSTparams );
 
 	if( connectionCheckRequest.status === 200 ) {
-		const response = JSON.parse(connectionCheckRequest.responseText);
+		var response = JSON.parse(connectionCheckRequest.responseText);
 		return response;
 	} else {
 		console.log("Status code returned from db-connection-test.php: " + connectionCheckRequest.status);
@@ -106,10 +101,10 @@ function checkConnectionsToDBs ( crd ) {
 function countPicturesToProcess ( crd ) {
 	connectionCountPics = new XMLHttpRequest();
 	// get php-handler location
-	const handlerLocation = getPHPHandlerLocation('get-number-of-images.php');
+	var handlerLocation = getPHPHandlerLocation('get-number-of-images.php');
 
 	// send start ID in a POST
-	let POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
+	var POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
 	POSTparams += "DBUserExport=" + encodeURIComponent(crd.DBUserExport) + "&";
 	POSTparams += "DBPassExport=" + encodeURIComponent(crd.DBPassExport) + "&";
 	POSTparams += "StartPictureID=" + encodeURIComponent(crd.StartPictureID);
@@ -119,7 +114,7 @@ function countPicturesToProcess ( crd ) {
 	connectionCountPics.send( POSTparams );
 
 	if( connectionCountPics.status === 200 ) {
-		const response = JSON.parse(connectionCountPics.responseText);
+		var response = JSON.parse(connectionCountPics.responseText);
 		return response;
 	} else {
 		console.log("Status code returned from get-number-of-images.php: " + connectionCountPics.status);
@@ -130,10 +125,10 @@ function countPicturesToProcess ( crd ) {
 function importPicture ( ID, crd ) {
 	connectionImportPic = new XMLHttpRequest();
 	// get php-handler location
-	const handlerLocation = getPHPHandlerLocation('image-handler.php');
+	var handlerLocation = getPHPHandlerLocation('image-handler.php');
 
 	// send start ID in a POST
-	let POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
+	var POSTparams = "DBNameExport=" + encodeURIComponent(crd.DBNameExport) + "&";
 	POSTparams += "DBUserExport=" + encodeURIComponent(crd.DBUserExport) + "&";
 	POSTparams += "DBPassExport=" + encodeURIComponent(crd.DBPassExport) + "&";
 	POSTparams += "DBHostExport=" + encodeURIComponent(crd.DBHostExport) + "&";
@@ -144,7 +139,7 @@ function importPicture ( ID, crd ) {
 	connectionImportPic.send( POSTparams );
 
 	if( connectionImportPic.status === 200 ) {
-		const response = connectionImportPic.responseText;
+		var response = connectionImportPic.responseText;
 		return response;
 	} else {
 		console.log("Status code returned from get-number-of-images.php: " + connectionImportPic.status);
@@ -153,7 +148,7 @@ function importPicture ( ID, crd ) {
 }
 
 function setupProgressBar ( buttonID, count ) {
-	const progressBar = document.getElementById(buttonID);
+	var progressBar = document.getElementById(buttonID);
 	progressBar.className += " import-button-progress-bar";
 	progressBar.childNodes[0].nextSibling.innerHTML = "Importing . . . (0/" + count + ")";
 
@@ -196,12 +191,12 @@ function importHandler (event)
 		print_Msg( "Pictures to process: " + picturesToProcess.PicCount, "plain");
 	}
 
-	let i = 1;
+	var i = 1;
 	//picturesToProcess.PicCount
 	while( 1 >= i ) {
 
 		// uploads picture to current wordpress
-		const importedPicture = importPicture( i, crd );
+		var importedPicture = importPicture( i, crd );
 		console.log(importedPicture);
 		/*
 		if ( importedPicture == 1 ) {

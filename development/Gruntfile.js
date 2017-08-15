@@ -12,11 +12,11 @@ module.exports = function(grunt) {
       },
       watchMainJS: {
         files: ['js/*.js', '!js/tpl-specific/**/*.js'],
-        tasks: ['concat:concat_JS'],
+        tasks: ['uglify:main_JS'],
       },
       watchOtherJS: {
         files: ['js/tpl-specific/**/*.js'],
-        tasks: ['concat:concat_COPY'],
+        tasks: ['uglify:tpl_Specific_JS'],
       },
       watchCSS: {
         files: ['../assets/css/main.css'],
@@ -77,6 +77,21 @@ module.exports = function(grunt) {
         src: '../assets/css/*.css'
       }
     },
+    uglify: {
+      main_JS: {
+        files: {
+          '../assets/js/main.js': ['js/*.js'],
+        },
+      },
+      tpl_Specific_JS: {
+        files: [{
+          expand: true,
+          cwd: 'js/tpl-specific/',
+          src: '**/*.js',
+          dest: '../assets/js'
+        }]
+      },
+    },
     'ftp-deploy' : {
       build: {
         auth: {
@@ -96,14 +111,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   // compile Sass to CSS
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // concat
-  grunt.loadNpmTasks('grunt-contrib-concat');
   // enable CSS prefixing
   grunt.loadNpmTasks('grunt-postcss');
   // ftp deploy
   grunt.loadNpmTasks('grunt-ftp-deploy');
+  // minify javascript
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   // set default
-  grunt.registerTask('default', ['sass', 'concat', 'watch', 'postcss']);
+  grunt.registerTask('default', ['sass', 'watch', 'postcss', 'uglify']);
   grunt.registerTask('prefix', ['postcss']);
   grunt.registerTask('ftp', ['ftp-deploy']);
 
