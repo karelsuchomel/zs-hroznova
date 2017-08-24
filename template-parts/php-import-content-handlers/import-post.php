@@ -1,25 +1,28 @@
 <?php
-require_once('../inc/convert-w1250-encoding.php');
+require_once('../../inc/convert-w1250-encoding.php');
+require_once('create-gallery-shortcode.php');
 
+/*
 $DBName = htmlspecialchars($_POST['DBName']);
 $DBUser = htmlspecialchars($_POST['DBUser']);
 $DBPass = htmlspecialchars($_POST['DBPass']);
 $currentID = htmlspecialchars($_POST['currentID']);
+*/
 
 // DELETE IN PRODUCTION
 $DBName = "c4-zshroznova";
-$DBUser = "c4-zshroznova";
-$DBPass = "c4-zshroznova";
-$currentID = 2016;
+$DBUser = "root";
+$DBPass = "1234";
+$currentID = 2120;
 
 class results
 {
-	public $created = false;
 	public $nextID = -1;
 	public $Title = "";
 	public $Content = "";
 	public $Date = "";
 	public $Category = "";
+	public $CategoryID = "";
 	public $Exception = "";
 }
 $importItemRes = new results();
@@ -34,18 +37,24 @@ try
 	die;
 }
 
-$sth = $DB->prepare("SELECT `idc`, `titulek`, `uvod`, `tema`, `datum` FROM `rs_clanky` WHERE `idc`>=:currentItemID AND `idc`<=(:currentItemID + 10)");
+$sth = $DB->prepare("SELECT `idc`, `titulek`, `uvod`, `tema`, `datum` FROM `rs_clanky` WHERE `idc`>=:currentItemID AND `idc`<=(:currentItemID + 500)");
 $sth->bindParam(':currentItemID', $currentID, PDO::PARAM_INT);
 
 if ( $sth->execute() ) {
 	$row = $sth->fetch();
 	$importItemRes->Title = w1250_to_utf8($row['titulek']);
-	$imContent = strip_tags( w1250_to_utf8($row['uvod']), "<br><p><a>" );
+
+	// find galleries
+	$imContent = w1250_to_utf8($row['uvod']);
+	handle_gallery( $imContent, $DBName, $DBUser, $DBPass );
+
+	// strip tags
+	$imContent = strip_tags( $imContent, "<br><p>" );
 
 	// remove duplicit Headline
 	$imContent = str_replace( $importItemRes->Title , "", $imContent);
 
-	// Sanitize style
+	// remove inline style tags
 	$pattern = '/style=".*"/';
 	$imContent = preg_replace($pattern, "", $imContent);
 
@@ -75,30 +84,6 @@ if ( $sth->execute() ) {
 	print_r( $sth->errorInfo() );
 	die;
 }
-
-function importNewPostCat ( $CategoryName, $Title, $Content, $Date ) 
-{
-	// create category if none with the current title exists
-	if ( !(term_exists( $CategoryName, 'category')) ) {
-		wp_insert_category( array( 'taxonomy' => 'category', 'cat_name' => sanitize_title( $CategoryName ) ) );
-	}
-
-	// import the post data
-	$postData = array(
-		'post_title' => $Title,
-		'post_content' => $Content,
-		'post_date' => $Date,
-		'post_status' => 'publish',
-		'post_category' => $CategoryName
-		);
-	$pid = wp_insert_post( $postData );
-
-	if ( $pid !== 0 ) {
-		return true;
-	}	
-}
-
-$importItemRes->created = importNewPostCat( $importItemRes->Category, $importItemRes->Title, $importItemRes->Content, $importItemRes->Date );
 
 $DB = null;
 echo json_encode( $importItemRes );

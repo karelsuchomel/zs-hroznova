@@ -10,11 +10,13 @@ function zshroznova_resources () {
 	wp_register_style('main.css', get_template_directory_uri() . '/assets/css/main.css', false, NULL, 'all' );
 	wp_enqueue_style('main.css');
 
-	wp_register_script( 'jQuery', get_template_directory_uri() . '/inc/jquery3.2.1.js', array(), NULL, true );
-	wp_enqueue_script( 'jQuery' );
-
 	wp_register_script( 'main.js', get_template_directory_uri() . '/assets/js/main.js', array(), NULL, true );
 	wp_enqueue_script( 'main.js' );
+
+	wp_localize_script( 'main.js', 'magicalData', array(
+		"nonce" => wp_create_nonce("wp_rest"),
+		"siteURL" => get_site_url()
+	));
 }
 
 // so the previous code actualy runs

@@ -1,0 +1,94 @@
+<?php
+// desired format: [gallery link="file" size="medium" ids="5958,5959,5960,5961,5962,5963"]
+
+// find if string has "gallery_id"
+function handle_gallery( $content, $DBName, $DBUser, $DBPass )
+{
+	$regex = '/gallery_id=(\d+)/';
+	
+	preg_match_all($regex, $content, $matches, PREG_SET_ORDER, 0);
+	if ( isset($matches[0][1]) ) 
+	{
+		$gallery_id = $matches[0][1];
+		echo $gallery_id . "<br>";
+		// find image names from original databse
+		$mediaFileNames = find_image_names( $gallery_id, $DBName, $DBUser, $DBPass );
+		// find media IDs from Wordpress database
+		find_image_ids( $mediaFileNames, "zshroznova", "root", "1234" );
+	} else {
+		// if not, return 0
+		return 0;
+	}
+}
+
+// else make a querry to find images that belong to that gallery
+// returns an array of image filenames with the same name already uploaded in Wordpress
+function find_image_names( $gallery_id, $DBName, $DBUser, $DBPass ) 
+{
+	try
+	{
+		$DB = new PDO("mysql:host=localhost;dbname={$DBName}", $DBUser, $DBPass);
+	} catch (PDOException $e) 
+	{
+		echo "Error with export database: " . $e->getMessage();
+		die;
+	}
+
+	$sth = $DB->prepare("SELECT `media_file` FROM `rs_media` WHERE `media_gallery_id`=:gallery_id");
+	$sth->bindParam(':gallery_id', $gallery_id, PDO::PARAM_INT);
+
+	$mediaFileNames = array();
+
+	if ( $sth->execute() ) 
+	{
+		$row = $sth->fetchAll();
+
+		for ($i=0; $i < sizeof($row); $i++)
+		{ 
+			$mediaURL = $row[$i]["media_file"];
+			// sanitize
+			$pathParts = pathinfo( $mediaURL );
+			$fileName = $pathParts["filename"];
+			$mediaFileNames[$i] = $fileName;
+			echo $fileName . "<br>";
+			$DB = null;
+		}
+
+	}
+	var_dump($mediaFileNames);
+	return $mediaFileNames;
+}
+
+function find_image_ids( $mediaFileNames, $DBName, $DBUser, $DBPass )
+{
+	try
+	{
+		$DB = new PDO("mysql:host=localhost;dbname={$DBName}", $DBUser, $DBPass);
+	} catch (PDOException $e) 
+	{
+		echo "Error with export database: " . $e->getMessage();
+		die;
+	}
+
+	$imageIDs = array();
+
+	for ($i=0; $i < sizeof( $mediaFileNames ); $i++) { 
+		$sth = $DB->prepare("SELECT `ID` FROM `wp_posts` WHERE `post_type`='attachment' AND `post_name`=:imageName ");
+		$sth->bindParam(':imageName', $mediaFileNames[$i]);
+
+		if ( $sth->execute() )
+		{
+			$row = $sth->fetch();
+			var_dump($row);
+			echo "Found ID is: " . $row["ID"] . "<br>";
+			$imageIDs[$i] = $row["ID"];
+		}
+
+	}
+
+}
+
+
+
+// create shortcode and append it to the bottom of the content
+// add category_id 'has-gallery' to the post

@@ -5,10 +5,16 @@
 		</a>
 	</h2>
 	<div class="basic-info-wrap">
-		<p>
-			<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
-			<br>
-			<?php echo get_the_content(); ?>
-		</p>
+		<div class="post-details-wrap">
+			<span>
+				<?php
+					$dateString = get_the_time('j. F, Y');
+					echo strtolower($dateString);
+				?>
+				 &#8226; 
+			</span>
+			<?php the_category(); ?>
+		</div>
+		<?php echo get_the_content(); ?>
 	</div>
 </article>

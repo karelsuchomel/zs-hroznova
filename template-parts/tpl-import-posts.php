@@ -24,10 +24,6 @@
 
 	// DELETE IN PRODUCTION
 	$databaseHostExport = "localhost";
-	$databaseNameExport = "c4-zshroznova";
-	$databaseUserExport = "c4-zshroznova";
-	$databasePassExport = "c4-zshroznova";
-	$startFromID = "2014";
 
 	?>
 
@@ -81,6 +77,7 @@
 
 <!-- import galleries handler -->
 <script src="<?php bloginfo('template_directory'); ?>/assets/js/import-posts.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/assets/js/rest-api-importer-handler-functions.js"></script>
 
 <?php
 

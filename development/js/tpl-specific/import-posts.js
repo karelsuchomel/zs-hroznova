@@ -56,21 +56,12 @@ function get_credentials () {
 	}
 }
 
-function getPHPHandlerLocation ( name ) {
-	var regex = /(\S+)import-clanku\//g;
-	var str = document.location.href;
-	var m;
-
-	while ((m = regex.exec(str)) !== null) {
-	// This is necessary to avoid infinite loops with zero-width matches
-	if (m.index === regex.lastIndex) {
-	    regex.lastIndex++;
-	}
-
-	var handlerFolder = "wp-content/themes/zs-hroznova/template-parts/php-import-content-handlers/"
-	var handlerLocation = m[1] + handlerFolder + name;
+function getPHPHandlerLocation ( name ) 
+{
+	var handlerFolder = "/wp-content/themes/zs-hroznova/template-parts/php-import-content-handlers/"
+	var handlerLocation = magicalData['siteURL'] + handlerFolder + name;
+	console.log("getPHPHandlerLocation: " + handlerLocation );
 	return handlerLocation;
-	}
 }
 
 function checkConnectionsToDBs ( crd ) {
@@ -123,7 +114,7 @@ function countItemsToProcess ( crd ) {
 function importPost ( currentID, crd ) {
 	connectionImport = new XMLHttpRequest();
 	// get php-handler location
-	var handlerLocation = getPHPHandlerLocation('../import-post.php');
+	var handlerLocation = getPHPHandlerLocation('import-post.php');
 
 	// send start ID in a POST
 	var POSTparams = "DBName=" + encodeURIComponent(crd.DBName) + "&";
@@ -161,8 +152,6 @@ function setupProgressBar ( count ) {
 
 function updateProgressBar ( currentProgress ) {
 	var progressPercentage = 1 - (currentProgress / (finalCount / 100)) / 100;
-	console.log(progressPercentage);
-
 	document.getElementById('current-progress-number').innerHTML = currentProgress;
 
 	document.getElementById('progress-line').style.transform = "scaleX(" + progressPercentage + ")";
@@ -173,7 +162,6 @@ function importHandler (event)
 	event.preventDefault();
 
 	var crd = get_credentials();
-	console.log( crd );
 	if (crd == 1) {
 		console.log("couldn't contiue after trying to get credentials.");
 		return 1;
@@ -201,29 +189,52 @@ function importHandler (event)
 
 	var itemsImported = 0;
 	currentID = itemsToProcess.FirstID;
-	//while( itemsImported <= itemsToProcess.Count ) {
+	//while( itemsImported <= itemsToProcess.Count )
 	var handlerInterval = setInterval(function() {
-		if ( itemsImported < 2 ) {
+		if ( itemsImported <= itemsToProcess.Count ) {
 
-			// import item into WordPress
+			// load item from external database
 			var importPostRes = importPost ( currentID , crd );
 			console.log(importPostRes);
+			var lastID = currentID;
+			currentID = importPostRes.nextID;
 
-			if ( importPostRes.created === true ) {
-				print_Msg( "New item from ID[" + currentID + "] was imported<br>Date: " + importPostRes.Date + "<br>Title: " + importPostRes.Title + "<br>Content: " + importPostRes.Content + "", "notice");
-				itemsImported++;
-				currentID = importPostRes.nextID;
-				// update progress bar
-				updateProgressBar( itemsImported );
+			if ( importPostRes.nextID !== -1 ) {
+
+				// category exists ? create category : skip to post import
+				RPcreateCategory( importPostRes.Category, function(result) 
+				{
+					if ( result.status === -1 ) {
+						print_Msg( "Tried to create category :" + importPostRes.Category + ", but got exception: <br>" + result.exception, "warning");
+					} else {
+						importPostRes.CategoryID = result.id;
+
+						// no post with the same title ? create post : warning (post would be possible duplicate)
+						RPcreatePost( importPostRes, function(result) 
+						{
+							if ( result.status === -1 ) {
+								print_Msg( "Tried to create post :" + importPostRes.Title + ", but got exception: <br>" + result.exception, "warning");
+							} else if ( ( result.status === 0 ) ) {
+								print_Msg( "Post with title: \"" + importPostRes.Title + "\" already exists.", "warning");
+							} else {
+								print_Msg( "New item with ID[" + lastID + "] was imported<br>Date: " + importPostRes.Date + "<br>Title: " + importPostRes.Title + "<br>Content: " + importPostRes.Content + "", "notice");
+							}
+						} );
+					}
+				} );
+
 			} else {
-				itemsImported++;
-				print_Msg( "Item with ID[" + currentID + "] was not imported", "warning");
+				print_Msg( "Item with ID[" + lastID + "] was not loaded", "warning");
 			}
+
+			// update progress bar
+			updateProgressBar( itemsImported );
+			itemsImported++;
 
 		} else {
 			clearInterval(handlerInterval);
 		}
-	}, 1000);
+	}, 2000);
 
 }
 

@@ -12,15 +12,19 @@
 		</a>
 	</h2>
 	<div class="basic-info-wrap">
-		<p>
-			<?php echo wp_trim_words( get_the_content(''), 15, '...' ); ?>
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-				více
-			</a>
-			<br />
-			<small>
-				<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
-			</small>
-		</p>
+		<div class="post-details-wrap">
+			<span>
+				<?php
+					$dateString = get_the_time('j. F, Y');
+					echo strtolower($dateString);
+				?>
+				 &#8226; 
+			</span>
+			<?php the_category(); ?>
+		</div>
+		<?php echo wp_trim_words( get_the_content(''), 10, '...' ); ?>
+		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+			více
+		</a>
 	</div>
 </article>

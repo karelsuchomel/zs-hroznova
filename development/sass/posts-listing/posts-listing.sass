@@ -43,21 +43,46 @@
 				height: auto
 				padding: ($universal-padding / 2)
 				padding-left: 0px
+				transition: opacity 0.2s
+
+				&:hover, &:active
+					opacity: 0.9
 			
 
 		.basic-info-wrap
 			padding: 0px ($universal-padding / 2) 0px 0px
-			margin: 10px 0px ($universal-padding / 2)
+			margin: 7px 0px ($universal-padding / 2)
+			font-size: 13px
+			line-height: 20px
+			color: #444
 
-			p
-				margin: 0px
-				color: #444
-				font-size: 12px
-				line-height: 20px
-
-				> a
+			> a
+				&:hover, &:active
 					text-decoration: underline
-					color: $base-color-dark
+
+			.post-details-wrap
+				display: block
+
+				span
+					display: inline
+
+				ul
+					margin: 0px
+					padding: 0px
+					list-style: none
+					display: inline
+
+					> li
+						display: inline-block
+						> a
+							background: rgba(125,125,125,0.1)
+							border-radius: 3px
+							padding: 0px 4px
+							margin-right: 3px
+							
+
+							&:hover, &:active
+								background: rgba(125,125,125,0.035)
 
 @import "posts-listing-responsive"
 

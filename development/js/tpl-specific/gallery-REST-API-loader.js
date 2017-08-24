@@ -34,7 +34,7 @@ function execute_request(event)
 	requestSpecs += "&before=" + secondSemestr;
 	requestSpecs += "&_embed";
 
-	request.open('GET', 'http://localhost/zs-hroznova/index.php/wp-json/wp/v2/posts' + requestSpecs);
+	request.open('GET', magicalData['siteURL'] + '/wp-json/wp/v2/posts' + requestSpecs);
 	request.onload = function() {
 		if (request.status >= 200 && request.status < 400) {
 			var response = JSON.parse(request.responseText);

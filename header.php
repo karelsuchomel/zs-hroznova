@@ -7,9 +7,11 @@
     <meta name="keywords" content="Základní škola Brno, Hroznová 1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Links-->
+    <!-- jQuery -->
+    <script src="<?php bloginfo('template_directory'); ?>/inc/jquery3.2.1.js"></script>
     <!-- Fonts-->
     <!-- Open Sans Light 300, Normal 400, Semi-bold 600-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;subset=latin-ext" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600&amp;subset=latin-ext" rel="stylesheet"> 
     <?php wp_head(); ?>
   </head>
 <body <?php body_class(); ?> >

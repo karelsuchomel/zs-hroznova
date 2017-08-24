@@ -13,18 +13,24 @@
 	<?php endif; ?>
 
 	<div class="basic-info-wrap">
-		<p>
-			<?php the_time('j. F, Y'); ?> &#8226; <?php the_author_posts_link(); ?>
-			<br>
+		<div class="post-details-wrap">
+			<span>
+				<?php
+					$dateString = get_the_time('j. F, Y');
+					echo strtolower($dateString);
+				?>
+				 &#8226; 
+			</span>
+			<?php the_category(); ?>
+		</div>
 
-			<?php 
-			$loaded_content = strip_shortcodes( get_the_content('') );
-			echo wp_trim_words( $loaded_content, 15, '...' ); 
-			?>
-			
-			<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-				více
-			</a>
-		</p>
+		<?php 
+		$loaded_content = strip_shortcodes( get_the_content('') );
+		echo wp_trim_words( $loaded_content, 10, '...' ); 
+		?>
+		
+		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+			více
+		</a>
 	</div>
 </article>
