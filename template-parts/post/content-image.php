@@ -15,7 +15,7 @@
 		<div class="post-details-wrap">
 			<span>
 				<?php
-					$dateString = get_the_time('j. F, Y');
+					$dateString = get_the_time('j. F Y');
 					echo strtolower($dateString);
 				?>
 				 &#8226; 

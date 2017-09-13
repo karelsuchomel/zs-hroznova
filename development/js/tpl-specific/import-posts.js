@@ -60,7 +60,6 @@ function getPHPHandlerLocation ( name )
 {
 	var handlerFolder = "/wp-content/themes/zs-hroznova/template-parts/php-import-content-handlers/"
 	var handlerLocation = magicalData['siteURL'] + handlerFolder + name;
-	console.log("getPHPHandlerLocation: " + handlerLocation );
 	return handlerLocation;
 }
 
@@ -202,25 +201,34 @@ function importHandler (event)
 			if ( importPostRes.nextID !== -1 ) {
 
 				// category exists ? create category : skip to post import
-				RPcreateCategory( importPostRes.Category, function(result) 
+				var j = 0;
+				importPostRes.Categories.forEach( function(catName)
 				{
-					if ( result.status === -1 ) {
-						print_Msg( "Tried to create category :" + importPostRes.Category + ", but got exception: <br>" + result.exception, "warning");
-					} else {
-						importPostRes.CategoryID = result.id;
 
-						// no post with the same title ? create post : warning (post would be possible duplicate)
-						RPcreatePost( importPostRes, function(result) 
-						{
-							if ( result.status === -1 ) {
-								print_Msg( "Tried to create post :" + importPostRes.Title + ", but got exception: <br>" + result.exception, "warning");
-							} else if ( ( result.status === 0 ) ) {
-								print_Msg( "Post with title: \"" + importPostRes.Title + "\" already exists.", "warning");
-							} else {
-								print_Msg( "New item with ID[" + lastID + "] was imported<br>Date: " + importPostRes.Date + "<br>Title: " + importPostRes.Title + "<br>Content: " + importPostRes.Content + "", "notice");
+					RPcreateCategories( catName, function(result) 
+					{
+						if ( result.status === -1 ) {
+							print_Msg( "Tried to create category :" + catName + ", but got exception: <br>" + result.exception, "warning");
+						} else {
+							importPostRes.CategoryIDs.push( result.id );
+
+							// no post with the same title ? create post : warning (post would be possible duplicate)
+							if ( catName === importPostRes.Categories[importPostRes.Categories.length - 1] )
+							{
+								console.log("create post NOW!");
+								RPcreatePost( importPostRes, function(result) 
+								{
+									if ( result.status === -1 ) {
+										print_Msg( "Tried to create post :" + importPostRes.Title + ", but got exception: <br>" + result.exception, "warning");
+									} else if ( ( result.status === 0 ) ) {
+										print_Msg( "Post with title: \"" + importPostRes.Title + "\" already exists.", "warning");
+									} else {
+										print_Msg( "New item with ID[" + lastID + "] was imported<br>Date: " + importPostRes.Date + "<br>Title: " + importPostRes.Title + "<br>Content: " + importPostRes.Content + "", "notice");
+									}
+								} );
 							}
-						} );
-					}
+						}
+					} );
 				} );
 
 			} else {
@@ -234,7 +242,7 @@ function importHandler (event)
 		} else {
 			clearInterval(handlerInterval);
 		}
-	}, 2000);
+	}, 1000);
 
 }
 

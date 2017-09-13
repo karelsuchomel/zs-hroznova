@@ -24,6 +24,9 @@
 
 	// DELETE IN PRODUCTION
 	$databaseHostExport = "localhost";
+	$databaseNameExport = "c4-zshroznova";
+	$databaseUserExport = "root";
+	$databasePassExport = "1234";
 
 	?>
 

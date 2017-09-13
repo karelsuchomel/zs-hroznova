@@ -152,7 +152,7 @@ wp_reset_postdata();
 
 <?php
 else :
-	echo "didn't find any post with meta-key matching \"datum-konani\"";
+	echo "<!--didn't find any post with meta-key matching \"datum-konani\"-->";
 endif;
 
 ?>

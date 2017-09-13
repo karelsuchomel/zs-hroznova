@@ -1,4 +1,4 @@
-function RPcreateCategory ( catName, callback ) 
+function RPcreateCategories ( catName, callback ) 
 {
 	var result = {
 		'status' : -1, // -1 = error, 0 = already exists, 1 = created new one
@@ -92,13 +92,26 @@ function RPcreatePost ( importPostRes, callback )
 
 	// create new category
 	function RPnewPost () {
-		var postData = {
-			'date' : importPostRes.Date,
-			'status' : 'publish',
-			'title' : importPostRes.Title,
-			'content' : importPostRes.Content,
-			'categories' : [ parseInt(importPostRes.CategoryID) ]
+
+		if ( importPostRes.ThumbnailID !== "") {
+			var postData = {
+				'date' : importPostRes.Date,
+				'status' : 'publish',
+				'title' : importPostRes.Title,
+				'content' : importPostRes.Content,
+				'categories' : importPostRes.CategoryIDs,
+				'featured_media' : importPostRes.ThumbnailID
+			}
+		} else {
+			var postData = {
+				'date' : importPostRes.Date,
+				'status' : 'publish',
+				'title' : importPostRes.Title,
+				'content' : importPostRes.Content,
+				'categories' : importPostRes.CategoryIDs
+			}
 		}
+
 		RPsendRequest ( 'POST', 'posts', postData, function(response) 
 		{
 			if ( JSON.stringify(response) !== "[]" ) {

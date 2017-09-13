@@ -15,7 +15,7 @@
     <div class="basic-info-wrap">
       <p>
         <?php the_content(); ?>
-        <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
+        <?php include_once('template-parts/go-back-link.php'); ?>
       </p>
     </div>
   </div>

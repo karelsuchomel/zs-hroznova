@@ -29,7 +29,7 @@ function execute_request(event)
 	secondSemestr = secondSemestr + "-09-01T00:00:00.000Z";
 
 	var requestSpecs = '';
-	requestSpecs = "?categories=4";
+	requestSpecs = "?categories=8";
 	requestSpecs += "&after=" + firstSemestr;
 	requestSpecs += "&before=" + secondSemestr;
 	requestSpecs += "&_embed";
@@ -62,7 +62,7 @@ function printResponse( responseData )
 		HTMLtoprint += "<li>";
 		HTMLtoprint += "<a href='" + responseData[i].link + "'>";
 
-		if ( responseData[i]._embedded['wp:featuredmedia'][0].source_url ) {
+		if ( responseData[i]._embedded['wp:featuredmedia'] ) {
 			var originalSource = responseData[i]._embedded['wp:featuredmedia'][0].source_url;
 			var sourceLength = originalSource.length;
 			var sourceExt = originalSource.substr( (sourceLength - 4), 4 );
@@ -92,18 +92,18 @@ function parseIsoDatetime(dtstr) {
     var dt = dtstr.split(/[: T-]/).map(parseFloat);
 
     var months = [
-    	'Leden',
-    	'Únor',
-    	'Březen',
-    	'Duben',
-    	'Květen',
-    	'Červen',
-    	'Červenec',
-    	'Srpen',
-    	'Září',
-    	'Říjen',
-    	'Listopad',
-    	'Prosinec'
+    	'leden',
+    	'únor',
+    	'březen',
+    	'duben',
+    	'květen',
+    	'červen',
+    	'červenec',
+    	'srpen',
+    	'září',
+    	'říjen',
+    	'listopad',
+    	'prosinec'
     ]
 
     var date = dt[2] + ". " + months[ dt[1] - 1 ] + ", " + dt[0];

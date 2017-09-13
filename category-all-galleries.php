@@ -15,7 +15,16 @@
     <?php
 
     $years = array();
-    query_posts( 'category_name=all-galleries' );
+    query_posts( array(
+    'category_name'  => 'all-galleries',
+    'posts_per_page' => -1,
+    'date_query' => array(
+        array(
+          'after' => '2012-09-01',
+        ),
+        'inclusive' => true,
+      ),
+    ) );
 
     // Start the Loop
     if ( have_posts() ) : while ( have_posts() ) : the_post();

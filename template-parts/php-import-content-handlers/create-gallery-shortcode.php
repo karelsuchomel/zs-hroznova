@@ -10,14 +10,21 @@ function handle_gallery( $content, $DBName, $DBUser, $DBPass )
 	if ( isset($matches[0][1]) ) 
 	{
 		$gallery_id = $matches[0][1];
-		echo $gallery_id . "<br>";
 		// find image names from original databse
 		$mediaFileNames = find_image_names( $gallery_id, $DBName, $DBUser, $DBPass );
 		// find media IDs from Wordpress database
-		find_image_ids( $mediaFileNames, "zshroznova", "root", "1234" );
+		$mediaIDs = find_image_ids( $mediaFileNames, "zshroznova", "root", "1234" );
+
+		if ( isset($mediaIDs[0]) !== "" ) {
+			return array( "[gallery link='file' size='medium' ids='" . implode(",", $mediaIDs) . "']", $mediaIDs[0] );
+		} else {
+			return "";
+		}
+
+		//return
 	} else {
 		// if not, return 0
-		return 0;
+		return "";
 	}
 }
 
@@ -50,15 +57,14 @@ function find_image_names( $gallery_id, $DBName, $DBUser, $DBPass )
 			$pathParts = pathinfo( $mediaURL );
 			$fileName = $pathParts["filename"];
 			$mediaFileNames[$i] = $fileName;
-			echo $fileName . "<br>";
 			$DB = null;
 		}
 
 	}
-	var_dump($mediaFileNames);
 	return $mediaFileNames;
 }
 
+// minus offset of the final database (found to be 1042)
 function find_image_ids( $mediaFileNames, $DBName, $DBUser, $DBPass )
 {
 	try
@@ -79,13 +85,11 @@ function find_image_ids( $mediaFileNames, $DBName, $DBUser, $DBPass )
 		if ( $sth->execute() )
 		{
 			$row = $sth->fetch();
-			var_dump($row);
-			echo "Found ID is: " . $row["ID"] . "<br>";
-			$imageIDs[$i] = $row["ID"];
+			$imageIDs[$i] = $row["ID"] - 1042;
 		}
 
 	}
-
+	return $imageIDs;
 }
 
 

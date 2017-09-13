@@ -58,7 +58,7 @@
       display: none
     .gallery-item
       width: 25%
-      float: right
+      float: left
       margin: 0px
       padding: 0px 10px 10px 0px
       box-sizing: border-box
@@ -66,12 +66,21 @@
       //&:nth-of-type(3n + 3)
       //  padding: 0px 0px 10px 0px
 
+      .gallery-caption
+        display: none
 
       .gallery-icon
         a
+          width: 100%
+          padding-top: 75%
+          position: relative
+          overflow: hidden
           display: block
 
         img
+          position: absolute
+          top: 0
+          left: 0
           margin: 0px
           width: 100%
           height: auto
