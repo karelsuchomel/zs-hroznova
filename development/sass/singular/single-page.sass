@@ -106,7 +106,7 @@
     border-bottom: 1px solid #777
 
 // custom buttons
-.download-button
+.button-prefab
   position: relative
   margin: 8px 0px
   padding-right: 17px
@@ -117,16 +117,6 @@
   user-select: none
   transition: 0.2
   overflow: hidden
-
-  &:before
-    position: relative
-    top: 0
-    left: 0
-    padding: 10px 17px
-    color: white
-    display: inline-block
-    padding-right: 17px
-    margin-right: 8px
 
   //text
   font-weight: 600
@@ -140,6 +130,36 @@
     box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
     &:before
       box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
+
+.external-link
+  @extend .button-prefab
+  padding: 10px 17px
+  overflow: hidden
+
+.edookit-button
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 7px
+    height: 100px
+    background-color: #582C83
+    display: inline-block
+    margin-right: 8px
+
+.download-button
+  @extend .button-prefab
+
+  &:before
+    position: relative
+    top: 0
+    left: 0
+    padding: 10px 17px
+    color: white
+    display: inline-block
+    margin-right: 8px
+
 
 .download-button.pdf
   &:before

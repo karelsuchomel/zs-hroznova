@@ -18,6 +18,9 @@
       <p>
         <?php the_content(); ?>
         <p>
+          <a href="https://zshroznova.edookit.net/user/login?backlink=bd1dh" class="external-link edookit-button">Přihlášení do Edookitu</a>
+        </p>
+        <p>
         <a href="<?php echo get_home_url(); ?>" class="home-link">Hlavní strana</a>
         </p>
       </p>
