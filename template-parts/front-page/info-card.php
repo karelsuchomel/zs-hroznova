@@ -53,18 +53,6 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
       </ul>
     </div>
     <hr>
-    <div class="info-block">
-      <!-- <h2>Adresa</h2>
-      <ul>
-        <li>Hroznová 1, <br class="display-none-640">603 00 Brno</li>
-        <li><a href="https://www.google.cz/maps/place/Z%C3%A1kladn%C3%AD+%C5%A1kola+Brno,+Hroznov%C3%A1+1,+p%C5%99%C3%ADsp%C4%9Bvkov%C3%A1+organizace/@49.1938391,16.5707481,19z/data=!4m13!1m7!3m6!1s0x4712942d8048d0eb:0x5009e29bfbce85!2zSHJvem5vdsOhIDY1LzEsIDYwMyAwMCBCcm5vLXN0xZllZC1QaXPDoXJreQ!3b1!8m2!3d49.1939583!4d16.5711638!3m4!1s0x0:0x9db2cad388ef8fe7!8m2!3d49.1939002!4d16.5711587" target="_blank">zobrazit na mapě</a></li>
-      </ul> -->
-      <h2>Angličtina od 1. třídy</h2>
-      <ul>
-        <li><a href="#">Více informací</a></li>
-      </ul>
-    </div>
-    <hr>
     <div class="info-block small-screen-display-none"">
       <h2>E-podatelna</h2>
       <ul>
@@ -72,7 +60,16 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
       </ul>
     </div>
     <hr>
-    <div class="info-block medium-screen-display-none">
+    <div class="info-block medium-screen-display-nonex">
+      <ul>
+        <span class="founder-container">
+          <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-brno-small.jpg">
+          Pilotní škola projektu MMB<br>
+          Angličtina od 1. třídy
+        </span>
+      </ul>
+    </div>
+    <div class="info-block medium-screen-display-nonex">
       <ul>
         <span class="founder-container">
           <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-mc-brno-stred-small.jpg">
