@@ -131,12 +131,7 @@
     &:before
       box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
 
-.external-link
-  @extend .button-prefab
-  padding: 10px 17px
-  overflow: hidden
-
-.edookit-button
+.button-stripe
   &:before
     content: ""
     position: absolute
@@ -144,9 +139,24 @@
     left: 0
     width: 7px
     height: 100px
-    background-color: #582C83
     display: inline-block
     margin-right: 8px
+
+.simple-button
+  @extend .button-prefab
+  padding: 10px 17px
+  margin-right: 7px
+  overflow: hidden
+
+.simple-button.pdf-button
+  @extend .button-stripe
+  &:before
+    background-color: #F24236
+
+.simple-button.edookit-button
+  @extend .button-stripe
+  &:before
+    background-color: #582C83
 
 .download-button
   @extend .button-prefab

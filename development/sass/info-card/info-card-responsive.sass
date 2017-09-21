@@ -44,7 +44,19 @@
 			width: 100%
 			float: none
 			border-radius: 0px 0px 3px 3px
+			padding-bottom: 17px
 
+			.founder-container
+				margin: 17px 0px 0px
+
+				.founder-shield
+					height: 28px
+					margin: 2px 8px 0px 0px
+
+			.info-block
+				&:nth-of-type(4)
+					.founder-container
+						margin: 10px 0px 0px
 			hr
 				display: none
 			.info-block
@@ -85,8 +97,20 @@
 @media screen and(max-width: 580px)
 	#info-card-wrap
 		.basic-info-wrap
+			.founder-container
+				text-align: center
+				.founder-shield
+					float: none
+					height: 28px
+					margin: 2px auto
+
 			.info-block
-				width: 50%
+				&:nth-of-type(4)
+					.founder-container
+						margin: 17px 0px 0px
+
+			.info-block ul
+				width: 100%
 
 			.small-screen-display-none
 				display: none
@@ -107,11 +131,24 @@
 				border-radius: 0px
 
 		.basic-info-wrap
-			padding: 0px 15px 25px
+			padding: 0px 15px 15px
+
+			.founder-container
+				text-align: left
+				font-size: 11px
+				.founder-shield
+					float: left
+					margin: 2px 8px 0px 0px
+
+			.info-block
+				&:nth-of-type(4)
+					.founder-container
+						margin: 7px 0px 0px
 
 			hr
 				display: none
 			.info-block
+				width: 50%
 
 		#hide-info-card
 			top: 0px

@@ -53,14 +53,14 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
       </ul>
     </div>
     <hr>
-    <div class="info-block small-screen-display-none"">
+    <div class="info-block small-screen-display-none">
       <h2>E-podatelna</h2>
       <ul>
         <li><a href="mailto:&#112;&#111;&#100;&#097;&#116;&#101;&#108;&#110;&#097;&#064;&#122;&#115;&#104;&#114;&#111;&#122;&#110;&#111;&#118;&#097;&#046;&#099;&#122;">&#112;&#111;&#100;&#097;&#116;&#101;&#108;&#110;&#097;&#064;&#122;&#115;&#104;&#114;&#111;&#122;&#110;&#111;&#118;&#097;&#046;&#099;&#122;</a><br>Datová schránka: 3nxmjxs</li>
       </ul>
     </div>
     <hr>
-    <div class="info-block medium-screen-display-nonex">
+    <div class="info-block">
       <ul>
         <span class="founder-container">
           <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-brno-small.jpg">
@@ -69,7 +69,7 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
         </span>
       </ul>
     </div>
-    <div class="info-block medium-screen-display-nonex">
+    <div class="info-block">
       <ul>
         <span class="founder-container">
           <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-mc-brno-stred-small.jpg">
