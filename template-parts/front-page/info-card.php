@@ -63,17 +63,17 @@ if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "F
     <div class="info-block">
       <ul>
         <span class="founder-container">
-          <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-brno-small.jpg">
-          Pilotní škola projektu MMB<br>
-          Angličtina od 1. třídy
+          <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-mc-brno-stred-small.jpg">
+          Zřizovatel: Městská část<br> Brno-střed
         </span>
       </ul>
     </div>
     <div class="info-block">
       <ul>
         <span class="founder-container">
-          <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-mc-brno-stred-small.jpg">
-          Zřizovatel: Městská část<br> Brno-střed
+          <img class="founder-shield" src="<?php bloginfo('template_directory'); ?>/assets/images/znak-brno-small.jpg">
+          Pilotní škola projektu MMB<br>
+          Angličtina od 1. třídy
         </span>
       </ul>
     </div>
