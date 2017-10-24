@@ -1,224 +1,175 @@
+// buttons
+@import "buttons/buttons"
+
 #content-single-page
-  position: relative
-  max-width: 720px
-  box-sizing: border-box
-  padding: $universal-padding
-  margin: 0 auto
-  background: white
-  border-radius: 3px
+	position: relative
+	max-width: 720px
+	box-sizing: border-box
+	padding: $universal-padding
+	margin: 0 auto
+	background: white
+	border-radius: 3px
 
-  h1
-    margin: 0px 0px 17px
+	h1
+		margin: 0px 0px 17px
 
-    font-weight: 600
-    font-size: 1.5em
-    line-height: 1.5em
-    color: hsl(0, 0%, 20%)
+		font-weight: 600
+		font-size: 1.5em
+		line-height: 1.5em
+		color: #333
 
-  > p
-    font-size: 1.1em
-    color: #333
+	> p
+		margin-top: 17px
+		margin-bottom: 17px
 
-    > a
-      text-decoration: underline
-      color: $base-color-dark
+		> a
+			text-decoration: underline
+			color: $base-color-dark
 
-  .additional-post-info
-    color: #777
+	img
+		margin: $universal-padding auto
+		max-width: 100%
+		height: auto
+		border: 0px !important
+		transition: transform 0.3s
 
-  // only anchor tag which has a img in it
-  a img
-    margin: 0px
-    cursor: zoom-in
+	// only anchor tag which has a img in it
+	a img
+		margin: 0px
+		cursor: zoom-in
+		
+	.wp-caption
+		margin-top: $universal-padding
+		margin-bottom: $universal-padding
+		max-width: 100% !important
+		a 
+			display: block
+			> img
+				margin: 0px
 
-  img
-    margin: $universal-padding auto
-    max-width: 100%
-    height: auto
-    border: 0px !important
-    transition: transform 0.3s
-    
-  .wp-caption
-    margin: $universal-padding auto
-    max-width: 100% !important
-    a 
-      display: block
-      > img
-        margin: 0px
+		.wp-caption-text
+			color: #777
+			margin: 10px 0px 0px
 
-    .wp-caption-text
-      color: #777
-      margin: 10px 0px 0px
+	.gallery
+		padding: 0px
+		margin: 34px 0px 24px
 
-  .gallery
-    margin: $universal-padding 0px
-    &:after
-      content: ""
-      display: table
-      clear: both
+		&:after
+			content: ""
+			display: block
+			clear: both
 
-    > br
-      display: none
-    .gallery-item
-      width: 25%
-      float: left
-      margin: 0px
-      padding: 0px 10px 10px 0px
-      box-sizing: border-box
+		.gallery-item
+			float: left
+			margin: 0px 10px 10px 0px
+			padding: 0px
+			box-sizing: border-box
 
-      //&:nth-of-type(3n + 3)
-      //  padding: 0px 0px 10px 0px
+			.gallery-caption
+				display: none
 
-      .gallery-caption
-        display: none
+			.gallery-icon
+				a
+					display: block
 
-      .gallery-icon
-        a
-          width: 100%
-          padding-top: 75%
-          position: relative
-          overflow: hidden
-          display: block
+				img
+					display: block
+					width: 100%
+					height: auto
+					box-sizing: border-box
+					border: 0px !important
+					margin: 0px
 
-        img
-          position: absolute
-          top: 0
-          left: 0
-          margin: 0px
-          width: 100%
-          height: auto
-          box-sizing: border-box
-          border: 0px !important
+	// 1 column gallery
+	.gallery-columns-1 .gallery-item
+		margin-right: 0px
+
+	// 2 column gallery
+	.gallery-columns-2 .gallery-item
+		width: calc(50% - 5px)
+
+		&:nth-of-type(2n)
+			margin-right: 0px
+		&:nth-of-type(2n + 1)
+			clear: both
+
+	// 3 column gallery
+	.gallery-columns-3 .gallery-item
+		width: calc(33.3333% - 6.6666666667px)
+
+		&:nth-of-type(3n)
+			margin-right: 0px
+		&:nth-of-type(3n + 1)
+			clear: both
+
+	// 4 column gallery
+	.gallery-columns-4 .gallery-item
+		width: calc(25% - 7.5px)
+
+		&:nth-of-type(4n)
+			margin-right: 0px
 
 .home-link
-  color: #777
-  border-bottom: 1px solid white
-  display: inline-block
+	color: #777
+	border-bottom: 1px solid white
+	display: inline-block
 
-  &:before
-    content: ""
-    display: inline-block
-    width: 14px
-    height: 12px
-    background: url('../images/arrow-back-icon.svg') no-repeat
-    background-size: contain
-    background-position: center center
-    margin-right: 5px
+	&:before
+		content: ""
+		display: inline-block
+		width: 14px
+		height: 12px
+		background: url('../images/arrow-back-icon.svg') no-repeat
+		background-size: contain
+		background-position: center center
+		margin-right: 5px
 
-  &:hover, &:active
-    border-bottom: 1px solid #777
+	&:hover, &:active
+		border-bottom: 1px solid #777
 
-// custom buttons
-.button-prefab
-  position: relative
-  margin: 8px 0px
-  padding-right: 17px
-  display: inline-block
-  border-radius: 3px
-  background: white
-  box-shadow: 1px 1px 2px 1px #ddd
-  user-select: none
-  transition: 0.2
-  overflow: hidden
+@media screen and(max-width: 640px)
+	#content-single-page
+		padding: 10px 15px
 
-  //text
-  font-weight: 600
-  text-decoration: none
+		img
+			margin: 25px auto
 
-  &:hover
-    background: #F6F6F6
+		.gallery
+			margin: 25px 0px 15px
 
-  &:active
-    background: #EEE
-    box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
-    &:before
-      box-shadow: inset 1px 1px 2px 1px rgba(0,0,0,0.3)
+			> br
+				display: none
 
-.button-stripe
-  &:before
-    content: ""
-    position: absolute
-    top: 0
-    left: 0
-    width: 7px
-    height: 100px
-    display: inline-block
-    margin-right: 8px
+			.gallery-item
+				width: calc(33.3333% - 6.6666666667px)
 
-.simple-button
-  @extend .button-prefab
-  padding: 10px 17px
-  margin-right: 7px
-  overflow: hidden
+				&:nth-of-type(4n)
+					margin-right: 10px
 
-.simple-button.pdf-button
-  @extend .button-stripe
-  &:before
-    background-color: #F24236
+				&:nth-of-type(3n)
+					margin-right: 0px
+				&:nth-of-type(3n + 1)
+					clear: both
 
-.simple-button.edookit-button
-  @extend .button-stripe
-  &:before
-    background-color: #582C83
+		.wp-caption
+			margin: 25px auto
 
-.download-button
-  @extend .button-prefab
+@media screen and(max-width: 470px)
+	#content-single-page
+		.gallery
+			.gallery-item
+				width: calc(50% - 5px)
 
-  &:before
-    position: relative
-    top: 0
-    left: 0
-    padding: 10px 17px
-    color: white
-    display: inline-block
-    margin-right: 8px
+				&:nth-of-type(3n)
+					margin-right: 10px
 
+				&:nth-of-type(3n + 1)
+					clear: none
 
-.download-button.pdf
-  &:before
-    content: "PDF"
-    background: #F24236
-
-  &:hover
-    &:before
-      background: #D81B0E
-
-.download-button.docx, .download-button.doc
-  &:before
-    content: "DOCX"
-    background: #295598
-
-  &:hover
-    &:before
-      background: #204276
-.download-button.doc
-  &:before
-    content: "DOC"
-
-.download-button.xlsx, .download-button.xls
-  &:before
-    content: "XLSX"
-    background: #1F7244
-
-  &:hover
-    &:before
-      background: #1A5E38
-.download-button.xls
-  &:before
-    content: "XLS"
-
-.download-button.pptx,
-.download-button.ppt
-  &:before
-    content: "PPTX"
-    background: #D14424
-
-  &:hover
-    &:before
-      background: #B0391E
-.download-button.ppt
-  &:before
-    content: "PPT"
-
+				&:nth-of-type(2n)
+					margin-right: 0px
+				&:nth-of-type(2n + 1)
+					clear: both
 
 @import "single-page-responsive"
