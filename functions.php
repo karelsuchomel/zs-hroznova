@@ -5,9 +5,6 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 }
 
-// custom meta boxes for administration
-require_once('custom-meta-box-setup.php');
-
 // import stylesheet
 function zshroznova_resources () 
 {

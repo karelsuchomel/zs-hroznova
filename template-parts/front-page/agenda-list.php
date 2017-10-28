@@ -19,7 +19,6 @@ $args = array(
 	),
 	'orderby' => 'date',
 	'order' => 'ASC',
-	'posts_per_page' => -1,
 );
 $the_query = new WP_Query($args);
 
@@ -50,18 +49,25 @@ while ( $the_query->have_posts() ) : $the_query->the_post();
 	?> post - ID: <?php echo get_the_ID(); ?> <br> <?php
 	*/
 
-	$metaDate = get_post_meta( get_the_ID(), $key = '_datum_konani_textdate', $single = false );
+	$metaDate = get_post_meta( get_the_ID(), $key = 'deadline-date', $single = true );
+	$metaHrmnTitle = get_post_meta( get_the_ID(), $key = 'harmonogram-title', $single = true );
 
-	if (isset($metaDate[0])) {
+	if (isset($metaDate)) {
 
-		list($month, $day, $year) = explode("/", $metaDate[0]);
+		list($day, $month, $year) = explode("/", $metaDate);
 		$dateValueHolder = $year . $month . $day;
 
 		if (!($today > $dateValueHolder)) {
 
 			$newAction = new planedAction();
-			$newAction->date = $metaDate[0];
-			$newAction->title = get_the_title();
+			$newAction->date = $metaDate;
+			if ( $metaHrmnTitle !== "" )
+			{
+				$newAction->title = $metaHrmnTitle;
+			} else 
+			{
+				$newAction->title = get_the_title();
+			}
 			$newAction->link = get_the_permalink();
 			$newAction->dateValue = $dateValueHolder;
 
@@ -113,7 +119,7 @@ sortPlannedActionsByDateValue();
 $usedDatesArr = array();
 foreach ($plannedActionsArray as $planedAction) {
 
-	list($month, $day, $year) = explode("/", $planedAction->date);
+	list($day, $month, $year) = explode("/", $planedAction->date);
 
 	
 	$month = ltrim($month, '0');
@@ -152,7 +158,7 @@ wp_reset_postdata();
 
 <?php
 else :
-	echo "<!--didn't find any post with meta-key matching \"datum-konani\"-->";
+	echo "<!--didn't find any post with meta-key matching \"deadline-date\"-->";
 endif;
 
 ?>
