@@ -1,22 +1,18 @@
 <?php
 
-// load posts maximum 1-2 years old
-if(date('n') < 9){
-	$preYear = date('Y') - 1;
-} else {
-	$preYear = date('Y');
-}
+// load posts maximum 365 days old
 $args = array(
 	'date_query' => array(
 		array(
-			'after'     => array(
-				'year'  => $preYear,
-				'month' => 9,
-				'day'   => 1,
+			'after' => array(
+				'year'  => date('Y') - 1,
+				'month' => date('n'),
+				'day'   => date('j'),
 			),
 			'inclusive' => true,
 		),
 	),
+	'meta_key' => 'deadline-date',
 	'orderby' => 'date',
 	'order' => 'ASC',
 );

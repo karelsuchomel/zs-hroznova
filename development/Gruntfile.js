@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			watchAdminSASS: {
 				files: ['sass/admin/**/*.sass'],
 				tasks: ['sass:adminStyles'],
-			}
+			},
 			watchMainJS: {
 				files: ['js/*.js', '!js/tpl-specific/**/*.js'],
 				tasks: ['uglify:main_JS'],
@@ -63,9 +63,9 @@ module.exports = function(grunt) {
 					cwd: 'sass/admin/', 
 					src: '**/*.sass',
 					ext: '.css',
-					dest: '../assets/css/',
-				}],
-			},
+					dest: '../assets/css/admin/',
+				}]
+			}
 		},
 		concat: {
 			concat_JS: {

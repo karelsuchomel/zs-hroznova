@@ -139,6 +139,8 @@
 				img
 					cursor: pointer
 					transition: opacity 0.2s
+					max-width: 100%
+					height: auto
 				&:hover, &:active
 					img
 						opacity: 0.9
@@ -169,6 +171,11 @@
 
 		&:last-child
 			margin-right: 15px
+
+	#content-single-page
+		ul#listing-found-galleries-container
+			> li > a img
+				margin: 0px
 
 @media screen and(max-width: 580px)
 	#content-single-page

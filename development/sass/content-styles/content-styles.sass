@@ -14,20 +14,25 @@ h1
 	margin-bottom: 17px
 
 	> a
+		font-weight: 600
+		color: #27ae60
 		text-decoration: underline
-		color: $base-color-dark
 
-img
-	margin: $universal-padding auto
-	max-width: 100%
-	height: auto
-	border: 0px !important
-	transition: transform 0.3s
+		&:hover, &:active
+			transition: color 0.2s
+			color: #4CD787
 
-// only anchor tag which has a img in it
-a img
-	margin: 0px
-	cursor: zoom-in
+		img
+			margin: 0px
+			cursor: zoom-in
+
+	img
+		display: inline
+		margin: $universal-padding auto
+		max-width: 100%
+		height: auto
+		border: 0px !important
+		transition: transform 0.3s
 	
 .wp-caption
 	margin-top: $universal-padding
