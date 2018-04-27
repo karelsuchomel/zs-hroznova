@@ -8,6 +8,7 @@ if ( ! defined( 'ABSPATH' ) )
 // import stylesheet
 function zshroznova_resources () 
 {
+	// main
 	wp_enqueue_style('style', get_stylesheet_uri());
 
 	wp_register_style('main.css', get_template_directory_uri() . '/assets/css/main.css', false, NULL, 'all' );
@@ -15,6 +16,23 @@ function zshroznova_resources ()
 
 	wp_register_script( 'main.js', get_template_directory_uri() . '/assets/js/main.js', array(), NULL, true );
 	wp_enqueue_script( 'main.js' );
+
+	// Photo swipe - incorporated gallery viewer
+	wp_register_style('photoswipe.css', get_template_directory_uri() . '/inc/photoswipe/photoswipe.css', false, NULL, 'all' );
+	wp_enqueue_style('photoswipe.css');
+
+	wp_register_style('default-skin.css', get_template_directory_uri() . '/inc/photoswipe/default-skin/default-skin.css', false, NULL, 'all' );
+	wp_enqueue_style('default-skin.css');
+
+	wp_register_script( 'photoswipe.min.js', get_template_directory_uri() . '/inc/photoswipe/photoswipe.min.js', array(), NULL, true );
+	wp_enqueue_script( 'photoswipe.min.js' );
+	
+	wp_register_script( 'photoswipe-ui-default.min.js', get_template_directory_uri() . '/inc/photoswipe/photoswipe-ui-default.min.js', array(), NULL, true );
+	wp_enqueue_script( 'photoswipe-ui-default.min.js' );
+
+		wp_register_script( 'photoswipe-init.js', get_template_directory_uri() . '/inc/photoswipe/photoswipe-init.js', array(), NULL, true );
+	wp_enqueue_script( 'photoswipe-init.js' );
+	
 
 	wp_localize_script( 'main.js', 'magicalData', array(
 		"nonce" => wp_create_nonce("wp_rest"),

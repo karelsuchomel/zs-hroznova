@@ -8,13 +8,12 @@
 		<div class="post-details-wrap">
 			<span>
 				<?php
-					$dateString = get_the_time('j. F Y');
-					echo strtolower($dateString);
+					$postedTime = get_post_time('U', false, $post->ID ,false);
+					global $currentTime;
+					$timeDifference = $currentTime - $postedTime;
+					echo timeSinceSimply( $timeDifference );
 				?>
-				 &#8226; 
 			</span>
-			<?php the_category(); ?>
 		</div>
-		<?php echo get_the_content(); ?>
 	</div>
 </article>

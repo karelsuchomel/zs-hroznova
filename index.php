@@ -27,6 +27,12 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
     </div>
     <div id="posts-wrap" class="size-medium">
 
+    <?php 
+    define('__ROOT__', dirname(__FILE__) ); 
+    require_once( __ROOT__ . "/inc/time-since-posted.php" );
+    $currentTime = time();
+    ?>
+
     <!-- Start the loop -->
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 

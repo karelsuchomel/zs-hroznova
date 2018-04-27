@@ -1,7 +1,7 @@
 <?php get_header();?>
 
 <!-- modal template -->
-<?php require_once('template-parts/modals/modal-picture-view.php');?>
+<?php //require_once('template-parts/modals/modal-picture-view.php');?>
 
 <div id="content">
 <div id="content-single-page">
@@ -23,6 +23,6 @@
 </div>
 
 <!-- modal picture view script -->
-<script src="<?php bloginfo('template_directory'); ?>/assets/js/modal-view.js"></script>
+<?php require_once('template-parts/modals/photoswipe.php');?>
 
 <?php get_footer();?>
