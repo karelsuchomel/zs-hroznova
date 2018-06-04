@@ -23,7 +23,7 @@ function timeSinceSimply ( $timeDifference)
 	// if post younger than 30 days -> display weeks
 	} else if ( $timeDifference < 2592000) {
 		$weeks = floor($timeDifference / 604800);
-		if ( $days <= 1 ) {
+		if ( $weeks <= 1 ) {
 			return "před týdnem";	
 		} else {
 			return "před " . $weeks . " týdny";

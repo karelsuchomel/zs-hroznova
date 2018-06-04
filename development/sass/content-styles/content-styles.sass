@@ -10,9 +10,10 @@ h1
 	color: #333
 
 span.publication-date
+	display: inline-block
 	font-size: 12px
 	color: #666
-	border-bottom: 3px solid #CCC
+	border-bottom: 1px solid #CCC
 	margin-bottom: 10px
 	padding-bottom: 7px
 
@@ -20,16 +21,30 @@ span.publication-date
 	margin-top: 17px
 	margin-bottom: 17px
 
-	> a
+	a
 		color: inherit
 		text-decoration: none
-		border-bottom: 1px solid #27ae60
-		box-shadow: inset 0px -2px #27ae60
+
+	a.text-link
+		border-bottom: 2px solid #50D889
+		box-shadow: inset 0px -1px #50D889
 
 		&:hover, &:active
-			background-color: #27ae60
-			color: white
 			transition: 0.2s
+			border-bottom: 2px solid #00B04B
+			box-shadow: inset 0px -1px #00B04B
+
+	a.text-link.off-site-link
+		&:after
+			content: ""
+			display: inline-block
+			margin-left: 4px
+			height: 10px
+			width: 10px
+			background:
+				image: url('../images/offsite-link-icon.svg')
+				position: center
+				size: cover
 
 	img
 		display: inline
@@ -40,13 +55,24 @@ span.publication-date
 		transition: transform 0.3s
 
 	a img
-		margin-bottom: -5px
 		cursor: zoom-in
 
-.wp-caption.aligncenter
+img.aligncenter
 	display: block
 	margin-left: auto
 	margin-right: auto
+
+img.alignleft
+	display: inline-block
+	float: left
+	padding-right: 10px
+	padding-bottom: 10px
+
+img.alignright
+	display: inline-block
+	float: right
+	padding-left: 10px
+	padding-bottom: 10px
 
 .wp-caption
 	margin-top: $universal-padding
@@ -71,55 +97,69 @@ span.publication-date
 		clear: both
 
 	.gallery-item
+		position: relative
+		overflow: hidden
+		display: block
 		float: left
 		margin: 0px 10px 10px 0px
 		padding: 0px
 		box-sizing: border-box
+		width: calc(25% - 7.5px)
+
+		&:after
+			content: ""
+			display: block
+			padding-top: 75%
+
+		&:nth-of-type(4n)
+			margin-right: 0px
+
+		img
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			display: block
+			cursor: zoom-in
+			width: 100%
+			height: auto
+			box-sizing: border-box
+			border: 0px !important
+			margin: 0px
 
 		.gallery-caption
 			display: none
 
-		.gallery-icon
-			a
-				display: block
+	> p
+		margin: 0px	
 
-			img
-				cursor: zoom-in
-				display: block
-				width: 100%
-				height: auto
-				box-sizing: border-box
-				border: 0px !important
-				margin: 0px
+// // 1 column gallery
+// .gallery-columns-1 .gallery-item
+// 	margin-right: 0px
 
-// 1 column gallery
-.gallery-columns-1 .gallery-item
-	margin-right: 0px
+// // 2 column gallery
+// .gallery-columns-2 .gallery-item
+// 	width: calc(50% - 5px)
 
-// 2 column gallery
-.gallery-columns-2 .gallery-item
-	width: calc(50% - 5px)
+// 	&:nth-of-type(2n)
+// 		margin-right: 0px
+// 	&:nth-of-type(2n + 1)
+// 		clear: both
 
-	&:nth-of-type(2n)
-		margin-right: 0px
-	&:nth-of-type(2n + 1)
-		clear: both
+// // 3 column gallery
+// .gallery-columns-3 .gallery-item
+// 	width: calc(33.3333% - 6.6666666667px)
 
-// 3 column gallery
-.gallery-columns-3 .gallery-item
-	width: calc(33.3333% - 6.6666666667px)
+// 	&:nth-of-type(3n)
+// 		margin-right: 0px
+// 	&:nth-of-type(3n + 1)
+// 		clear: both
 
-	&:nth-of-type(3n)
-		margin-right: 0px
-	&:nth-of-type(3n + 1)
-		clear: both
+// // 4 column gallery
+// .gallery-columns-4 .gallery-item
+// 	width: calc(25% - 7.5px)
 
-// 4 column gallery
-.gallery-columns-4 .gallery-item
-	width: calc(25% - 7.5px)
-
-	&:nth-of-type(4n)
-		margin-right: 0px
+// 	&:nth-of-type(4n)
+// 		margin-right: 0px
 
 .home-link
 	color: #777
@@ -146,10 +186,8 @@ span.publication-date
 		margin: 25px auto
 
 	.gallery
-		margin: 25px 0px 15px
-
-		> br
-			display: none
+		margin-top: 25px
+		margin-bottom: 15px
 
 		.gallery-item
 			width: calc(33.3333% - 6.6666666667px)

@@ -55,7 +55,7 @@ module.exports = function(grunt) {
 			},
 			adminStyles: {
 				options: {
-					style: 'compressed',
+					style: 'expanded',
 					sourcemap: 'none',
 				},
 				files: [{

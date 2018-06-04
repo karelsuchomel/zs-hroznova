@@ -50,6 +50,10 @@ function zshroznova_theme_setup()
 	  'menu-side-list' => __('Boční seznam'),
 	));
 
+	// remove "auto paragraph feature"
+		// remove_filter( 'the_content', 'wpautop' );
+		// remove_filter( 'the_excerpt', 'wpautop' );
+
 	// add featured image support
 	add_theme_support('post-thumbnails');
 	// define image sizes
@@ -79,3 +83,7 @@ require_once( get_template_directory() . '/inc/remove_wp_emoji.php');
 
 // WordPress Customize feature fot this theme
 require_once( get_template_directory() . '/inc/theme_customize_features.php');
+
+// handle gallery shortcode to work with PSW gallery
+require_once( get_template_directory() . '/inc/handle-gallery-shortcode-psw.php');
+add_filter( 'post_gallery', 'tfs_render_gallery_shortcode_PSW', 10, 2 );
