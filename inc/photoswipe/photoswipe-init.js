@@ -133,6 +133,14 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 		};
 
+		options.mainClass = 'pswp--minimal--dark';
+		options.barsSize = {top:0,bottom:0};
+		options.captionEl = false;
+		options.fullscreenEl = false;
+		options.shareEl = false;
+		options.tapToClose = true;
+		options.tapToToggleControls = false;
+
 		// PhotoSwipe opened from URL
 		if(fromURL) {
 			if(options.galleryPIDs) {

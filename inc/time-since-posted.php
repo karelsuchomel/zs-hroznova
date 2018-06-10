@@ -1,6 +1,6 @@
 <?php
 
-function timeSinceSimply ( $timeDifference)
+function timeSincePosted ( $timeDifference)
 {
 	// if post younger than 24 hours -> display hours
 	if ( $timeDifference < 86400 ) {

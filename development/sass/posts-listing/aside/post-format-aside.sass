@@ -1,18 +1,28 @@
 #posts-wrap .post-wrap.aside
 	background: hsl(55, 85, 90) !important
 
-	h2
-		padding-top: 10px
+	h2.aside-headline
+		padding-top: 12px
 		font-size: 14px
-		line-height: 20px
+		line-height: 18px
 		color: #444
+		max-width: 100%
+		// excerpt
+		white-space: nowrap
+		text-overflow: ellipsis
+		overflow: hidden
+
+		a .one-line-excerpt
+			font-size: 13px
+			line-height: 16px
+			color: #666
 
 	.basic-info-wrap
-		padding-right: 17px
-		margin: 2px 0px 10px
-		font-size: 13px
 		line-height: 16px
-		color: #666
+		margin-bottom: 12px
+
+		.post-details-wrap
+			margin-bottom: 0px
 
 @media screen and(max-width: 640px)
 	#posts-wrap .post-wrap.aside

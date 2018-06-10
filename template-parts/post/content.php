@@ -21,7 +21,7 @@
 					$postedTime = get_post_time('U', false, $post->ID ,false);
 					global $currentTime;
 					$timeDifference = $currentTime - $postedTime;
-					echo timeSinceSimply( $timeDifference );
+					echo timeSincePosted( $timeDifference );
 				?>
 				 &#8226; 
 			</span>
