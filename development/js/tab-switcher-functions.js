@@ -1,15 +1,23 @@
-$(document).ready(function(){
-	$("#posts.tab-button").click(function(){
-		$(this).addClass("opened");
-		$("#agenda.tab-button").removeClass("opened");
-		$("#posts-wrap").css({'display': 'block'});
-		$("#agenda-list-wrap").css({'display': 'none'});
-	});
+/*
+toggle tabs for posts and agenda (found on the homepage in mobile view)
+*/
 
-	$("#agenda.tab-button").click(function(){
-		$(this).addClass("opened");
-		$("#posts.tab-button").removeClass("opened");
-		$("#posts-wrap").css({'display': 'none'});
-		$("#agenda-list-wrap").css({'display': 'block'});
-	});
-});
+function switchToPostsTab (e)
+{
+	e.currentTarget.className = "tab-button opened";
+	document.getElementById("agenda").className = "tab-button";
+	document.getElementById("posts-wrap").style.display = 'block';
+	document.getElementById("agenda-list-wrap").style.display = 'none';
+}
+
+function switchToAgendaTab (e)
+{
+	e.currentTarget.className = "tab-button opened";
+	document.getElementById("posts").className = "tab-button";
+	document.getElementById("posts-wrap").style.display = 'none';
+	document.getElementById("agenda-list-wrap").style.display = 'block';
+}
+
+// add event listeners
+document.getElementById("posts").addEventListener("click", switchToPostsTab);
+document.getElementById("agenda").addEventListener("click", switchToAgendaTab);
