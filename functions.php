@@ -14,8 +14,8 @@ function zshroznova_resources ()
 	wp_register_style('main.css', get_template_directory_uri() . '/assets/css/main.css', false, NULL, 'all' );
 	wp_enqueue_style('main.css');
 
-	wp_register_script( 'main.js', get_template_directory_uri() . '/assets/js/main.js', array(), NULL, true );
-	wp_enqueue_script( 'main.js' );
+	wp_register_script( 'index.js', get_template_directory_uri() . '/assets/js/index.js', array(), NULL, true );
+	wp_enqueue_script( 'index.js' );
 
 	// Photo swipe - incorporated gallery viewer
 	wp_register_style('photoswipe.css', get_template_directory_uri() . '/inc/photoswipe/photoswipe.css', false, NULL, 'all' );
@@ -34,7 +34,7 @@ function zshroznova_resources ()
 	wp_enqueue_script( 'photoswipe-init.js' );
 	
 
-	wp_localize_script( 'main.js', 'magicalData', array(
+	wp_localize_script( 'index.js', 'magicalData', array(
 		"nonce" => wp_create_nonce("wp_rest"),
 		"siteURL" => get_site_url()
 	));

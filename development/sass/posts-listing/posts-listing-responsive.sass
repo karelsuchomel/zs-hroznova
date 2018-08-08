@@ -7,18 +7,18 @@
 		width: 100%
 		margin-top: 0px
 
-		.post-wrap
+		> article.post-wrap
 			&:first-of-type
 				border-top-left-radius: 0px
 
 @media screen and(max-width: 640px)
 	#posts-wrap
-		.post-wrap
+		> article.post-wrap
 			h2
 
 @media screen and(max-width: 470px)
 	#posts-wrap
-		.post-wrap
+		> article.post-wrap
 			border-right: 0px
 			border-left: 0px
 
@@ -30,7 +30,7 @@
 				border-bottom-left-radius: 0px
 				border-bottom-right-radius: 0px
 
-		.post-wrap
+		> article.post-wrap
 			padding-left: 0px
 			h2
 				clear: left
@@ -38,15 +38,16 @@
 				font-size: 14px
 				line-height: 18px
 				padding: 15px 15px 0px
+				margin: 0px
 
-			.basic-info-wrap
+			> .basic-info-wrap
 				padding-left: 15px
+				padding-top: 5px
 
-			> a
-				> img.wp-post-image
-					float: left
-					width: 35%
-					height: auto
-					padding: 15px
-					padding-top: 10px
-					padding-left: 0px
+			> img.wp-post-image
+				float: left
+				width: 35%
+				height: auto
+				padding: 15px
+				padding-top: 10px
+				padding-left: 0px

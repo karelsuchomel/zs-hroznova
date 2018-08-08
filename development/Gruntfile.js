@@ -15,7 +15,7 @@ module.exports = function(grunt) {
 				tasks: ['sass:adminStyles'],
 			},
 			watchMainJS: {
-				files: ['js/*.js', '!js/tpl-specific/**/*.js'],
+				files: ['js/*.js'],
 				tasks: ['uglify:main_JS'],
 			},
 			watchOtherJS: {
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
 		uglify: {
 			main_JS: {
 				files: {
-					'../assets/js/main.js': ['js/*.js'],
+					'../assets/js/index.js': ['js/*.js'],
 				},
 			},
 			tpl_Specific_JS: {

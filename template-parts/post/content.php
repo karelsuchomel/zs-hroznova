@@ -1,15 +1,12 @@
 <article class="post-wrap clear-both">
-	
+	<a class="link-overlay" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+	</a>
 	<h2>
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-			<?php the_title(); ?>
-		</a>
+		<?php the_title(); ?>
 	</h2>
 	
 	<?php if ( has_post_thumbnail() ) : ?>
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 			<?php the_post_thumbnail(); ?>
-		</a>
 	<?php endif; ?>
 
 	<div class="basic-info-wrap">
@@ -32,9 +29,5 @@
 		$loaded_content = strip_shortcodes( get_the_content('') );
 		echo wp_trim_words( $loaded_content, 10, '...' ); 
 		?>
-		
-		<a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-			více
-		</a>
 	</div>
 </article>
