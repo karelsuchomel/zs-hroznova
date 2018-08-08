@@ -5,7 +5,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 ?>
 <?php get_header();?>
 
-  <div id="show-info-card"
+  <div id="show-info-card" class="toggle-info-card"
   <?php if((isset($_COOKIE["info-card-closed"])) && $_COOKIE["info-card-closed"] == "TRUE" ) { ?>
     style="display: block;"
   <?php } ?>

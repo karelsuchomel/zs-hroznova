@@ -1,11 +1,11 @@
 // get document name
 function getAnchotHref ( id ) {
-	const el = document.getElementById(id);
+	var el = document.getElementById(id);
 	if (!el) {
 		console.log('element with ID: #' + id + ' not found.');
 		return false;
 	} else {
-		const path = el.getAttribute('href');
+		var path = el.getAttribute('href');
 
 		if (!path) {
 			console.log('element with ID: #' + id + ' does not have a href attribute filled.');
@@ -40,17 +40,10 @@ function drawPDFontoCanvas ( path, canvas_id, canvas_width, canvas_height ) {
 };
 
 // width of content container
-var contentWidth = $("#content-single-page").outerWidth();
-console.log(contentWidth);
+var contentWidth = document.getElementById("content-single-page").offsetHeight;
 
 var weekPath = getAnchotHref('this-week-path');
 drawPDFontoCanvas( weekPath, 'this-week-canvas', contentWidth, 800 );
 
 weekPath = getAnchotHref('next-week-path');
 drawPDFontoCanvas( weekPath, 'next-week-canvas', contentWidth, 800 );
-
-// Make menu-side-list as heigh as #content
-setTimeout(function() {
-	var contentHeight = $("#content").outerHeight();
-	$("#side-list").css('height', contentHeight + 'px');
-}, 500);

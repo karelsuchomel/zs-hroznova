@@ -81,9 +81,6 @@ add_action( 'admin_init', 'zshroznova_theme_add_editor_styles' );
 // remove WordPress emojis
 require_once( get_template_directory() . '/inc/remove_wp_emoji.php');
 
-// WordPress Customize feature fot this theme
-require_once( get_template_directory() . '/inc/theme_customize_features.php');
-
 // handle gallery shortcode to work with PSW gallery
 require_once( get_template_directory() . '/inc/handle-gallery-shortcode-psw.php');
 add_filter( 'post_gallery', 'tfs_render_gallery_shortcode_PSW', 10, 2 );

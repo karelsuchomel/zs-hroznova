@@ -9,7 +9,11 @@
   "author": "Karel Suchomel",
   "license": "ISC",
   "dependencies": {
-    "grunt": "^1.0.1"
+    "autoprefixer": "^9.0.1",
+    "cssnano": "^4.0.3",
+    "grunt": "^1.0.1",
+    "pixrem": "^4.0.1",
+    "sass": "^1.10.0"
   },
   "devDependencies": {
     "grunt-contrib-concat": "^1.0.0",

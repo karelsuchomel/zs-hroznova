@@ -28,11 +28,8 @@ function getInfoCardImage ()
 
 ?>
 
-<div id="info-card-wrap" class="clear-both"
-<?php
-if (!(isset($_COOKIE["info-card-closed"])) || $_COOKIE["info-card-closed"] == "FALSE" ) {
-?>style="display: block"<?php } ?>>
-  <div id="hide-info-card">
+<div id="info-card-wrap" class="clear-both">
+  <div id="hide-info-card" class="toggle-info-card">
     Schovat
     <img src="<?php bloginfo('template_directory'); ?>/assets/images/arrow-up-icon.svg">
   </div>
