@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 					cwd: 'sass/admin/', 
 					src: '**/*.sass',
 					ext: '.css',
-					dest: '../assets/css/admin/',
+					dest: '../assets/css/',
 				}]
 			}
 		},

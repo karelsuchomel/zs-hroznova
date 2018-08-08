@@ -74,7 +74,7 @@ add_action('after_setup_theme', 'zshroznova_theme_setup');
 
 // use post's front-end styles in TinyMCE text editor
 function zshroznova_theme_add_editor_styles() {
-	add_editor_style( 'assets/css/admin/editor-styles.css' );
+	add_editor_style( 'assets/css/editor-styles.css' );
 }
 add_action( 'admin_init', 'zshroznova_theme_add_editor_styles' );
 
