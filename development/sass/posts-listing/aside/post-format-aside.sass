@@ -1,8 +1,10 @@
 #posts-wrap > article.post-wrap.aside
 	background-color: hsl(55, 85, 90)
 
-	&:hover
+	&:hover, &:active
 		background-color: hsl(55, 85, 80)
+	&:active
+		transition: 0s background-color
 
 	h2.aside-headline
 		padding-top: 12px
@@ -15,14 +17,14 @@
 		text-overflow: ellipsis
 		overflow: hidden
 
-		a .one-line-excerpt
-			font-size: 14px
+		span.one-line-excerpt
+			font-size: 13px
 			line-height: 18px
 			color: #666
 
 	.basic-info-wrap
-		line-height: 16px
-		margin-bottom: 12px
+		line-height: 14px
+		margin-bottom: 14px
 
 		.post-details-wrap
 			margin-bottom: 0px
