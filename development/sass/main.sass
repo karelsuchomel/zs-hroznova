@@ -1,46 +1,46 @@
 html
-  touch-action: manipulation
-  overflow-y: scroll
+	touch-action: manipulation
+	overflow-y: scroll
 
 html, body
-  padding: 0
-  margin: 0
-  font-family: 'Open Sans', sans-serif
-  font-size: 14px
+	padding: 0
+	margin: 0
+	font-family: 'Open Sans', sans-serif
+	font-size: 14px
 
 body
-  background: #f0f0f0
+	background: #f0f0f0
 
 #content-wrap
-  max-width: $content-max-width
-  margin: 0 auto
-  box-sizing: border-box
-  position: relative
+	max-width: $content-max-width
+	margin: 0 auto
+	box-sizing: border-box
+	position: relative
 
 #content
-  position: relative
-  float: right
-  width: calc(100% - 220px)
-  box-sizing: border-box
-  padding: $universal-padding
-  padding-right: 15px
-  z-index: 1
+	position: relative
+	float: right
+	width: calc(100% - 220px)
+	box-sizing: border-box
+	padding: $universal-padding
+	padding-right: 0px
+	z-index: 1
 
 @media screen and(max-width: $content-max-width)
-  #content
-    padding-right: $universal-padding
+	#content
+		padding-right: $universal-padding
 
 @media screen and(max-width: 960px)
-  #content
-    float: none
-    width: 100%
+	#content
+		float: none
+		width: 100%
 
 @media screen and(max-width: 640px)
-  #content
-    padding: $universal-padding 15px
+	#content
+		padding: $universal-padding 15px
 
 @media screen and(max-width: 470px)
-  body
-    background: white
-  #content
-    padding: ($universal-padding / 2) 0px
+	body
+		background: white
+	#content
+		padding: ($universal-padding / 2) 0px

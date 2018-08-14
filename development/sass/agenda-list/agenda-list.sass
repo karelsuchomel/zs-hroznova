@@ -1,9 +1,12 @@
 #agenda-list-wrap
-	margin-bottom: $universal-padding
-	padding-left: $universal-padding
-	width: 25%
+	margin-bottom: 34px
+	margin-left: 34px
+	padding: 0px 17px
+	width: calc(28% + 15px - 34px)
+	border-top-left-radius: 3px
 	box-sizing: border-box
 	float: right
+	background: #f0f0f0
 
 	.day-segment
 		position: relative
@@ -16,34 +19,18 @@
 			top: 0px
 			bottom: 0px
 			width: 3px
-			border-radius: 2px
+			//border-radius: 2px
 			background: #CCC
 
 		.date-label
+			display: inline-block
+			background: #CCC
+			border-top-right-radius: 11px
+			border-bottom-right-radius: 11px
 			position: relative
-			padding: 15px 20px 0px
-			margin-bottom: 7px
+			padding: 0px 15px
+			margin: 18px 0px 5px
 
-			.dot
-				display: inline-block
-				position: absolute
-				left: -8px
-				top: 14px
-				width: 20px
-				height: 20px
-				background-color: #f0f0f0
-				box-sizing: border-box
-
-				&:before
-					display: block
-					content: ""
-					position: absolute
-					left: 5px
-					top: 5px
-					width: 10px
-					height: 10px
-					background: $base-color
-					border-radius: 50%
 
 		ul.event-list
 			list-style: none
@@ -51,8 +38,31 @@
 			padding-left: 20px
 
 			> li
+				position: relative
 				line-height: 1.4em
 				padding: 5px 0px
+
+				.dot
+					display: inline-block
+					position: absolute
+					left: -25px
+					top: calc(50% - 6px)
+					width: 14px
+					height: 14px
+					background-color: #f0f0f0
+					box-sizing: border-box
+					border-radius: 50%
+
+					&:before
+						display: block
+						content: ""
+						position: absolute
+						left: 4px
+						top: 4px
+						width: 6px
+						height: 6px
+						background: $base-color
+						border-radius: 50%
 				
 				> a
 

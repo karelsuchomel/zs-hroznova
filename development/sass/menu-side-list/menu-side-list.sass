@@ -8,48 +8,6 @@ nav#side-list
 	border-right: 1px solid rgba(0,0,0,0.15)
 	background: white
 
-	#searchform-container
-		position: relative
-		box-shadow: 0px 1px 0px rgba(0,0,0,0.15)
-		
-		.underline-animated
-			content: ""
-			display: block
-			position: absolute
-			z-index: 3
-			width: 100%
-			height: 3px
-			background-color: $base-color
-			transition: 0.2s
-			transform: scale(0,1)
-
-
-		input.search-field
-			border: 0px solid #DCDCDC
-			padding: 10px 0px
-			margin-left: 15px 
-			width: 188px
-			border-radius: 0px
-			font-size: 14px
-			&:focus ~ .underline-animated
-				transform: scale(1,1)
-
-		input#searchsubmit
-			position: absolute
-			right: 5px
-			top: 0px
-			cursor: pointer
-			border-radius: 0px
-			border: 10px solid white
-			padding: 0px
-			width: 36px
-			height: 36px
-			background: url('../images/magnifier-icon.svg')
-			background-size: cover
-			background-position: center
-			font-size: 0px
-
-
 	ul#menu-bocni-seznam
 		list-style: none
 		margin: 35px 0px

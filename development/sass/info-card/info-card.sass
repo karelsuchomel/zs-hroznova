@@ -1,47 +1,25 @@
 #info-card-wrap
 	position: relative
-	width: 100%
-	background: white
+	float: right
+	width: calc(100% - 220px)
 	box-sizing: border-box
-	border-radius: 3px
-	border: 1px solid #DDD
-	position: relative
-	margin-bottom: $universal-padding
+	z-index: 1
+	height: 342px
+	margin-bottom: -100px
+	overflow: hidden
 
-	#hide-info-card
-		user-select: none
+	&:after
+		content: ""
+		display: block
 		position: absolute
-		z-index: 2
-		top: 0px
 		right: 0px
-		height: 15px
-		padding: 5px 10px
-		cursor: pointer
-		font-size: 12px
-		color: #AAA
-		transition: 0.3s
-
-		&:hover
-			color: #444
-			> img
-				opacity: 1
-				transform: translateY(-35px)
-
-		> img
-			margin: 0 auto
-			width: 12px
-			height: auto
-			opacity: 0
-			transition: 0.3s
-			transform: translateY(-20px)
+		bottom: 0px
+		left: 0px
+		width: 100%
+		height: 70px
+		background: linear-gradient(to bottom, transparent, #f0f0f0)
 
 	#hero-image
-		float: left
-		z-index: 0
-		width: 75%
-		border-radius: 3px 0px 0px 3px
-		overflow: hidden
-
 		h1
 			position: relative
 			z-index: 1
@@ -53,108 +31,20 @@
 			background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.35), rgba(0,0,0,0))
 			margin: 0px
 			text-align: left
-			font-weight: 300
+			font-weight: 400
 			font-size: 2.5em
 			text-shadow: 0px 0px 3px rgba(0,0,0,0.5) 
 
 		> .image-container
 			position: absolute
 			top: 0px
-			right: 25%
+			right: 0px
 			bottom: 0px
 			left: 0px
-			border-radius: 3px 0px 0px 3px
 			z-index: 0
 			background:
 				image: url('assets/images/info-card-noon.png')
 				size: cover
 				position: left center
-
-
-
-	.basic-info-wrap
-		position: relative
-		width: 25%
-		box-sizing: border-box
-		background: white
-		z-index: 1
-		float: right
-		border-radius: 0px 3px 3px 0px
-		padding: 0px ($universal-padding / 2)
-		padding-bottom: 25px
-
-		.founder-container
-			display: block
-			margin: 17px 0px 0px
-			font-size: 12px
-			transition: 0.2s
-			&:hover
-				color: #000
-				> img
-					opacity: 1
-
-			.founder-shield
-				display: block
-				float: left
-				height: 32px
-				margin: 2px 8px 0px 0px
-				opacity: 0.65
-				transition: 0.2s
-
-		h2
-			margin: 17px 0px 0px
-			font-size: 16px
-			line-height: 24px
-			font-weight: 400
-
-		hr
-			margin: 7px 0px
-
-		ul
-			padding: 0px
-			margin: 0px
-			list-style: none
-			font-style: italic
-			max-width: 220px
-			display: inline-block
-
-			li
-				display: block
-				padding: 4px 0px 4px 0px
-				max-width: 220px
-				line-height: 20px
-				box-sizing: border-box
-				font-weight: 300
-
-				a
-					color: ForestGreen 
-					text-decoration: underline
-
-#show-info-card
-	user-select: none
-	position: absolute
-	display: none
-	top: 5px
-	right: 15px
-	height: 20px
-	font-size: 12px
-	color: #AAA
-	cursor: pointer
-	transition: color 0.5s, opacity 0.5s, transform 0.5s
-	z-index: 2
-
-	&:hover
-		color: #444
-		> img
-			opacity: 1
-			transform: translateY(-20px)
-
-	> img
-		margin-left: -26px
-		width: 12px
-		height: auto
-		opacity: 0
-		transition: opacity 0.3s, transform 0.3s
-		transform: translateY(-45px)
 
 @import "info-card-responsive"

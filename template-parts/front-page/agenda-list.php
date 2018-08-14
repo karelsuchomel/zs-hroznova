@@ -132,7 +132,7 @@ foreach ($plannedActionsArray as $planedAction) {
 
 		?>
 
-		<div class="date-label"><?php echo "$day. $month";?><div class="dot"></div></div>
+		<div class="date-label"><?php echo "$day. $month";?></div>
 		<ul class="event-list">
 
 		<?php
@@ -140,7 +140,7 @@ foreach ($plannedActionsArray as $planedAction) {
 
 	?>
 
-		<li class="event"><a href="<?php echo $planedAction->link; ?>"><?php echo $planedAction->title; ?></a></li>
+		<li class="event"><div class="dot"></div><a href="<?php echo $planedAction->link; ?>"><?php echo $planedAction->title; ?></a></li>
 	
 	<?php
 
