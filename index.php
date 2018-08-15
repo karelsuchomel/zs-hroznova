@@ -10,7 +10,6 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 
 	<div id="content" class="clear-both">
 
-
 		<!-- Listing posts -->
 		<div id="tab-switcher" class="clear-both">
 			<div id="posts" class="tab-button opened">Příspěvky</div>
@@ -21,7 +20,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 		<div id="posts-wrap" class="size-medium">
 			
 			<!-- Searching and filtering posts -->
-			<div id="control-buttons-container">
+			<div class="control-buttons-container">
 				<?php get_search_form();?>
 			</div>
 

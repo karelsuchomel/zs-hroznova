@@ -1,5 +1,5 @@
-assets/css/**
-assets/js/**
+assets/css/
+assets/js/
 .sass-cache/
 .ftppass
 .jshintrc

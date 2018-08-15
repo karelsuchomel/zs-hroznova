@@ -1,3 +1,9 @@
+<div class="control-buttons-container">
+	<div id="search-options-container">
+		<button class="options-button"></button>
+	</div>
+</div>
+
 <?php
 
 // load posts maximum 365 days old
