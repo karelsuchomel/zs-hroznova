@@ -1,11 +1,13 @@
-#agenda-list-wrap
-	margin-bottom: 34px
+#agenda-container
 	margin-left: 34px
-	padding: 0px 17px
 	width: calc(28% + 15px - 34px)
-	border-top-left-radius: 3px
 	box-sizing: border-box
 	float: right
+
+#agenda-list-wrap
+	margin-bottom: 34px
+	border-top-left-radius: 3px
+	padding: 0px 17px
 	background: #f0f0f0
 
 	.day-segment
@@ -24,15 +26,16 @@
 
 		.date-label
 			display: inline-block
-			background: #CCC
+			//background: #CCC
+			border: 1px solid #CCC
 			border-top-right-radius: 11px
 			border-bottom-right-radius: 11px
 			position: relative
-			padding: 0px 15px
+			padding: 0 15px 0 20px
 			margin: 18px 0px 5px
 
 
-		ul.event-list
+		.event-list
 			list-style: none
 			margin: 0px
 			padding-left: 20px
@@ -70,31 +73,33 @@
 						color: #333
 						text-decoration: underline
 
-@media screen and(min-width: 1025px)
-	#agenda-list-wrap
+// to reset possible display change after changing tabs in mobile view
+@media screen and(min-width: 721px)
+	#agenda-container
 		display: block !important
 
-@media screen and(max-width: 1024px)
-	#agenda-list-wrap
+@media screen and(max-width: 720px)
+	#agenda-container
 		display: none
 		width: 100%
+		box-sizing: border-box
+
+	#agenda-list-wrap
 		margin-top: 0px
 		background: white
 		border-radius: 3px
 		border: 1px solid #DDD
-		box-sizing: border-box
 		border-top-left-radius: 0px
-		width: 100%
 
 		#agenda-line
 			margin: 0 auto
 
 		.day-segment
-			padding: ($universal-padding * 2) 0px
+			padding: ($universal-padding) 0px
 			margin: 0 auto
 			width: 300px
 
-			.date-label .dot
+			.event-list > li .dot
 				background: white
 
 

@@ -1,7 +1,7 @@
 #tab-switcher
 	display: none
 
-@media screen and(max-width: 1024px)
+@media screen and(max-width: 720px)
 	#tab-switcher
 		display: block
 
@@ -9,13 +9,13 @@
 			user-select: none
 			float: left
 			line-height: 30px
-			padding: 0px 12px
-			border: 1px solid #DDD
+			padding: 0px 17px
+			border: 1px solid rgba(0,0,0,0.15)
 			border-bottom: 0px
 			//font-family: 'Museo', sans-serif
 			cursor: pointer
 			color: #777
-			background: none
+			background: #fff
 
 			&:nth-of-type(1)
 				border-top-left-radius: 3px
@@ -46,7 +46,7 @@
 	#tab-switcher
 		position: relative
 		.tab-button
-			border: 1px solid #DDD
+			border: 1px solid rgba(0,0,0,0.15)
 			border-bottom: 0px
 
 			&:nth-of-type(1)
@@ -71,6 +71,6 @@
 			width: 200%
 			height: 1px
 			margin: 0px
-			background: #DDD
+			background: rgba(0,0,0,0.15)
 			bottom: 0px
 			left: -50%

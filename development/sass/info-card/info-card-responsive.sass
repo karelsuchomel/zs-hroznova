@@ -1,161 +1,28 @@
-@media screen and(max-width: 1140px)
+@media screen and(max-width: 960px)
 	#info-card-wrap
-		#hero-image
-			width: calc(100% - 225px)
-
-		.basic-info-wrap
-			width: 225px
-
-@media screen and(max-width: 1025px)
-	#info-card-wrap
-		#hero-image
-			width: calc(100% - 225px)
-
-			> img
-				width: 115%
-				min-width: 505px
-				margin-left: -60px
-
-	#show-info-card
-		top: 42px
-		right: 35px
+		width: 100%
+		float: none
 
 @media screen and(max-width: 640px)
-
-	#info-card-wrap
-		#hero-image
-			width: 100%
-			float: none
-			position: relative
-			border-radius: 3px 3px 0px 0px
-
-			> .image-container
-				right: 0px
-				background:
-					image: url('../images/info-card-noon-small.png')
-					position: top center
-
-		#hide-info-card
-			color: white
-			&:hover
-				color: #DDD
-
-		.basic-info-wrap
-			width: 100%
-			float: none
-			border-radius: 0px 0px 3px 3px
-			padding-bottom: 17px
-
-			.founder-container
-				margin: 17px 0px 0px
-
-				.founder-shield
-					height: 28px
-					margin: 2px 8px 0px 0px
-
-			.info-block
-				&:nth-of-type(4)
-					.founder-container
-						margin: 10px 0px 0px
-			hr
-				display: none
-			.info-block
-				width: 33.32%
-				float: left
-
-				.display-none-640
-					display: none
-
-			.medium-screen-display-none
-				display: none
-
-	#show-info-card
-		top: 40px
-		right: 15px
-		font-size: 0px
-		height: 22px
-		box-sizing: border-box
-		width: 22px
-		background:
-			image: url("../images/info-card-icon.svg")
-			size: cover
-			position: center
-
-		&:hover
-			color: #444
-			> img
-				opacity: 1
-				transform: translateY(-20px)
-
-		&:active
-			background-color: hsl(0,0,85)
-
-		> img
-			margin: 0 auto
-			transform: translateY(-45px)
+	#info-card-wrap #hero-image .image-container
+		background-position: -80px 0px
 
 @media screen and(max-width: 580px)
-	#info-card-wrap
-		.basic-info-wrap
-			.founder-container
-				text-align: center
-				.founder-shield
-					float: none
-					height: 28px
-					margin: 2px auto
 
-			.info-block
-				&:nth-of-type(4)
-					.founder-container
-						margin: 17px 0px 0px
-
-			.info-block ul
-				width: 100%
-
-			.small-screen-display-none
-				display: none
 
 @media screen and(max-width: 470px)
 	#info-card-wrap
-		border-left: 0px
-		border-right: 0px
-		border-top: 0px
-		border-radius: 0px
-		top: -17px
-		margin-bottom: 15px
+		height: 222px
+		// 31px tab button height + 17px container padding
+		margin-bottom: -48px
 
-		#hero-image
-			border-radius: 0px
+		&:after
+			height: 35px
+			background: linear-gradient(to bottom, transparent, #f0f0f0)
 
-			> img
-				border-radius: 0px
+		#hero-image .image-container
+			background-position: -80px 0px
 
-		.basic-info-wrap
-			padding: 0px 15px 15px
-
-			.founder-container
-				text-align: left
-				font-size: 11px
-				.founder-shield
-					float: left
-					margin: 2px 8px 0px 0px
-
-			.info-block
-				&:nth-of-type(4)
-					.founder-container
-						margin: 7px 0px 0px
-
-			hr
-				display: none
-			.info-block
-				width: 50%
-
-		#hide-info-card
-			top: 0px
-			right: 6px
-
-	#show-info-card
-		top: 22px
 
 @media screen and(max-width: 370px)
 	#info-card-wrap

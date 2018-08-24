@@ -20,7 +20,12 @@
 					$timeDifference = $currentTime - $postedTime;
 					echo timeSincePosted( $timeDifference );
 				?>
+				<!-- &#8226; --> 
 			</span>
+
+			<!-- categories -->
+			<?php //the_category(); ?>
+
 		</div>
 
 		<?php 

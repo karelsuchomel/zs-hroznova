@@ -1,9 +1,3 @@
-<div class="control-buttons-container">
-	<div id="search-options-container">
-		<button class="options-button"></button>
-	</div>
-</div>
-
 <?php
 
 // load posts maximum 365 days old
@@ -28,8 +22,15 @@ $the_query = new WP_Query($args);
 
 if ( $the_query->have_posts() ) :
 ?>
+	<div id="agenda-container">
+
+		<!-- Controls -->
+		<div class="control-buttons-container">
+			<button class="ghost-button">Načíst starší</button>
+		</div>
 
 	<div id="agenda-list-wrap">
+
 		<div class="day-segment">
 			<div id="agenda-line"></div>
 
@@ -156,6 +157,7 @@ wp_reset_postdata();
 ?>
 	
 		</div>
+	</div>
 	</div>
 
 <?php

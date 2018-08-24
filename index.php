@@ -47,6 +47,7 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 		<!-- Stop the loop -->
 		<?php endif; ?>
 
+		<!-- List agenda -->
 		<?php require_once('template-parts/front-page/agenda-list.php') ?>
 
 <div id="founder-partner-tags" class="clear-both">

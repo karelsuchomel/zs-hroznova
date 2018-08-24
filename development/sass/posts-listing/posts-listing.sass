@@ -5,7 +5,7 @@
 	margin-bottom: $universal-padding
 	position: relative
 
-	> article.post-wrap
+	> article
 		position: relative
 		background: white
 		border: 1px solid rgba(0,0,0,0.15)
@@ -28,7 +28,7 @@
 			border-bottom-left-radius: 3px
 			border-bottom-right-radius: 3px
 
-		> a.link-overlay
+		> .link-overlay
 			position: absolute
 			z-index: 0
 			top: 0px
@@ -46,7 +46,7 @@
 			display: inline-block
 			box-sizing: border-box
 
-		> img.wp-post-image
+		> .wp-post-image
 			float: left
 			width: 28%
 			height: auto
@@ -85,12 +85,12 @@
 							//background: rgba(125,125,125,0.15)
 							border-radius: 3px
 							border: 1px solid #DDD
-							padding: 0px 5px
+							padding: 0px 8px
 							margin-right: 3px
 							
 
 							&:hover, &:active
-								//background: rgba(125,125,125,0.035)
+								background: rgba(125,125,125,0.15)
 
 @import "posts-listing-responsive"
 

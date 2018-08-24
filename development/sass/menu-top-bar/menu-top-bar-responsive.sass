@@ -1,17 +1,9 @@
 @media screen and(max-width: 960px)
-	#menu-top-bar
-		height: auto
-
-		#logo-wrapper
-			float: none
-			width: 100%
-			padding: 7px 0px
-			img
-				max-height: 36px
-				max-width: 165px
-
 	.menu-horni-lista-container
 		float: none
+
+		#logo-wrapper
+			width: 162px
 
 		ul#menu-horni-lista
 			float: right
@@ -41,6 +33,18 @@
 		&:checked + #top-bar
 			transition: 0.6s
 			box-shadow: 0px 2px 4px hsl(0,0,45)
+
+@media screen and(max-width: 580px)
+	#menu-top-bar
+		height: auto
+
+		#logo-wrapper
+			float: none
+			width: 100%
+			padding: 7px 0px
+			img
+				max-height: 30px
+				max-width: 162px
 
 @media screen and(max-width: 400px)
 	.menu-horni-lista-container
