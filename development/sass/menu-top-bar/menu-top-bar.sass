@@ -1,9 +1,10 @@
-nav#top-bar
+#top-bar
 	width: 100%
 	position: relative
 	z-index: 6
 	background: $base-color
 	border-bottom: 1px solid rgba(0,0,0,0.15)
+	overflow-x: hidden
 
 #menu-top-bar
 	max-width: $content-max-width
@@ -34,10 +35,10 @@ nav#top-bar
 			img
 				transform: scale(0.95) 
 
-.menu-horni-lista-container
+#menu-top-bar-list-container
 	float: right
 
-	ul#menu-horni-lista
+	.menu
 		margin: 0px
 		padding: 0px
 		list-style: none
@@ -94,26 +95,42 @@ nav#top-bar
 .icon-hamburger-menu
 	display: none
 	float: left
-	height: 50px
-	width: 50px
 	box-sizing: border-box
 	padding: 10px 12px
 	overflow: hidden
 	cursor: pointer
-	position: relative
 
-	&:active
+	&:hover, &:active
 		background: $base-color-light
 
+	&:after
+		content: ""
+		display: block
+		clear: both
+
+	.menu-icon-container
+		float: left
+		padding: 2px 0px
+		height: 26px
+		width: 20px
+
 	.line
-		position: relative
-		height: 3px
-		border-radius: 2px
+		height: 2px
 		width: 100%
 		background: white
 		margin: 5px 0px
 		transition: 0.3s
 		transform-origin: left center
+
+	span
+		float: left
+		display: block
+		padding-left: 10px
+		color: white
+		font-size: 13px
+		font-weight: 600
+		line-height: 30px
+
 
 input#toggle-menu-checkbox
 	display: none

@@ -1,20 +1,19 @@
 @media screen and(max-width: 960px)
-	.menu-horni-lista-container
-		float: none
+	#menu-top-bar
+		height: auto
 
 		#logo-wrapper
 			width: 162px
 
-		ul#menu-horni-lista
-			float: right
+	#menu-top-bar-list-container
+		float: right
 
-			li
-				a
-					height: 50px
-					line-height: 50px
+		.menu li a
+			height: 50px
+			line-height: 50px
 
-					&:after
-						bottom: 10px
+			&:after
+				bottom: 10px
 
 	.icon-hamburger-menu
 		display: block
@@ -22,33 +21,33 @@
 	input#toggle-menu-checkbox
 		&:checked + #top-bar #menu-top-bar .icon-hamburger-menu
 			#hamburger-line-1
-				margin-bottom: 6px
-				transform: rotate(45deg)
+				margin-bottom: 4px
+				transform: rotate(43deg)
 			#hamburger-line-2
 				opacity: 0
 			#hamburger-line-3
-				margin-top: 6px
-				transform: rotate(-45deg)
-
-		&:checked + #top-bar
-			transition: 0.6s
-			box-shadow: 0px 2px 4px hsl(0,0,45)
+				margin-top: 4px
+				transform: rotate(-43deg)
 
 @media screen and(max-width: 580px)
+	#top-bar
+		padding-top: 40px
+
 	#menu-top-bar
 		height: auto
 
 		#logo-wrapper
-			float: none
-			width: 100%
-			padding: 7px 0px
-			img
-				max-height: 30px
-				max-width: 162px
+			position: absolute
+			z-index: 7
+			top: 0
+			left: 0
+			margin-left: 50%
+			transform: translateX(-50%)
+			width: 162px
 
 @media screen and(max-width: 400px)
-	.menu-horni-lista-container
-		ul#menu-horni-lista
+	#menu-top-bar-list-container
+		.menu
 
 			li
 				a
@@ -60,6 +59,5 @@
 						bottom: 8px
 
 @media screen and(max-width: 330px)
-	.icon-hamburger-menu
-		width: 40px
-		padding: 10px 7px
+	.icon-hamburger-menu span
+		display: none

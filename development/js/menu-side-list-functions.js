@@ -64,7 +64,7 @@ function closeMobileMenu()
 }
 
 // event currentMenuener for sliding currentMenus
-var handleSideMenuElements = document.querySelectorAll("ul#menu-bocni-seznam > li > a")
+var handleSideMenuElements = document.querySelectorAll("#menu-side-bar-list-container ul.menu > li > a")
 for (var i = handleSideMenuElements.length - 1; i >= 0; i--) {
 	handleSideMenuElements[i].addEventListener("click", handleSideMenu); 
 }
