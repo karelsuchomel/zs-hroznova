@@ -60,6 +60,7 @@ nav#top-bar
 				&:hover
 					&:after
 						transform: scale(1,1)
+						background-color: white
 
 				&:active
 					background: $base-color-light
@@ -71,10 +72,9 @@ nav#top-bar
 					z-index: 3
 					width: calc(100% - 30px)
 					height: 3px
-					//border-radius: 2px
 					bottom: 10px
-					background-color: white
-					transition: 0.2s
+					background-color: transparent
+					transition: transform 0.15s ease, background-color 0.15s ease
 					transform: scale(0,1)
 
 			&:last-of-type
