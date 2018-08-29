@@ -19,9 +19,9 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 
 		<div id="posts-wrap" class="size-medium">
 			
-			<!-- Searching and filtering posts -->
+			<!-- filtering posts and view -->
 			<div class="control-buttons-container">
-				<?php get_search_form();?>
+				<button class="ghost-button">Change view</button>
 			</div>
 
 		<?php 
