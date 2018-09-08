@@ -1,19 +1,21 @@
-#top-bar
+//
+// Top bar
+//
+
+#top-bar-container
 	width: 100%
-	position: relative
+	position: relative // for z-index to work
 	z-index: 6
 	background: $base-color
 	box-shadow: 0 1px rgba(0,0,0,0.15)
-	overflow-x: hidden
 
-#menu-top-bar
+#top-bar-menu-container
 	max-width: $content-max-width
-	height: 50px
 	margin: 0 auto
 
-	> a
+	a
 		&:focus
-			outline: none
+			outline: 0
 
 	#logo-wrapper
 		display: block
@@ -33,7 +35,133 @@
 			background-color: $base-color-light
 		&:active
 			img
-				transform: scale(0.95) 
+				transform: scale(0.95)
+
+//
+// Search form
+//
+
+// input type="checkbox" workaround
+input[type=checkbox]#search-box-toggle
+	display: none
+
+	&:checked + #searchform .search-field-wrapper #search-field
+		max-width: 300px
+		width: 300px
+		padding: 0 17px
+
+	&:checked + #searchform #show-search-toggle
+		display: none
+
+	&:checked + #searchform #searchsubmit
+		border: 1px solid rgba(255,255,255,0.85)
+		border-top-right-radius: 3px
+		border-bottom-right-radius: 3px
+		margin: 10px 0px
+		line-height: 28px
+		padding: 0 10px
+		// reset for mobile minimized button
+		font-size: 13px
+		padding: 0 15px
+
+		&:before
+			height: 28px
+
+#searchform
+	float: left
+	padding-left: 34px
+	position: relative
+
+	.search-field-wrapper
+		position: relative
+		float: left
+		overflow: hidden
+
+		#search-field
+			max-width: 0
+			width: 0
+			padding: 0
+			border: 0
+			border-top-left-radius: 3px
+			border-bottom-left-radius: 3px
+			margin: 10px 0
+			line-height: 30px
+			background-color: rgba(255,255,255,0.85)
+			transition: width 0.3s, padding 0.3s, max-width 0.3s, background-color 0.3s
+
+			font-size: 14px
+			color: #323232
+
+			&:hover, &:active
+				background-color: white
+
+			&:focus
+				background-color: white
+				box-shadow: 0px 0px 5px rgba(0,0,0,0.35)
+
+		#hide-search-toggle
+			position: absolute
+			top: 15px
+			right: 0px
+			width: 28px
+			height: 20px
+			cursor: pointer
+			background:
+				image: url('../images/clear-field.svg') 
+				position: 50% 50%
+				repeat: no-repeat
+
+	#show-search-toggle
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		z-index: 2
+		cursor: pointer
+
+		&:hover + #searchsubmit
+			background-color: $base-color-light
+
+	#searchsubmit
+		float: left
+		cursor: pointer
+		position: relative
+		padding: 0px 15px
+		background-color: $base-color
+		transition: background-color 0.15s
+
+		color: white
+		font-size: 13px
+		font-family: 'Open Sans', sans-serif
+		font-weight: 600
+		line-height: 50px
+
+		&:hover
+			background-color: $base-color-light
+
+			&:after
+				transform: scale(1,1)
+				background-color: white
+
+		&:active
+			background: $base-color-light
+
+		&:before
+			content: ""
+			display: block
+			float: left
+			width: 20px
+			height: 50px
+			margin-right: 4px
+			background: url('../images/magnifier-icon.svg') no-repeat
+				size: 18px 18px
+				repeat: no-repeat
+				position: 50% 50%
+
+//
+// Menu listing
+//
 
 #menu-top-bar-list-container
 	float: right
@@ -92,6 +220,14 @@
 						margin-right: 7px
 						bottom: -3px
 
+//
+// Mobile navigation toggle, hamburger menu
+//
+
+// input type="checkbox" workaround
+input#toggle-menu-checkbox
+	display: none
+
 .icon-hamburger-menu
 	display: none
 	float: left
@@ -131,8 +267,5 @@
 		font-weight: 600
 		line-height: 30px
 
-
-input#toggle-menu-checkbox
-	display: none
 
 @import "menu-top-bar-responsive"

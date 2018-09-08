@@ -19,5 +19,13 @@ function switchToAgendaTab (e)
 }
 
 // add event listeners
-document.getElementById("posts").addEventListener("click", switchToPostsTab);
-document.getElementById("agenda").addEventListener("click", switchToAgendaTab);
+var postsTabElement =  document.getElementById("posts");
+var agendaTabElement =  document.getElementById("agenda");
+if (typeof(postsTabElement) != 'undefined' && postsTabElement != null)
+{
+  if (typeof(agendaTabElement) != 'undefined' && agendaTabElement != null)
+  {
+		postsTabElement.addEventListener("click", switchToPostsTab);
+		agendaTabElement.addEventListener("click", switchToAgendaTab);
+  }
+}

@@ -23,12 +23,7 @@ $the_query = new WP_Query($args);
 if ( $the_query->have_posts() ) :
 ?>
 	<div id="agenda-container">
-
-		<!-- Controls -->
-		<div class="control-buttons-container">
-			<button class="ghost-button">Načíst starší</button>
-		</div>
-
+		
 	<div id="agenda-list-wrap">
 
 		<div class="day-segment">

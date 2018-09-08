@@ -1,11 +1,6 @@
-<?php
-if (!(isset($_COOKIE["info-card-closed"]))) {
-	setcookie("info-card-closed", "FALSE", time()+(31536000), '/');
-}
-?>
 <?php get_header();?>
 
-	<!-- Hero card, with custom identity -->
+	<!-- info card -->
 	<?php require_once('template-parts/front-page/info-card.php'); ?>
 
 	<div id="content" class="clear-both">
@@ -18,11 +13,6 @@ if (!(isset($_COOKIE["info-card-closed"]))) {
 		</div>
 
 		<div id="posts-wrap" class="size-medium">
-			
-			<!-- filtering posts and view -->
-			<div class="control-buttons-container">
-				<button class="ghost-button">Change view</button>
-			</div>
 
 		<?php 
 		define('__ROOT__', dirname(__FILE__) ); 

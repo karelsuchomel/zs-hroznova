@@ -1,25 +1,63 @@
 @media screen and(max-width: 960px)
-	#menu-top-bar
-		height: auto
-
-		#logo-wrapper
-			width: 162px
-
-	#menu-top-bar-list-container
-		float: right
-
-		.menu li a
-			height: 50px
-			line-height: 50px
-
-			&:after
-				bottom: 10px
+	#top-bar-menu-container	#logo-wrapper
+		margin-left: 5px
+		width: 162px
 
 	.icon-hamburger-menu
 		display: block
 
+	//
+	// Search form width 100%
+	//
+
+	#searchform
+		padding-left: 5px
+
+	input[type=checkbox]#search-box-toggle
+
+		&:checked + #searchform
+			position: absolute
+			top: 0
+			right: 0
+			bottom: 0
+			left: 0
+			width: 100%
+			padding: 0 10px
+			margin-left: 50%
+			transform: translateX(-50%)
+			box-sizing: border-box
+			background-color: $base-color
+			z-index: 2
+			text-align: center
+
+		&:checked + #searchform .search-field-wrapper
+			width: calc(100% - 98px)
+			box-sizing: border-box
+
+		&:checked + #searchform .search-field-wrapper #search-field
+			max-width: none
+			padding: 0 17px
+
+		&:checked + #searchform #searchsubmit
+			width: 98px
+			box-sizing: border-box
+
+		&:checked + #searchform #show-search-toggle
+			display: none
+
+		&:checked + #searchform .mobile-centering-wrapper
+			display: inline-block
+
+	#searchform .search-field-wrapper #search-field
+			transition: none
+
+
+	//
+	// Toggle hamburger menu
+	//
+
 	input#toggle-menu-checkbox
-		&:checked + #top-bar #menu-top-bar .icon-hamburger-menu
+		&:checked + #top-bar-container #top-bar-menu-container .icon-hamburger-menu
 			#hamburger-line-1
 				margin-bottom: 4px
 				transform: rotate(43deg)
@@ -29,14 +67,25 @@
 				margin-top: 4px
 				transform: rotate(-43deg)
 
+// TODO: make it better for various widths of menus
+@media screen and(max-width: 640px)
+	#searchform 
+		#searchsubmit
+			font-size: 0
+			padding: 0px 10px
+
 @media screen and(max-width: 580px)
-	#top-bar
+	#searchform
+		padding-left: 0px
+
+	#top-bar-container
 		padding-top: 40px
 
-	#menu-top-bar
+	#top-bar-menu-container
 		height: auto
 
 		#logo-wrapper
+			margin-left: 0px
 			width: 100%
 			padding: 10px 0px 4px
 			img
@@ -48,7 +97,10 @@
 			top: 0
 			left: 0
 
-@media screen and(max-width: 400px)
+	input[type=checkbox]#search-box-toggle
+		&:checked + #searchform
+			padding: 40px 10px 0
+
 	#menu-top-bar-list-container
 		.menu
 
@@ -61,6 +113,6 @@
 						width: calc(100% - 14px)
 						bottom: 8px
 
-@media screen and(max-width: 330px)
+@media screen and(max-width: 360px)
 	.icon-hamburger-menu span
 		display: none

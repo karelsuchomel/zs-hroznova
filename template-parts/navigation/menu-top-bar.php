@@ -1,6 +1,6 @@
 <input type="checkbox" name="toggle-menu" id="toggle-menu-checkbox">
-<nav id="top-bar">
-	<div id="menu-top-bar" class="clear-both">
+<nav id="top-bar-container">
+	<div id="top-bar-menu-container" class="clear-both">
 
 		<label for="toggle-menu-checkbox" class="icon-hamburger-menu">
 			<div class="menu-icon-container">
@@ -18,15 +18,35 @@
 		</a>
 
 		<!-- search -->
-		<div class="control-buttons-container">
-			<form role="search" method="get" id="searchform" class="searchform" action="<?php echo get_home_url(); ?>">
-				<div id="search-field-container">
-					<input type="checkbox" id="search-box-toggle">
-					<input name="s" id="search-field-top-bar" type="text" placeholder="Hledat">
-					<label id="searchsubmit" for="search-box-toggle"></label>
+
+		<input type="checkbox" id="search-box-toggle"
+		<?php
+		// if there was a query already, show input field
+
+		if (get_search_query()) {
+			echo " checked";
+		}
+		?>
+		>
+
+		<form role="search" method="get" id="searchform" class="search-container" action="<?php echo get_home_url(); ?>">
+			<div class="mobile-centering-wrapper clear-both">
+				<div class="search-field-wrapper">
+					<input name="s" id="search-field" type="text" placeholder="Hledat"
+					<?php
+					// if there was a query already, show input field with it's value
+
+					if (get_search_query()) {
+						echo " value=\"" . get_search_query() . "\"";
+					}
+					?>
+					>
+					<label id="hide-search-toggle" for="search-box-toggle"></label>
 				</div>
-			</form>
-		</div>
+				<label id="show-search-toggle" for="search-box-toggle"></label>
+				<button type="submit" id="searchsubmit">Hledat</button>
+			</div>
+		</form>
 
 		<?php
 

@@ -1,15 +1,10 @@
 <?php get_header();?>
 
 <div id="content">
+  
 <!-- listing posts -->
 <div id="search-wrap">
-	<form role="search" method="get" id="searchform" class="searchform search-again" action="<?php echo get_home_url(); ?>">
-		<div id="searchform-container">
-			<input name="s" class="search-field" type="text" placeholder="hledat znovu" value="<?php the_search_query(); ?>">
-			<input id="searchsubmit" type="submit">
-			<div class="underline-animated"></div>
-		</div>
-	</form>
+
 <!-- Start the Loop. -->
 <?php if ( have_posts() ) { 
 
