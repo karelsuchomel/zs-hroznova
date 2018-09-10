@@ -57,14 +57,12 @@ function zshroznova_theme_setup()
 	// add featured image support
 	add_theme_support('post-thumbnails');
 	// define image sizes
-	set_post_thumbnail_size( 300, 225, true );
+	set_post_thumbnail_size( 200, 150, true );
 	// add post format support
-	add_theme_support('post-formats', array('aside', 'image'));
+	add_theme_support('post-formats', array('aside'));
 
 	// add image size for post headers
 	// https://codex.wordpress.org/Option_Reference#Media
-	update_option( 'thumbnail_size_w', 200 );
-	update_option( 'thumbnail_size_h', 150 );
 	update_option( 'medium_size_w', 400 );
 	update_option( 'medium_size_h', 400 );
 	update_option( 'large_size_w', 720 );

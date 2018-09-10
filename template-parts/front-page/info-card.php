@@ -1,45 +1,56 @@
 <?php
-// functions for infocard picute (sunrize, noon, sunset, night)
+$heroImageFolderURL = get_bloginfo('template_directory') . "/assets/images/hero-card/";
 
-function getInfoCardImage () 
+// return: night, sunrize, noon, sunset
+function getPartOfTheDay ()
 {
+	// get times of sunset, sunrize, and twilights
+	$sun_info = date_sun_info( time(), 49.1939, 16.5711);
 
-  // TODO delete following!!!
-  return "960x342-noon-new-export.png";
+	date_default_timezone_set("Europe/Prague");
+	$sunrizeTwilightTime = date("His", $sun_info['civil_twilight_begin']);
+	$sunrizeTime = date("His", $sun_info['sunrise']);
+	$sunsetTime = date("His", $sun_info['sunset']);
+	$sunsetTwilightTime = date("His", $sun_info['civil_twilight_end']);
 
-  // get times of sunset, sunrize, and twilights
-  $sun_info = date_sun_info( time(), 49.1939, 16.5711);
+	$currentTime = date("His");
+	if ( $currentTime > $sunsetTwilightTime || $currentTime < $sunrizeTwilightTime ) {
+		return "night";
+	} elseif ( $currentTime >= $sunrizeTwilightTime && $currentTime <= $sunrizeTime ) {
+		return "sunrize";
+	} elseif ( $currentTime > $sunrizeTime && $currentTime < $sunsetTime ) {
+		return "noon";
+	} elseif ( $currentTime >= $sunsetTime && $currentTime <= $sunsetTwilightTime ) {
+		return "sunset";
+	} else {
+		return false;
+	}
+}
 
-  date_default_timezone_set("Europe/Prague");
-  $sunrizeTwilightTime = date("His", $sun_info['civil_twilight_begin']);
-  $sunrizeTime = date("His", $sun_info['sunrise']);
-  $sunsetTime = date("His", $sun_info['sunset']);
-  $sunsetTwilightTime = date("His", $sun_info['civil_twilight_end']);
+function getInfoCardImageName () 
+{
+	global $heroImageFolderURL;
 
-  $currentTime = date("His");
-  if ( $currentTime > $sunsetTwilightTime || $currentTime < $sunrizeTwilightTime ) {
-    return "info-card-night.png";
-  } elseif ( $currentTime >= $sunrizeTwilightTime && $currentTime <= $sunrizeTime ) {
-    return "info-card-sunrize.png";
-  } elseif ( $currentTime > $sunrizeTime && $currentTime < $sunsetTime ) {
-    return "960x342-noon-new-export.png";
-  } elseif ( $currentTime >= $sunsetTime && $currentTime <= $sunsetTwilightTime ) {
-    return "info-card-sunset.png";
-  } else {
-    return false;
-  }
+	return $heroImageFolderURL . "school-noon";
 }
 
 ?>
 
 <div id="info-card-wrap" class="clear-both">
-  <div id="hero-image">
-    
-    <div class="image-container" style="background-image: url('<?php
-
-    echo bloginfo('template_directory') . "/assets/images/" . getInfoCardImage();
-
-    ?>');"></div>
-    <!-- <h1>Vítejte na stránkách Základní&nbsp;školy Brno, Hroznová&nbsp;1</h1> -->
-  </div>
+	<div id="hero-image">
+		
+		<picture>
+			<source 
+				media="(min-width: 571px)"
+				srcset="<?php echo getInfoCardImageName() . "-960w.png";?> 960w,
+								<?php echo getInfoCardImageName() . "-1920w.png";?> 1920w
+								"/>
+			<source 
+				media="(max-width: 570px)"
+				srcset="<?php echo getInfoCardImageName() . "-360w.png";?> 360w,
+								<?php echo getInfoCardImageName() . "-720w.png";?> 720w
+								"/>
+			<img class="image-container" src="<?php echo getInfoCardImageName() . "-960w.png";?>">
+		</picture>
+	</div>
 </div>
