@@ -6,7 +6,7 @@
 <!-- modal template -->
 
 <div id="content" class="employees-contacts">
-<div id="content-single-page">
+<div id="content-single-page" class="wide-content">
 
 <!-- Start the Loop. -->
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

@@ -1,9 +1,9 @@
 <?php get_header();?>
 
-<div id="content">
+<div id="content" class="search-results-page">
   
 <!-- listing posts -->
-<div id="search-wrap">
+<div id="content-single-page" class="wide-content">
 
 <!-- Start the Loop. -->
 <?php if ( have_posts() ) { 
@@ -15,11 +15,10 @@
 
     <div class="basic-info-wrap">
       <p>
+        <?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?>
+        <br>
         <?php echo wp_trim_words( get_the_content(), 15, '...' ); ?>
         <br />
-        <small>
-        <?php the_time('F jS, Y'); ?> by <?php the_author_posts_link(); ?>
-        </small>
       </p>
     </div>
   </div>
