@@ -1,13 +1,14 @@
 <article class="post-wrap clear-both">
 	<a class="link-overlay" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
 	</a>
-	<h2>
-		<?php the_title(); ?>
-	</h2>
 	
 	<?php if ( has_post_thumbnail() ) : ?>
 			<?php the_post_thumbnail(); ?>
 	<?php endif; ?>
+	
+	<h2>
+		<?php the_title(); ?>
+	</h2>
 
 	<div class="basic-info-wrap">
 		<div class="post-details-wrap">

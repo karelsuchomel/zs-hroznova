@@ -26,4 +26,49 @@
 			height: auto
 			z-index: 0
 
+//
+// Financing and contact information
+//
+
+#mobile-tooltip-toggle
+	display: none
+
+#mobile-tooltip-label
+	display: none
+
+.hero-card-info-wrap
+	width: calc(28% - 29px)
+	min-width: 235px
+	background: rgba(0,0,0,0.40)
+	border-radius: 3px 0px 0px 3px
+	padding: 17px 17px 7px
+	box-sizing: border-box
+	position: absolute
+	top: 17px
+	right: 0px
+
+	.erb-container
+		position: relative
+		margin-bottom: 10px 
+		&:after
+			content: ""
+			display: block
+			clear: both
+
+		img
+			float: left
+			display: block
+			width: 20px
+			padding-top: 8px
+			height: auto
+			padding-right: 10px				
+			opacity: 0.90
+
+			&:hover, &:active
+				opacity: 1
+
+		.tooltip
+			color: white
+			font-size: 13px
+
 @import "info-card-responsive"
