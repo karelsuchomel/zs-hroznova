@@ -27,7 +27,7 @@
 			z-index: 0
 
 //
-// Financing and contact information
+// Extended info rollet
 //
 
 #mobile-tooltip-toggle
@@ -36,12 +36,15 @@
 #mobile-tooltip-label
 	display: none
 
+#close-expanded-info-rollet-toggle
+	display: none
+
 .hero-card-info-wrap
 	width: calc(28% - 29px)
 	min-width: 235px
 	background: rgba(0,0,0,0.40)
 	border-radius: 3px 0px 0px 3px
-	padding: 17px 17px 7px
+	padding: 17px 0 7px
 	box-sizing: border-box
 	position: absolute
 	top: 17px
@@ -49,7 +52,8 @@
 
 	.erb-container
 		position: relative
-		margin-bottom: 10px 
+		margin-bottom: 10px
+		padding: 0 17px
 		&:after
 			content: ""
 			display: block

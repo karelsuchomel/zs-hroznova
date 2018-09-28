@@ -73,6 +73,7 @@ function getInfoCardImageName ()
 				<img src="<?php echo get_bloginfo('template_directory') . "/assets/images/znak-brno.png";?>" alt="znak města Brna">
 				<div class="tooltip">Pilotní&nbsp;škola&nbsp;projektu&nbsp;MMB Angličtina&nbsp;od&nbsp;1.&nbsp;třídy</div>
 			</div>
+			<label id="close-expanded-info-rollet-toggle" for="mobile-tooltip-toggle"></label>
 		</div>
 	</div>
 </div>
