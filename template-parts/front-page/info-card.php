@@ -14,7 +14,7 @@ function getPartOfTheDay ()
 
 	$currentTime = date("His");
 	if ( $currentTime > $sunsetTwilightTime || $currentTime < $sunrizeTwilightTime ) {
-		return "noon";
+		return "night";
 	} elseif ( $currentTime >= $sunrizeTwilightTime && $currentTime <= $sunrizeTime ) {
 		return "sunrize";
 	} elseif ( $currentTime > $sunrizeTime && $currentTime < $sunsetTime ) {
