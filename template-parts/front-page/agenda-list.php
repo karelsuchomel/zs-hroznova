@@ -1,34 +1,23 @@
 <?php
 
-// load posts maximum 365 days old
+// load posts having 'deadline-date' meta_key
+// and have date set on today or future (no upper limit)
 $args = array(
-	'date_query' => array(
-		array(
-			'after' => array(
-				'year'  => date('Y') - 1,
-				'month' => date('n'),
-				'day'   => date('j'),
-			),
-			'inclusive' => true,
-		),
-	),
-	'meta_key' => 'deadline-date',
-	'orderby' => 'date',
-	'order' => 'ASC',
+	'meta_key'				=> 'deadline-date',
+	'meta_value'			=> date( "Ymd" ),
+	'meta_compare'		=> '>=',
+	'ignore_sticky_posts' => 1,
+	'posts_per_page'	=> -1
 );
 $the_query = new WP_Query($args);
 
-
-
+// render container markup
 if ( $the_query->have_posts() ) :
 ?>
 	<div id="agenda-container">
-		
 	<div id="agenda-list-wrap">
-
 		<div class="day-segment">
 			<div id="agenda-line"></div>
-
 <?php
 
 class planedAction {
@@ -43,35 +32,23 @@ $today = date('Ymd');
 
 while ( $the_query->have_posts() ) : $the_query->the_post();
 
-	/*
-	?> post - ID: <?php echo get_the_ID(); ?> <br> <?php
-	*/
-
 	$metaDate = get_post_meta( get_the_ID(), $key = 'deadline-date', $single = true );
 	$metaHrmnTitle = get_post_meta( get_the_ID(), $key = 'harmonogram-title', $single = true );
 
-	if (isset($metaDate)) {
+	if ($today <= $metaDate) {
 
-		list($day, $month, $year) = explode("/", $metaDate);
-		$dateValueHolder = $year . $month . $day;
-
-		if (!($today > $dateValueHolder)) {
-
-			$newAction = new planedAction();
-			$newAction->date = $metaDate;
-			if ( $metaHrmnTitle !== "" )
-			{
-				$newAction->title = $metaHrmnTitle;
-			} else 
-			{
-				$newAction->title = get_the_title();
-			}
-			$newAction->link = get_the_permalink();
-			$newAction->dateValue = $dateValueHolder;
-
-			array_push($plannedActionsArray, $newAction);
-
+		$newAction = new planedAction();
+		$newAction->date = $metaDate;
+		if ( $metaHrmnTitle !== "" )
+		{
+			$newAction->title = $metaHrmnTitle;
+		} else 
+		{
+			$newAction->title = get_the_title();
 		}
+		$newAction->link = get_the_permalink();
+
+		array_push($plannedActionsArray, $newAction);
 
 	}
 
@@ -93,7 +70,7 @@ function sortPlannedActionsByDateValue() {
 
 			//echo "{$plannedActionsArray[$i - 1]->dateValue} > {$plannedActionsArray[$i]->dateValue}<br>";
 
-			if (($plannedActionsArray[$i - 1]->dateValue) > ($plannedActionsArray[$i]->dateValue)) {
+			if (($plannedActionsArray[$i - 1]->date) > ($plannedActionsArray[$i]->date)) {
 				//swap
 				$tmp = $plannedActionsArray[$i - 1];
 				$plannedActionsArray[$i - 1] = $plannedActionsArray[$i];
@@ -117,8 +94,11 @@ sortPlannedActionsByDateValue();
 $usedDatesArr = array();
 foreach ($plannedActionsArray as $planedAction) {
 
-	list($day, $month, $year) = explode("/", $planedAction->date);
+	//echo $planedAction->date . "<br />";
 
+	list($day, $month, $year) = explode("-", date("d-m-Y", strtotime($planedAction->date)) );
+
+	//echo "day: " . $day . ", month: " . $month . ", year: " . $year;
 	
 	$month = ltrim($month, '0');
 	$day = ltrim($day, '0');

@@ -46,8 +46,8 @@ function zshroznova_theme_setup()
 {
 	// navigation menus
 	register_nav_menus(array(
-	  'menu-top-bar' => __('Horní lišta'),
-	  'menu-side-list' => __('Boční seznam'),
+		'menu-top-bar' => 'Top bar menu',
+		'menu-side-list' => 'Side bar menu',
 	));
 
 	// remove "auto paragraph feature"

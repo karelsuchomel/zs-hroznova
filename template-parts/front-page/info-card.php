@@ -1,5 +1,4 @@
 <?php
-$heroImageFolderURL = get_bloginfo('template_directory') . "/assets/images/hero-card/";
 
 // return: night, sunrize, noon, sunset
 function getPartOfTheDay ()
@@ -15,7 +14,7 @@ function getPartOfTheDay ()
 
 	$currentTime = date("His");
 	if ( $currentTime > $sunsetTwilightTime || $currentTime < $sunrizeTwilightTime ) {
-		return "night";
+		return "noon";
 	} elseif ( $currentTime >= $sunrizeTwilightTime && $currentTime <= $sunrizeTime ) {
 		return "sunrize";
 	} elseif ( $currentTime > $sunrizeTime && $currentTime < $sunsetTime ) {
@@ -29,9 +28,9 @@ function getPartOfTheDay ()
 
 function getInfoCardImageName () 
 {
-	global $heroImageFolderURL;
+	$heroImageFolderURL = get_bloginfo('template_directory') . "/assets/images/hero-card/";
 
-	return $heroImageFolderURL . "school-noon";
+	return $heroImageFolderURL . "school-" . getPartOfTheDay();
 }
 
 ?>
@@ -41,6 +40,15 @@ function getInfoCardImageName ()
 		
 		<picture>
 			<source 
+				type="image/webp"
+				media="(min-width: 571px)"
+				srcset="<?php echo getInfoCardImageName() . "-960w.webp";?> 960w,
+								<?php echo getInfoCardImageName() . "-1920w.webp";?> 1920w
+								"
+				sizes="960px"
+								/>
+			<source 
+				type="image/png"
 				media="(min-width: 571px)"
 				srcset="<?php echo getInfoCardImageName() . "-960w.png";?> 960w,
 								<?php echo getInfoCardImageName() . "-1920w.png";?> 1920w
@@ -48,6 +56,13 @@ function getInfoCardImageName ()
 				sizes="960px"
 								/>
 			<source 
+				type="image/webp"
+				media="(max-width: 570px)"
+				srcset="<?php echo getInfoCardImageName() . "-360w.webp";?> 360w,
+								<?php echo getInfoCardImageName() . "-720w.webp";?> 720w
+								"/>
+			<source 
+				type="image/png"
 				media="(max-width: 570px)"
 				srcset="<?php echo getInfoCardImageName() . "-360w.png";?> 360w,
 								<?php echo getInfoCardImageName() . "-720w.png";?> 720w
