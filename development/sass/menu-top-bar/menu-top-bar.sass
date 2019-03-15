@@ -1,3 +1,5 @@
+@import "../mixins"
+
 //
 // Top bar
 //
@@ -7,6 +9,8 @@
 //
 
 #top-bar-container
+	@include unselectable
+
 	width: 100%
 	position: relative // for z-index to work
 	z-index: 6
@@ -172,6 +176,8 @@ input[type=checkbox]#search-box-toggle
 		list-style: none
 
 		li
+			@include unselectable
+
 			overflow: hidden
 			position: relative
 			display: block
