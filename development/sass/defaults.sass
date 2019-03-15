@@ -91,20 +91,8 @@ table, th, td
   border: 1px solid #DDD
   border-collapse: collapse
 
-// reCaptcha
-.g-recaptcha
-  margin: ($universal-padding / 2) 0px
-
-// my own classes
-.smaller
-  font-size: 0.7rem
-  line-height: 0.7rem
-
-// worokarounds
-
-// EXPLANATION: this class make an element with floating siblings
-// count their height without need of any other element.
-.clear-both:after
-  content: ""
-  display: table
-  clear: both
+.clear-both
+  &:after
+    content: ""
+    display: table
+    clear: both
