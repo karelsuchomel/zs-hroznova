@@ -12,10 +12,9 @@
 	@include unselectable
 
 	width: 100%
-	position: relative // for z-index to work
+	position: relative
 	z-index: 6
 	background: $base-color
-	//box-shadow: 0 1px #1D663C
 
 #top-bar-menu-container
 	max-width: $content-max-width
@@ -169,8 +168,15 @@ input[type=checkbox]#search-box-toggle
 
 #menu-top-bar-list-container
 	float: right
+	display: flex
+	overflow-y: hidden
+	flex-grow: 100
+	justify-content: flex-end
 
-	.menu
+	ul
+		display: flex
+		flex-wrap: nowrap
+
 		margin: 0px
 		padding: 0px
 		list-style: none
@@ -182,6 +188,7 @@ input[type=checkbox]#search-box-toggle
 			position: relative
 			display: block
 			float: left
+			flex-shrink: 0
 			
 			> a
 				background: $base-color
